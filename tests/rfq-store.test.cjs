@@ -28,3 +28,12 @@ test('brief validation rejects missing fields, fractional quantities, past dates
  assert.ok(validate({...valid,delivery:'2000-01-01'}).delivery);
  assert.ok(validate({...valid,port:'unlisted'}).port);
 });
+test('email links address the team and encode the full brief',()=>{
+ const ctx=vm.createContext({});
+ vm.runInContext(fs.readFileSync('dist/contact.js','utf8'),ctx);
+ const href=vm.runInContext('mailtoHref',ctx)('Quote request — Test & Co',"Line 1\nMaterial: 钢材 100%");
+ assert.ok(href.startsWith('mailto:s4149874@student.rmit.edu.au?subject='));
+ const params=new URLSearchParams(href.split('?')[1]);
+ assert.equal(params.get('subject'),'Quote request — Test & Co');
+ assert.equal(params.get('body'),"Line 1\nMaterial: 钢材 100%");
+});

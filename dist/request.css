@@ -9,3 +9,5 @@
 .rfq-card{border:1px solid var(--line);padding:22px;margin-top:20px;display:grid;gap:12px}.rfq-reference{font-size:12px;color:var(--muted);overflow-wrap:anywhere;margin:12px 0}.rfq-status{font-size:13px;color:#355429}.rfq-card button{justify-self:start}
 
 .rfq-search{margin-top:24px}
+
+.button-link{display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none}.secondary.button-link{color:var(--ink)}footer a{color:var(--accent);overflow-wrap:anywhere}

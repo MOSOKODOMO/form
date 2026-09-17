@@ -46,6 +46,17 @@ Public release is separate from this M2 browser-storage preview. GitHub Pages al
 6. Check negative/fractional quantities and past dates are rejected. Check phone-width layout.
 7. Verify that no upload or sending confirmation is shown.
 
+## Pilot preview fixes — 17 September (Prem)
+
+- Requests now reach the team by email: the saved RFQ view and the staircase review/confirmation screens have "Email this request to us", which opens the visitor's email app with the full brief addressed to `FI_CONTACT_EMAIL` (`dist/contact.js`). A form backend (database + team email) is still needed for Stage 1.
+- Contact email shown in the footer on every view and in the no-JavaScript message.
+- One status label everywhere: "PILOT PREVIEW" (was "STAGE 1 · LOCAL TEST" and "M2 · BROWSER PROTOTYPE").
+- Staircase image served as a 1200×800 JPEG (163 KB) instead of the 2.7 MB PNG. The PNG is kept for concept.html.
+- Search description no longer says "prototype".
+- Test added for email link encoding.
+
+Still open (FI Tasks board): merge the two request forms, third-party catalogue photos, Home/How it works/About/Contact pages, builder-friendly fields and shorter references.
+
 ## Simple improvements — 17 September
 
 My RFQs supports case-insensitive search by project, reference or material, with a result count and no-results message. Saved briefs can be downloaded as UTF-8 text in the selected language. Downloads include the reference, all brief fields and the local-only status; no drawing file is attached.
