@@ -48,7 +48,7 @@ Public release is separate from this M2 browser-storage preview. GitHub Pages al
 
 ## Pilot preview fixes — 17 September (Prem)
 
-- Requests now reach the team by email: the saved RFQ view and the staircase review/confirmation screens have "Email this request to us", which opens the visitor's email app with the full brief addressed to `FI_CONTACT_EMAIL` (`dist/contact.js`). A form backend (database + team email) is still needed for Stage 1.
+- Requests now reach the team by email through FormSubmit: "Send request" on the saved RFQ view and the staircase review screen posts the full brief to `FI_CONTACT_EMAIL` (`dist/contact.js`), with the visitor's email as reply-to. (A first version used a mailto link, but it did nothing on laptops without a desktop email app.) Both forms now require the visitor's email and take an optional phone number. Failed sends show the error, a Copy request button and the contact address; saved RFQs record when they were sent. A proper backend (database + team email) is still needed for Stage 1, and a privacy page should mention FormSubmit.
 - Contact email shown in the footer on every view and in the no-JavaScript message.
 - One status label everywhere: "PILOT PREVIEW" (was "STAGE 1 · LOCAL TEST" and "M2 · BROWSER PROTOTYPE").
 - Staircase image served as a 1200×800 JPEG (163 KB) instead of the 2.7 MB PNG. The PNG is kept for concept.html.

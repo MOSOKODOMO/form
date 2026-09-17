@@ -1,6 +1,9 @@
 'use strict';
 let rfqBrief = {}, rfqId = null, rfqMode = 'edit', rfqErrors = {}, rfqSearch = '';
 const rfqFields = [
+  {id:'contactName',label:['Your name','你的姓名'],required:true,max:100},
+  {id:'email',label:['Your email','你的邮箱'],required:true,type:'email',max:254},
+  {id:'phone',label:['Phone (optional)','电话（选填）'],type:'tel',max:30},
   {id:'project',label:['Project name','项目名称'],required:true,max:120},
   {id:'category',label:['Product category','产品类别'],required:true,options:[['','Choose category','选择类别'],['stairs','Staircases','楼梯'],['facade','Facade panels','幕墙板'],['metalwork','Architectural metalwork','建筑金属构件'],['precast','Precast concrete','预制混凝土'],['other','Other','其他']]},
   {id:'material',label:['Material','材料'],required:true,max:120},
@@ -20,6 +23,7 @@ function rfqValidate(brief){
     else if(f.max&&value.length>f.max)result[f.id]=t('Please shorten this entry.','请缩短内容。');
     else if(f.options&&!f.options.some(o=>o[0]===value))result[f.id]=t('Choose a listed option.','请选择列表中的选项。');
   }
+  if(brief.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(brief.email).trim()))result.email=t('Enter a valid email address.','请输入有效的邮箱地址。');
   if(brief.quantity&&(!Number.isSafeInteger(Number(brief.quantity))||Number(brief.quantity)<1))result.quantity=t('Enter a whole number of at least 1.','请输入不小于 1 的整数。');
   const date=new Date();const today=[date.getFullYear(),String(date.getMonth()+1).padStart(2,'0'),String(date.getDate()).padStart(2,'0')].join('-');
   if(brief.delivery&&(!/^\d{4}-\d{2}-\d{2}$/.test(brief.delivery)||!Number.isFinite(Date.parse(brief.delivery))||brief.delivery<today))result.delivery=t('Choose today or a future date.','请选择今天或未来日期。');
@@ -37,27 +41,27 @@ function downloadRFQ(){
 function renderRFQ(){
   $('#progress').hidden=true;
   $('#local-label').textContent=t('PILOT PREVIEW','试运行预览');
-  $('#intro').replaceChildren(el('p','FABRICATION INTELLIGENCE','eyebrow'),el('h1',t('A clearer brief. A better starting point.','清晰的需求，更好的起点。')),el('p',t('Describe your project for our personally managed sourcing service. Start with the product, dimensions and delivery needs.','描述项目所需的产品、尺寸及交付要求，为人工采购协调服务做好准备。'),'intro-copy'),el('p',t('Save your request in this browser, then email it to us. We only see a request once you send that email. Clearing browser data removes saved requests; another device will not have them.','先在此浏览器保存需求，再通过邮件发送给我们。你发送邮件后我们才会看到需求。清除浏览器数据将删除已保存需求，其他设备无法访问。'),'notice'));
+  $('#intro').replaceChildren(el('p','FABRICATION INTELLIGENCE','eyebrow'),el('h1',t('A clearer brief. A better starting point.','清晰的需求，更好的起点。')),el('p',t('Describe your project for our personally managed sourcing service. Start with the product, dimensions and delivery needs.','描述项目所需的产品、尺寸及交付要求，为人工采购协调服务做好准备。'),'intro-copy'),el('p',t('Save your request in this browser, then send it to us. We only see a request once you press Send request. Clearing browser data removes saved requests; another device will not have them.','先在此浏览器保存需求，再发送给我们。你点击“发送需求”后我们才会收到。清除浏览器数据将删除已保存需求，其他设备无法访问。'),'notice'));
   renderFooter(t('Fabrication Intelligence · Pilot preview · No online orders or payments','Fabrication Intelligence · 试运行预览 · 不在线下单或付款'));
   const screen=$('#screen');
   if(view==='rfqs'){
-    screen.append(el('h2',t('My RFQs','我的询价需求')),el('p',t('Requests saved in this browser. Open one to email it to us.','保存在此浏览器的需求。打开需求即可通过邮件发送给我们。'),'subheading'));
+    screen.append(el('h2',t('My RFQs','我的询价需求')),el('p',t('Requests saved in this browser. Open one to send it to us.','保存在此浏览器的需求。打开需求即可发送给我们。'),'subheading'));
     screen.append(rfqButton('New request','新建需求',()=>{rfqBrief={};rfqId=null;rfqMode='edit';rfqErrors={};view='rfq';render(true);},true));
     const label=el('label',undefined,'field rfq-search');label.htmlFor='rfq-search';label.append(el('span',t('Search project, reference or material','搜索项目、编号或材料')));
     const search=el('input');search.id='rfq-search';search.type='search';search.value=rfqSearch;label.append(search);screen.append(label);
     const count=el('p',undefined,'saved-note');count.setAttribute('role','status');const list=el('div');screen.append(count,list);
     const refresh=()=>{list.replaceChildren();try{const rows=RFQStore.read();const matches=rfqMatches(rows,rfqSearch);count.textContent=t(matches.length+' saved requests shown', '显示 '+matches.length+' 条已保存需求');
       if(!matches.length)list.append(el('p',rows.length?t('No matching requests. Try another search.','没有匹配需求，请尝试其他关键词。'):t('No saved requests yet. Create a brief to get started.','尚无已保存需求。请先新建需求。'),'notice'));
-      for(const row of matches){const card=el('article',undefined,'rfq-card');card.append(el('h3',String(row.brief.project||t('Untitled project','未命名项目'))),el('p',row.id,'rfq-reference'),el('p',t('Saved in this browser','已保存在此浏览器'),'rfq-status'),el('small',t('Updated: ','更新：')+new Date(row.updatedAt).toLocaleString(lang==='zh'?'zh-CN':'en-AU')),rfqButton('View request','查看需求',()=>{rfqBrief={...row.brief};rfqId=row.id;rfqMode='saved';view='rfq';render(true);}));list.append(card);}
+      for(const row of matches){const card=el('article',undefined,'rfq-card');card.append(el('h3',String(row.brief.project||t('Untitled project','未命名项目'))),el('p',row.id,'rfq-reference'),el('p',row.brief.sentAt?t('Sent to us · ','已发送 · ')+new Date(row.brief.sentAt).toLocaleString(lang==='zh'?'zh-CN':'en-AU'):t('Saved in this browser · Not sent yet','已保存在此浏览器 · 尚未发送'),'rfq-status'),el('small',t('Updated: ','更新：')+new Date(row.updatedAt).toLocaleString(lang==='zh'?'zh-CN':'en-AU')),rfqButton('View request','查看需求',()=>{rfqBrief={...row.brief};rfqId=row.id;rfqMode='saved';view='rfq';render(true);}));list.append(card);}
     }catch{count.textContent='';rfqFailure();}};
     search.oninput=()=>{rfqSearch=search.value;refresh();};refresh();return;
   }
   if(rfqMode!=='edit'){
     screen.append(el('h2',rfqMode==='saved'?t('Saved request','已保存的需求'):t('Review your RFQ','核对询价需求')),el('p',rfqId||t('Ready to save in this browser','可保存在此浏览器'),'rfq-reference'));rfqSummary(screen,rfqBrief);
-    screen.append(el('p',t('We look for suitable fabricators for you. Nothing is sent until you email this request to '+FI_CONTACT_EMAIL+'.','我们会为你寻找合适的制造商。你通过邮件将需求发送至 '+FI_CONTACT_EMAIL+' 后，我们才会收到。'),'notice'));
+    screen.append(el('p',(rfqBrief.sentAt?t('Sent to Fabrication Intelligence. We’ll reply by email.','已发送至 Fabrication Intelligence，我们会通过邮件回复。'):t('We look for suitable fabricators for you. Nothing is sent until you press Send request. Requests are delivered through FormSubmit, a form delivery service.','我们会为你寻找合适的制造商。点击“发送需求”后才会发送。需求通过表单发送服务 FormSubmit 发送。')),'notice'));
     const actions=el('div',undefined,'actions');actions.append(rfqButton('Edit brief','修改需求',()=>{rfqMode='edit';rfqErrors={};render(true);}));
     if(rfqMode==='review')actions.append(rfqButton('Save RFQ locally','本地保存询价需求',()=>{try{const row=RFQStore.save(rfqBrief,rfqId);rfqId=row.id;rfqMode='saved';render(true);}catch{rfqFailure();}},true));
-    else actions.append(emailLink(t('Email this request to us','通过邮件发送需求'),t('Quote request','询价需求')+' — '+String(rfqBrief.project||'')+' ('+rfqId+')',rfqText(rfqBrief,rfqId,null)),rfqButton('Download brief (.txt)','下载需求（.txt）',downloadRFQ),rfqButton('My RFQs','我的询价需求',()=>{view='rfqs';render(true);}));screen.append(actions);return;
+    else actions.append(...(rfqBrief.sentAt?[]:[sendButton(t('Send request','发送需求'),()=>({subject:t('Quote request','询价需求')+' — '+String(rfqBrief.project||'')+' ('+rfqId+')',name:rfqBrief.contactName,replyTo:rfqBrief.email,text:rfqText(rfqBrief,rfqId,null)}),()=>{try{const row=RFQStore.save({...rfqBrief,sentAt:new Date().toISOString()},rfqId);rfqBrief={...row.brief};}catch{rfqBrief={...rfqBrief,sentAt:new Date().toISOString()};}render(true);})]),rfqButton('Download brief (.txt)','下载需求（.txt）',downloadRFQ),rfqButton('My RFQs','我的询价需求',()=>{view='rfqs';render(true);}));screen.append(actions);return;
   }
   screen.append(el('h2',t('Build your quote request','创建询价需求')),el('p',t('Fields marked * are required. Use “Not sure” for materials or finish if you need advice.','标 * 为必填项。如需建议，材料或饰面可填写“不确定”。'),'subheading'));
   const form=el('form');form.id='rfq-form';form.noValidate=true;
@@ -66,13 +70,13 @@ function renderRFQ(){
   for(const f of rfqFields){const label=el('label',undefined,'field'+(f.type==='textarea'?' wide':''));label.htmlFor='rfq-'+f.id;label.append(el('span',t(...f.label)+(f.required?' *':'')));let input;
     if(f.options){input=el('select');for(const [value,en,zh]of f.options){const option=el('option',t(en,zh));option.value=value;input.append(option);}}
     else{input=el(f.type==='textarea'?'textarea':'input');if(f.type!=='textarea')input.type=f.type||'text';if(f.max)input.maxLength=f.max;}
-    input.name=f.id;input.id='rfq-'+f.id;input.required=!!f.required;input.value=rfqBrief[f.id]||'';if(f.type==='number'){input.min='1';input.step='1';}
+    input.name=f.id;input.id='rfq-'+f.id;if(f.type==='email')input.autocomplete='email';if(f.type==='tel')input.autocomplete='tel';if(f.id==='contactName')input.autocomplete='name';input.required=!!f.required;input.value=rfqBrief[f.id]||'';if(f.type==='number'){input.min='1';input.step='1';}
     label.append(input);const hints=[];
     if(f.hint){const hint=el('small',t(...f.hint));hint.id=input.id+'-hint';label.append(hint);hints.push(hint.id);}
     if(rfqErrors[f.id]){input.setAttribute('aria-invalid','true');input.classList.add('invalid');const error=el('small',rfqErrors[f.id]);error.id=input.id+'-error';label.append(error);hints.push(error.id);}
     if(hints.length)input.setAttribute('aria-describedby',hints.join(' '));grid.append(label);
   }
-  form.append(grid,el('p',t('Prepare and save your brief, then email it to us. We look for suitable fabricators for you.','填写并保存需求，然后通过邮件发送给我们。我们会为你寻找合适的制造商。'),'notice'));
+  form.append(grid,el('p',t('Prepare and save your brief, then send it to us. We look for suitable fabricators for you.','填写并保存需求，然后发送给我们。我们会为你寻找合适的制造商。'),'notice'));
   const submit=el('button',t('Review RFQ →','核对需求 →'),'primary');submit.type='submit';const actions=el('div',undefined,'actions');actions.append(submit);form.append(actions);
   form.onsubmit=e=>{e.preventDefault();captureRFQ();rfqErrors=rfqValidate(rfqBrief);if(Object.keys(rfqErrors).length){render();$('#rfq-errors').focus();}else{rfqMode='review';render(true);}};screen.append(form);
 }

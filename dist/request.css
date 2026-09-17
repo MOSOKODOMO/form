@@ -10,4 +10,4 @@
 
 .rfq-search{margin-top:24px}
 
-.button-link{display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none}.secondary.button-link{color:var(--ink)}footer a{color:var(--accent);overflow-wrap:anywhere}
+.send-failure p{margin:8px 0}.send-failure button{margin:4px 0 8px;display:block}.send-failure small{display:block;overflow-wrap:anywhere}.primary:disabled{opacity:.7;cursor:progress}footer a{color:var(--accent);overflow-wrap:anywhere}
