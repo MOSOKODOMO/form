@@ -55,6 +55,17 @@ The Stage 2 demo is separate from the earlier M2 browser-storage preview. GitHub
 6. Check negative/fractional quantities and past dates are rejected. Check phone-width layout.
 7. Verify that no upload or sending confirmation is shown.
 
+## Pilot preview fixes — 17 September (Prem)
+
+- Requests now reach the team by email through FormSubmit: "Send request" on the saved RFQ view and the staircase review screen posts the full brief to `FI_CONTACT_EMAIL` (`dist/contact.js`), with the visitor's email as reply-to. (A first version used a mailto link, but it did nothing on laptops without a desktop email app.) Both forms now require the visitor's email and take an optional phone number. Failed sends show the error, a Copy request button and the contact address; saved RFQs record when they were sent. A proper backend (database + team email) is still needed for Stage 1, and a privacy page should mention FormSubmit.
+- Contact email shown in the footer on every view and in the no-JavaScript message.
+- One status label everywhere: "PILOT PREVIEW" (was "STAGE 1 · LOCAL TEST" and "M2 · BROWSER PROTOTYPE").
+- Staircase image served as a 1200×800 JPEG (163 KB) instead of the 2.7 MB PNG. The PNG is kept for concept.html.
+- Search description no longer says "prototype".
+- Test added for email link encoding.
+
+Still open (FI Tasks board): merge the two request forms, third-party catalogue photos, Home/How it works/About/Contact pages, builder-friendly fields and shorter references.
+
 ## Simple improvements — 17 September
 
 My RFQs supports case-insensitive search by project, reference or material, with a result count and no-results message. Saved briefs can be downloaded as UTF-8 text in the selected language. Downloads include the reference, all brief fields and the local-only status; no drawing file is attached.
