@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Fabrication Intelligence Stage 2 quote request portal">
+    <title>Fabrication Intelligence — Stage 2</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23bc3b18'/%3E%3Cpath d='M6 25v-6h7v-6h7V7h6' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="stage2.css">
+    <script type="module" src="stage2.js" defer></script>
+  </head>
+  <body>
+    <header class="stage2-header">
+      <a class="stage2-brand" href="./">
+        <span>Fabrication Intelligence</span>
+        <small>STAGE 2 · QUOTE PORTAL</small>
+      </a>
+      <nav class="stage2-nav" aria-label="Stage 2 navigation">
+        <a href="#request" data-en="Request a quote" data-zh="提交询价">Request a quote</a>
+        <a href="#admin" data-en="Team admin" data-zh="团队后台">Team admin</a>
+        <a href="./" data-en="Stage 1 preview" data-zh="第一阶段预览">Stage 1 preview</a>
+      </nav>
+      <div class="stage2-languages" aria-label="Language / 语言">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="stage2-hero" aria-labelledby="stage2-title">
+        <div class="hero-kicker"><span class="kicker-line"></span><span data-en="STAGE 2 · LIVE PILOT" data-zh="第二阶段 · 试运行">STAGE 2 · LIVE PILOT</span></div>
+        <h1 id="stage2-title" data-en="From first brief to a quote-ready request." data-zh="从初步想法到可询价的完整需求。">From first brief to a quote-ready request.</h1>
+        <p data-en="Give us the details we need to source fabricated elements. Your request gets a reference number, a secure drawing upload and a human review behind the scenes." data-zh="填写我们采购定制构件所需的详细信息。你的需求会获得编号、安全图纸上传，并由团队人工审核。">Give us the details we need to source fabricated elements. Your request gets a reference number, a secure drawing upload and a human review behind the scenes.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#request" data-en="Start a detailed request →" data-zh="开始填写详细需求 →">Start a detailed request →</a>
+          <a class="quiet-link" href="#admin" data-en="Team sign-in" data-zh="团队登录">Team sign-in</a>
+        </div>
+        <div class="stage2-steps" aria-label="Stage 2 workflow">
+          <div><span>01</span><strong data-en="Brief" data-zh="需求">Brief</strong><small data-en="You tell us what matters" data-zh="你告诉我们需求">You tell us what matters</small></div>
+          <div><span>02</span><strong data-en="Review" data-zh="审核">Review</strong><small data-en="We clarify the scope" data-zh="我们确认范围">We clarify the scope</small></div>
+          <div><span>03</span><strong data-en="Quote" data-zh="报价">Quote</strong><small data-en="We approach suitable makers" data-zh="我们联系合适的制造商">We approach suitable makers</small></div>
+        </div>
+      </section>
+
+      <section id="request" class="stage2-section" aria-labelledby="request-title">
+        <div class="section-heading">
+          <span class="section-number">01</span>
+          <div><h2 id="request-title" data-en="Detailed quote request" data-zh="详细询价需求">Detailed quote request</h2><p data-en="The more you know, the better we can compare options. Fields marked * are required." data-zh="信息越完整，我们越能准确比较方案。标有 * 的字段为必填。">The more you know, the better we can compare options. Fields marked * are required.</p></div>
+        </div>
+        <div class="request-layout">
+          <form id="quote-form" class="quote-form" novalidate>
+            <div class="form-group">
+              <h3 data-en="Your details" data-zh="你的信息">Your details</h3>
+              <div class="form-grid">
+                <label class="field"><span data-en="Your name *" data-zh="你的姓名 *">Your name *</span><input name="requester_name" type="text" autocomplete="name" maxlength="160" required><small class="field-error" data-error-for="requester_name"></small></label>
+                <label class="field"><span data-en="Email *" data-zh="电子邮箱 *">Email *</span><input name="requester_email" type="email" autocomplete="email" maxlength="320" required><small class="field-error" data-error-for="requester_email"></small></label>
+                <label class="field wide"><span data-en="Practice / company" data-zh="事务所 / 公司">Practice / company</span><input name="company" type="text" autocomplete="organization" maxlength="160"><small class="field-error" data-error-for="company"></small></label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <h3 data-en="Project brief" data-zh="项目需求">Project brief</h3>
+              <div class="form-grid">
+                <label class="field wide"><span data-en="Project name *" data-zh="项目名称 *">Project name *</span><input name="project_name" type="text" maxlength="160" required><small class="field-error" data-error-for="project_name"></small></label>
+                <label class="field"><span data-en="Product category *" data-zh="产品类别 *">Product category *</span><select name="category" required><option value="" data-en="Choose a category" data-zh="请选择类别">Choose a category</option><option value="stairs" data-en="Staircases" data-zh="楼梯">Staircases</option><option value="facade" data-en="Facade panels" data-zh="幕墙板">Facade panels</option><option value="metalwork" data-en="Architectural metalwork" data-zh="建筑金属构件">Architectural metalwork</option><option value="precast" data-en="Precast concrete" data-zh="预制混凝土">Precast concrete</option><option value="joinery" data-en="Joinery" data-zh="木作">Joinery</option><option value="other" data-en="Other fabricated element" data-zh="其他定制构件">Other fabricated element</option></select><small class="field-error" data-error-for="category"></small></label>
+                <label class="field"><span data-en="Material *" data-zh="材料 *">Material *</span><input name="material" type="text" maxlength="160" placeholder="e.g. steel + oak" data-placeholder-en="e.g. steel + oak" data-placeholder-zh="例如：钢材 + 橡木" required><small class="field-error" data-error-for="material"></small></label>
+                <label class="field"><span data-en="Quantity (units) *" data-zh="数量（件） *">Quantity (units) *</span><input name="quantity" type="number" min="1" max="1000000" step="1" inputmode="numeric" required><small class="field-error" data-error-for="quantity"></small></label>
+                <label class="field"><span data-en="Target delivery date *" data-zh="目标交付日期 *">Target delivery date *</span><input name="delivery_date" type="date" required><small class="field-error" data-error-for="delivery_date"></small></label>
+                <label class="field"><span data-en="Destination port *" data-zh="目的港 *">Destination port *</span><select name="destination_port" required><option value="" data-en="Choose a port" data-zh="请选择目的港">Choose a port</option><option value="Melbourne">Melbourne / 墨尔本</option><option value="Sydney">Sydney / 悉尼</option><option value="Brisbane">Brisbane / 布里斯班</option><option value="Perth">Perth / 珀斯</option></select><small class="field-error" data-error-for="destination_port"></small></label>
+                <label class="field wide"><span data-en="Dimensions, including units *" data-zh="尺寸（请注明单位） *">Dimensions, including units *</span><input name="dimensions" type="text" maxlength="500" placeholder="e.g. 3200 × 1000 × 2800 mm" data-placeholder-en="e.g. 3200 × 1000 × 2800 mm" data-placeholder-zh="例如：3200 × 1000 × 2800 mm" required><small class="field-error" data-error-for="dimensions"></small></label>
+                <label class="field wide"><span data-en="Finish / coating" data-zh="饰面 / 涂层">Finish / coating</span><input name="finish" type="text" maxlength="240" placeholder="e.g. powder coat, clear oil" data-placeholder-en="e.g. powder coat, clear oil" data-placeholder-zh="例如：粉末喷涂、透明木油"><small class="field-error" data-error-for="finish"></small></label>
+                <label class="field wide"><span data-en="Additional requirements" data-zh="补充要求">Additional requirements</span><textarea name="notes" rows="5" maxlength="4000" placeholder="Access constraints, compliance questions, finish preferences…" data-placeholder-en="Access constraints, compliance questions, finish preferences…" data-placeholder-zh="现场限制、合规问题、饰面偏好……"></textarea><small class="field-error" data-error-for="notes"></small></label>
+              </div>
+            </div>
+
+            <div class="form-group upload-group">
+              <h3 data-en="Drawing or reference file" data-zh="图纸或参考文件">Drawing or reference file</h3>
+              <label class="upload-box" for="drawing"><span class="upload-icon">↑</span><span><strong data-en="Choose a file" data-zh="选择文件">Choose a file</strong><small data-en="PDF, PNG, JPG, WEBP or DOCX · max 10 MB · optional" data-zh="PDF、PNG、JPG、WEBP 或 DOCX · 最大 10 MB · 选填">PDF, PNG, JPG, WEBP or DOCX · max 10 MB · optional</small></span><input id="drawing" name="drawing" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.docx"></label>
+              <small class="field-error" data-error-for="drawing"></small>
+              <p class="privacy-note" data-en="Your file is stored privately and is only available to the FI team after sign-in. Please do not upload sensitive personal information." data-zh="文件会私密保存，只有 FI 团队登录后可查看。请勿上传敏感个人信息。">Your file is stored privately and is only available to the FI team after sign-in. Please do not upload sensitive personal information.</p>
+            </div>
+
+            <label class="honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <div class="form-actions"><button class="button primary" type="submit" data-en="Submit detailed request →" data-zh="提交详细需求 →">Submit detailed request →</button><span id="request-status" role="status" aria-live="polite"></span></div>
+          </form>
+          <aside class="brief-aside">
+            <div class="aside-card"><span class="aside-label" data-en="WHAT HAPPENS NEXT" data-zh="接下来">WHAT HAPPENS NEXT</span><ol><li data-en="You receive a FI reference number immediately." data-zh="你会立即收到 FI 需求编号。">You receive a FI reference number immediately.</li><li data-en="We review the brief and clarify anything missing." data-zh="我们审核需求并确认缺失信息。">We review the brief and clarify anything missing.</li><li data-en="We approach suitable fabricators by hand." data-zh="我们人工联系合适的制造商。">We approach suitable fabricators by hand.</li></ol></div>
+            <div class="aside-card muted-card"><span class="aside-label" data-en="HONEST PILOT" data-zh="试运行说明">HONEST PILOT</span><p data-en="This is a personally managed sourcing service. A request starts a conversation; it is not a quote, order or guarantee of supply." data-zh="这是人工管理的采购协调服务。提交需求是开始沟通，不代表报价、订单或供货保证。">This is a personally managed sourcing service. A request starts a conversation; it is not a quote, order or guarantee of supply.</p></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="confirmation" class="stage2-section confirmation-section" hidden aria-labelledby="confirmation-title">
+        <div class="success-mark">✓</div>
+        <h2 id="confirmation-title" data-en="Request received." data-zh="需求已收到。">Request received.</h2>
+        <p data-en="Keep this reference for any follow-up. The FI team will review the brief before approaching suppliers." data-zh="请保存此编号以便后续联系。FI 团队会先审核需求，再联系供应商。">Keep this reference for any follow-up. The FI team will review the brief before approaching suppliers.</p>
+        <div class="reference-display"><span data-en="YOUR REFERENCE" data-zh="你的编号">YOUR REFERENCE</span><strong id="confirmation-reference"></strong></div>
+        <a class="button secondary" href="#request" id="new-request-link" data-en="Submit another request" data-zh="提交另一份需求">Submit another request</a>
+      </section>
+
+      <section id="admin" class="stage2-section admin-section" aria-labelledby="admin-title">
+        <div class="section-heading">
+          <span class="section-number">02</span>
+          <div><h2 id="admin-title" data-en="Team admin" data-zh="团队后台">Team admin</h2><p data-en="A private view for the FI team to triage requests and keep the next action visible." data-zh="供 FI 团队私密查看需求并跟进下一步。">A private view for the FI team to triage requests and keep the next action visible.</p></div>
+        </div>
+        <div id="admin-status" class="admin-status" role="status" aria-live="polite"></div>
+        <div id="admin-auth" class="admin-auth">
+          <form id="admin-login-form" class="admin-login">
+            <span class="lock-mark">⌑</span>
+            <h3 data-en="Sign in to the team workspace" data-zh="登录团队工作区">Sign in to the team workspace</h3>
+            <p data-en="Use an approved FI team email. You can sign in with your password or request a secure email link." data-zh="请使用获批准的 FI 团队邮箱。你可以使用密码登录，或请求安全登录链接。">Use an approved FI team email. You can sign in with your password or request a secure email link.</p>
+            <label class="field"><span data-en="Team email" data-zh="团队邮箱">Team email</span><input id="admin-email" type="email" autocomplete="email" placeholder="you@fabricationintelligence.com" required></label>
+            <label class="field"><span data-en="Password (if you have one)" data-zh="密码（如有）">Password (if you have one)</span><input id="admin-password" type="password" autocomplete="current-password"></label>
+            <div class="admin-login-actions"><button class="button primary" type="submit" data-en="Sign in" data-zh="登录">Sign in</button><button class="button secondary" id="magic-link-button" type="button" data-en="Email me a secure link" data-zh="发送安全登录链接">Email me a secure link</button></div>
+            <p class="admin-hint" data-en="Only team members configured in Supabase can see requests or drawings." data-zh="只有在 Supabase 中配置的团队成员才能查看需求或图纸。">Only team members configured in Supabase can see requests or drawings.</p>
+          </form>
+        </div>
+        <div id="admin-dashboard" class="admin-dashboard" hidden>
+          <div class="admin-toolbar"><div><span class="eyebrow" data-en="PRIVATE WORKSPACE" data-zh="私密工作区">PRIVATE WORKSPACE</span><h3 id="admin-user"></h3></div><button id="sign-out-button" class="button secondary" type="button" data-en="Sign out" data-zh="退出登录">Sign out</button></div>
+          <div class="status-tabs" role="group" aria-label="Request status filters"><button type="button" class="status-tab active" data-admin-filter="all">All <span>0</span></button><button type="button" class="status-tab" data-admin-filter="new">New <span>0</span></button><button type="button" class="status-tab" data-admin-filter="quoting">Quoting <span>0</span></button><button type="button" class="status-tab" data-admin-filter="quotes_sent">Quotes sent <span>0</span></button><button type="button" class="status-tab" data-admin-filter="won">Won <span>0</span></button><button type="button" class="status-tab" data-admin-filter="lost">Lost <span>0</span></button></div>
+          <div id="request-board" class="request-board"></div>
+        </div>
+      </section>
+    </main>
+    <footer class="stage2-footer"><span>Fabrication Intelligence · Stage 2</span><span><a href="./">Stage 1 preview</a> · <a href="#admin">Team admin</a></span></footer>
+  </body>
+</html>

@@ -12,6 +12,15 @@ The existing code remains in `dist/` so the current preview and deployment workf
 - Storage failure handling; invalid existing storage is not silently overwritten.
 - Existing staircase catalogue and earlier request form remain available.
 
+## Stage 2 demo deployed
+
+- `stage2.html` is a public detailed quote-request portal for the Stage 2 demo.
+- Requests are stored in Supabase in `public.fi_quote_requests` with generated `FI-YYYYMMDD-XXXXXX` references.
+- Drawing files upload to the private `fi-drawings` bucket with a 10 MB limit and authenticated team-only reads.
+- The team admin board supports `New`, `Quoting`, `Quotes sent`, `Won` and `Lost`, with row-level security on team membership and requests.
+- GitHub Pages continues to serve the static client from `dist/`; the Supabase client uses only the browser-safe publishable key.
+- The portal intentionally does not claim team email delivery yet; email notifications and production spam controls remain follow-up work.
+
 Drawing filename means text only, not an uploaded drawing. Requests are never sent. Unsaved form edits survive switching tabs/language but not reload. Saved RFQs survive reload in the same browser and origin. Changing port, browser or domain does not migrate data.
 
 ## Pending M2 connection
@@ -34,7 +43,7 @@ Fabricator selection requires a checked directory dataset. No companies or verif
 - Comparable costs: quantities, currency conversion, freight, duties, GST, installation and quote validity must use an agreed scope.
 - Verification: real evidence and a maintained review process, not just a badge in code.
 
-Public release is separate from this M2 browser-storage preview. GitHub Pages alone cannot execute the required database/email backend. The existing GitHub action publishes `dist/` on pushes to main; no deployment was performed for this change.
+The Stage 2 demo is separate from the earlier M2 browser-storage preview. GitHub Pages serves the static client while Supabase provides the database, private storage and authenticated admin data access. The existing GitHub action publishes `dist/` on pushes to main. Production hardening still includes email delivery, spam controls, retention and the final admin team-member setup.
 
 ## Acceptance test
 
