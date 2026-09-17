@@ -21,7 +21,7 @@ function renderBrief() {
 function setLanguage(next) {
   language = next;
   document.documentElement.lang = next === 'zh' ? 'zh-CN' : 'en';
-  document.title = next === 'zh' ? 'FORM / 构阶 — 以新视角，构筑每一步' : 'FORM / 构阶 — A new perspective on stairs';
+  document.title = next === 'zh' ? 'Fabrication Intelligence — 以新视角，构筑每一步' : 'Fabrication Intelligence — A new perspective on stairs';
   document.querySelector('meta[name="description"]').content = next === 'zh' ? '连接澳大利亚项目与中国匠造的定制楼梯概念网站。中英双语演示。' : 'Explore a concept for bespoke staircases connecting Australian projects with Chinese craftsmanship. English and Chinese website demo.';
   document.querySelectorAll('[data-en]').forEach(el => {
     const text = el.dataset[next];

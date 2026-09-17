@@ -1,26 +1,15 @@
-# FORM / 构阶 — bilingual staircase website demo
+# Fabrication Intelligence
 
-English / Simplified Chinese concept site for a custom staircase sourcing project between Australia and China. FORM / 构阶 is a working brand name.
+Bilingual construction sourcing website in development. The public product plan is in [SPEC.md](SPEC.md); current features, limitations and manual acceptance steps are in [project-planning/README.md](project-planning/README.md).
 
-## Preview
+## Run the next-version preview
 
-With Node.js installed, run `node preview.mjs` in this folder, then visit http://127.0.0.1:4173.
+Run `node preview.mjs` and open http://127.0.0.1:4173/. No installation or build is required.
 
-## GitHub Pages
+Build an RFQ → Review → Save RFQ locally → My RFQs. Saved requests survive reload in this browser. Drawing filenames are text references only. No RFQs are sent and no files are uploaded. Fabricator selection awaits the checked directory. The staircase catalogue remains available at /?view=catalogue.
 
-1. Create a repository and push this folder to its `main` branch.
-2. In repository Settings → Pages, select **GitHub Actions** as the source.
-3. The included workflow publishes the contents of `dist`.
+Run storage checks with `node --test tests/rfq-store.test.cjs`.
 
-All local asset URLs are relative so the demo works under a repository subpath. There is no build step or package installation.
+## Publishing
 
-## Demo scope
-
-- Fully translated copy, language controls, image descriptions, form labels and summary messages.
-- Responsive layout and keyboard-accessible controls.
-- The form generates an on-page summary only; it does not send, upload or store personal data. Only the language preference is stored locally.
-- The architectural image is AI-generated and labelled as a concept, not a completed project or certified design.
-- No real supplier, engineer, installer, certification, price or delivery commitment is represented.
-- Google Fonts loads externally, with local font fallbacks.
-
-GitHub Pages is for this demonstration only; move an operational commercial site to appropriate hosting. Before commercial use, confirm the business identity, services, responsibilities, compliance, privacy and actual enquiry delivery.
+The existing GitHub Actions workflow publishes dist on pushes to main. This next version has not been deployed. The full public website needs database/email delivery and domain setup before it can receive actual enquiries.
