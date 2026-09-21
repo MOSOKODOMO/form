@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Your Fabrication Intelligence client or manufacturer account.">
+    <title>My account | Fabrication Intelligence</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23bc3b18'/%3E%3Cpath d='M6 25v-6h7v-6h7V7h6' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="builders.css">
+    <link rel="stylesheet" href="account.css">
+    <script type="module" src="account.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="./"><span>Fabrication Intelligence</span><small>YOUR ACCOUNT</small></a>
+      <nav aria-label="Account navigation"><a href="./">Home</a><a href="stage2.html#request">Request a quote</a><button id="sign-out" class="nav-button" type="button">Sign out</button></nav>
+    </header>
+    <main id="main" class="account-page">
+      <header class="account-heading">
+        <p class="eyebrow"><span></span> ACCOUNT</p>
+        <h1 id="account-title">Loading your account…</h1>
+        <p id="account-email"></p>
+      </header>
+      <p id="account-status" class="account-status" role="status" aria-live="polite"></p>
+
+      <section id="client-dashboard" class="account-dashboard" hidden aria-labelledby="client-title">
+        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> CLIENT</p><h2 id="client-title">Your quote requests</h2></div><a class="button button-primary" href="stage2.html#request">New request <span aria-hidden="true">↗</span></a></div>
+        <div id="client-requests" class="request-account-list"></div>
+        <p class="account-footnote">Requests sent while signed out cannot be attached automatically. New signed-in requests will appear here.</p>
+      </section>
+
+      <section id="manufacturer-dashboard" class="account-dashboard" hidden aria-labelledby="manufacturer-title">
+        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> MANUFACTURER</p><h2 id="manufacturer-title">Company application</h2></div><span id="application-badge" class="account-badge">Draft</span></div>
+        <div id="approved-supplier" class="approved-panel" hidden><strong>Your company is connected to an FI supplier workspace.</strong><a href="supplier-portal.html">Open supplier portal ↗</a></div>
+        <form id="manufacturer-form" class="manufacturer-form" novalidate>
+          <div class="account-form-grid">
+            <label class="account-field"><span>Company name</span><input name="company_name" autocomplete="organization" maxlength="200"></label>
+            <label class="account-field"><span>Country</span><input name="country" autocomplete="country-name" maxlength="100"></label>
+            <label class="account-field wide"><span>Website</span><input name="website" type="url" maxlength="500" placeholder="https://"></label>
+            <label class="account-field wide"><span>Products and categories</span><textarea name="product_categories" maxlength="1200" placeholder="What do you manufacture?"></textarea></label>
+            <label class="account-field wide"><span>Manufacturing capabilities</span><textarea name="capabilities" maxlength="5000" placeholder="Processes, materials, capacity and typical projects"></textarea></label>
+            <label class="account-field wide"><span>Certifications</span><textarea name="certifications" maxlength="4000" placeholder="Quality, testing or export certifications"></textarea></label>
+            <label class="account-field wide"><span>Anything else FI should know?</span><textarea name="notes" maxlength="4000"></textarea></label>
+          </div>
+          <div class="account-actions"><button class="button account-secondary" type="submit" data-action="save">Save draft</button><button class="button button-primary" type="submit" data-action="submit">Submit to FI <span aria-hidden="true">↗</span></button></div>
+          <p id="manufacturer-status" class="account-status" role="status" aria-live="polite"></p>
+        </form>
+        <div id="review-note" class="review-note" hidden></div>
+      </section>
+    </main>
+    <footer class="site-footer"><a class="brand" href="./"><span>Fabrication Intelligence</span><small>RMIT STUDENT-LED PILOT</small></a><p>Personally managed sourcing for difficult building elements.</p><div class="site-footer-links"><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></div></footer>
+  </body>
+</html>

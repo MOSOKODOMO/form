@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sign in or create a Fabrication Intelligence client or manufacturer account.">
+    <title>Sign in or create an account | Fabrication Intelligence</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23bc3b18'/%3E%3Cpath d='M6 25v-6h7v-6h7V7h6' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="builders.css">
+    <link rel="stylesheet" href="account.css">
+    <script type="module" src="auth.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="./"><span>Fabrication Intelligence</span><small>PERSONALLY MANAGED SOURCING</small></a>
+      <nav aria-label="Primary navigation"><a href="./">Home</a><a href="how-it-works.html">How it works</a><a href="about.html">About</a><a class="nav-cta" href="stage2.html#request">Request a quote <span aria-hidden="true">↗</span></a></nav>
+    </header>
+    <main id="main" class="auth-page">
+      <section class="auth-intro">
+        <p class="eyebrow"><span></span> YOUR ACCOUNT</p>
+        <h1>One login.<br>Your side of the work.</h1>
+        <p>Clients can keep their requests together. Manufacturers can introduce their company and apply for FI review.</p>
+        <div class="auth-guardrail"><strong>Manufacturer accounts are not automatic approval.</strong><br>FI checks every applicant before connecting it to the supplier workspace.</div>
+      </section>
+      <section class="auth-card" aria-labelledby="auth-title">
+        <div class="auth-tabs" role="tablist" aria-label="Account action">
+          <button type="button" role="tab" data-auth-mode="login" aria-selected="true">Sign in</button>
+          <button type="button" role="tab" data-auth-mode="signup" aria-selected="false">Create account</button>
+        </div>
+        <h2 id="auth-title">Welcome back</h2>
+        <p id="auth-copy" class="auth-copy">Sign in to open your account.</p>
+        <form id="auth-form" novalidate>
+          <div id="signup-fields" hidden>
+            <fieldset class="role-picker">
+              <legend>I’m joining as</legend>
+              <label><input type="radio" name="role" value="client" checked><span><strong>Client</strong><small>Request and track sourcing work</small></span></label>
+              <label><input type="radio" name="role" value="manufacturer"><span><strong>Manufacturer</strong><small>Apply to join the supplier network</small></span></label>
+            </fieldset>
+            <label class="account-field"><span>Full name</span><input name="full_name" autocomplete="name" maxlength="160"></label>
+            <label id="company-field" class="account-field" hidden><span>Company name</span><input name="company_name" autocomplete="organization" maxlength="200"></label>
+          </div>
+          <label class="account-field"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="320" required></label>
+          <label class="account-field"><span>Password</span><input name="password" type="password" autocomplete="current-password" minlength="8" required><small id="password-help">At least 8 characters.</small></label>
+          <label id="confirm-field" class="account-field" hidden><span>Confirm password</span><input name="confirm_password" type="password" autocomplete="new-password" minlength="8"></label>
+          <button id="auth-submit" class="button button-primary account-submit" type="submit">Sign in <span aria-hidden="true">↗</span></button>
+          <p id="auth-status" class="account-status" role="status" aria-live="polite"></p>
+        </form>
+        <p class="auth-privacy">By creating an account, you acknowledge our <a href="privacy.html">privacy notice</a>.</p>
+      </section>
+    </main>
+    <footer class="site-footer"><a class="brand" href="./"><span>Fabrication Intelligence</span><small>RMIT STUDENT-LED PILOT</small></a><p>Personally managed sourcing for difficult building elements.</p><div class="site-footer-links"><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></div></footer>
+  </body>
+</html>

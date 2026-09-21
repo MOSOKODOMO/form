@@ -1,5 +1,7 @@
 # Fabrication Intelligence — next website version
 
+Current status (21 September 2026): the Week 3 public pages and account flows are implemented; account and supplier schemas are installed in Supabase. See [WEEK-3-IMPLEMENTATION.md](WEEK-3-IMPLEMENTATION.md) for the current release. Earlier sections below retain the development history.
+
 Decision: 17 September 2026. The product is a full public website at fabricationintelligence.com, built and tested in stages. The team personally manages sourcing. Only checked, real fabricators may appear as directory members. No online payments yet.
 
 The existing code remains in `dist/` so the current preview and deployment workflow still work. This folder tracks the new plan. The user-provided SPEC.md and completed M1 directory were not present in this checkout; the scope below comes from the conversation.
@@ -26,6 +28,14 @@ Drawing filename means text only, not an uploaded drawing. Requests are never se
 ## Pending M2 connection
 
 Fabricator selection requires a checked directory dataset. No companies or verification claims have been invented. Recipient selection and its persistence remain to be implemented when that dataset is available.
+
+## Stage 3 supplier workspace — ready to configure
+
+- `dist/supplier-portal.html` is an invitation-only English / Simplified Chinese workspace for supplier company profiles and catalogue submissions.
+- A supplier can update only its own profile, add products, attach private images/PDF/DOCX files (10 MB each), and submit its information for FI review.
+- FI team members use the same page to create a supplier record, see submitted profiles/products, and set `In review`, `Changes requested`, `Approved` or `Not approved`. Supplier-editable data and FI-controlled approval records are separate, so a supplier cannot self-approve.
+- The database migration is `supabase/migrations/20260920012456_fi_supplier_portal.sql`. It was applied to the hosted Supabase project on 21 September 2026.
+- Before inviting a supplier, add the portal URL to Supabase Auth's allowed redirect URLs, make sure the new tables are exposed through the Data API if the project requires explicit exposure, and create the supplier's Auth user in the Supabase Dashboard. The supplier portal deliberately calls `signInWithOtp` with `shouldCreateUser: false`.
 
 ## Public website stages
 

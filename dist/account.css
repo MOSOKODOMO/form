@@ -1,0 +1,74 @@
+.auth-page [hidden], .account-page [hidden] { display: none !important; }
+.auth-page { display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, 520px); gap: clamp(50px, 10vw, 150px); min-height: calc(100vh - 170px); padding: clamp(70px, 9vw, 130px) 7%; }
+.auth-intro h1, .account-heading h1 { margin-top: 24px; font-size: clamp(44px, 6vw, 82px); font-weight: 600; letter-spacing: -.065em; line-height: 1.02; }
+.auth-intro > p:last-of-type { max-width: 560px; margin-top: 28px; color: var(--muted); font-size: 17px; }
+.auth-guardrail { max-width: 520px; margin-top: 38px; padding: 17px 19px; border-left: 3px solid var(--orange); background: var(--soft); color: var(--muted); font-size: 12px; }
+.auth-guardrail strong { color: var(--ink); }
+.auth-card { align-self: start; padding: 30px; border: 1px solid var(--line); background: #fff; box-shadow: 0 20px 60px rgba(32, 39, 31, .07); }
+.auth-tabs { display: grid; grid-template-columns: 1fr 1fr; margin: -30px -30px 29px; border-bottom: 1px solid var(--line); }
+.auth-tabs button { padding: 16px; border: 0; border-bottom: 3px solid transparent; color: var(--muted); background: transparent; font: 700 12px var(--body); cursor: pointer; }
+.auth-tabs button[aria-selected="true"] { border-bottom-color: var(--orange); color: var(--orange); }
+.auth-card h2 { font-size: 31px; }
+.auth-copy { margin: 8px 0 25px; color: var(--muted); }
+.account-field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 17px; font-size: 12px; font-weight: 700; }
+.account-field input, .account-field textarea { width: 100%; min-height: 47px; padding: 11px 12px; border: 1px solid #adb7a9; border-radius: 0; color: var(--ink); background: #fff; }
+.account-field textarea { min-height: 105px; resize: vertical; }
+.account-field input:focus, .account-field textarea:focus { border-color: var(--orange); outline: 3px solid rgba(188, 59, 24, .12); }
+.account-field small { color: var(--muted); font-weight: 400; }
+.role-picker { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; padding: 0; margin: 0 0 19px; border: 0; }
+.role-picker legend { grid-column: 1 / -1; margin-bottom: 7px; font-size: 12px; font-weight: 700; }
+.role-picker label { position: relative; cursor: pointer; }
+.role-picker input { position: absolute; opacity: 0; }
+.role-picker span { display: block; min-height: 80px; padding: 13px; border: 1px solid var(--line); }
+.role-picker small { display: block; margin-top: 5px; color: var(--muted); font-size: 10px; font-weight: 400; }
+.role-picker input:checked + span { border-color: var(--orange); background: #fff3ed; }
+.role-picker input:focus-visible + span { outline: 3px solid rgba(188, 59, 24, .25); }
+.account-submit { width: 100%; margin-top: 4px; border: 0; cursor: pointer; }
+.account-submit:disabled { opacity: .55; cursor: wait; }
+.account-status { min-height: 20px; margin-top: 13px; color: var(--muted); font-size: 12px; }
+.account-status.error { color: #982d16; }
+.account-status.success { color: #466139; }
+.auth-privacy { padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+.auth-privacy a { color: var(--orange); }
+.nav-button { padding: 8px 0; border: 0; border-bottom: 1px solid var(--ink); color: var(--ink); background: transparent; font: 700 12px var(--body); cursor: pointer; }
+
+.account-page { min-height: calc(100vh - 170px); padding: 80px 6% 110px; }
+.account-heading { padding-bottom: 55px; border-bottom: 1px solid var(--line); }
+.account-heading h1 { max-width: 900px; }
+.account-heading > p:last-child { margin-top: 14px; color: var(--muted); }
+.account-dashboard { padding-top: 60px; }
+.dashboard-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 33px; }
+.dashboard-heading h2 { margin-top: 15px; }
+.account-badge { display: inline-flex; padding: 6px 9px; color: var(--muted); background: var(--soft); font: 500 10px var(--mono); text-transform: uppercase; }
+.account-badge.submitted, .account-badge.in_review, .account-badge.approved { color: #354d2b; background: #e4ebd7; }
+.account-badge.changes_requested, .account-badge.rejected { color: #8c2e16; background: #f7ded5; }
+.request-account-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+.account-request-card { padding: 21px; border: 1px solid var(--line); background: #fff; }
+.account-request-card > div { display: flex; justify-content: space-between; gap: 15px; color: var(--orange); font: 500 10px var(--mono); }
+.request-status { padding: 3px 6px; color: var(--muted); background: var(--soft); text-transform: uppercase; }
+.account-request-card h3 { margin-top: 24px; font-size: 23px; letter-spacing: -.04em; }
+.account-request-card p { margin-top: 9px; color: var(--muted); }
+.account-request-card small { display: block; margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); }
+.account-empty { padding: 34px; border: 1px dashed var(--line); color: var(--muted); }
+.account-empty strong { color: var(--ink); }
+.account-empty p { margin-top: 7px; }
+.account-footnote { margin-top: 18px; color: var(--muted); font-size: 11px; }
+.manufacturer-form { max-width: 920px; padding: 30px; border: 1px solid var(--line); background: #fff; }
+.account-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 17px; }
+.account-field.wide { grid-column: 1 / -1; }
+.account-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 13px; }
+.account-actions button { border: 0; cursor: pointer; }
+.account-secondary { border: 1px solid var(--line) !important; background: #fff; }
+.approved-panel { display: flex; justify-content: space-between; gap: 25px; max-width: 920px; margin-bottom: 16px; padding: 16px 19px; border-left: 3px solid #587345; background: #e8eedf; }
+.approved-panel a { color: var(--orange); font-weight: 700; }
+.review-note { max-width: 920px; margin-top: 15px; padding: 16px 19px; border-left: 3px solid var(--orange); background: var(--soft); }
+
+@media (max-width: 780px) {
+  .auth-page { grid-template-columns: 1fr; padding: 62px 5% 75px; }
+  .auth-card { padding: 24px 19px; }
+  .auth-tabs { margin: -24px -19px 25px; }
+  .dashboard-heading { align-items: flex-start; flex-direction: column; }
+  .request-account-list, .account-form-grid { grid-template-columns: 1fr; }
+  .account-field.wide { grid-column: auto; }
+  .manufacturer-form { padding: 22px 17px; }
+}

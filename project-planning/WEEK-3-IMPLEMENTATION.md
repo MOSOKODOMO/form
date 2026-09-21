@@ -1,0 +1,38 @@
+# Week 3 website implementation
+
+## Completed in the site
+
+- The approved offer one-pager is now the homepage: “Send us the thing you can’t source.”
+- A single, canonical quote-request flow replaces the two public request forms.
+- The sample comparison shows three side-by-side quotes and the complete delivered-cost scope in AUD. Every number is labelled as sample data.
+- Added Home, How it works, Services, About, Contact and Privacy pages with consistent naming and navigation.
+- Added client and manufacturer email/password sign-up and login.
+- Client accounts can see quote requests submitted while signed in.
+- Manufacturer accounts can save an application draft and submit it for FI review.
+- Manufacturer self-sign-up does not create supplier access. FI must separately approve the application and create a supplier membership.
+- Added row-level security policies so account data is scoped to the signed-in user, while FI team access remains controlled by the existing team-members table.
+
+## Deployment status — 21 September 2026
+
+- Applied the account and supplier schemas to the existing Supabase project `dszagdjnymxalpwamjyh`.
+- Supabase security advisor reports no findings. Transactional integration checks verify ownership isolation, valid submission requirements and blocked self-approval; all fixtures are rolled back.
+- GitHub stores the website source and schema scripts. Private account/request data stays in Supabase.
+- Vercel project: `fabrication-intelligence` in team `moso6`. `vercel.json` serves the `dist` directory without a build step.
+- Supabase test email delivery is retained at the owner's explicit request. Public confirmation delivery requires a custom SMTP provider later.
+- Direct GitHub-to-Vercel linking requires the owner to add the GitHub login connection in Vercel. This release can be deployed from the same checked source without that integration.
+
+## Setup for another environment
+
+1. Apply `supabase/fi-stage2.sql` if the quote-request database is not already installed.
+2. Apply `supabase/fi-accounts.sql` in the Supabase SQL editor.
+3. If using the supplier workspace, also apply the existing supplier-portal migration in `supabase/migrations/`.
+4. In Supabase Auth, add the production website URL and `/account.html` to the allowed redirect URLs.
+5. Configure a production SMTP provider before inviting real users. Supabase’s default mail service is only suitable for limited testing.
+6. If the project uses explicit Data API exposure, expose the new account tables after applying the SQL. RLS and grants in the script still govern access.
+
+## Human follow-ups
+
+- Replace the numbered team portraits with the three approved headshots when supplied.
+- Record the short backup demo clip for the presentation.
+- Complete and log the Week 3 interview/outreach targets; the website does not fabricate these activities.
+- Review the Privacy page with the team before public launch and add any required business or legal details.

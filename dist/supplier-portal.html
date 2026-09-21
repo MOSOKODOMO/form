@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Private supplier onboarding and catalogue submission for Fabrication Intelligence.">
+    <title>Fabrication Intelligence — Supplier workspace</title>
+    <link rel="stylesheet" href="supplier-portal.css">
+    <script type="module" src="supplier-portal.js"></script>
+  </head>
+  <body>
+    <header class="portal-header">
+      <a class="brand" href="./"><span>Fabrication Intelligence</span><small>SUPPLIER WORKSPACE</small></a>
+      <nav><a href="./" data-en="Public site" data-zh="公开网站">Public site</a><a href="stage2.html" data-en="Team requests" data-zh="团队需求">Team requests</a></nav>
+      <div class="language-switch" aria-label="Language / 语言"><button data-language="en" aria-pressed="true">EN</button><button data-language="zh" aria-pressed="false">中文</button></div>
+    </header>
+
+    <main>
+      <section id="welcome" class="hero">
+        <p class="eyebrow" data-en="INVITE-ONLY PORTAL" data-zh="仅限受邀供应商">INVITE-ONLY PORTAL</p>
+        <h1 data-en="Share your capabilities. Keep control of your catalogue." data-zh="提交您的能力与产品目录，保留您的资料控制权。">Share your capabilities. Keep control of your catalogue.</h1>
+        <p data-en="This workspace is for approved Fabrication Intelligence supplier contacts. Your profile, products and documents remain private while FI reviews them." data-zh="此工作区仅供已获 Fabrication Intelligence 批准的供应商联系人使用。FI 审核期间，您的公司资料、产品及文件均为私密。">This workspace is for approved Fabrication Intelligence supplier contacts. Your profile, products and documents remain private while FI reviews them.</p>
+      </section>
+
+      <section id="auth-panel" class="auth-card" aria-labelledby="auth-title">
+        <p class="eyebrow" data-en="SECURE ACCESS" data-zh="安全访问">SECURE ACCESS</p>
+        <h2 id="auth-title" data-en="Sign in with your invited email" data-zh="使用受邀邮箱登录">Sign in with your invited email</h2>
+        <p data-en="We will email you a one-time secure link. New accounts cannot be created here; contact FI if you need an invitation." data-zh="我们会向您发送一次性安全登录链接。此处不能注册新账户；如需邀请，请联系 FI。">We will email you a one-time secure link. New accounts cannot be created here; contact FI if you need an invitation.</p>
+        <form id="magic-link-form">
+          <label><span data-en="Work email" data-zh="工作邮箱">Work email</span><input id="auth-email" type="email" autocomplete="email" placeholder="name@factory.com" required></label>
+          <button class="button primary" type="submit" data-en="Email secure link" data-zh="发送安全链接">Email secure link</button>
+          <p id="auth-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="supplier-workspace" hidden>
+        <div class="workspace-heading"><div><p class="eyebrow" data-en="PRIVATE SUPPLIER PROFILE" data-zh="私密供应商资料">PRIVATE SUPPLIER PROFILE</p><h2 id="supplier-name"></h2><p id="supplier-review-summary"></p></div><button class="button quiet" data-action="sign-out" type="button" data-en="Sign out" data-zh="退出登录">Sign out</button></div>
+
+        <div class="workspace-grid">
+          <section class="card profile-card" aria-labelledby="profile-title">
+            <div class="card-heading"><div><p class="eyebrow" data-en="01 · COMPANY" data-zh="01 · 公司">01 · COMPANY</p><h3 id="profile-title" data-en="Company profile" data-zh="公司资料">Company profile</h3></div><span id="profile-review-badge" class="badge"></span></div>
+            <form id="profile-form" class="form-grid">
+              <label><span data-en="Legal company name" data-zh="公司法定名称">Legal company name</span><input name="legal_name" maxlength="200" required></label>
+              <label><span data-en="Trading name" data-zh="品牌/经营名称">Trading name</span><input name="trading_name" maxlength="200"></label>
+              <label><span data-en="Country" data-zh="国家">Country</span><input name="country" maxlength="100" required></label>
+              <label><span data-en="Province / state" data-zh="省/地区">Province / state</span><input name="province_or_state" maxlength="120"></label>
+              <label><span data-en="City" data-zh="城市">City</span><input name="city" maxlength="120"></label>
+              <label><span data-en="Website" data-zh="网站">Website</span><input name="website" type="url" maxlength="500" placeholder="https://"></label>
+              <label><span data-en="Primary contact" data-zh="主要联系人">Primary contact</span><input name="contact_name" maxlength="160"></label>
+              <label><span data-en="Contact email" data-zh="联系邮箱">Contact email</span><input name="contact_email" type="email" maxlength="320"></label>
+              <label class="wide"><span data-en="Manufacturing capabilities" data-zh="制造能力">Manufacturing capabilities</span><textarea name="capabilities" maxlength="4000" placeholder="Processes, materials, machinery and product types"></textarea></label>
+              <label class="wide"><span data-en="Certifications" data-zh="认证">Certifications</span><textarea name="certifications" maxlength="4000" placeholder="ISO, product standards, testing and quality systems"></textarea></label>
+              <label><span data-en="Typical lead time (days)" data-zh="通常交期（天）">Typical lead time (days)</span><input name="typical_lead_time_days" type="number" min="1" max="730"></label>
+              <label><span data-en="MOQ notes" data-zh="最小起订量说明">MOQ notes</span><input name="moq_notes" maxlength="1000"></label>
+              <label class="wide"><span data-en="Export markets" data-zh="出口市场">Export markets</span><input name="export_markets" maxlength="1000" placeholder="Australia, New Zealand…"></label>
+              <div class="form-actions wide"><button class="button secondary" type="submit" data-en="Save profile" data-zh="保存资料">Save profile</button><button id="submit-profile" class="button primary" type="button" data-en="Submit profile to FI" data-zh="提交资料给 FI 审核">Submit profile to FI</button><span id="profile-status" class="status" role="status" aria-live="polite"></span></div>
+            </form>
+          </section>
+
+          <aside class="card guidance"><p class="eyebrow" data-en="WHAT FI REVIEWS" data-zh="FI 审核内容">WHAT FI REVIEWS</p><ol><li data-en="Company capabilities and export readiness" data-zh="公司能力与出口准备情况">Company capabilities and export readiness</li><li data-en="Product specifications, documents and images" data-zh="产品规格、文件与图片">Product specifications, documents and images</li><li data-en="Whether a product is suitable for FI sourcing" data-zh="产品是否适合纳入 FI 采购范围">Whether a product is suitable for FI sourcing</li></ol><p data-en="Nothing is public just because it is uploaded." data-zh="上传资料不会使其自动公开。">Nothing is public just because it is uploaded.</p></aside>
+        </div>
+
+        <section class="catalogue-section" aria-labelledby="catalogue-title">
+          <div class="section-heading"><div><p class="eyebrow" data-en="02 · CATALOGUE" data-zh="02 · 产品目录">02 · CATALOGUE</p><h2 id="catalogue-title" data-en="Products for FI review" data-zh="提交 FI 审核的产品">Products for FI review</h2><p data-en="Add one product at a time. Save it as a draft while you work, then submit it to FI when its details and files are ready." data-zh="请逐项添加产品。编辑时可保存为草稿；资料与文件准备好后，再提交给 FI 审核。">Add one product at a time. Save it as a draft while you work, then submit it to FI when its details and files are ready.</p></div><button id="new-product" class="button secondary" type="button" data-en="New product" data-zh="添加产品">New product</button></div>
+
+          <div class="catalogue-grid">
+            <form id="product-form" class="card form-grid" hidden>
+              <input name="product_id" type="hidden">
+              <div class="card-heading wide"><div><p class="eyebrow" data-en="PRODUCT ENTRY" data-zh="产品条目">PRODUCT ENTRY</p><h3 id="product-form-title" data-en="New product" data-zh="添加产品">New product</h3></div><span id="product-review-badge" class="badge"></span></div>
+              <label><span data-en="Product name" data-zh="产品名称">Product name</span><input name="product_name" maxlength="200" required></label>
+              <label><span data-en="Product code / SKU" data-zh="产品编号 / SKU">Product code / SKU</span><input name="product_code" maxlength="120"></label>
+              <label><span data-en="Category" data-zh="类别">Category</span><select name="category" required><option value="stairs" data-en="Stairs" data-zh="楼梯">Stairs</option><option value="facade" data-en="Facade" data-zh="幕墙/立面">Facade</option><option value="metalwork" data-en="Metalwork" data-zh="金属制品">Metalwork</option><option value="precast" data-en="Precast" data-zh="预制构件">Precast</option><option value="joinery" data-en="Joinery" data-zh="木作/细木工">Joinery</option><option value="other" data-en="Other" data-zh="其他">Other</option></select></label>
+              <label><span data-en="Primary material" data-zh="主要材料">Primary material</span><input name="material" maxlength="200" required placeholder="Aluminium, steel, concrete…"></label>
+              <label><span data-en="Minimum order quantity" data-zh="最小起订量">Minimum order quantity</span><input name="minimum_order_quantity" type="number" min="1" max="1000000"></label>
+              <label><span data-en="Unit" data-zh="单位">Unit</span><input name="quantity_unit" maxlength="60" placeholder="units, m², sets"></label>
+              <label><span data-en="Lead time (days)" data-zh="交期（天）">Lead time (days)</span><input name="lead_time_days" type="number" min="1" max="730"></label>
+              <label><span data-en="Export markets" data-zh="出口市场">Export markets</span><input name="export_markets" maxlength="1000" placeholder="Australia, New Zealand…"></label>
+              <label class="wide"><span data-en="Description" data-zh="产品描述">Description</span><textarea name="description" maxlength="5000" placeholder="What this product is and its main applications"></textarea></label>
+              <label class="wide"><span data-en="Specifications" data-zh="规格参数">Specifications</span><textarea name="specifications" maxlength="5000" placeholder="Dimensions, finishes, performance, standards and options"></textarea></label>
+              <div class="form-actions wide"><button class="button secondary" type="submit" data-en="Save draft" data-zh="保存草稿">Save draft</button><button id="submit-product" class="button primary" type="button" data-en="Submit to FI" data-zh="提交给 FI 审核">Submit to FI</button><span id="product-status" class="status" role="status" aria-live="polite"></span></div>
+            </form>
+
+            <section id="product-detail" class="card product-detail" hidden>
+              <div class="card-heading"><div><p class="eyebrow" data-en="PRIVATE FILES" data-zh="私密文件">PRIVATE FILES</p><h3 data-en="Images and documents" data-zh="图片与文件">Images and documents</h3></div></div>
+              <p data-en="Attach product images, PDFs or DOCX specifications. Each file stays private and must be 10 MB or less." data-zh="可上传产品图片、PDF 或 DOCX 规格文件。每个文件均为私密，且不得超过 10 MB。">Attach product images, PDFs or DOCX specifications. Each file stays private and must be 10 MB or less.</p>
+              <form id="asset-form"><label class="upload"><span data-en="Select files" data-zh="选择文件">Select files</span><input id="asset-files" type="file" multiple accept="image/png,image/jpeg,image/webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></label><label><span data-en="File type" data-zh="文件类型">File type</span><select id="asset-type"><option value="image" data-en="Product image" data-zh="产品图片">Product image</option><option value="specification" data-en="Specification" data-zh="规格文件">Specification</option><option value="certificate" data-en="Certificate" data-zh="认证文件">Certificate</option><option value="catalogue" data-en="Catalogue" data-zh="产品目录">Catalogue</option></select></label><button class="button secondary" type="submit" data-en="Upload selected files" data-zh="上传所选文件">Upload selected files</button><p id="asset-status" class="status" role="status" aria-live="polite"></p></form>
+              <ul id="asset-list" class="asset-list"></ul>
+            </section>
+          </div>
+          <div id="catalogue-list" class="product-list" aria-live="polite"></div>
+        </section>
+      </section>
+
+      <section id="team-workspace" hidden>
+        <div class="workspace-heading"><div><p class="eyebrow" data-en="FI INTERNAL WORKSPACE" data-zh="FI 内部工作区">FI INTERNAL WORKSPACE</p><h2 data-en="Supplier review queue" data-zh="供应商审核队列">Supplier review queue</h2><p data-en="Approve supplier submissions before they can be used for sourcing or any future public listing." data-zh="在供应商资料用于采购或未来公开展示前，请先完成审核。">Approve supplier submissions before they can be used for sourcing or any future public listing.</p></div><button class="button quiet" data-action="sign-out" type="button" data-en="Sign out" data-zh="退出登录">Sign out</button></div>
+        <section class="card invite-card"><div><p class="eyebrow" data-en="NEW SUPPLIER" data-zh="新供应商">NEW SUPPLIER</p><h3 data-en="Create a supplier record" data-zh="创建供应商记录">Create a supplier record</h3><p data-en="This reserves the portal relationship. Send the Auth invitation separately from the Supabase Dashboard, then the supplier can request a magic link here." data-zh="此操作会建立供应商门户关系。请在 Supabase Dashboard 中另行发送 Auth 邀请；之后供应商即可在此申请魔法链接登录。">This reserves the portal relationship. Send the Auth invitation separately from the Supabase Dashboard, then the supplier can request a magic link here.</p></div><form id="team-supplier-form"><label><span data-en="Legal company name" data-zh="公司法定名称">Legal company name</span><input name="legal_name" maxlength="200" required></label><label><span data-en="Invited email" data-zh="受邀邮箱">Invited email</span><input name="email" type="email" maxlength="320" required></label><label><span data-en="Country" data-zh="国家">Country</span><input name="country" value="China" maxlength="100" required></label><button class="button primary" type="submit" data-en="Create supplier record" data-zh="创建供应商记录">Create supplier record</button><p id="team-supplier-status" class="status" role="status" aria-live="polite"></p></form></section>
+        <section class="review-section"><div class="section-heading"><div><p class="eyebrow" data-en="PROFILE REVIEWS" data-zh="公司资料审核">PROFILE REVIEWS</p><h2 data-en="Supplier companies" data-zh="供应商公司">Supplier companies</h2></div></div><div id="team-profile-list" class="review-grid"></div></section>
+        <section class="review-section"><div class="section-heading"><div><p class="eyebrow" data-en="CATALOGUE REVIEWS" data-zh="产品目录审核">CATALOGUE REVIEWS</p><h2 data-en="Submitted products" data-zh="已提交产品">Submitted products</h2></div></div><div id="team-product-list" class="review-grid"></div></section>
+      </section>
+    </main>
+
+    <footer>Fabrication Intelligence · <span data-en="Private supplier workspace" data-zh="私密供应商工作区">Private supplier workspace</span></footer>
+  </body>
+</html>

@@ -24,6 +24,14 @@ function applyLanguage() {
   $$('[data-lang]').forEach((node) => { node.setAttribute('aria-pressed', String(node.dataset.lang === language)) })
 }
 
+function setAccountLinkState(signedIn) {
+  const accountLink = $('#account-link')
+  if (!accountLink) return
+  accountLink.dataset.en = signedIn ? 'My account' : 'Client / manufacturer login'
+  accountLink.dataset.zh = signedIn ? '我的账户' : '客户 / 制造商登录'
+  accountLink.textContent = language === 'zh' ? accountLink.dataset.zh : accountLink.dataset.en
+}
+
 function setStatus(message, tone = '') {
   const node = $('#request-status')
   node.textContent = message
@@ -94,6 +102,7 @@ async function submitRequest(event) {
   setStatus(language === 'zh' ? '正在安全上传并保存需求…' : 'Securely uploading and saving your request…')
   let drawingPath = null
   try {
+    const { data: { session } } = await supabase.auth.getSession()
     if (file) {
       drawingPath = `${crypto.randomUUID()}/${safeFilename(file.name)}`
       const { error: uploadError } = await supabase.storage.from('fi-drawings').upload(drawingPath, file, {upsert: false, contentType: file.type || 'application/octet-stream', cacheControl: '3600'})
@@ -117,8 +126,14 @@ async function submitRequest(event) {
       drawing_name: file?.name || null,
       drawing_size_bytes: file?.size || null,
       drawing_type: file?.type || null,
+      requester_user_id: session?.user?.id || null,
     }
-    const { error: insertError } = await supabase.from('fi_quote_requests').insert(payload)
+    let { error: insertError } = await supabase.from('fi_quote_requests').insert(payload)
+    if (insertError && /requester_user_id|schema cache/i.test(insertError.message || '')) {
+      delete payload.requester_user_id
+      const fallback = await supabase.from('fi_quote_requests').insert(payload)
+      insertError = fallback.error
+    }
     if (insertError) throw insertError
     $('#confirmation-reference').textContent = payload.reference
     $('#confirmation').hidden = false
@@ -233,8 +248,7 @@ async function showAdminForSession(session) {
   if (!session?.user) return
   const { data: member, error } = await supabase.from('fi_team_members').select('email,role').eq('email', session.user.email).maybeSingle()
   if (error || !member) {
-    await supabase.auth.signOut()
-    setAdminStatus('This email is not on the FI team list.')
+    setAdminStatus('This account is signed in, but it is not on the FI team list.')
     return
   }
   $('#admin-auth').hidden = true
@@ -245,7 +259,16 @@ async function showAdminForSession(session) {
 
 async function bootAdmin() {
   const { data: { session } } = await supabase.auth.getSession()
-  if (session) await showAdminForSession(session)
+  if (session) {
+    const profileResult = await supabase.from('fi_user_profiles').select('full_name, company_name').eq('user_id', session.user.id).maybeSingle()
+    const profile = profileResult.data
+    const form = $('#quote-form')
+    if (!form.elements.requester_name.value && profile?.full_name) form.elements.requester_name.value = profile.full_name
+    if (!form.elements.requester_email.value) form.elements.requester_email.value = session.user.email || ''
+    if (!form.elements.company.value && profile?.company_name) form.elements.company.value = profile.company_name
+    setAccountLinkState(true)
+    await showAdminForSession(session)
+  }
 }
 
 async function loginWithPassword(event) {
@@ -268,6 +291,7 @@ async function sendMagicLink() {
 
 async function signOut() {
   await supabase.auth.signOut()
+  setAccountLinkState(false)
   $('#admin-auth').hidden = false
   $('#admin-dashboard').hidden = true
   $('#admin-password').value = ''
@@ -282,6 +306,16 @@ $('#sign-out-button').addEventListener('click', signOut)
 $$('[data-admin-filter]').forEach((button) => button.addEventListener('click', () => { adminFilter = button.dataset.adminFilter; renderAdminRequests() }))
 $$('[data-lang]').forEach((button) => button.addEventListener('click', () => { language = button.dataset.lang; applyLanguage() }))
 $('#drawing').addEventListener('change', () => { const file = $('#drawing').files[0]; if (file) setStatus(`${file.name} · ${formatBytes(file.size)}`) })
-supabase.auth.onAuthStateChange((_event, session) => { if (session) showAdminForSession(session) })
+supabase.auth.onAuthStateChange((_event, session) => {
+  setAccountLinkState(Boolean(session))
+  // Defer database calls until the Auth client's session lock is released.
+  if (session) setTimeout(() => { void showAdminForSession(session) }, 0)
+  else {
+    adminRequests = []
+    $('#admin-auth').hidden = false
+    $('#admin-dashboard').hidden = true
+    $('#request-board').replaceChildren()
+  }
+})
 applyLanguage()
 bootAdmin()

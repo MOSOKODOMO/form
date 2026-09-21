@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Fabrication Intelligence Stage 2 quote request portal">
-    <title>Fabrication Intelligence — Stage 2</title>
+    <meta name="description" content="Tell Fabrication Intelligence what you cannot source and submit a detailed quote request with an optional private drawing.">
+    <title>Request a quote | Fabrication Intelligence</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23bc3b18'/%3E%3Cpath d='M6 25v-6h7v-6h7V7h6' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="stage2.css">
     <script type="module" src="stage2.js" defer></script>
@@ -13,12 +13,13 @@
     <header class="stage2-header">
       <a class="stage2-brand" href="./">
         <span>Fabrication Intelligence</span>
-        <small>STAGE 2 · QUOTE PORTAL</small>
+        <small>QUOTE REQUEST · LIVE PILOT</small>
       </a>
-      <nav class="stage2-nav" aria-label="Stage 2 navigation">
+      <nav class="stage2-nav" aria-label="Quote request navigation">
         <a href="#request" data-en="Request a quote" data-zh="提交询价">Request a quote</a>
         <a href="#admin" data-en="Team admin" data-zh="团队后台">Team admin</a>
-        <a href="./" data-en="Stage 1 preview" data-zh="第一阶段预览">Stage 1 preview</a>
+        <a id="account-link" href="auth.html?next=account.html" data-en="Client / manufacturer login" data-zh="客户 / 制造商登录">Client / manufacturer login</a>
+        <a href="./" data-en="Home" data-zh="首页">Home</a>
       </nav>
       <div class="stage2-languages" aria-label="Language / 语言">
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
@@ -28,14 +29,14 @@
 
     <main>
       <section class="stage2-hero" aria-labelledby="stage2-title">
-        <div class="hero-kicker"><span class="kicker-line"></span><span data-en="STAGE 2 · LIVE PILOT" data-zh="第二阶段 · 试运行">STAGE 2 · LIVE PILOT</span></div>
+        <div class="hero-kicker"><span class="kicker-line"></span><span data-en="PERSONALLY MANAGED · LIVE PILOT" data-zh="人工管理 · 试运行">PERSONALLY MANAGED · LIVE PILOT</span></div>
         <h1 id="stage2-title" data-en="From first brief to a quote-ready request." data-zh="从初步想法到可询价的完整需求。">From first brief to a quote-ready request.</h1>
         <p data-en="Give us the details we need to source fabricated elements. Your request gets a reference number, a secure drawing upload and a human review behind the scenes." data-zh="填写我们采购定制构件所需的详细信息。你的需求会获得编号、安全图纸上传，并由团队人工审核。">Give us the details we need to source fabricated elements. Your request gets a reference number, a secure drawing upload and a human review behind the scenes.</p>
         <div class="hero-actions">
           <a class="button primary" href="#request" data-en="Start a detailed request →" data-zh="开始填写详细需求 →">Start a detailed request →</a>
           <a class="quiet-link" href="#admin" data-en="Team sign-in" data-zh="团队登录">Team sign-in</a>
         </div>
-        <div class="stage2-steps" aria-label="Stage 2 workflow">
+        <div class="stage2-steps" aria-label="Quote request workflow">
           <div><span>01</span><strong data-en="Brief" data-zh="需求">Brief</strong><small data-en="You tell us what matters" data-zh="你告诉我们需求">You tell us what matters</small></div>
           <div><span>02</span><strong data-en="Review" data-zh="审核">Review</strong><small data-en="We clarify the scope" data-zh="我们确认范围">We clarify the scope</small></div>
           <div><span>03</span><strong data-en="Quote" data-zh="报价">Quote</strong><small data-en="We approach suitable makers" data-zh="我们联系合适的制造商">We approach suitable makers</small></div>
@@ -122,6 +123,6 @@
         </div>
       </section>
     </main>
-    <footer class="stage2-footer"><span>Fabrication Intelligence · Stage 2</span><span><a href="./">Stage 1 preview</a> · <a href="#admin">Team admin</a></span></footer>
+    <footer class="stage2-footer"><span>Fabrication Intelligence · Live pilot</span><span><a href="./">Home</a> · <a href="privacy.html">Privacy</a> · <a href="#admin">Team admin</a></span></footer>
   </body>
 </html>
