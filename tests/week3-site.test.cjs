@@ -46,11 +46,11 @@ test('account schema uses ownership RLS and keeps manufacturer review separate',
   assert.match(sql, /requester_user_id = \(select auth\.uid\(\)\)/)
 })
 
-test('local HTML navigation targets resolve to files', () => {
+test('local HTML navigation and asset references resolve to files', () => {
   const pages = fs.readdirSync(dist).filter((name) => name.endsWith('.html'))
   for (const page of pages) {
     const html = read(page)
-    const links = [...html.matchAll(/href="([^"]+)"/g)].map((match) => match[1])
+    const links = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((match) => match[1])
     for (const href of links) {
       if (/^(?:https?:|mailto:|tel:|#|data:)/.test(href)) continue
       const pathname = href.split('#')[0].split('?')[0]

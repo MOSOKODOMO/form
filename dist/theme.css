@@ -30,6 +30,11 @@
 button, input, select, textarea { color: inherit; accent-color: var(--accent); }
 input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
 select option { color: var(--ink); background: var(--surface); }
+.brand-logo { display: block; width: 260px; max-width: 100%; height: auto; flex-shrink: 0; }
+.site-footer .brand-logo, footer > .brand .brand-logo { width: 224px; }
+@media (max-width: 650px) {
+  .brand-logo { width: 220px; }
+}
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
