@@ -1,0 +1,36 @@
+/* Shared olive-and-lime palette for every FI page and workspace. */
+:root {
+  color-scheme: dark;
+  --paper: #252b23;
+  --surface: #2c3329;
+  --soft: #34412c;
+  --deep: #252b23;
+  --dark: #20261e;
+  --ink: #f7f8f2;
+  --muted: #bec7b5;
+  --line: #48513f;
+  --field-border: #78866d;
+  --accent: #dce970;
+  --accent-hover: #e8f397;
+  --lime: #dce970;
+  --on-accent: #252b23;
+  --header: rgba(37, 43, 35, .96);
+  --focus: rgba(220, 233, 112, .35);
+  --green: #cee6a6;
+  --success-bg: #34412c;
+  --error: #ffb5a5;
+  --error-bg: #452f29;
+  --error-border: #a16b5e;
+  --amber: #eed496;
+  --warning-bg: #403b28;
+  --shadow: 0 18px 50px rgba(9, 15, 7, .15);
+}
+
+::selection { color: var(--on-accent); background: var(--accent); }
+button, input, select, textarea { color: inherit; accent-color: var(--accent); }
+input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
+select option { color: var(--ink); background: var(--surface); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}
