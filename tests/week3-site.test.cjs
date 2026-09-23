@@ -6,15 +6,15 @@ const path = require('node:path')
 const dist = path.resolve('dist')
 const read = (name) => fs.readFileSync(path.join(dist, name), 'utf8')
 
-test('the Week 3 one-pager is the homepage and shows a clearly-labelled three-quote comparison', () => {
+test('the homepage shows a clearly-labelled three-source window price comparison', () => {
   const home = read('index.html')
   assert.match(home, /Send us the thing<br>you can’t source\./)
   assert.match(home, /Within 7 days/)
   assert.match(home, /Free for our first 10 projects/)
   assert.equal((home.match(/class="quote-card(?: quote-card-featured)?"/g) || []).length, 3)
-  assert.equal((home.match(/<span>SAMPLE<\/span>/g) || []).length, 3)
-  for (const line of ['Factory price', 'Freight', 'Duty', 'GST', 'Inspection', 'Final delivery', 'Installation']) {
-    assert.ok(home.includes(line), `missing delivered-cost line: ${line}`)
+  assert.match(home, /WINDOW PRICE COMPARISON/)
+  for (const value of ['Double casement window', 'Superhouse', 'US\$800', 'Stegbar', 'A\$927\.90', 'Melbourne market', 'A\$2,200–3,500\+']) {
+    assert.ok(home.includes(value), `missing window comparison value: ${value}`)
   }
 })
 
