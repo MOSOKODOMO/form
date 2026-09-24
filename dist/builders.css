@@ -91,6 +91,13 @@ h2 { font-size: clamp(36px, 4.5vw, 62px); font-weight: 600; letter-spacing: -.06
 .quote-card footer a { color: var(--lime); text-decoration-color: #d9ff8a66; text-underline-offset: 3px; }
 .quote-card footer a:hover { color: #fff; }
 .comparison-caption { max-width: 810px; margin-top: 18px; color: #aeb8aa; font-size: 11px; line-height: 1.65; }
+.window-comparison .quote-card dd { white-space: normal; text-align: right; max-width: 64%; }
+.window-comparison .quote-card dt { flex-shrink: 0; }
+.window-comparison .quote-card footer { min-height: 170px; }
+.window-comparison .quote-pending { font-size: clamp(24px, 2.5vw, 34px); }
+.comparison-verification { margin-top: 28px; padding: 24px; border: 1px solid var(--line); }
+.comparison-verification h3 { font-size: 19px; font-weight: 600; }
+.comparison-verification p { margin-top: 10px; max-width: 1050px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 
 .promise { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(290px, .82fr); gap: 12%; }
 .promise h2 { max-width: 680px; margin-top: 22px; }
@@ -135,6 +142,11 @@ h2 { font-size: clamp(36px, 4.5vw, 62px); font-weight: 600; letter-spacing: -.06
 .content-section { padding: 90px 6%; border-bottom: 1px solid var(--line); }
 .content-section h2 { max-width: 750px; margin-top: 20px; }
 .content-lead { max-width: 760px; margin-top: 23px; color: var(--muted); font-size: 17px; }
+.about-purpose-list { margin: 43px 0 0; border-top: 1px solid var(--line); }
+.about-purpose-list > div { display: grid; grid-template-columns: minmax(200px, .7fr) minmax(0, 1.3fr); gap: 8%; padding: 27px 0; border-bottom: 1px solid var(--line); }
+.about-purpose-list dt { display: flex; align-items: baseline; gap: 22px; font-size: 17px; font-weight: 700; }
+.about-purpose-list dt span { color: var(--accent); font: 500 11px/1.5 var(--mono); }
+.about-purpose-list dd { max-width: 760px; margin: 0; color: var(--muted); font-size: 17px; line-height: 1.65; }
 .content-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 43px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .info-card { padding: 27px 28px 29px 0; }
 .info-card + .info-card { padding-left: 28px; border-left: 1px solid var(--line); }
@@ -220,6 +232,9 @@ h2 { font-size: clamp(36px, 4.5vw, 62px); font-weight: 600; letter-spacing: -.06
   .site-footer p { margin: 0; }
   .page-hero { padding-right: 5%; padding-left: 5%; }
   .content-section { padding: 65px 5%; }
+  .about-purpose-list > div { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
+  .about-purpose-list dt { gap: 15px; }
+  .about-purpose-list dd { font-size: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

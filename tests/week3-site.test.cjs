@@ -13,7 +13,7 @@ test('the homepage shows a clearly-labelled three-source window price comparison
   assert.match(home, /Free for our first 10 projects/)
   assert.equal((home.match(/class="quote-card(?: quote-card-featured)?"/g) || []).length, 3)
   assert.match(home, /WINDOW PRICE COMPARISON/)
-  for (const value of ['Double casement window', 'Superhouse', 'US\$800', 'Stegbar', 'A\$927\.90', 'Melbourne market', 'A\$2,200–3,500\+']) {
+  for (const value of ['Double casement', 'Superhouse', 'A$1,126.44', 'XN Windows', 'Quote required', 'uPVC.com.au', 'A$1,296']) {
     assert.ok(home.includes(value), `missing window comparison value: ${value}`)
   }
 })
