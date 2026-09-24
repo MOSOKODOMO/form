@@ -67,6 +67,17 @@ test('the feedback form sends answers to the team inbox and is linked after a re
   assert.match(read('privacy.html'), /quote request or the feedback form/)
 })
 
+test('public pages use no em dashes and share a preview card', () => {
+  for (const name of fs.readdirSync(dist).filter((file) => /\.(html|js)$/.test(file))) {
+    assert.ok(!read(name).includes('—'), `${name} contains an em dash`)
+  }
+  for (const page of ['index.html', 'pricing.html', 'feedback.html', 'stage2.html', 'how-it-works.html']) {
+    assert.match(read(page), /property="og:image" content="https:\/\/fabricationintelligence\.com\/assets\/share-card\.jpg"/, `${page} has a share preview`)
+  }
+  assert.ok(fs.existsSync(path.join(dist, 'assets', 'share-card.jpg')))
+  assert.ok(!fs.existsSync(path.join(dist, 'concept.html')), 'the old staircase concept page stays removed')
+})
+
 test('the old public request entry redirects to the single canonical request form', () => {
   const oldRequest = read('request.html')
   assert.match(oldRequest, /location\.replace\('stage2\.html#request'\)/)

@@ -1,4 +1,4 @@
-# Glass-first website update — 24 September 2026
+# Glass-first website update, 24 September 2026
 
 ## Image
 
@@ -19,7 +19,7 @@ Composition/framing: landscape 1536x1024, whole window centered with generous sa
 Constraints: finished fully assembled window, not exploded; exactly two glass sashes; no text, dimensions, labels, arrows, certification marks, logos, watermark, people or hands. Conceptual marketing image only; not imitating any supplier's specific product or claiming certification.
 ```
 
-## Current homepage comparison — window-first refresh
+## Current homepage comparison: window-first refresh
 
 The homepage now leads with “Creating more affordable homes for Australians,” starting with windows and glass. Seven glass-type summaries link to the full guide. The scroll assembly remains an educational 6 / 12 / 6 concept, explicitly separate from the single-glazed sliding windows in the current price references.
 
@@ -27,15 +27,15 @@ The homepage now leads with “Creating more affordable homes for Australians,�
 
 Both the homepage and detailed guide organise the seven glass terms into three non-exclusive groups, with static category jump links:
 
-- **Light & privacy:** clear float, tinted, frosted / obscure — daylight, views, glare and privacy.
-- **Thermal comfort:** Low-E, double glazing — heat-transfer and insulation choices, with whole-window performance important.
-- **Safety & protection:** toughened, laminated — impact and breakage behaviour, not a blanket security or fall-protection guarantee.
+- **Light & privacy:** clear float, tinted, frosted / obscure: daylight, views, glare and privacy.
+- **Thermal comfort:** Low-E, double glazing: heat-transfer and insulation choices, with whole-window performance important.
+- **Safety & protection:** toughened, laminated: impact and breakage behaviour, not a blanket security or fall-protection guarantee.
 
 Custom sizes, tint, finishes and combinations can apply across groups, subject to supplier confirmation. “Custom” is not a separate performance class; a thermal feature is not enough to substantiate a sustainability claim. Cards retain their uses, limitations and primary-source links. Grouping is editorial navigation, not a performance rating or certification.
 
 The Thai-versus-local comparison now pairs a **FABINT planning estimate** with a published Australian retail benchmark, not two verified delivered quotes. The Thai source is not named in the card heading; a neutrally labelled product-specification link remains for transparency. No supplier relationship, export availability, Australian compliance or equal quality is implied.
 
-### User-supplied delivered estimate — 24 September 2026
+### User-supplied delivered estimate, 24 September 2026
 
 - The user confirmed A$356.55 is **estimated**, includes FABINT's fee, and assumes **Australia-wide** delivery. The marked-up request includes Australian GST and import/clearance, with installation excluded.
 - Homepage heading: “Thai window estimate”; price label: “ESTIMATED DELIVERED PRICE · AUD”. GST, import/clearance, delivery and fee rows say they are included **in the estimate**, not independently confirmed supplier terms.
@@ -68,7 +68,7 @@ The Thai-versus-local comparison now pairs a **FABINT planning estimate** with a
 - Browser checked at desktop, 960 px tablet and 390 / 320 px phone widths; no horizontal content overflow. Two-card prices and rows align on desktop/tablet and stack on phones.
 - Product imagery loads; no browser warning/error logs observed in the local preview. Existing account/database behaviour is unchanged.
 
-## Earlier comparison evidence — superseded on homepage
+## Earlier comparison evidence (superseded on homepage)
 
 Retained for research history. The following three-route comparison is no longer the current homepage presentation.
 

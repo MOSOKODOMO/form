@@ -30,15 +30,15 @@ feedbackForm.addEventListener('submit', async (event) => {
   }
   const lines = [
     `Role: ${role}`,
-    `Tried the request form: ${answer('tried_form') || '—'}`,
-    `Ease of sending a request (1–5): ${answer('ease') || '—'}`,
-    `Confusing or missing: ${answer('confusing') || '—'}`,
+    `Tried the request form: ${answer('tried_form') || 'none'}`,
+    `Ease of sending a request (1–5): ${answer('ease') || 'none'}`,
+    `Confusing or missing: ${answer('confusing') || 'none'}`,
     `Would use on a real project: ${wouldUse}`,
-    `Why: ${answer('why') || '—'}`,
-    `10% fee after the pilot: ${answer('fee') || '—'}`,
-    `Product to source: ${answer('source_next') || '—'}`,
-    `Name: ${answer('name') || '—'}`,
-    `Email: ${email || '—'}`,
+    `Why: ${answer('why') || 'none'}`,
+    `10% fee after the pilot: ${answer('fee') || 'none'}`,
+    `Product to source: ${answer('source_next') || 'none'}`,
+    `Name: ${answer('name') || 'none'}`,
+    `Email: ${email || 'none'}`,
   ];
   const submit = feedbackForm.querySelector('button[type="submit"]');
   submit.disabled = true;

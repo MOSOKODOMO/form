@@ -54,7 +54,7 @@ test('glass showcase has complete static content and a qualified conceptual imag
   assert.match(html, /id="glass" class="window-showcase"/);
   assert.match(html, /src="window-showcase\.js" defer/);
   assert.equal((html.match(/<li data-window-step>/g) || []).length, 3);
-  assert.match(html, /Concept visual only—not a supplier drawing, an exact product depiction or certified performance evidence/);
+  assert.match(html, /Concept visual only, not a supplier drawing, an exact product depiction or certified performance evidence/);
   assert.match(html, /src="assets\/window-low-e-marketing\.png"/);
   assert.match(html, /quality\. Then cost\./i);
   assert.match(read('window-showcase.css'), /@media \(prefers-reduced-motion: reduce\)/);
