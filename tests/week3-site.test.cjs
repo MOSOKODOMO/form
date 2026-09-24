@@ -13,9 +13,12 @@ test('the homepage shows a clearly-labelled three-source window price comparison
   assert.match(home, /Free for our first 10 projects/)
   assert.equal((home.match(/class="quote-card(?: quote-card-featured)?"/g) || []).length, 3)
   assert.match(home, /WINDOW PRICE COMPARISON/)
-  for (const value of ['Double casement', 'Superhouse', 'A$1,126.44', 'XN Windows', 'Quote required', 'uPVC.com.au', 'A$1,296']) {
+  for (const value of ['Double casement', 'SMG Glass', 'A$212–403/m²', 'Superhouse', 'A$1,126.44', 'uPVC.com.au', 'A$1,296']) {
     assert.ok(home.includes(value), `missing window comparison value: ${value}`)
   }
+  assert.match(home, /quote required/i)
+  assert.ok(home.indexOf('<h3>SMG Glass</h3>') < home.indexOf('<h3>Superhouse</h3>'), 'Thailand appears before China')
+  assert.ok(home.indexOf('<h3>Superhouse</h3>') < home.indexOf('<h3>uPVC.com.au</h3>'), 'China appears before the local source')
 })
 
 test('team portraits and biographies follow the confirmed left-to-right identities', () => {

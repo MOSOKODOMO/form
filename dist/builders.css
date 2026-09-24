@@ -95,6 +95,7 @@ h2 { font-size: clamp(36px, 4.5vw, 62px); font-weight: 600; letter-spacing: -.06
 .window-comparison .quote-card dt { flex-shrink: 0; }
 .window-comparison .quote-card footer { min-height: 170px; }
 .window-comparison .quote-pending { font-size: clamp(24px, 2.5vw, 34px); }
+.window-comparison .quote-glass-rate { font-size: clamp(24px, 2.5vw, 34px); }
 .comparison-verification { margin-top: 28px; padding: 24px; border: 1px solid var(--line); }
 .comparison-verification h3 { font-size: 19px; font-weight: 600; }
 .comparison-verification p { margin-top: 10px; max-width: 1050px; color: var(--muted); font-size: 12px; line-height: 1.7; }
