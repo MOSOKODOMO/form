@@ -7,24 +7,37 @@
     <title>Request a quote | Fabrication Intelligence</title>
     <link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg">
     <link rel="stylesheet" href="stage2.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap">
+    <link rel="stylesheet" href="site-navigation.css">
     <script type="module" src="stage2.js" defer></script>
     <link rel="stylesheet" href="site-motion.css">
     <script src="site-motion.js" defer></script>
   </head>
   <body data-motion-page="functional">
-    <header class="stage2-header">
-      <a class="stage2-brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a>
+    <header class="site-header site-header--public">
+      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="./" data-en="Home" data-zh="首页">Home</a>
+        <a href="how-it-works.html" data-en="How it works" data-zh="服务流程">How it works</a>
+        <a href="services.html" data-en="Services" data-zh="服务">Services</a>
+        <a href="pricing.html" data-en="Pricing" data-zh="费用">Pricing</a>
+        <a href="about.html" data-en="About" data-zh="关于我们">About</a>
+        <a href="contact.html" data-en="Contact" data-zh="联系我们">Contact</a>
+        <a href="auth.html" data-en="Log in" data-zh="登录">Log in</a>
+        <a class="nav-cta" href="stage2.html#request" aria-current="page"><span data-en="Send a request" data-zh="提交需求">Send a request</span> <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <div class="stage2-tools">
       <nav class="stage2-nav" aria-label="Quote request navigation">
         <a href="#request" data-en="Request a quote" data-zh="提交询价">Request a quote</a>
         <a href="#admin" data-en="Team admin" data-zh="团队后台">Team admin</a>
         <a id="account-link" href="auth.html?next=account.html" data-en="Client / manufacturer login" data-zh="客户 / 制造商登录">Client / manufacturer login</a>
-        <a href="./" data-en="Home" data-zh="首页">Home</a>
       </nav>
       <div class="stage2-languages" aria-label="Language / 语言">
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="zh" aria-pressed="false">中文</button>
       </div>
-    </header>
+    </div>
 
     <main>
       <section class="stage2-hero" aria-labelledby="stage2-title">

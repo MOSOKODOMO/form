@@ -1,0 +1,69 @@
+/* Public navigation is identical on each page, including the selected link. */
+html { scrollbar-gutter: stable; }
+.site-header.site-header--public {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 104px;
+  padding: 16px 5%;
+  border-bottom: 1px solid var(--line);
+  background: var(--header);
+  font-family: 'Manrope', system-ui, sans-serif;
+}
+.site-header--public > .brand { display: inline-flex; flex: 0 0 220px; text-decoration: none; }
+.site-header--public .brand-logo { width: 220px; height: auto; }
+.site-header--public .site-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(12px, 1.5vw, 24px);
+  font-size: 12px;
+}
+.site-header--public .site-nav > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.site-header--public .site-nav > a:not(.nav-cta) {
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+}
+.site-header--public .site-nav > a:not(.nav-cta):hover,
+.site-header--public .site-nav > a:not(.nav-cta)[aria-current="page"] { color: var(--accent); }
+.site-header--public .site-nav > a:not(.nav-cta)[aria-current="page"] { border-bottom-color: var(--accent); }
+.site-header--public .site-nav > .nav-cta {
+  gap: 18px;
+  padding: 10px 14px;
+  color: var(--on-accent);
+  background: var(--accent);
+  font-weight: 700;
+}
+.site-header--public .site-nav > .nav-cta:hover { background: var(--accent-hover); }
+.site-header--public .site-nav > .nav-cta > [data-en] { translate: none; }
+.site-header--public .site-nav > .nav-cta[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--on-accent); }
+.site-header--public a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+
+/* Keep request-form utilities separate from the stable public menu. */
+.stage2-tools { display: flex; align-items: center; justify-content: flex-end; gap: 26px; padding: 10px 5%; border-bottom: 1px solid var(--line); }
+.stage2-tools .stage2-nav { flex-wrap: wrap; }
+
+@media (max-width: 1100px) {
+  .site-header.site-header--public { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .site-header--public > .brand { flex-basis: auto; }
+  .site-header--public .site-nav { width: 100%; justify-content: space-between; gap: 12px; }
+}
+@media (max-width: 650px) {
+  .site-header.site-header--public { padding: 18px 5% 14px; gap: 12px; }
+  .site-header--public .brand-logo { width: 200px; }
+  .site-header--public .site-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px 12px; font-size: 12px; }
+  .site-header--public .site-nav > a { justify-content: flex-start; }
+  .site-header--public .site-nav > .nav-cta { grid-column: span 2; justify-content: space-between; }
+  .stage2-tools { flex-wrap: wrap; gap: 12px; }
+  .stage2-tools .stage2-nav { order: 0; padding: 0; border: 0; margin: 0; }
+}
