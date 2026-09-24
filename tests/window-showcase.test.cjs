@@ -16,7 +16,7 @@ const classes = () => {
   };
 };
 
-function setup({ reduced = false, roomy = true, imageBroken = false, imageLoading = false } = {}) {
+function setup({ reduced = false, roomy = true, imageBroken = false, imageLoading = false, manual = 'on' } = {}) {
   const properties = new Map();
   const events = {};
   const imageEvents = {};
@@ -43,9 +43,10 @@ function setup({ reduced = false, roomy = true, imageBroken = false, imageLoadin
     cancelAnimationFrame: () => { pending = undefined; },
     addEventListener: (name, handler, options) => { events[name] = { handler, options }; },
   };
-  vm.runInNewContext(script, { window, document: { querySelector: () => section } });
+  const root = { dataset: { motion: manual } };
+  vm.runInNewContext(script, { window, document: { documentElement: root, querySelector: () => section } });
   const flush = () => { const callback = pending; pending = undefined; if (callback) callback(); };
-  return { section, properties, events, image, imageEvents, media, steps, label, flush, scrollTo(top) { bounds = { ...bounds, top }; events.scroll.handler(); flush(); } };
+  return { root, section, properties, events, image, imageEvents, media, steps, label, flush, scrollTo(top) { bounds = { ...bounds, top }; events.scroll.handler(); flush(); } };
 }
 
 test('glass showcase has complete static content and a qualified conceptual image', () => {
@@ -100,6 +101,24 @@ test('missing images retain the assembled vector fallback', () => {
   env.scrollTo(-1215);
   assert.ok(env.section.classList.has('has-image-error'));
   assert.equal(env.properties.get('--glass-reveal'), '0.0000');
+});
+
+test('site-wide manual motion preference controls the existing window assembly too', () => {
+  const stored = setup({ manual: 'off' });
+  stored.flush();
+  assert.equal(stored.section.classList.has('is-scroll-ready'), false);
+  assert.equal(stored.label.textContent, '03 / READY TO COMPARE');
+  const env = setup();
+  env.flush();
+  env.root.dataset.motion = 'off';
+  assert.ok(env.events['fi:motion-change'], 'assembly listens for the shared manual preference');
+  env.events['fi:motion-change'].handler();
+  assert.equal(env.section.classList.has('is-scroll-ready'), false);
+  assert.ok(env.steps.every((step) => !step.classList.has('is-active')));
+  env.root.dataset.motion = 'on';
+  env.events['fi:motion-change'].handler();
+  env.flush();
+  assert.equal(env.section.classList.has('is-scroll-ready'), true);
 });
 
 test('a late image load does not fade the fallback to blank', () => {

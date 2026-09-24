@@ -54,7 +54,12 @@ test('glass guide is a static accessible responsive page with working local entr
   assert.match(guide, /href="how-it-works\.html#how-it-works"/)
   assert.match(css, /@media \(max-width: 650px\)/)
   assert.match(css, /\.glass-guide__grid \{ grid-template-columns: 1fr; \}/)
-  assert.doesNotMatch(guide, /<script|<canvas|<iframe/)
+  const scripts = [...guide.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)]
+  assert.equal(scripts.length, 1, 'guide loads only its optional shared motion enhancement')
+  assert.match(scripts[0][1], /src="site-motion\.js"/)
+  assert.match(scripts[0][1], /\bdefer\b/)
+  assert.equal(scripts[0][2].trim(), '', 'the guide has no inline script')
+  assert.doesNotMatch(guide, /<canvas|<iframe/)
   assert.doesNotMatch(css, /animation:|transition:/)
   for (const [, ref] of guide.matchAll(/(?:href|src)="([^"#]+)(?:#[^"]*)?"/g)) {
     if (ref.startsWith('https://')) continue

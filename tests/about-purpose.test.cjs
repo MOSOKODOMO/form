@@ -21,5 +21,5 @@ test('About page presents five one-sentence purpose statements', () => {
 test('About page distinguishes the planned store from the manual pilot', () => {
   assert.match(about, /The online store is our plan, not the current service\./);
   assert.match(about, /Today, our team handles each sourcing request personally/);
-  assert.match(about, /id="our-purpose" aria-labelledby="purpose-title"/);
+  assert.match(about, /<section\b(?=[^>]*\bid="our-purpose")(?=[^>]*\baria-labelledby="purpose-title")[^>]*>/);
 });

@@ -53,7 +53,7 @@
   }
 
   function configure() {
-    enabled = roomyViewport.matches && !reducedMotion.matches;
+    enabled = roomyViewport.matches && !reducedMotion.matches && document.documentElement?.dataset?.motion !== 'off';
     showcase.classList.toggle('is-scroll-ready', enabled);
     if (enabled) {
       queueRender();
@@ -80,6 +80,7 @@
 
   window.addEventListener('scroll', queueRender, { passive: true });
   window.addEventListener('resize', configure, { passive: true });
+  window.addEventListener('fi:motion-change', configure);
   // Older browsers without media-query change events retain the fully readable static view.
   if (!reducedMotion.addEventListener || !roomyViewport.addEventListener) return;
   reducedMotion.addEventListener('change', configure);

@@ -7,8 +7,10 @@
     <title>Fabrication Intelligence | Sourcing difficult building products</title>
     <link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg">
     <link rel="stylesheet" href="builders.css">
+    <link rel="stylesheet" href="site-motion.css">
+    <script src="site-motion.js" defer></script>
   </head>
-  <body>
+  <body data-motion-page="editorial">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="brand" href="./" aria-label="FABINT — Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT — Fabrication Intelligence" width="328" height="104"></a>
@@ -25,7 +27,7 @@
     </header>
 
     <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
+      <section id="overview" class="hero" data-motion-section="Overview" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow"><span></span> FABRICATION INTELLIGENCE</p>
           <h1 id="hero-title">Send us the thing<br>you can’t source.</h1>
@@ -47,7 +49,7 @@
         </aside>
       </section>
 
-      <section id="how-it-works" class="section process" aria-labelledby="process-title">
+      <section id="how-it-works" data-motion-section="Process" class="section process" aria-labelledby="process-title">
         <div class="section-intro">
           <p class="eyebrow"><span></span> HOW IT WORKS</p>
           <h2 id="process-title">A sourcing brief that is easier to compare.</h2>
@@ -71,7 +73,7 @@
         </div>
       </section>
 
-      <section id="comparison" class="comparison-section" aria-labelledby="comparison-title">
+      <section id="comparison" data-motion-section="Comparison" class="comparison-section" aria-labelledby="comparison-title">
         <div class="section-heading">
           <div>
             <p class="eyebrow eyebrow-light"><span></span> SAMPLE OUTPUT</p>
@@ -159,7 +161,7 @@
         <p class="comparison-caption">A delivered cost combines factory price, freight, duty, GST, inspection, final delivery and installation. Actual tax, duty, freight and installation costs depend on the item, origin, destination and agreed scope.</p>
       </section>
 
-      <section class="section promise" aria-labelledby="promise-title">
+      <section id="details" data-motion-section="Details" class="section promise" aria-labelledby="promise-title">
         <div class="promise-copy">
           <p class="eyebrow"><span></span> BUILT FOR BUILDERS</p>
           <h2 id="promise-title">Less chasing. More clarity before you commit.</h2>
@@ -177,7 +179,7 @@
         </div>
       </section>
 
-      <section class="cta-band" aria-labelledby="cta-title">
+      <section id="start-request" data-motion-section="Request" class="cta-band" aria-labelledby="cta-title">
         <div>
           <p class="eyebrow eyebrow-light"><span></span> PILOT OFFER</p>
           <h2 id="cta-title">Send us the thing<br>you can’t source.</h2>
@@ -189,7 +191,7 @@
         </div>
       </section>
 
-      <section class="team-section" aria-labelledby="team-title">
+      <section id="team" data-motion-section="Team" class="team-section" aria-labelledby="team-title">
         <div>
           <p class="eyebrow"><span></span> THE TEAM</p>
           <h2 id="team-title">The people behind the comparison.</h2>
