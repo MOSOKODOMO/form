@@ -49,6 +49,26 @@ test('the request form offers windows and glazing and emails the team a copy', (
   assert.match(migration, /'windows', 'stairs'/)
 })
 
+test('the pricing page shows the 10% fee as a table and Services links to it', () => {
+  const pricing = read('pricing.html')
+  assert.match(pricing, /10% only if you order/)
+  assert.equal((pricing.match(/<th scope="row">/g) || []).length, 4)
+  for (const value of ['<strong>Free</strong>', '10% of the delivered cost', 'At cost, itemised', 'Not included']) {
+    assert.ok(pricing.includes(value), `missing price: ${value}`)
+  }
+  const services = read('services.html')
+  assert.match(services, /our fee is 10% of the delivered cost/)
+  assert.doesNotMatch(services, /still being tested/)
+})
+
+test('the feedback form sends answers to the team inbox and is linked after a request', () => {
+  assert.match(read('feedback.js'), /formsubmit\.co\/ajax\/fabricationintelligence@gmail\.com/)
+  const page = read('feedback.html')
+  for (const name of ['role', 'would_use', 'fee', 'email']) assert.match(page, new RegExp(`name="${name}"`))
+  assert.match(read('stage2.html'), /href="feedback\.html"/)
+  assert.match(read('privacy.html'), /quote request or the feedback form/)
+})
+
 test('the old public request entry redirects to the single canonical request form', () => {
   const oldRequest = read('request.html')
   assert.match(oldRequest, /location\.replace\('stage2\.html#request'\)/)

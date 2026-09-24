@@ -45,3 +45,5 @@
 - The team contact address is now **fabricationintelligence@gmail.com** everywhere on the site (Contact page, Privacy page, request alerts). FormSubmit needs a one-time activation for a new address: the first submission sends an "Activate Form" email to that inbox, and alerts arrive only after someone clicks it.
 - "What happens next" now promises a reply within 48 hours. Quotes are still promised within 7 days.
 - Team portraits are 720 px JPEGs (about 48 KB each instead of about 1.9 MB).
+- New **Pricing** page (`pricing.html`): comparisons are free; the fee is 10% of the delivered cost, only when an order goes ahead, waived for the first 10 projects. Product and delivery costs pass through at cost, itemised. It's in every page's menu, and the Services page links to it.
+- New **1-minute feedback form** (`feedback.html`, `feedback.js`): role, ease of use, would they use it, reaction to the 10% fee, and what to source next. Answers email the team through FormSubmit. It's linked from the request confirmation and the homepage footer, for user testing and the pitch QR code.

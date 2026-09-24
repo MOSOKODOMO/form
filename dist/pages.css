@@ -1,0 +1,50 @@
+/* Pricing table and feedback form, used by pricing.html and feedback.html. */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+button.button { border: 0; cursor: pointer; }
+button.button:disabled { cursor: not-allowed; opacity: .6; }
+
+.price-table { width: 100%; margin-top: 26px; border-collapse: collapse; border-top: 1px solid var(--line); }
+.price-table th, .price-table td { padding: 24px 22px 24px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.price-table thead th { padding-top: 14px; padding-bottom: 14px; color: var(--muted); font: 500 10px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.price-table tbody th { width: 24%; font: 600 19px/1.3 var(--display); letter-spacing: -.03em; }
+.price-table td:nth-child(2) { width: 27%; }
+.price-table td strong { display: block; color: var(--accent); font: 600 21px/1.25 var(--display); letter-spacing: -.03em; }
+.price-table td small { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; }
+.price-table ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
+.price-table li + li { margin-top: 5px; }
+.price-row-featured th { padding-left: 16px; box-shadow: inset 3px 0 0 var(--accent); }
+
+.feedback-form { max-width: 780px; margin-top: 10px; }
+.feedback-form fieldset { margin: 0; padding: 26px 0; border: 0; border-bottom: 1px solid var(--line); }
+.feedback-form legend, .feedback-question { display: block; margin-bottom: 14px; padding: 0; font: 600 17px/1.4 var(--display); letter-spacing: -.02em; }
+.feedback-hint { display: block; margin: -8px 0 14px; color: var(--muted); font-size: 13px; }
+.choice-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.choice { position: relative; }
+.choice input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.choice span { display: inline-block; padding: 10px 15px; border: 1px solid var(--field-border); color: var(--ink); font-size: 13px; cursor: pointer; }
+.choice span:hover { border-color: var(--accent); }
+.choice input:checked + span { border-color: var(--accent); color: var(--on-accent); background: var(--accent); font-weight: 700; }
+.choice input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+.feedback-form textarea, .feedback-form input[type="text"], .feedback-form input[type="email"] { width: 100%; padding: 11px 12px; border: 1px solid var(--field-border); border-radius: 2px; color: var(--ink); background: var(--surface); }
+.feedback-form textarea { min-height: 92px; resize: vertical; }
+.feedback-form textarea:focus, .feedback-form input:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px var(--focus); }
+.feedback-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.feedback-contact label { display: flex; flex-direction: column; gap: 7px; color: var(--muted); font-size: 13px; }
+.feedback-honeypot { position: absolute; left: -9999px; }
+.feedback-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 6px; }
+#feedback-status { color: var(--muted); font-size: 13px; }
+#feedback-status.error-text { color: var(--error); }
+.feedback-privacy { margin-top: 18px; color: var(--muted); font-size: 12px; }
+.feedback-thanks { max-width: 780px; margin-top: 26px; padding: 30px; border: 1px solid var(--line); background: var(--soft); }
+.feedback-thanks h2 { margin-top: 0; }
+.feedback-thanks p { margin-top: 14px; color: var(--muted); }
+
+@media (max-width: 700px) {
+  .price-table, .price-table tbody, .price-table tr, .price-table th, .price-table td { display: block; width: auto; }
+  .price-table tbody th, .price-table td:nth-child(2) { width: auto; }
+  .price-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .price-table tr { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .price-table th, .price-table td { padding: 5px 0; border: 0; }
+  .price-row-featured th { padding-left: 12px; }
+  .feedback-contact { grid-template-columns: 1fr; }
+}
