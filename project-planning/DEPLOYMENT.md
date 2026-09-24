@@ -1,4 +1,4 @@
-# Deployment — 17 September 2026
+# Deployment, 17 September 2026
 
 Published commit: 1f39ea3 (bilingual RFQ prototype and staircase catalogue).
 Hosting: GitHub Pages, MOSOKODOMO/form, GitHub Actions deployment from dist.

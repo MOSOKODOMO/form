@@ -55,7 +55,7 @@ test('journey explains quote, approval, inspection and delivery limitations with
   assert.match(copy, /arrival|arrive/i)
   assert.match(copy, /request[^.]*not[^.]*order/i)
   assert.match(copy, /no online payments|do not (?:take|process|accept) (?:online )?payments|does not (?:take|process|accept) (?:online )?payments/i)
-  assert.match(copy, /Seven days is our quote target—not a delivery promise\./)
+  assert.match(copy, /Seven days is our quote target, not a delivery promise\./)
   assert.match(copy, /Installation and independent inspection are included only when explicitly quoted\./)
 })
 

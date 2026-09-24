@@ -1,4 +1,4 @@
-# Fabrication Intelligence — next website version
+# Fabrication Intelligence: next website version
 
 Current status (21 September 2026): the Week 3 public pages and account flows are implemented; account and supplier schemas are installed in Supabase. See [WEEK-3-IMPLEMENTATION.md](WEEK-3-IMPLEMENTATION.md) for the current release. Earlier sections below retain the development history.
 
@@ -29,7 +29,7 @@ Drawing filename means text only, not an uploaded drawing. Requests are never se
 
 Fabricator selection requires a checked directory dataset. No companies or verification claims have been invented. Recipient selection and its persistence remain to be implemented when that dataset is available.
 
-## Stage 3 supplier workspace — ready to configure
+## Stage 3 supplier workspace: ready to configure
 
 - `dist/supplier-portal.html` is an invitation-only English / Simplified Chinese workspace for supplier company profiles and catalogue submissions.
 - A supplier can update only its own profile, add products, attach private images/PDF/DOCX files (10 MB each), and submit its information for FI review.
@@ -65,7 +65,7 @@ The Stage 2 demo is separate from the earlier M2 browser-storage preview. GitHub
 6. Check negative/fractional quantities and past dates are rejected. Check phone-width layout.
 7. Verify that no upload or sending confirmation is shown.
 
-## Pilot preview fixes — 17 September (Prem)
+## Pilot preview fixes, 17 September (Prem)
 
 - Requests now reach the team by email through FormSubmit: "Send request" on the saved RFQ view and the staircase review screen posts the full brief to `FI_CONTACT_EMAIL` (`dist/contact.js`), with the visitor's email as reply-to. (A first version used a mailto link, but it did nothing on laptops without a desktop email app.) Both forms now require the visitor's email and take an optional phone number. Failed sends show the error, a Copy request button and the contact address; saved RFQs record when they were sent. A proper backend (database + team email) is still needed for Stage 1, and a privacy page should mention FormSubmit.
 - Contact email shown in the footer on every view and in the no-JavaScript message.
@@ -76,6 +76,6 @@ The Stage 2 demo is separate from the earlier M2 browser-storage preview. GitHub
 
 Still open (FI Tasks board): merge the two request forms, third-party catalogue photos, Home/How it works/About/Contact pages, builder-friendly fields and shorter references.
 
-## Simple improvements — 17 September
+## Simple improvements, 17 September
 
 My RFQs supports case-insensitive search by project, reference or material, with a result count and no-results message. Saved briefs can be downloaded as UTF-8 text in the selected language. Downloads include the reference, all brief fields and the local-only status; no drawing file is attached.

@@ -92,16 +92,16 @@ function alertTeam(payload) {
     `Reference: ${payload.reference}`,
     `Name: ${payload.requester_name}`,
     `Email: ${payload.requester_email}`,
-    `Company: ${payload.company || '—'}`,
+    `Company: ${payload.company || 'none'}`,
     `Project: ${payload.project_name}`,
     `Category: ${payload.category}`,
     `Material: ${payload.material}`,
     `Quantity: ${payload.quantity}`,
     `Dimensions: ${payload.dimensions}`,
-    `Finish: ${payload.finish || '—'}`,
+    `Finish: ${payload.finish || 'none'}`,
     `Delivery: ${payload.delivery_date} · ${payload.destination_port}`,
     `Drawing: ${payload.drawing_name ? `${payload.drawing_name} (in Supabase)` : 'none'}`,
-    `Notes: ${payload.notes || '—'}`,
+    `Notes: ${payload.notes || 'none'}`,
   ]
   return fetch(TEAM_ALERT_ENDPOINT, {
     method: 'POST',
@@ -183,7 +183,7 @@ async function submitRequest(event) {
 }
 
 function formatDate(value) {
-  if (!value) return '—'
+  if (!value) return 'Not set'
   return new Intl.DateTimeFormat(language === 'zh' ? 'zh-CN' : 'en-AU', {year: 'numeric', month: 'short', day: 'numeric'}).format(new Date(value))
 }
 

@@ -12,7 +12,7 @@
 - Manufacturer self-sign-up does not create supplier access. FI must separately approve the application and create a supplier membership.
 - Added row-level security policies so account data is scoped to the signed-in user, while FI team access remains controlled by the existing team-members table.
 
-## Deployment status — 21 September 2026
+## Deployment status, 21 September 2026
 
 - Applied the account and supplier schemas to the existing Supabase project `dszagdjnymxalpwamjyh`.
 - Supabase security advisor reports no findings. Transactional integration checks verify ownership isolation, valid submission requirements and blocked self-approval; all fixtures are rolled back.
@@ -37,7 +37,7 @@
 - Complete and log the Week 3 interview/outreach targets; the website does not fabricate these activities.
 - Review the Privacy page with the team before public launch and add any required business or legal details.
 
-## 24 September 2026 — pitch-day fixes
+## 24 September 2026: pitch-day fixes
 
 - The request form lists **Windows & glazing** first. Until the database allows it, windows requests save as `other` with "Category: Windows & glazing" at the top of the notes, so submissions never fail.
 - **Moss: run `supabase/migrations/20260924050000_fi_windows_category.sql` in the Supabase SQL editor** so windows requests keep their own category. Supplier catalogue items still use the old category list.
@@ -47,3 +47,4 @@
 - Team portraits are 720 px JPEGs (about 48 KB each instead of about 1.9 MB).
 - New **Pricing** page (`pricing.html`): comparisons are free; the fee is 10% of the delivered cost, only when an order goes ahead, waived for the first 10 projects. Product and delivery costs pass through at cost, itemised. It's in every page's menu, and the Services page links to it.
 - New **1-minute feedback form** (`feedback.html`, `feedback.js`): role, ease of use, would they use it, reaction to the 10% fee, and what to source next. Answers email the team through FormSubmit. It's linked from the request confirmation and the homepage footer, for user testing and the pitch QR code.
+- Cleanup before the pitch: removed the old staircase concept page (`concept.html`), its scripts and the third-party staircase and prefab photos, which nothing linked to any more. Replaced every em dash on the site and in these notes. Fixed the browser-tab icon so the FABINT dots show. Added share previews (`assets/share-card.jpg` plus Open Graph tags) to the public pages.

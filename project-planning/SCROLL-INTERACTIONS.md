@@ -4,11 +4,11 @@ Updated 24 September 2026.
 
 ## Experience
 
-- `dist/site-motion.js` and `dist/site-motion.css` enhance all 15 full HTML pages. The legacy request redirect remains a redirect.
+- `dist/site-motion.js` and `dist/site-motion.css` enhance all 14 full HTML pages. The legacy request redirect remains a redirect.
 - Editorial pages use a reading-progress line, a desktop section picker with next/top links, one-time section/card reveals and small glass-card hover responses.
 - The homepage product image has subtle desktop depth movement. The existing glass assembly keeps its own isolated scroll sequence.
 - The order journey highlights steps and connector lines as they enter the reading area. This is reading progress, not live order status.
-- Functional pages (request, login, account, manufacturer portal, contact, feedback and concept tool) do not reveal, translate or hide form content. Their motion controls stay in normal document flow.
+- Functional pages (request, login, account, manufacturer portal, contact and feedback) do not reveal, translate or hide form content. Their motion controls stay in normal document flow.
 
 ## Accessibility and fallbacks
 

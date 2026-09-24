@@ -136,7 +136,7 @@ test('motion math is bounded and device reduced-motion always takes precedence',
 });
 
 test('every full page wires one deferred shared script and stylesheet with a declared page mode', () => {
-  const functional = new Set(['auth.html', 'account.html', 'stage2.html', 'supplier-portal.html', 'feedback.html']);
+  const functional = new Set(['auth.html', 'account.html', 'stage2.html', 'supplier-portal.html', 'feedback.html', 'contact.html']);
   for (const page of fs.readdirSync(path.join(__dirname, '../dist')).filter((file) => file.endsWith('.html') && file !== 'request.html')) {
     const html = read(page);
     assert.equal((html.match(/<script\b[^>]*src="site-motion\.js"[^>]*>/g) || []).length, 1, `${page} loads the shared script once`);
