@@ -3,12 +3,14 @@
   <head>
     <meta charset="utf-8"><meta name="theme-color" content="#252b23"><meta name="color-scheme" content="dark">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Glass quality and more affordable windows. Fabrication Intelligence compares sourcing options and delivered costs in AUD for Australian customers.">
-    <title>Fabrication Intelligence | Glass quality. Clearer window costs.</title>
+    <meta name="description" content="Creating more affordable homes for Australians, starting with windows and glass. Discover glass types and compare overseas and local window prices in AUD.">
+    <title>FABINT | More affordable homes. Starting with windows.</title>
     <link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg">
     <link rel="stylesheet" href="builders.css">
+    <link rel="stylesheet" href="glass-guide.css">
     <link rel="stylesheet" href="customer-journey.css">
     <link rel="stylesheet" href="window-showcase.css">
+    <link rel="stylesheet" href="window-home.css">
     <script src="window-showcase.js" defer></script>
   </head>
   <body>
@@ -16,38 +18,169 @@
     <header class="site-header">
       <a class="brand" href="./" aria-label="FABINT — Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT — Fabrication Intelligence" width="328" height="104"></a>
       <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#glass">Our windows</a>
+        <a href="#glass-guide">Glass types</a>
+        <a href="#comparison">Price comparison</a>
         <a href="how-it-works.html">How it works</a>
-        <a href="services.html">Services</a>
         <a href="pricing.html">Pricing</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="glass-guide.html">Glass guide</a>
         <a href="auth.html">Log in</a>
-        <a class="nav-cta" href="stage2.html#request">Send a request <span aria-hidden="true">↗</span></a>
+        <a class="nav-cta" href="stage2.html#request">Get a window quote <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
 
     <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero window-home-hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow"><span></span> FABRICATION INTELLIGENCE</p>
-          <h1 id="hero-title">Send us the thing<br>you can’t source.</h1>
-          <p class="hero-lead">Starting with glass quality and more affordable windows. Within 7 days, we’ll come back with up to three quotes, each showing the full delivered cost in AUD.</p>
+          <h1 id="hero-title">Creating more affordable homes for Australians.</h1>
+          <p class="window-home-focus">Starting with windows &amp; glass.</p>
+          <p class="hero-lead">Our goal is to bring better-value building products from overseas to Australian homes. We’re starting with windows: understand the glass, check the quality and compare the cost before you buy.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="stage2.html#request">Send a sourcing request <span aria-hidden="true">↗</span></a>
-            <a class="text-link" href="#comparison">See a window price comparison <span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="stage2.html#request">Get a window quote <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#comparison">Compare window prices <span aria-hidden="true">↓</span></a>
           </div>
-          <p class="offer-note"><strong>Free for our first 10 projects.</strong> No obligation to order.</p>
+          <p class="offer-note"><strong>Free to request a quote.</strong> Our service fee is waived for our first 10 projects. <a href="pricing.html">See pricing</a>.</p>
         </div>
-        <aside class="hero-card" aria-label="What you receive">
-          <p class="card-label">ONE CLEAR NUMBER</p>
-          <p class="hero-card-total">Delivered cost<br><span>in AUD</span></p>
-          <ul>
-            <li><span>01</span> Up to three comparable maker options</li>
-            <li><span>02</span> A full landed-cost breakdown</li>
-            <li><span>03</span> Scope and assumptions made visible</li>
-          </ul>
-        </aside>
+        <figure class="window-home-product">
+          <div class="window-home-product-label"><span>OUR STARTING POINT</span><span>01 / WINDOWS</span></div>
+          <img src="assets/window-low-e-marketing.png" alt="Concept illustration of a graphite double-casement window with reflective glass" width="1536" height="1024" fetchpriority="high" decoding="async">
+          <figcaption><h2>Better-value windows.<br>Glass you understand.</h2><p>Explore Low-E, double glazing and safety glass before choosing your window specification.</p><a class="text-link" href="#glass-guide">Find the right glass for your needs <span aria-hidden="true">↓</span></a><small>Concept visual—not an exact supplier product or performance certification.</small></figcaption>
+        </figure>
+      </section>
+
+
+      <section id="glass" class="window-showcase" data-window-showcase aria-labelledby="glass-title">
+        <div class="window-showcase__pin">
+          <header class="window-showcase__heading">
+            <div><p class="eyebrow"><span></span> GLASS FIRST</p><h2 id="glass-title">Better glass.<br>A clearer price.</h2></div>
+            <p>Quality and affordability start with understanding what you are comparing.</p>
+          </header>
+          <figure class="window-showcase__visual">
+            <div class="window-showcase__product">
+              <span class="window-showcase__coordinate" aria-hidden="true">FI / GLAZING STUDY 01</span>
+              <svg class="window-showcase__diagram" viewBox="0 0 760 520" aria-hidden="true" focusable="false">
+                <defs>
+                  <linearGradient id="glass-study-tint" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6f1d8" stop-opacity=".3"/><stop offset=".45" stop-color="#647b70" stop-opacity=".08"/><stop offset="1" stop-color="#c4d4c4" stop-opacity=".35"/></linearGradient>
+                  <linearGradient id="glass-study-frame" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6b7368"/><stop offset=".5" stop-color="#252b26"/><stop offset="1" stop-color="#838b7c"/></linearGradient>
+                </defs>
+                <g class="window-showcase__guides" fill="none" stroke="#c5d5b6" stroke-opacity=".18" stroke-width="1"><path d="M105 60V460M655 60V460M80 90H680M80 430H680" stroke-dasharray="4 7"/><path d="M185 70H575M185 64V76M575 64V76"/><path d="M603 92V428M597 92H609M597 428H609"/></g>
+                <g class="window-showcase__frame" fill="none" stroke="url(#glass-study-frame)"><rect x="185" y="90" width="390" height="340" stroke-width="22"/><path d="M380 99V421" stroke-width="16"/><rect x="201" y="106" width="163" height="308" stroke-width="6"/><rect x="396" y="106" width="163" height="308" stroke-width="6"/></g>
+                <g class="window-showcase__back-pane" fill="url(#glass-study-tint)" stroke="#b4c1b0" stroke-width="1.2"><rect x="207" y="112" width="151" height="296"/><rect x="402" y="112" width="151" height="296"/></g>
+                <g class="window-showcase__spacer" fill="none" stroke="#dce970" stroke-opacity=".7" stroke-width="2" stroke-dasharray="5 4"><rect x="204" y="109" width="157" height="302"/><rect x="399" y="109" width="157" height="302"/></g>
+                <g class="window-showcase__front-pane" fill="url(#glass-study-tint)" stroke="#dce970" stroke-width="1.5"><rect x="207" y="112" width="151" height="296"/><rect x="402" y="112" width="151" height="296"/><path d="M221 275L336 139M416 275L531 139M221 306L336 170M416 306L531 170" fill="none" stroke="#eef4e8" stroke-opacity=".25"/></g>
+                <g fill="#bac8b0" font-family="ui-monospace, monospace" font-size="10" letter-spacing="2"><text x="319" y="56">CONCEPT LAYERS</text><text x="258" y="474">LOW-E / CAVITY / SECOND PANE</text></g>
+              </svg>
+              <img class="window-showcase__image" src="assets/window-low-e-marketing.png" alt="Concept illustration of a graphite double-casement window with reflective glazing" width="1536" height="1024" loading="lazy" decoding="async">
+              <div class="window-showcase__visual-status" aria-hidden="true"><span data-window-stage>03 / READY TO COMPARE</span><span>6 / 12 / 6</span></div>
+            </div>
+            <figcaption>Concept visual only—not a supplier drawing, an exact product depiction or certified performance evidence.</figcaption>
+          </figure>
+          <div class="window-showcase__story">
+            <ol class="window-showcase__steps">
+              <li data-window-step><span class="window-showcase__step-number">01</span><div><h3>Start with the glass.</h3><p>Low-E is a coating choice, not a window style. Confirm the coating, glass treatment and performance evidence for your project.</p></div></li>
+              <li data-window-step><span class="window-showcase__step-number">02</span><div><h3>Look beyond one pane.</h3><p>This 6 / 12 / 6 double-glazing study illustrates two panes and a cavity. It is separate from the single-glazed sliding windows priced below.</p></div></li>
+              <li data-window-step><span class="window-showcase__step-number">03</span><div><h3>Compare quality. Then cost.</h3><p>Check the specification, test evidence and warranty alongside the full delivered price in AUD—not just the cheapest starting number.</p></div></li>
+            </ol>
+            <a class="text-link" href="#comparison">Explore the price comparison <span aria-hidden="true">↓</span></a>
+            <p class="window-showcase__scroll-hint" aria-hidden="true">SCROLL TO BRING THE LAYERS TOGETHER <span>↓</span></p>
+            <div class="window-showcase__progress" aria-hidden="true"><span></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="glass-guide" class="section glass-education" aria-labelledby="glass-education-title">
+        <header class="glass-education-heading">
+          <div><p class="eyebrow"><span></span> CHOOSE THE GLASS, NOT JUST THE PRICE</p><h2 id="glass-education-title">What should your<br>glass do for you?</h2></div>
+          <p>Comfort, safety, privacy or a clearer view? These glass types do different jobs and can be combined in one window.</p>
+        </header>
+        <div class="home-glass-grid">
+          <article class="home-glass-card"><div class="home-glass-card-top"><span>01 / COATING</span><div class="glass-swatch glass-swatch--low-e" aria-hidden="true"><i></i></div></div><h3>Low-E glass</h3><p>A coating that reduces heat transfer through the glass.</p><p class="home-glass-use"><strong>Consider for</strong> Thermal comfort in living spaces and bedrooms.</p><small>Choose for your climate. Low-E does not automatically mean double glazing.</small><a href="glass-guide.html#low-e">Understand Low-E <span aria-hidden="true">↗</span></a></article>
+          <article class="home-glass-card"><div class="home-glass-card-top"><span>02 / INSULATED UNIT</span><div class="glass-swatch glass-swatch--double" aria-hidden="true"><i></i><i></i></div></div><h3>Double glazing</h3><p>Two panes with a sealed cavity between them to improve insulation.</p><p class="home-glass-use"><strong>Consider for</strong> Windows where thermal performance is a priority.</p><small>Glass, cavity and frame all matter. Double glazing alone is not a safety-glass specification.</small><a href="glass-guide.html#double-glazing">Explore double glazing <span aria-hidden="true">↗</span></a></article>
+          <article class="home-glass-card"><div class="home-glass-card-top"><span>03 / SAFETY TREATMENT</span><div class="glass-swatch glass-swatch--toughened" aria-hidden="true"><i></i></div></div><h3>Toughened glass</h3><p>Heat-treated glass that breaks into small fragments rather than large shards.</p><p class="home-glass-use"><strong>Consider for</strong> Correctly specified windows, doors and shower screens.</p><small>It is not unbreakable and does not hold fragments in place after breakage.</small><a href="glass-guide.html#toughened">Understand toughened glass <span aria-hidden="true">↗</span></a></article>
+          <article class="home-glass-card"><div class="home-glass-card-top"><span>04 / BONDED GLASS</span><div class="glass-swatch glass-swatch--laminated" aria-hidden="true"><i></i><i></i><i></i></div></div><h3>Laminated glass</h3><p>An interlayer bonds glass sheets and helps retain broken fragments.</p><p class="home-glass-use"><strong>Consider for</strong> Suitable windows and doors where fragment retention matters.</p><small>Acoustic and security versions need their own specification; laminated glass alone does not guarantee fall protection.</small><a href="glass-guide.html#laminated">Explore laminated glass <span aria-hidden="true">↗</span></a></article>
+          <article class="home-glass-card"><div class="home-glass-card-top"><span>05 / DAYLIGHT &amp; VIEWS</span><div class="glass-swatch glass-swatch--clear" aria-hidden="true"><i></i></div></div><h3>Clear float glass</h3><p>Clear, flat glass that lets in daylight and preserves the view.</p><p class="home-glass-use"><strong>Consider for</strong> General glazing where suitable, or as a base for processed glass.</p><small>Ordinary annealed float is not safety glass. Appearance alone does not tell you performance.</small><a href="glass-guide.html#clear-float">Explore clear glass <span aria-hidden="true">↗</span></a></article>
+          <article class="home-glass-card"><div class="home-glass-card-top"><span>06 / GLARE CONTROL</span><div class="glass-swatch glass-swatch--tinted" aria-hidden="true"><i></i></div></div><h3>Tinted glass</h3><p>Colour in the glass can reduce glare and incoming solar heat.</p><p class="home-glass-use"><strong>Consider for</strong> Bright, glare-prone windows where less daylight is acceptable.</p><small>Tint is not insulation, a safety treatment or guaranteed privacy; thermal-stress assessment may be needed.</small><a href="glass-guide.html#tinted">Understand tinted glass <span aria-hidden="true">↗</span></a></article>
+          <article class="home-glass-card"><div class="home-glass-card-top"><span>07 / PRIVACY</span><div class="glass-swatch glass-swatch--obscure" aria-hidden="true"><i></i></div></div><h3>Frosted / obscure glass</h3><p>A finish, pattern or translucent interlayer softens views while admitting light.</p><p class="home-glass-use"><strong>Consider for</strong> Privacy-focused windows, such as bathrooms, and partitions.</p><small>Privacy levels vary. Safety requirements still need to be specified separately.</small><a href="glass-guide.html#frosted">Explore privacy glass <span aria-hidden="true">↗</span></a></article>
+          <aside class="home-glass-help"><p class="eyebrow"><span></span> PUT IT TOGETHER</p><h3>One window.<br>Several choices.</h3><p>A window can combine Low-E, double glazing and toughened or laminated glass. Ask a qualified glazier or designer to confirm the right specification for your project.</p><a class="text-link" href="glass-guide.html">Read the complete glass guide <span aria-hidden="true">↗</span></a></aside>
+        </div>
+        <div class="glass-education-footer"><p>General education, not a product specification or confirmation of available stock. Manufacturer references and limitations are in our glass guide.</p><a class="text-link" href="#comparison">Now compare window costs <span aria-hidden="true">↓</span></a></div>
+      </section>
+
+      <section id="comparison" class="comparison-section window-comparison window-comparison--pair" aria-labelledby="comparison-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow-light"><span></span> WINDOW PRICE COMPARISON</p>
+            <h2 id="comparison-title">Overseas and local.<br>See the starting prices.</h2>
+          </div>
+          <div class="sample-notice" role="note">
+            <strong>Different specs. Different inclusions.</strong>
+            <p>All prices in AUD. These are public listing references, not like-for-like Australian delivered totals or a confirmed FABINT offer.</p>
+          </div>
+        </div>
+        <div class="request-summary" aria-label="Window request summary">
+          <span>PRODUCT CATEGORY</span>
+          <strong>Complete aluminium sliding windows · single glazing · qty 1</strong>
+          <span>Different sizes and glass · no verified savings claim</span>
+        </div>
+        <p class="comparison-caption">A lower overseas product price is a starting point—not the final cost to your door. The same cost categories are shown below, but the Thai window still needs an Australian freight, tax and compliance assessment before it could be offered for your project.</p>
+        <div class="quote-grid">
+          <article class="quote-card">
+            <header>
+              <p>OVERSEAS ROUTE <span>THAILAND</span></p>
+              <h3>Thai sourcing reference</h3>
+              <small>Complete aluminium sliding window · published listing</small>
+            </header>
+            <div class="quote-price"><span>PRODUCT PRICE ONLY · APPROX. AUD</span><strong>A$156.55</strong><small>Australian shipping, import costs and our service fee are not included in this reference.</small></div>
+            <dl>
+              <div><dt>Window / frame</dt><dd>Sliding · aluminium</dd></div>
+              <div><dt>Size (W × H)</dt><dd>1200 × 1100 mm</dd></div>
+              <div><dt>Glass</dt><dd>5 mm green-tinted · single</dd></div>
+              <div><dt>Finish</dt><dd>White listing · confirm finish</dd></div>
+              <div><dt>Australian GST</dt><dd>Unconfirmed · not priced</dd></div>
+              <div><dt>Import / clearance</dt><dd>Unconfirmed · not priced</dd></div>
+              <div><dt>Australian door delivery</dt><dd>Unconfirmed · not priced</dd></div>
+              <div><dt>Installation</dt><dd>Not priced · arrange separately</dd></div>
+              <div><dt>FABINT service fee</dt><dd>10% of delivered cost*<br>Pilot waiver available</dd></div>
+            </dl>
+            <footer>
+              <span>AUSTRALIAN DELIVERED TOTAL</span>
+              <strong class="quote-pending">Quote required</strong>
+              <small>Not a confirmed supply arrangement. The listing does not establish Australian availability, warranty support or certification. Its finish details conflict, so the colour also needs confirmation.</small>
+              <small><a href="https://windowasia.com/en/product/aluminum-sliding-window-white-s-s-120x110-en/">Published Thai product source</a> · checked 24 Sep 2026</small>
+            </footer>
+          </article>
+          <article class="quote-card">
+            <header>
+              <p>LOCAL BENCHMARK <span>AUSTRALIA</span></p>
+              <h3>Stegbar</h3>
+              <small>Sliding Window 2.0 · online retail reference</small>
+            </header>
+            <div class="quote-price"><span>ONLINE SUPPLY PRICE · AUD</span><strong>A$742.50</strong><small>Sale price including GST, reveals and delivery to eligible Australian areas. Installation excluded.</small></div>
+            <dl>
+              <div><dt>Window / frame</dt><dd>Sliding · aluminium</dd></div>
+              <div><dt>Size (W × H)</dt><dd>1210 × 1200 mm</dd></div>
+              <div><dt>Glass</dt><dd>Clear · single<br>Thickness not published</dd></div>
+              <div><dt>Finish</dt><dd>Pearl White Gloss</dd></div>
+              <div><dt>Australian GST</dt><dd>Included</dd></div>
+              <div><dt>Import / clearance</dt><dd>No separate charge listed</dd></div>
+              <div><dt>Australian door delivery</dt><dd>Included · eligible areas only</dd></div>
+              <div><dt>Installation</dt><dd>Excluded · arrange separately</dd></div>
+              <div><dt>FABINT service fee</dt><dd>None when buying direct<br>from Stegbar</dd></div>
+            </dl>
+            <footer>
+              <span>DELIVERY SCOPE</span>
+              <strong class="quote-pending">Check your postcode</strong>
+              <small>Front-door delivery at ground level in serviceable areas; stairs, steps and lifts are excluded. Confirm the selected size, current sale price and delivery eligibility before ordering.</small>
+              <small><a href="https://www.stegbar.com.au/products/sliding-window-2-0?variant=51662968160487">Stegbar product source</a> · <a href="https://www.stegbar.com.au/pages/shop-online-support-centre">Delivery terms</a> · checked 24 Sep 2026</small>
+            </footer>
+          </article>
+        </div>
+        <div class="comparison-verification" role="note">
+          <h3>The price gap is not a verified saving.</h3>
+          <p>These windows differ in size, glass and inclusions. Neither listing here is a Low-E double-glazed comparison, and equal quality or Australian suitability has not been established. A fair delivered comparison requires matching specifications, test evidence, warranty and a written total to the same Australian address. Unknown costs are not zero.</p>
+          <p>*Our service fee is 10% of the delivered cost when an order proceeds, waived for our first 10 projects. Because the Thai delivered cost is unknown, no final service fee or FABINT selling price is calculated here. <a href="pricing.html">Read our pricing</a> or <a href="stage2.html#request">request a project-specific window quote</a>.</p>
+          <p>Thai reference converted at 23.57 THB per AUD using the <a href="https://www.rba.gov.au/statistics/frequency/exchange-rates.html">RBA reference rate dated 23 Sep 2026</a>, excluding exchange spreads and payment fees. This is an indicative conversion, not an exchange-rate offer. Sources checked 24 Sep 2026; prices can change.</p>
+        </div>
       </section>
 
       <section id="how-it-works" class="customer-journey" aria-labelledby="journey-title">
@@ -65,8 +198,8 @@
           <li class="journey-step">
             <div class="journey-node"><span class="journey-number">02</span></div>
             <div class="journey-visual"><svg class="journey-icon" aria-hidden="true" focusable="false"><use href="assets/customer-journey-icons.svg#compare"></use></svg><span class="journey-owner">FABINT → YOU</span></div>
-            <h3>Compare your options</h3>
-            <p>We aim to return up to three quotes within seven days, showing costs in AUD, glass specifications and anything still to confirm.</p>
+            <h3>Compare your window quote</h3>
+            <p>We aim to return your window quote within seven days, with glass specifications, costs in AUD and a local benchmark where available.</p>
           </li>
           <li class="journey-step">
             <div class="journey-node"><span class="journey-number">03</span></div>
@@ -97,191 +230,41 @@
         <div class="journey-actions"><p>Submitting a request is not placing an order. Our pilot is personally managed; we do not take online payments.</p><a class="button button-primary" href="stage2.html#request">Start with your window brief <span aria-hidden="true">↗</span></a></div>
       </section>
 
-      <section id="glass" class="window-showcase" data-window-showcase aria-labelledby="glass-title">
-        <div class="window-showcase__pin">
-          <header class="window-showcase__heading">
-            <div><p class="eyebrow"><span></span> GLASS FIRST</p><h2 id="glass-title">Better glass.<br>A clearer price.</h2></div>
-            <p>Quality and affordability start with understanding what you are comparing.</p>
-          </header>
-          <figure class="window-showcase__visual">
-            <div class="window-showcase__product">
-              <span class="window-showcase__coordinate" aria-hidden="true">FI / GLAZING STUDY 01</span>
-              <svg class="window-showcase__diagram" viewBox="0 0 760 520" aria-hidden="true" focusable="false">
-                <defs>
-                  <linearGradient id="glass-study-tint" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6f1d8" stop-opacity=".3"/><stop offset=".45" stop-color="#647b70" stop-opacity=".08"/><stop offset="1" stop-color="#c4d4c4" stop-opacity=".35"/></linearGradient>
-                  <linearGradient id="glass-study-frame" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6b7368"/><stop offset=".5" stop-color="#252b26"/><stop offset="1" stop-color="#838b7c"/></linearGradient>
-                </defs>
-                <g class="window-showcase__guides" fill="none" stroke="#c5d5b6" stroke-opacity=".18" stroke-width="1"><path d="M105 60V460M655 60V460M80 90H680M80 430H680" stroke-dasharray="4 7"/><path d="M185 70H575M185 64V76M575 64V76"/><path d="M603 92V428M597 92H609M597 428H609"/></g>
-                <g class="window-showcase__frame" fill="none" stroke="url(#glass-study-frame)"><rect x="185" y="90" width="390" height="340" stroke-width="22"/><path d="M380 99V421" stroke-width="16"/><rect x="201" y="106" width="163" height="308" stroke-width="6"/><rect x="396" y="106" width="163" height="308" stroke-width="6"/></g>
-                <g class="window-showcase__back-pane" fill="url(#glass-study-tint)" stroke="#b4c1b0" stroke-width="1.2"><rect x="207" y="112" width="151" height="296"/><rect x="402" y="112" width="151" height="296"/></g>
-                <g class="window-showcase__spacer" fill="none" stroke="#dce970" stroke-opacity=".7" stroke-width="2" stroke-dasharray="5 4"><rect x="204" y="109" width="157" height="302"/><rect x="399" y="109" width="157" height="302"/></g>
-                <g class="window-showcase__front-pane" fill="url(#glass-study-tint)" stroke="#dce970" stroke-width="1.5"><rect x="207" y="112" width="151" height="296"/><rect x="402" y="112" width="151" height="296"/><path d="M221 275L336 139M416 275L531 139M221 306L336 170M416 306L531 170" fill="none" stroke="#eef4e8" stroke-opacity=".25"/></g>
-                <g fill="#bac8b0" font-family="ui-monospace, monospace" font-size="10" letter-spacing="2"><text x="319" y="56">CONCEPT LAYERS</text><text x="258" y="474">LOW-E / CAVITY / SECOND PANE</text></g>
-              </svg>
-              <img class="window-showcase__image" src="assets/window-low-e-marketing.png" alt="Concept illustration of a graphite double-casement window with reflective glazing" width="1536" height="1024" loading="lazy" decoding="async">
-              <div class="window-showcase__visual-status" aria-hidden="true"><span data-window-stage>03 / READY TO COMPARE</span><span>6 / 12 / 6</span></div>
-            </div>
-            <figcaption>Concept visual only—not a supplier drawing, an exact product depiction or certified performance evidence.</figcaption>
-          </figure>
-          <div class="window-showcase__story">
-            <ol class="window-showcase__steps">
-              <li data-window-step><span class="window-showcase__step-number">01</span><div><h3>Start with the glass.</h3><p>Our comparison target starts with a 6 mm Low-E pane; the coating specification and supplier evidence still need to match.</p></div></li>
-              <li data-window-step><span class="window-showcase__step-number">02</span><div><h3>Look beyond one pane.</h3><p>A 12 mm cavity and a second 6 mm toughened pane complete the target glazing build-up; confirm the actual unit and whole-window performance.</p></div></li>
-              <li data-window-step><span class="window-showcase__step-number">03</span><div><h3>Compare quality. Then cost.</h3><p>Check the specification, test evidence and warranty alongside the full delivered price in AUD—not just the cheapest starting number.</p></div></li>
-            </ol>
-            <a class="text-link" href="#comparison">Explore the price comparison <span aria-hidden="true">↓</span></a>
-            <p class="window-showcase__scroll-hint" aria-hidden="true">SCROLL TO BRING THE LAYERS TOGETHER <span>↓</span></p>
-            <div class="window-showcase__progress" aria-hidden="true"><span></span></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="glass-guide" class="section glass-education" aria-labelledby="glass-education-title">
-        <header class="glass-education-heading">
-          <div><p class="eyebrow"><span></span> KNOW YOUR GLASS</p><h2 id="glass-education-title">Different glass.<br>Different jobs.</h2></div>
-          <p>Low-E, toughened and double glazing are not competing choices. They describe different parts of a window—and can work together.</p>
-        </header>
-        <div class="glass-education-grid">
-          <article><span>01 / COMFORT</span><h3>Manage heat.</h3><p>Low-E is a coating; double glazing is a sealed two-pane unit. Both can contribute to thermal comfort, depending on the full window specification.</p><a class="text-link" href="glass-guide.html#low-e">Low-E &amp; double glazing <span aria-hidden="true">↗</span></a></article>
-          <article><span>02 / SAFETY</span><h3>Know how it breaks.</h3><p>Toughened glass breaks into small fragments. Laminated glass uses an interlayer to help hold fragments together. The right choice depends on the application.</p><a class="text-link" href="glass-guide.html#toughened">Toughened &amp; laminated <span aria-hidden="true">↗</span></a></article>
-          <article><span>03 / LIGHT &amp; PRIVACY</span><h3>Choose the view.</h3><p>Clear glass preserves views, tint changes light and glare, and frosted or obscure glass softens visibility. None of these labels alone confirms safety performance.</p><a class="text-link" href="glass-guide.html#frosted">Clear, tinted &amp; obscure <span aria-hidden="true">↗</span></a></article>
-        </div>
-        <div class="glass-education-footer"><p>Seven glass types explained, with typical uses, limitations and manufacturer references.</p><a class="text-link" href="glass-guide.html">Explore the glass guide <span aria-hidden="true">↗</span></a></div>
-      </section>
-
-      <section id="comparison" class="comparison-section window-comparison" aria-labelledby="comparison-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow eyebrow-light"><span></span> WINDOW PRICE COMPARISON</p>
-            <h2 id="comparison-title">Three sourcing routes.<br>One glass brief.</h2>
-          </div>
-          <div class="sample-notice" role="note">
-            <strong>All prices in AUD</strong>
-            <p>Thailand, China, then local Australia. Thailand is a glass-only price guide; the other two are window prices—not like-for-like delivered totals.</p>
-          </div>
-        </div>
-        <div class="request-summary" aria-label="Window request summary">
-          <span>GLASS BRIEF</span>
-          <strong>6 mm Low-E / 12 mm cavity / 6 mm toughened double glazing</strong>
-          <span>Double casement · 1200 × 1200 mm · qty 1</span>
-        </div>
-        <p class="comparison-caption">Target: one complete 1.44 m² window, thermally broken aluminium, Monument finish, delivered to Melbourne. Thailand’s published glass rate is shown for sourcing research only; a matching complete-window quote is still required. Compare the same scope before choosing.</p>
-        <div class="quote-grid">
-          <article class="quote-card">
-            <header>
-              <p>OPTION 01 <span>THAILAND</span></p>
-              <h3>SMG Glass</h3>
-              <small>Thai glass supplier · indicative Low-E IGU guide</small>
-            </header>
-            <dl>
-              <div><dt>Supply scope</dt><dd>Glass only · not a window</dd></div>
-              <div><dt>Glazing</dt><dd>Low-E IGU · exact match to quote</dd></div>
-              <div><dt>Cavity</dt><dd>12 mm air option available</dd></div>
-              <div><dt>Frame</dt><dd>Not priced in this guide</dd></div>
-              <div><dt>Size / opening</dt><dd>Complete window quote required</dd></div>
-              <div><dt>Colour</dt><dd>Frame finish not priced</dd></div>
-              <div><dt>Australian GST</dt><dd>Not confirmed</dd></div>
-              <div><dt>Door delivery</dt><dd>Australian delivery to quote</dd></div>
-              <div><dt>Installation</dt><dd>Not confirmed</dd></div>
-            </dl>
-            <footer>
-              <span>INDICATIVE GLASS RATE · PER M²</span>
-              <strong class="quote-glass-rate">A$212–403/m²</strong>
-              <small>Approximate Low-E CS120 glass guide, not a complete-window or delivered quote. Actual price depends on configuration and quantity; exact 6 / 12 / 6 toughening needs confirmation.</small>
-              <small><a href="https://www.smg-con.co.th/news_detail.php?id=64">Source: SMG price guide</a> · <a href="https://www.smg-con.co.th/product-detail.php?id=6">Glazing options</a></small>
-            </footer>
-          </article>
-          <article class="quote-card">
-            <header>
-              <p>OPTION 02 <span>CHINA</span></p>
-              <h3>Superhouse</h3>
-              <small>Existing supplier quote · double casement</small>
-            </header>
-            <dl>
-              <div><dt>Supply scope</dt><dd>Complete window</dd></div>
-              <div><dt>Glazing</dt><dd>6 / 12 / 6 Low-E</dd></div>
-              <div><dt>Cavity</dt><dd>Air</dd></div>
-              <div><dt>Frame</dt><dd>Thermally broken aluminium</dd></div>
-              <div><dt>Size / opening</dt><dd>1200 × 1200 · double casement</dd></div>
-              <div><dt>Colour</dt><dd>Monument</dd></div>
-              <div><dt>Australian GST</dt><dd>Not stated</dd></div>
-              <div><dt>Door delivery</dt><dd>Included · door-to-door</dd></div>
-              <div><dt>Installation</dt><dd>Not included</dd></div>
-            </dl>
-            <footer>
-              <span>EXISTING QUOTE · APPROX. AUD</span>
-              <strong>A$1,126.44</strong>
-              <small>Quote dated 21 Sep 2026, converted to AUD. Door-to-door shipping included, as confirmed by the team; no extra freight added. GST/import charges remain unconfirmed.</small>
-              <small><a href="https://www.rba.gov.au/statistics/frequency/exchange-rates.html">RBA exchange-rate source</a> · 23 Sep 2026</small>
-            </footer>
-          </article>
-          <article class="quote-card">
-            <header>
-              <p>OPTION 03 <span>LOCAL AUSTRALIA</span></p>
-              <h3>uPVC.com.au</h3>
-              <small>Sydney supplier · Australian-made aluminium</small>
-            </header>
-            <dl>
-              <div><dt>Supply scope</dt><dd>Complete-window benchmark</dd></div>
-              <div><dt>Glazing</dt><dd>6 / 12 / 6 Low-E · toughened</dd></div>
-              <div><dt>Cavity</dt><dd>Argon</dd></div>
-              <div><dt>Frame</dt><dd>Thermally broken aluminium</dd></div>
-              <div><dt>Size / opening</dt><dd>Casement · double sash to quote</dd></div>
-              <div><dt>Colour</dt><dd>White rate · Monument to quote</dd></div>
-              <div><dt>Australian GST</dt><dd>Included in rate</dd></div>
-              <div><dt>Door delivery</dt><dd>Interstate quote required</dd></div>
-              <div><dt>Installation</dt><dd>Excluded from benchmark</dd></div>
-            </dl>
-            <footer>
-              <span>CALCULATED SUPPLY BENCHMARK</span>
-              <strong>A$1,296</strong>
-              <small>A$900/m² × 1.44 m², including GST. Not an exact unit quote; screens, delivery, installation and custom finish excluded.</small>
-              <small><a href="https://www.upvc.com.au/products/aluminium-thermally-broken-australian-made?variant=39812523753581">Source: casement rate and glass specification</a></small>
-            </footer>
-          </article>
-        </div>
-        <div class="comparison-verification" role="note">
-          <h3>Quality first. Then compare the full cost.</h3>
-          <p>Ask each supplier for the exact glass make-up, Low-E coating, toughening, whole-window performance data, test evidence and warranty. A shared 6 / 12 / 6 description does not establish equal quality or suitability for your project.</p>
-          <p>Online sources checked 24 Sep 2026. AUD conversions use RBA rates dated 23 Sep 2026: 0.7102 USD and 23.57 THB per AUD, excluding bank spreads and fees. Thailand’s guide is rounded to whole AUD per m²; China’s price includes door-to-door shipping per the team’s clarification. Country order is not a price or quality ranking.</p>
-        </div>
-      </section>
-
       <section class="section promise" aria-labelledby="promise-title">
         <div class="promise-copy">
-          <p class="eyebrow"><span></span> BUILT FOR BUILDERS</p>
-          <h2 id="promise-title">Less chasing. More clarity before you commit.</h2>
-          <p>Our starting point is glass and windows: understand the glazing specification, check the supplier evidence and compare the full delivered cost before choosing a sourcing route.</p>
+          <p class="eyebrow"><span></span> BETTER VALUE, WITH CONTEXT</p>
+          <h2 id="promise-title">Lower costs are the goal.<br>The right window comes first.</h2>
+          <p>We look for overseas supply options that can reduce the cost of improving your home. The specification, supplier evidence and full delivered price still need to work for your project—and sometimes the local option is the better buy.</p>
         </div>
-        <div class="scope-list" aria-label="Delivered cost inclusions">
-          <p>EVERY COMPARISON MAKES THE SCOPE VISIBLE</p>
+        <div class="scope-list" aria-label="What to confirm in your window quote">
+          <p>BEFORE YOU ORDER, CONFIRM</p>
           <ul>
-            <li><span>✓</span> Factory supply</li>
-            <li><span>✓</span> Freight and import charges</li>
-            <li><span>✓</span> GST and duty assumptions</li>
-            <li><span>✓</span> Inspection and final delivery</li>
-              <li><span>✓</span> Installation allowance, where scoped</li>
+            <li><span>01</span> Glass specification and safety evidence</li>
+            <li><span>02</span> Window frame, dimensions and opening style</li>
+            <li><span>03</span> Freight, GST, duty and service fees</li>
+            <li><span>04</span> Warranty, checks and delivery arrangements</li>
+            <li><span>05</span> Installation, separately scoped</li>
           </ul>
         </div>
       </section>
 
       <section class="cta-band" aria-labelledby="cta-title">
         <div>
-          <p class="eyebrow eyebrow-light"><span></span> PILOT OFFER</p>
-          <h2 id="cta-title">Send us the thing<br>you can’t source.</h2>
-          <p>Within 7 days, up to three quotes with the full delivered cost in AUD.</p>
+          <p class="eyebrow eyebrow-light"><span></span> START WITH YOUR WINDOWS</p>
+          <h2 id="cta-title">Better windows.<br>A budget that works.</h2>
+          <p>Share your sizes, glass needs and delivery location. We’ll help you explore an overseas window option and compare it with local supply.</p>
         </div>
         <div class="cta-actions">
-          <p><strong>Free for our first 10 projects.</strong><br>No obligation to order.</p>
-          <a class="button button-light" href="stage2.html#request">Start a sourcing request <span aria-hidden="true">↗</span></a>
+          <p><strong>No obligation to order.</strong><br>Quote target: within seven days. Supply-only; installation is separate.</p>
+          <a class="button button-light" href="stage2.html#request">Get my window quote <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
       <section class="team-section" aria-labelledby="team-title">
         <div>
           <p class="eyebrow"><span></span> THE TEAM</p>
-          <h2 id="team-title">The people behind the comparison.</h2>
-          <p class="team-intro">Fabrication Intelligence is a sourcing service run by three RMIT architecture students. Every pilot request is handled personally.</p>
+          <h2 id="team-title">A bigger goal.<br>A hands-on team.</h2>
+          <p class="team-intro">Three RMIT architecture students working towards more affordable Australian homes, starting with windows and glass. Every enquiry is handled personally.</p>
         </div>
         <div class="team-grid">
           <article class="team-card">
@@ -308,8 +291,8 @@
 
     <footer class="site-footer">
       <a class="brand" href="./" aria-label="FABINT — Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT — Fabrication Intelligence" width="328" height="104"></a>
-      <p>Personally managed sourcing for difficult building elements.</p>
-      <div class="site-footer-links"><a href="stage2.html#request">Send a request</a><a href="pricing.html">Pricing</a><a href="feedback.html">Feedback</a><a href="auth.html">Log in</a><a href="privacy.html">Privacy</a></div>
+      <p>More affordable homes. Starting with windows and glass.</p>
+      <div class="site-footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="glass-guide.html">Glass guide</a><a href="pricing.html">Pricing</a><a href="feedback.html">Feedback</a><a href="privacy.html">Privacy</a></div>
     </footer>
   </body>
 </html>

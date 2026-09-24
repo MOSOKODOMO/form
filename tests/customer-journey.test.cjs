@@ -7,7 +7,7 @@ const read = (file) => fs.readFileSync(path.resolve('dist', file), 'utf8')
 const pages = ['index.html', 'how-it-works.html']
 const headings = [
   'Send your brief',
-  'Compare your options',
+  'Compare your window quote',
   'Approve the details',
   'Make and check',
   'Arrange shipping',
@@ -40,7 +40,9 @@ test('both public journey entry points show the same complete, ordered six-step 
 test('journey explains quote, approval, inspection and delivery limitations without implying online checkout', () => {
   const copy = text(getJourney('index.html'))
   assert.match(copy, /(?:seven|7) days/i)
-  assert.match(copy, /up to (?:three|3) quotes/i)
+  assert.match(copy, /your window quote/i)
+  assert.match(copy, /local benchmark where available/i)
+  assert.doesNotMatch(copy, /up to (?:three|3) quotes/i)
   assert.match(copy, /AUD/)
   assert.match(copy, /(?:written|in writing)/i)
   assert.match(copy, /payment/i)

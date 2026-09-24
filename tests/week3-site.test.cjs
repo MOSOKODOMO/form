@@ -6,19 +6,17 @@ const path = require('node:path')
 const dist = path.resolve('dist')
 const read = (name) => fs.readFileSync(path.join(dist, name), 'utf8')
 
-test('the homepage shows a clearly-labelled three-source window price comparison', () => {
+test('the homepage presents an anonymous Thai window reference alongside one named Australian benchmark', () => {
   const home = read('index.html')
-  assert.match(home, /Send us the thing<br>you can’t source\./)
-  assert.match(home, /Within 7 days/)
-  assert.match(home, /Free for our first 10 projects/)
-  assert.equal((home.match(/class="quote-card(?: quote-card-featured)?"/g) || []).length, 3)
+  assert.match(home.replace(/<[^>]*>/g, ' '), /Creating\s+more affordable\s+homes for\s+Australians/i)
+  assert.equal((home.match(/class="quote-card(?: quote-card-featured)?"/g) || []).length, 2)
   assert.match(home, /WINDOW PRICE COMPARISON/)
-  for (const value of ['Double casement', 'SMG Glass', 'A$212–403/m²', 'Superhouse', 'A$1,126.44', 'uPVC.com.au', 'A$1,296']) {
+  for (const value of ['Thai sourcing reference', 'A$156.55', 'Stegbar', 'A$742.50']) {
     assert.ok(home.includes(value), `missing window comparison value: ${value}`)
   }
   assert.match(home, /quote required/i)
-  assert.ok(home.indexOf('<h3>SMG Glass</h3>') < home.indexOf('<h3>Superhouse</h3>'), 'Thailand appears before China')
-  assert.ok(home.indexOf('<h3>Superhouse</h3>') < home.indexOf('<h3>uPVC.com.au</h3>'), 'China appears before the local source')
+  assert.ok(home.indexOf('Thai sourcing reference') < home.indexOf('Stegbar'), 'the Thai window appears before the Australian benchmark')
+  assert.doesNotMatch(home, /Superhouse|SMG Glass|uPVC\.com\.au|up to three quotes/i)
 })
 
 test('team portraits and biographies follow the confirmed left-to-right identities', () => {
