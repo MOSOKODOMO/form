@@ -31,7 +31,7 @@ create table if not exists public.fi_quote_requests (
   requester_email text not null check (position('@' in requester_email) > 1 and char_length(requester_email) <= 320),
   company text check (company is null or char_length(company) <= 160),
   project_name text not null check (char_length(trim(project_name)) between 1 and 160),
-  category text not null check (category in ('stairs', 'facade', 'metalwork', 'precast', 'joinery', 'other')),
+  category text not null check (category in ('windows', 'stairs', 'facade', 'metalwork', 'precast', 'joinery', 'other')),
   material text not null check (char_length(trim(material)) between 1 and 160),
   quantity integer not null check (quantity > 0 and quantity <= 1000000),
   dimensions text not null check (char_length(trim(dimensions)) between 1 and 500),

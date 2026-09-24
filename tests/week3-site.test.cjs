@@ -23,9 +23,9 @@ test('team portraits and biographies follow the confirmed left-to-right identiti
     const cards = [...read(page).matchAll(/<article class="team-card">([\s\S]*?)<\/article>/g)].map((match) => match[1])
     assert.equal(cards.length, 3, `${page} has three team members`)
     for (const [index, name, image, role] of [
-      [0, 'Prem', 'prem-portrait.png', 'CEO'],
-      [1, 'Lincy', 'lincy.png', 'CPO'],
-      [2, 'Mos', 'mos-portrait.png', 'CTO'],
+      [0, 'Prem', 'prem-portrait.jpg', 'CEO'],
+      [1, 'Lincy', 'lincy.jpg', 'CPO'],
+      [2, 'Mos', 'mos-portrait.jpg', 'CTO'],
     ]) {
       assert.ok(cards[index].includes(`src="assets/team/${image}"`), `${page}: correct portrait for ${name}`)
       assert.ok(cards[index].includes(`alt="Portrait of ${name}"`), `${page}: correct accessible name for ${name}`)
@@ -33,6 +33,17 @@ test('team portraits and biographies follow the confirmed left-to-right identiti
       assert.ok(cards[index].includes(`<small>${name} `), `${page}: correct biography for ${name}`)
     }
   }
+})
+
+test('the request form offers windows and glazing and emails the team a copy', () => {
+  const form = read('stage2.html')
+  const script = read('stage2.js')
+  assert.match(form, /<option value="windows" data-en="Windows &amp; glazing"/)
+  assert.match(form, /reply within 48 hours/)
+  assert.match(script, /https:\/\/formsubmit\.co\/ajax\//)
+  assert.match(script, /payload\.category = 'other'/, 'windows requests still save before the database allows the category')
+  const migration = fs.readFileSync(path.resolve('supabase/migrations/20260924050000_fi_windows_category.sql'), 'utf8')
+  assert.match(migration, /'windows', 'stairs'/)
 })
 
 test('the old public request entry redirects to the single canonical request form', () => {
