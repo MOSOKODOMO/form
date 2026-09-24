@@ -18,6 +18,23 @@ test('the homepage shows a clearly-labelled three-source window price comparison
   }
 })
 
+test('team portraits and biographies follow the confirmed left-to-right identities', () => {
+  for (const page of ['index.html', 'builders.html']) {
+    const cards = [...read(page).matchAll(/<article class="team-card">([\s\S]*?)<\/article>/g)].map((match) => match[1])
+    assert.equal(cards.length, 3, `${page} has three team members`)
+    for (const [index, name, image, role] of [
+      [0, 'Prem', 'prem-portrait.png', 'CEO'],
+      [1, 'Lincy', 'lincy.png', 'CPO'],
+      [2, 'Mos', 'mos-portrait.png', 'CTO'],
+    ]) {
+      assert.ok(cards[index].includes(`src="assets/team/${image}"`), `${page}: correct portrait for ${name}`)
+      assert.ok(cards[index].includes(`alt="Portrait of ${name}"`), `${page}: correct accessible name for ${name}`)
+      assert.ok(cards[index].includes(`${name.toUpperCase()} · ${role}`), `${page}: correct role for ${name}`)
+      assert.ok(cards[index].includes(`<small>${name} `), `${page}: correct biography for ${name}`)
+    }
+  }
+})
+
 test('the old public request entry redirects to the single canonical request form', () => {
   const oldRequest = read('request.html')
   assert.match(oldRequest, /location\.replace\('stage2\.html#request'\)/)

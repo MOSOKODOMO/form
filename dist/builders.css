@@ -115,10 +115,10 @@ h2 { font-size: clamp(36px, 4.5vw, 62px); font-weight: 600; letter-spacing: -.06
 .team-section > div:first-child { display: flex; align-items: end; justify-content: space-between; gap: 50px; margin-bottom: 42px; }
 .team-section h2 { margin-top: 20px; }
 .team-intro { max-width: 385px; color: var(--muted); font-size: 13px; }
-.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.team-card { padding: 25px 26px 25px 0; }
-.team-card + .team-card { padding-left: 26px; border-left: 1px solid var(--line); }
-.team-portrait { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; background: #181b18; }
+.team-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1200px; margin-inline: auto; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.team-card { padding: 25px 26px; }
+.team-card + .team-card { border-left: 1px solid var(--line); }
+.team-portrait { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: #181b18; }
 .team-card > p { margin-top: 18px; color: var(--accent); font: 500 10px/1.4 var(--mono); letter-spacing: .1em; }
 .team-card h3 { margin-top: 9px; font-size: 20px; letter-spacing: -.04em; }
 .team-card small { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; }
