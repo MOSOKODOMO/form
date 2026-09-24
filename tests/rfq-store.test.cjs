@@ -35,7 +35,7 @@ test('requests are posted to the team inbox with reply-to and the full brief',as
  let call;
  const send=bootContact(async(url,options)=>{call={url,options};return {ok:true,json:async()=>({success:'true'})};});
  await send({subject:'Quote request — Test & Co',name:'Alex',replyTo:'alex@example.com',text:"Line 1\nMaterial: 钢材 100%"});
- assert.equal(call.url,'https://formsubmit.co/ajax/s4149874@student.rmit.edu.au');
+ assert.equal(call.url,'https://formsubmit.co/ajax/fabricationintelligence@gmail.com');
  assert.equal(call.options.method,'POST');
  const body=JSON.parse(call.options.body);
  assert.equal(body._subject,'Quote request — Test & Co');

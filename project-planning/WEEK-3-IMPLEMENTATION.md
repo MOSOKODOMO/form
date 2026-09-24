@@ -41,6 +41,7 @@
 
 - The request form lists **Windows & glazing** first. Until the database allows it, windows requests save as `other` with "Category: Windows & glazing" at the top of the notes, so submissions never fail.
 - **Moss: run `supabase/migrations/20260924050000_fi_windows_category.sql` in the Supabase SQL editor** so windows requests keep their own category. Supplier catalogue items still use the old category list.
-- Every saved request also emails the team a copy through FormSubmit (the same inbox as the old request form). Drawings stay in Supabase. The Privacy page says so.
+- Every saved request also emails the team a copy through FormSubmit. Drawings stay in Supabase. The Privacy page says so.
+- The team contact address is now **fabricationintelligence@gmail.com** everywhere on the site (Contact page, Privacy page, request alerts). FormSubmit needs a one-time activation for a new address: the first submission sends an "Activate Form" email to that inbox, and alerts arrive only after someone clicks it.
 - "What happens next" now promises a reply within 48 hours. Quotes are still promised within 7 days.
 - Team portraits are 720 px JPEGs (about 48 KB each instead of about 1.9 MB).

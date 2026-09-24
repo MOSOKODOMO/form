@@ -1,6 +1,6 @@
 'use strict';
 // Requests are emailed to the team through FormSubmit until the site has its own backend (see project-planning/README.md).
-const FI_CONTACT_EMAIL = 's4149874@student.rmit.edu.au';
+const FI_CONTACT_EMAIL = 'fabricationintelligence@gmail.com';
 const FI_FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + FI_CONTACT_EMAIL;
 async function sendRequest({subject, name, replyTo, text}) {
   const response = await fetch(FI_FORM_ENDPOINT, {
