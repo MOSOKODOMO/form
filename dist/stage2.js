@@ -6,6 +6,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
 const MAX_DRAWING_BYTES = 10 * 1024 * 1024
 const allowedFileTypes = new Set(['application/pdf', 'image/png', 'image/jpeg', 'image/webp', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'])
 const allowedFileExtensions = new Set(['pdf', 'png', 'jpg', 'jpeg', 'webp', 'docx'])
+const TEAM_ALERT_ENDPOINT = 'https://formsubmit.co/ajax/s4149874@student.rmit.edu.au'
 const statusOrder = ['new', 'quoting', 'quotes_sent', 'won', 'lost']
 const statusLabels = {new: 'New', quoting: 'Quoting', quotes_sent: 'Quotes sent', won: 'Won', lost: 'Lost'}
 let language = 'en'
@@ -84,6 +85,31 @@ function makeReference() {
   return `FI-${date}-${suffix}`
 }
 
+// Email the team a copy of each saved request so nobody has to watch the admin queue.
+// The request is already saved in Supabase, so a failed email never blocks the requester.
+function alertTeam(payload) {
+  const lines = [
+    `Reference: ${payload.reference}`,
+    `Name: ${payload.requester_name}`,
+    `Email: ${payload.requester_email}`,
+    `Company: ${payload.company || '—'}`,
+    `Project: ${payload.project_name}`,
+    `Category: ${payload.category}`,
+    `Material: ${payload.material}`,
+    `Quantity: ${payload.quantity}`,
+    `Dimensions: ${payload.dimensions}`,
+    `Finish: ${payload.finish || '—'}`,
+    `Delivery: ${payload.delivery_date} · ${payload.destination_port}`,
+    `Drawing: ${payload.drawing_name ? `${payload.drawing_name} (in Supabase)` : 'none'}`,
+    `Notes: ${payload.notes || '—'}`,
+  ]
+  return fetch(TEAM_ALERT_ENDPOINT, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', Accept: 'application/json'},
+    body: JSON.stringify({_subject: `New FI request ${payload.reference}: ${payload.project_name}`, _template: 'box', _captcha: 'false', name: payload.requester_name, email: payload.requester_email, message: lines.join('\n')}),
+  }).catch((error) => console.warn('Team alert email failed', error))
+}
+
 async function submitRequest(event) {
   event.preventDefault()
   const form = $('#quote-form')
@@ -134,7 +160,15 @@ async function submitRequest(event) {
       const fallback = await supabase.from('fi_quote_requests').insert(payload)
       insertError = fallback.error
     }
+    if (insertError && payload.category === 'windows' && /category/i.test(insertError.message || '')) {
+      // Until the database allows the windows category, file it under "other" and keep the choice in the notes.
+      payload.category = 'other'
+      payload.notes = ['Category: Windows & glazing', payload.notes].filter(Boolean).join('\n').slice(0, 4000)
+      const fallback = await supabase.from('fi_quote_requests').insert(payload)
+      insertError = fallback.error
+    }
     if (insertError) throw insertError
+    alertTeam(payload)
     $('#confirmation-reference').textContent = payload.reference
     $('#confirmation').hidden = false
     form.reset()

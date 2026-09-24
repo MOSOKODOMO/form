@@ -36,3 +36,11 @@
 - Record the short backup demo clip for the presentation.
 - Complete and log the Week 3 interview/outreach targets; the website does not fabricate these activities.
 - Review the Privacy page with the team before public launch and add any required business or legal details.
+
+## 24 September 2026 — pitch-day fixes
+
+- The request form lists **Windows & glazing** first. Until the database allows it, windows requests save as `other` with "Category: Windows & glazing" at the top of the notes, so submissions never fail.
+- **Moss: run `supabase/migrations/20260924050000_fi_windows_category.sql` in the Supabase SQL editor** so windows requests keep their own category. Supplier catalogue items still use the old category list.
+- Every saved request also emails the team a copy through FormSubmit (the same inbox as the old request form). Drawings stay in Supabase. The Privacy page says so.
+- "What happens next" now promises a reply within 48 hours. Quotes are still promised within 7 days.
+- Team portraits are 720 px JPEGs (about 48 KB each instead of about 1.9 MB).
