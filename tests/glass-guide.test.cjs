@@ -10,9 +10,9 @@ test('glass guide explains seven combinable glass terms with visible uses and li
   assert.match(guide, /Different glass\.<br>Different jobs\./)
   assert.match(guide, /not mutually exclusive/)
   assert.match(guide, /can combine toughened glass and a Low-E coating/)
-  assert.deepEqual(cards.map((card) => card[1]), ['clear-float', 'toughened', 'laminated', 'low-e', 'double-glazing', 'tinted', 'frosted'])
+  assert.deepEqual(cards.map((card) => card[1]), ['clear-float', 'tinted', 'frosted', 'low-e', 'double-glazing', 'toughened', 'laminated'])
   for (const [, id, content] of cards) {
-    assert.match(content, /<h3>/, `${id} has a heading`)
+    assert.match(content, /<h4>/, `${id} has a heading below its performance group`)
     assert.match(content, /<dt>Typical use<\/dt>/, `${id} explains typical uses`)
     assert.match(content, /<dt>Know the limit<\/dt>/, `${id} explains limits`)
     assert.match(content, /href="https:\/\/(?:www\.viridianglass\.com|agg\.com\.au)/, `${id} cites a primary manufacturer`)
@@ -30,8 +30,19 @@ test('glass education does not conflate thermal features with safety or certify 
   assert.match(guide, /does not automatically provide complete privacy/)
   assert.match(guide, /qualified glazier or designer/)
   assert.match(guide, /does not certify the products in our price comparison/)
-  assert.match(guide, /not confirmation that a product is suitable for your project or currently stocked by FABINT/)
+  assert.match(guide, /Typical uses do not confirm project suitability or current FABINT stock/)
   assert.doesNotMatch(guide, /guaranteed savings|soundproof|fireproof|cheapest glass/i)
+})
+
+test('performance groups can combine while custom and environmental choices retain their limits', () => {
+  const copy = guide.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+  assert.match(copy, /These groups can combine in one window; they are not quality tiers/)
+  assert.match(copy, /Custom is a choice\. Not a performance class\./)
+  assert.match(copy, /Size, tint and finish choices can apply across these groups, subject to supplier confirmation/)
+  assert.match(copy, /privacy finish, safety treatment and thermal coating can work together in a suitable window/)
+  assert.match(copy, /Thermal performance is not a blanket sustainability claim/)
+  assert.match(copy, /Environmental benefits need product-specific evidence, including the complete window and its use/)
+  assert.doesNotMatch(guide, /data-glass-group="(?:custom|environmental|sustainable)"/)
 })
 
 test('glass guide is a static accessible responsive page with working local entry points', () => {

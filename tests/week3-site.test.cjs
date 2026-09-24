@@ -6,16 +6,16 @@ const path = require('node:path')
 const dist = path.resolve('dist')
 const read = (name) => fs.readFileSync(path.join(dist, name), 'utf8')
 
-test('the homepage presents an anonymous Thai window reference alongside one named Australian benchmark', () => {
+test('the homepage presents an anonymous Thai window estimate alongside one named Australian benchmark', () => {
   const home = read('index.html')
   assert.match(home.replace(/<[^>]*>/g, ' '), /Creating\s+more affordable\s+homes for\s+Australians/i)
   assert.equal((home.match(/class="quote-card(?: quote-card-featured)?"/g) || []).length, 2)
   assert.match(home, /WINDOW PRICE COMPARISON/)
-  for (const value of ['Thai sourcing reference', 'A$156.55', 'Stegbar', 'A$742.50']) {
+  for (const value of ['Thai window estimate', 'A$356.55', 'Stegbar', 'A$742.50']) {
     assert.ok(home.includes(value), `missing window comparison value: ${value}`)
   }
-  assert.match(home, /quote required/i)
-  assert.ok(home.indexOf('Thai sourcing reference') < home.indexOf('Stegbar'), 'the Thai window appears before the Australian benchmark')
+  assert.match(home, /Planning estimate, not a confirmed quote/i)
+  assert.ok(home.indexOf('<h3>Thai window estimate</h3>') < home.indexOf('<h3>Stegbar</h3>'), 'the Thai window appears before the Australian benchmark')
   assert.doesNotMatch(home, /Superhouse|SMG Glass|uPVC\.com\.au|up to three quotes/i)
 })
 

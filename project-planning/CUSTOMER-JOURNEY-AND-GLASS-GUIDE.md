@@ -11,7 +11,9 @@ Updated 24 September 2026.
 
 ## Glass education
 
-- The homepage introduces comfort, safety, and light/privacy, linking to `glass-guide.html` for seven glass descriptions, typical uses, limitations and primary manufacturer references.
+- The homepage and `glass-guide.html` group all seven descriptions by their main purpose: **Light & privacy** (clear float, tinted, frosted / obscure), **Thermal comfort** (Low-E, double glazing), and **Safety & protection** (toughened, laminated).
+- Static category jump links lead to the actual grouped cards; each card retains typical uses, limitations and links to primary manufacturer references in the full guide. Categories are browsing aids, not exclusive products or performance rankings.
+- Custom sizes, tint, finish and combinations are options across groups, subject to supplier confirmation. Environmental claims need product-specific evidence; thermal features alone are not a sustainability certification.
 - Low-E is a coating, double glazing is an assembled unit, and toughened/laminated describe processing or construction. These attributes can be combined; they are not mutually exclusive product alternatives.
 - General education is not a project specification, stock catalogue, certification of compared suppliers, or an assurance of compliance. A qualified glazier or designer must check the exact product and complete window system.
 - Avoid unsupported claims of guaranteed savings, soundproofing, universal suitability or fall protection.

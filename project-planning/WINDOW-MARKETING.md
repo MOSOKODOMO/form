@@ -23,7 +23,28 @@ Constraints: finished fully assembled window, not exploded; exactly two glass sa
 
 The homepage now leads with “Creating more affordable homes for Australians,” starting with windows and glass. Seven glass-type summaries link to the full guide. The scroll assembly remains an educational 6 / 12 / 6 concept, explicitly separate from the single-glazed sliding windows in the current price references.
 
-The requested Thai-versus-local comparison uses two public product listings, not a confirmed FABINT selling price or a like-for-like delivered saving. The Thai source is not named in the card heading; a neutrally labelled primary-source link remains for transparency. No supplier relationship, export availability, Australian compliance or equal quality is implied.
+### Glass groups by performance
+
+Both the homepage and detailed guide organise the seven glass terms into three non-exclusive groups, with static category jump links:
+
+- **Light & privacy:** clear float, tinted, frosted / obscure — daylight, views, glare and privacy.
+- **Thermal comfort:** Low-E, double glazing — heat-transfer and insulation choices, with whole-window performance important.
+- **Safety & protection:** toughened, laminated — impact and breakage behaviour, not a blanket security or fall-protection guarantee.
+
+Custom sizes, tint, finishes and combinations can apply across groups, subject to supplier confirmation. “Custom” is not a separate performance class; a thermal feature is not enough to substantiate a sustainability claim. Cards retain their uses, limitations and primary-source links. Grouping is editorial navigation, not a performance rating or certification.
+
+The Thai-versus-local comparison now pairs a **FABINT planning estimate** with a published Australian retail benchmark, not two verified delivered quotes. The Thai source is not named in the card heading; a neutrally labelled product-specification link remains for transparency. No supplier relationship, export availability, Australian compliance or equal quality is implied.
+
+### User-supplied delivered estimate — 24 September 2026
+
+- The user confirmed A$356.55 is **estimated**, includes FABINT's fee, and assumes **Australia-wide** delivery. The marked-up request includes Australian GST and import/clearance, with installation excluded.
+- Homepage heading: “Thai window estimate”; price label: “ESTIMATED DELIVERED PRICE · AUD”. GST, import/clearance, delivery and fee rows say they are included **in the estimate**, not independently confirmed supplier terms.
+- A$356.55 is the team's supplied budget figure, not a conversion of the Thai listing and not a calculation from verified individual charges. No freight, duty, GST or fee amounts were fabricated or separately allocated. The public source is labelled product-specification evidence only.
+- White is shown as an assumed specification, consistent with the requested target while preserving the source's finish uncertainty below.
+- A written quote must confirm final costs, postcode/access arrangements, availability, finish, warranty and Australian suitability. The estimate is not a guaranteed Australia-wide rate. Installation remains excluded for both cards.
+- FABINT's fee is already inside A$356.55; do not add another 10% on top. The standard fee policy and first-10-project waiver remain unchanged; any waiver will be shown in the written quote.
+
+### Public listing evidence underlying the product references
 
 | Evidence checked 24 September 2026 | Thai product reference | Australian retail reference |
 | --- | --- | --- |
@@ -32,18 +53,18 @@ The requested Thai-versus-local comparison uses two public product listings, not
 | Dimensions, W × H | 1200 × 1100 mm | 1210 × 1200 mm |
 | Glass | 5 mm green-tinted single pane | Clear single glazing; thickness not published |
 | Frame / finish | Aluminium; title says white but detail table conflicts, so confirm finish | Aluminium, Pearl White Gloss |
-| Australian cost scope | Australian GST, import/clearance and door delivery unconfirmed, not priced | Product page includes GST, reveals and eligible-area delivery |
+| Verified Australian scope in source | Australian GST, import/clearance and door delivery not established by this listing; separate team estimate described above | Product page includes GST, reveals and eligible-area delivery |
 
-- Thai conversion: 3,690 / 23.57 = A$156.55, rounded to cents. [RBA reference rate, 23 September 2026](https://www.rba.gov.au/statistics/frequency/exchange-rates.html). Excludes exchange spread and payment fees; not a settlement-rate offer.
+- Earlier Thai product-only conversion: 3,690 / 23.57 = A$156.55, rounded to cents. [RBA reference rate, 23 September 2026](https://www.rba.gov.au/statistics/frequency/exchange-rates.html). Excludes exchange spread and payment fees; not a settlement-rate offer. This is no longer the headline price and is not the source of the new A$356.55 delivered estimate.
 - Stegbar exact variant independently checked against [public product JSON](https://www.stegbar.com.au/products/sliding-window-2-0.js), `price: 74250`, `compare_at_price: 82500`. The generic product-page parser can show a different default variant; retain the exact variant ID.
 - [Stegbar delivery terms](https://www.stegbar.com.au/pages/shop-online-support-centre): eligible Australian locations only; front door at ground level, not stairs/lifts/steps. Installation is excluded.
-- Both cards use matching specification/cost labels. Missing costs are **unknown, not zero**. No invented tax/freight totals, percentage savings or equivalence claims.
-- FABINT fee remains 10% of delivered cost when an order proceeds, waived for first 10 projects. The Thai delivered base is unknown, so neither a final fee nor FABINT retail price is calculated.
+- Both cards use matching specification/cost labels. The estimated inclusions are not verified individual charges; no itemised amounts, percentage savings or equivalence claims are fabricated.
+- FABINT fee remains 10% of delivered cost when an order proceeds, waived for first 10 projects. The total budget estimate includes the fee; no independently verified fee allocation or final selling price has been established.
 - A valid delivered comparison still needs matching specifications, Australian suitability evidence, warranty and written totals to the same delivery address.
 
 ### Verification of the refresh
 
-- All 35 Node tests pass, including homepage mission, seven glass cards, identical comparison field labels, unresolved Thai cost scope and the separation of concept imagery from priced products.
+- All 38 regression tests pass, covering homepage mission, seven glass cards in three matching performance groups, identical comparison field labels, explicit estimate scope and the separation of concept imagery from priced products.
 - Browser checked at desktop, 960 px tablet and 390 / 320 px phone widths; no horizontal content overflow. Two-card prices and rows align on desktop/tablet and stack on phones.
 - Product imagery loads; no browser warning/error logs observed in the local preview. Existing account/database behaviour is unchanged.
 
