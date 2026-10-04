@@ -3,9 +3,9 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const pages = ['index.html', 'how-it-works.html', 'services.html', 'pricing.html', 'about.html', 'contact.html', 'auth.html', 'stage2.html', 'builders.html', 'glass-guide.html', 'feedback.html', 'privacy.html'];
+const pages = ['index.html', 'shop.html', 'windows.html', 'how-it-works.html', 'services.html', 'pricing.html', 'about.html', 'contact.html', 'auth.html', 'stage2.html', 'builders.html', 'glass-guide.html', 'feedback.html', 'privacy.html'];
 const expected = [
-  ['./', 'Home'], ['how-it-works.html', 'How it works'], ['services.html', 'Services'],
+  ['./', 'Home'], ['shop.html', 'Shop'], ['how-it-works.html', 'How it works'], ['services.html', 'Services'],
   ['pricing.html', 'Pricing'], ['about.html', 'About'], ['contact.html', 'Contact'],
   ['auth.html', 'Log in'], ['stage2.html#request', 'Send a request ↗'],
 ];
@@ -18,7 +18,8 @@ test('every public page retains the same complete primary navigation in the same
     assert.ok(nav, `${page} has the public menu`);
     const links = [...nav[1].matchAll(/<a\b([^>]*)href="([^"]+)"([^>]*)>([\s\S]*?)<\/a>/g)];
     assert.deepEqual(links.map(link => [link[2], link[4].replace(/<[^>]+>/g, '').trim()]), expected, page);
-    const current = page === 'index.html' ? './' : page === 'stage2.html' ? 'stage2.html#request' : page;
+    // Product pages belong to the shop; windows.html is a coming-later page outside the menu.
+    const current = {'index.html': './', 'stage2.html': 'stage2.html#request', 'product.html': 'shop.html', 'windows.html': null}[page] ?? page;
     for (const link of links) {
       assert.equal(`${link[1]}${link[3]}`.includes('aria-current="page"'), link[2] === current, `${page}: ${link[2]} active state`);
     }

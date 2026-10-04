@@ -6,8 +6,8 @@ const path = require('node:path')
 const dist = path.resolve('dist')
 const read = (name) => fs.readFileSync(path.join(dist, name), 'utf8')
 
-test('the homepage presents an anonymous Thai window estimate alongside one named Australian benchmark', () => {
-  const home = read('index.html')
+test('the windows page presents an anonymous Thai window estimate alongside one named Australian benchmark', () => {
+  const home = read('windows.html')
   assert.match(home.replace(/<[^>]*>/g, ' '), /Creating\s+more affordable\s+homes for\s+Australians/i)
   assert.equal((home.match(/class="quote-card(?: quote-card-featured)?"/g) || []).length, 2)
   assert.match(home, /WINDOW PRICE COMPARISON/)

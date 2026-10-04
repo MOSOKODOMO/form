@@ -2,12 +2,13 @@ const {test} = require('node:test')
 const assert = require('node:assert/strict')
 const fs = require('node:fs')
 
-const home = fs.readFileSync('dist/index.html', 'utf8')
+// The former homepage window content now lives on windows.html (coming later).
+const home = fs.readFileSync('dist/windows.html', 'utf8')
 const guide = fs.readFileSync('dist/glass-guide.html', 'utf8')
 const text = (html) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 const section = (id) => {
   const match = home.match(new RegExp(`<section\\b(?=[^>]*\\bid="${id}")[^>]*>([\\s\\S]*?)<\\/section>`))
-  assert.ok(match, `homepage has the ${id} section`)
+  assert.ok(match, `windows page has the ${id} section`)
   return match[1]
 }
 const glassGroups = (html) => [...html.matchAll(/<div\b(?=[^>]*\bdata-glass-group="([^"]+)")[^>]*>/g)].map((opening) => {
@@ -20,9 +21,9 @@ const glassGroups = (html) => [...html.matchAll(/<div\b(?=[^>]*\bdata-glass-grou
   assert.fail(`glass group ${opening[1]} has no matching closing div`)
 })
 
-test('homepage leads with affordable Australian homes and a window-focused request', () => {
+test('windows page keeps the affordable homes hero and a window-focused request', () => {
   const hero = home.match(/<section\b[^>]*aria-labelledby="hero-title"[^>]*>([\s\S]*?)<\/section>/)?.[1]
-  assert.ok(hero, 'homepage has its named hero section')
+  assert.ok(hero, 'windows page has its named hero section')
   const heading = hero.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1]
   assert.match(text(heading || ''), /Creating more affordable homes for Australians/i)
   assert.match(text(hero), /import|overseas/i)
@@ -33,7 +34,7 @@ test('homepage leads with affordable Australian homes and a window-focused reque
   assert.doesNotMatch(text(home), /Send us the thing you can’t source|up to (?:three|3) (?:quotes|comparable maker options)|guaranteed savings|always cheaper/i)
 })
 
-test('the homepage puts window discovery and glass education before comparison and delivery', () => {
+test('the windows page puts window discovery and glass education before comparison and delivery', () => {
   const order = ['glass', 'glass-guide', 'comparison', 'how-it-works']
   const positions = order.map((id) => {
     section(id)

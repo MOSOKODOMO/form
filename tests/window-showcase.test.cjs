@@ -50,7 +50,7 @@ function setup({ reduced = false, roomy = true, imageBroken = false, imageLoadin
 }
 
 test('glass showcase has complete static content and a qualified conceptual image', () => {
-  const html = read('index.html');
+  const html = read('windows.html');
   assert.match(html, /window-showcase\.css/);
   assert.match(html, /id="glass" class="window-showcase"/);
   assert.match(html, /src="window-showcase\.js" defer/);

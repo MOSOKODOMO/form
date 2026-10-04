@@ -4,7 +4,7 @@ const fs = require('node:fs')
 const path = require('node:path')
 
 const read = (file) => fs.readFileSync(path.resolve('dist', file), 'utf8')
-const pages = ['index.html', 'how-it-works.html']
+const pages = ['windows.html', 'how-it-works.html']
 const headings = [
   'Send your brief',
   'Compare your window quote',
@@ -23,7 +23,7 @@ const text = (html) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 
 test('both public journey entry points show the same complete, ordered six-step infographic', () => {
   const sections = pages.map(getJourney)
-  assert.equal(sections[0].trim(), sections[1].trim(), 'homepage and dedicated page share the same journey content')
+  assert.equal(sections[0].trim(), sections[1].trim(), 'windows page and dedicated page share the same journey content')
   for (const [index, section] of sections.entries()) {
     const page = pages[index]
     assert.match(section, /<h[1-6]\b[^>]*id="journey-title"[^>]*>/, `${page} resolves its accessible heading`)
@@ -38,7 +38,7 @@ test('both public journey entry points show the same complete, ordered six-step 
 })
 
 test('journey explains quote, approval, inspection and delivery limitations without implying online checkout', () => {
-  const copy = text(getJourney('index.html'))
+  const copy = text(getJourney('windows.html'))
   assert.match(copy, /(?:seven|7) days/i)
   assert.match(copy, /your window quote/i)
   assert.match(copy, /local benchmark where available/i)

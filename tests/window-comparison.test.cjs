@@ -1,7 +1,7 @@
 const {test} = require('node:test')
 const assert = require('node:assert/strict')
 const fs = require('node:fs')
-const home = fs.readFileSync('dist/index.html', 'utf8')
+const home = fs.readFileSync('dist/windows.html', 'utf8')
 const text = (html) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 const cards = [...home.matchAll(/<article class="quote-card(?: quote-card-featured)?">([\s\S]*?)<\/article>/g)].map((match) => match[1])
 

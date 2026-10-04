@@ -63,7 +63,7 @@ html { scrollbar-gutter: stable; }
   .site-header--public .brand-logo { width: 200px; }
   .site-header--public .site-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px 12px; font-size: 12px; }
   .site-header--public .site-nav > a { justify-content: flex-start; }
-  .site-header--public .site-nav > .nav-cta { grid-column: span 2; justify-content: space-between; }
+  .site-header--public .site-nav > .nav-cta { grid-column: 1 / -1; justify-content: space-between; }
   .stage2-tools { flex-wrap: wrap; gap: 12px; }
   .stage2-tools .stage2-nav { order: 0; padding: 0; border: 0; margin: 0; }
 }

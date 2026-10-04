@@ -145,7 +145,7 @@ test('every full page wires one deferred shared script and stylesheet with a dec
     assert.match(html, /<body\b[^>]*data-motion-page="(?:editorial|functional)"/, `${page} declares its mode`);
     if (functional.has(page)) assert.match(html, /<body\b[^>]*data-motion-page="functional"/, `${page} protects its working forms`);
   }
-  assert.ok(read('index.html').indexOf('site-motion.js') < read('index.html').indexOf('window-showcase.js'), 'saved preference is applied before the glass assembly starts');
+  assert.ok(read('windows.html').indexOf('site-motion.js') < read('windows.html').indexOf('window-showcase.js'), 'saved preference is applied before the glass assembly starts');
 });
 
 test('reveal enhancement affects only offscreen editorial content and runs once', () => {

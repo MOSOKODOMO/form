@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <!-- Line icons for the shop's first four categories. Drawn for FABINT; colour comes from currentColor. -->
+  <symbol id="handle" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8" y="20" width="48" height="7" rx="3.5"/>
+      <path d="M18 27v12M46 27v12M13 39h10M41 39h10"/>
+      <path d="M6 43h52" stroke-opacity=".4"/>
+    </g>
+  </symbol>
+  <symbol id="knob" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 30c0-9.4 6.7-16 15-16s15 6.6 15 16c0 3.3-2.2 5-5 5H22c-2.8 0-5-1.7-5-5z"/>
+      <path d="M23 22c2-2.6 5-4 8-4.2" stroke-opacity=".55"/>
+      <path d="M28 35v7M36 35v7M22 42h20"/>
+      <path d="M8 46h48" stroke-opacity=".4"/>
+    </g>
+  </symbol>
+  <symbol id="tile" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="10" width="20" height="20" rx="2"/>
+      <rect x="34" y="10" width="20" height="20" rx="2"/>
+      <rect x="10" y="34" width="20" height="20" rx="2"/>
+      <rect x="34" y="34" width="20" height="20" rx="2"/>
+      <path d="M14.5 15.5l4.5-1M38.5 15.5l4.5-1M14.5 39.5l4.5-1M38.5 39.5l4.5-1" stroke-opacity=".55"/>
+    </g>
+  </symbol>
+  <symbol id="tap" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M25 53V27c0-7.7 5.8-13 13-13s13 5.3 13 13v6"/>
+      <path d="M48 33h6"/>
+      <path d="M25 41l-10-5.5"/>
+      <circle cx="13.5" cy="34.7" r="1.6"/>
+      <path d="M17 53h16"/>
+      <path d="M51 40.5c0 1.9-1.1 3-2.5 3S46 42.4 46 40.5c0-2 2.5-4.5 2.5-4.5s2.5 2.5 2.5 4.5z" stroke-opacity=".55"/>
+      <path d="M8 57h48" stroke-opacity=".4"/>
+    </g>
+  </symbol>
+</svg>
