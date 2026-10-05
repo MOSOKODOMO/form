@@ -1,7 +1,7 @@
 'use strict';
-// Shop grid: loads data/products.json, sorts by FI Score and filters by category. The filter lives in the URL (?category=tiles).
+// Shop grid: loads data/products.json, lists approved and live products by FI Score and filters by category (kept in the URL).
 (() => {
-  const {loadProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, categoryName, formatPrice, imageAlt, scoreBand} = window.FICatalogue;
+  const FI = window.FICatalogue;
   const grid = document.querySelector('#product-grid');
   const status = document.querySelector('#shop-status');
   const sampleBanner = document.querySelector('#sample-banner');
@@ -16,7 +16,7 @@
   }
 
   function scoreBadge(score) {
-    const badge = el('span', `fi-score fi-score--${scoreBand(score)}`);
+    const badge = el('span', `fi-score fi-score--${FI.scoreBand(score)}`);
     badge.style.setProperty('--score', score);
     badge.setAttribute('role', 'img');
     badge.setAttribute('aria-label', `FI Score ${score} out of 100`);
@@ -24,16 +24,28 @@
     return badge;
   }
 
+  // The card's own button: Buy for live products, a quote request otherwise. Samples get none.
+  function cardAction(product) {
+    const action = FI.buyAction(product);
+    if (action.kind === 'none') return null;
+    const link = el('a', action.kind === 'quote' ? 'product-card-action product-card-action--quote' : 'product-card-action');
+    link.href = action.kind === 'embed' ? FI.productUrl(product) : action.href;
+    link.append(document.createTextNode(action.kind === 'quote' ? 'Request a quote' : 'Buy'));
+    const arrow = el('span', '', '↗');
+    arrow.setAttribute('aria-hidden', 'true');
+    link.append(arrow);
+    link.setAttribute('aria-label', `${action.kind === 'quote' ? 'Request a quote for' : 'Buy'} ${product.product}`);
+    return link;
+  }
+
   function card(product, index) {
     const item = el('li', 'product-card');
-    const link = el('a', 'product-card-link');
-    link.href = `product.html?id=${encodeURIComponent(product.id)}`;
-    link.setAttribute('aria-label', `${product.product}, ${formatPrice(product.price_aud)} ${product.price_unit}, FI Score ${product.fi_score} out of 100${product.sample ? ', sample product' : ''}`);
+    const inner = el('article', 'product-card-inner');
 
     const media = el('div', 'product-card-media');
     const image = el('img');
     image.src = product.photo_url;
-    image.alt = imageAlt(product);
+    image.alt = FI.imageAlt(product);
     image.width = 800;
     image.height = 1000;
     image.decoding = 'async';
@@ -43,15 +55,22 @@
 
     const body = el('div', 'product-card-body');
     const meta = el('p', 'product-card-meta');
-    meta.append(el('span', '', categoryName(product.category)), el('span', '', product.country));
-    const price = el('p', 'product-card-price', formatPrice(product.price_aud));
-    price.append(el('small', '', product.price_unit));
+    meta.append(el('span', '', FI.categoryName(product.category)), el('span', '', product.country));
+    const title = el('h2', 'product-card-title');
+    const link = el('a', 'product-card-link', product.product);
+    link.href = FI.productUrl(product);
+    title.append(link);
+    const {value, unit} = FI.cardPrice(product);
+    const price = el('p', 'product-card-price', value);
+    if (unit) price.append(el('small', '', unit));
     const foot = el('div', 'product-card-foot');
     foot.append(price, scoreBadge(product.fi_score));
-    body.append(meta, el('h2', 'product-card-title', product.product), el('p', 'product-card-maker', `by ${product.maker}`), foot);
+    body.append(meta, title, el('p', 'product-card-maker', `by ${product.maker}`), foot);
+    const action = cardAction(product);
+    if (action) body.append(action);
 
-    link.append(media, body);
-    item.append(link);
+    inner.append(media, body);
+    item.append(inner);
     return item;
   }
 
@@ -60,25 +79,25 @@
     if (category === 'taps') {
       item.append(el('h2', '', 'No taps yet'), el('p', '', 'Taps sold in Australia need WaterMark certification and WELS registration, so we’ll list them once a maker passes both.'));
     } else {
-      item.append(el('h2', '', `No ${categoryName(category).toLowerCase()} yet`), el('p', '', 'We list products only after their maker passes FI Verify.'));
+      item.append(el('h2', '', `No ${FI.categoryName(category).toLowerCase()} yet`), el('p', '', 'We list products only after their maker passes FI Verify.'));
     }
     return item;
   }
 
   function summary(count, category) {
-    const where = category === 'all' ? '' : ` in ${categoryName(category)}`;
+    const where = category === 'all' ? '' : ` in ${FI.categoryName(category)}`;
     if (!count) return `No products${where} yet.`;
     return `Showing ${count} product${count === 1 ? '' : 's'}${where}, highest FI Score first.`;
   }
 
   function render(category) {
-    const counts = categoryCounts(products);
+    const counts = FI.categoryCounts(products);
     for (const button of filters) {
       const id = button.dataset.category;
       button.setAttribute('aria-pressed', String(id === category));
       button.querySelector('.shop-filter-count').textContent = counts[id];
     }
-    const list = sortByScore(filterByCategory(products, category));
+    const list = FI.sortByScore(FI.filterByCategory(products, category));
     grid.replaceChildren(...(list.length ? list.map(card) : [emptyState(category)]));
     sampleBanner.hidden = !list.some((product) => product.sample);
     status.textContent = summary(list.length, category);
@@ -94,13 +113,13 @@
       render(category);
     });
   }
-  window.addEventListener('popstate', () => render(parseCategory(window.location.search)));
+  window.addEventListener('popstate', () => render(FI.parseCategory(window.location.search)));
 
-  loadProducts()
+  FI.loadProducts()
     .then((list) => {
-      products = list;
+      products = FI.listedProducts(list);
       grid.removeAttribute('aria-busy');
-      render(parseCategory(window.location.search));
+      render(FI.parseCategory(window.location.search));
     })
     .catch((error) => {
       console.error(error);

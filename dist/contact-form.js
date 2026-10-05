@@ -9,6 +9,9 @@
     const status = block.querySelector('.contact-form-status');
     const thanks = block.querySelector('.contact-thanks');
     const button = form.querySelector('button[type="submit"]');
+    // "Request a quote" links arrive as contact.html?product=<name>; fill in the product for them.
+    const wanted = new URLSearchParams(window.location.search).get('product');
+    if (wanted && form.elements.product && !form.elements.product.value) form.elements.product.value = wanted.trim().slice(0, 200);
     const value = (name) => String(new FormData(form).get(name) || '').trim();
     const say = (message, isError = false) => {
       status.textContent = message;

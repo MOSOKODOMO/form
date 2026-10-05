@@ -14,10 +14,10 @@ test('every product in products.json passes the data rules and has its photo', (
   assert.ok(Array.isArray(products) && products.length >= 3)
   assert.equal(catalogue.validProducts(products).length, products.length, 'no product is left out')
   for (const product of products) {
-    assert.deepEqual(catalogue.productProblems(product), [], product.id)
-    if (!/^https:/.test(product.photo_url)) assert.ok(fs.existsSync(path.join(dist, product.photo_url)), `${product.id} photo exists`)
+    assert.deepEqual(catalogue.productProblems(product), [], product.handle)
+    if (!/^https:/.test(product.photo_url)) assert.ok(fs.existsSync(path.join(dist, product.photo_url)), `${product.handle} photo exists`)
   }
-  assert.equal(new Set(products.map((product) => product.id)).size, products.length, 'ids are unique')
+  assert.equal(new Set(products.map((product) => product.handle)).size, products.length, 'handles are unique')
   assert.ok(!read('data/products.json').includes('—'), 'no em dashes in product data')
 })
 
@@ -28,10 +28,13 @@ test('sample products are clearly marked and can never be bought', () => {
     assert.match(product.maker, /^Sample maker/)
     assert.match(product.story_en, /^Sample story\./)
     assert.equal(product.stripe_link, '')
-    assert.ok(product.certificates.some((check) => check.status === 'checked'), `${product.id} shows a checked item`)
-    assert.ok(product.certificates.some((check) => check.status === 'not found'), `${product.id} shows a not-found item`)
+    assert.equal(product.shopify_url, '')
+    assert.equal(product.shopify_buy_button, '')
+    assert.notEqual(product.status, 'live')
+    assert.ok(product.certificates.some((check) => check.status === 'checked'), `${product.handle} shows a checked item`)
+    assert.ok(product.certificates.some((check) => check.status === 'not found'), `${product.handle} shows a not-found item`)
   }
-  assert.deepEqual(catalogue.productProblems(variant({stripe_link: 'https://buy.stripe.com/test_abc123'})), ['a sample product cannot have a stripe_link'])
+  assert.deepEqual(catalogue.productProblems(variant({stripe_link: 'https://buy.stripe.com/test_abc123'})), ['a sample product cannot be live or have checkout links'])
 })
 
 test('the data rules reject bad scores, statuses, links and categories', () => {
@@ -51,12 +54,12 @@ test('the data rules reject bad scores, statuses, links and categories', () => {
 
 test('the shop sorts by FI Score and filters by category from the URL', () => {
   const list = [
-    variant({id: 'b', product: 'B', fi_score: 70, category: 'tiles'}),
-    variant({id: 'a', product: 'A', fi_score: 90, category: 'handles'}),
-    variant({id: 'c', product: 'C', fi_score: 70, category: 'handles'}),
+    variant({handle: 'b', product: 'B', fi_score: 70, category: 'tiles'}),
+    variant({handle: 'a', product: 'A', fi_score: 90, category: 'handles'}),
+    variant({handle: 'c', product: 'C', fi_score: 70, category: 'handles'}),
   ]
-  assert.deepEqual(catalogue.sortByScore(list).map((product) => product.id), ['a', 'b', 'c'], 'highest score first, ties by name')
-  assert.deepEqual(catalogue.filterByCategory(list, 'handles').map((product) => product.id), ['a', 'c'])
+  assert.deepEqual(catalogue.sortByScore(list).map((product) => product.handle), ['a', 'b', 'c'], 'highest score first, ties by name')
+  assert.deepEqual(catalogue.filterByCategory(list, 'handles').map((product) => product.handle), ['a', 'c'])
   assert.equal(catalogue.filterByCategory(list, 'all').length, 3)
   assert.deepEqual(catalogue.categoryCounts(list), {all: 3, handles: 2, knobs: 0, tiles: 1, taps: 0})
   assert.equal(catalogue.parseCategory('?category=tiles'), 'tiles')
@@ -81,5 +84,7 @@ test('shop page loads the catalogue first and offers every category with a sampl
   const script = read('shop.js')
   assert.match(script, /WaterMark/, 'empty taps explain what taps need')
   assert.doesNotMatch(script, /innerHTML/, 'product text is never inserted as HTML')
-  assert.match(script, /link\.setAttribute\('aria-label', `\$\{product\.product\}, /, 'each card link has a short spoken name')
+  assert.match(script, /el\('a', 'product-card-link', product\.product\)/, 'the card title is the link to the product')
+  assert.match(script, /products = FI\.listedProducts\(list\)/, 'drafts and rejected products stay out of the shop')
+  assert.match(script, /cardAction\(product\)/, 'cards get their own Buy or quote button')
 })

@@ -107,25 +107,7 @@
     scoreText.append(scoreLine, explain);
     score.append(scoreBadge(product.fi_score, true), scoreText);
 
-    const buy = el('div', 'product-buy');
-    const price = el('p', 'product-price', FI.formatPrice(product.price_aud));
-    price.append(el('small', '', `${product.price_unit}, incl. GST`));
-    const delivery = el('p', 'product-delivery');
-    delivery.append(el('span', '', 'Delivery estimate'), document.createTextNode(` ${product.delivery_estimate} to your door in Australia`));
-    const state = FI.buyState(product);
-    let action;
-    if (state.enabled) {
-      action = link(state.href, '', false);
-      action.className = 'button button-primary product-buy-button';
-      const arrow = el('span', '', '↗');
-      arrow.setAttribute('aria-hidden', 'true');
-      action.append(document.createTextNode(state.label), arrow);
-    } else {
-      action = el('button', 'button button-primary product-buy-button', state.label);
-      action.type = 'button';
-      action.disabled = true;
-    }
-    buy.append(price, delivery, action, el('p', 'product-buy-note', state.note));
+    const buy = buyArea(product);
 
     const specs = el('dl', 'product-specs');
     for (const [name, value] of FI.specRows(product)) {
@@ -134,8 +116,111 @@
       specs.append(row);
     }
 
+    if (product.status === 'draft' || product.status === 'rejected') {
+      const note = product.status === 'draft' ? 'Draft preview: this product hasn’t been approved yet, so it isn’t in the shop.' : 'This product was rejected and isn’t in the shop.';
+      section.append(el('p', 'product-status-note', note));
+    }
     section.append(eyebrow, title, maker, score, buy, specs);
     return section;
+  }
+
+  function actionLink(action) {
+    const anchor = link(action.href, '', false);
+    anchor.className = `button ${action.kind === 'quote' ? 'button-quote' : 'button-primary'} product-buy-button`;
+    const arrow = el('span', '', '↗');
+    arrow.setAttribute('aria-hidden', 'true');
+    anchor.append(document.createTextNode(action.label), arrow);
+    return anchor;
+  }
+
+  // Brand styling for Shopify's own Buy Button. Price and title come from our page, not the widget.
+  const SHOPIFY_OPTIONS = {
+    product: {
+      contents: {img: false, title: false, price: false},
+      text: {button: 'Buy'},
+      styles: {button: {'font-family': 'Manrope, sans-serif', 'font-weight': '800', 'font-size': '13px', 'padding-top': '16px', 'padding-bottom': '16px', color: '#252b23', 'background-color': '#dce970', 'border-radius': '0px', ':hover': {color: '#252b23', 'background-color': '#e8f397'}, ':focus': {'background-color': '#e8f397'}}},
+    },
+    cart: {text: {total: 'Subtotal', button: 'Checkout'}, styles: {button: {color: '#252b23', 'background-color': '#dce970', 'border-radius': '0px', ':hover': {'background-color': '#e8f397'}}}},
+    toggle: {styles: {toggle: {'background-color': '#dce970', ':hover': {'background-color': '#e8f397'}}, count: {color: '#252b23'}, iconPath: {fill: '#252b23'}}},
+  };
+  let shopifyLoading = null;
+
+  function loadShopify(src) {
+    if (window.ShopifyBuy && window.ShopifyBuy.UI) return Promise.resolve(window.ShopifyBuy);
+    if (!shopifyLoading) {
+      shopifyLoading = new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = src;
+        script.onload = () => (window.ShopifyBuy && window.ShopifyBuy.UI ? resolve(window.ShopifyBuy) : reject(new Error('Shopify script loaded without ShopifyBuy')));
+        script.onerror = () => reject(new Error('Shopify script failed to load'));
+        document.head.append(script);
+      });
+    }
+    return shopifyLoading;
+  }
+
+  // Builds Shopify's Buy Button from the store, public token and product id read out of the snippet.
+  // If it can't load, the next option takes its place: Shopify link, Stripe link, then a quote request.
+  function shopifyEmbed(action) {
+    const holder = el('div', 'shopify-buy');
+    const node = el('div', 'shopify-buy-node');
+    const waiting = el('p', 'shopify-buy-status', 'Loading secure checkout…');
+    holder.append(node, waiting);
+    let settled = false;
+    const fallback = () => {
+      if (settled) return;
+      settled = true;
+      holder.replaceChildren(actionLink(action.fallback));
+    };
+    const timer = window.setTimeout(fallback, 10000);
+    loadShopify(action.sdk)
+      .then((ShopifyBuy) => {
+        const client = ShopifyBuy.buildClient({domain: action.embed.domain, storefrontAccessToken: action.embed.storefrontAccessToken});
+        return ShopifyBuy.UI.onReady(client).then((ui) => ui.createComponent('product', {id: action.embed.productId, node, moneyFormat: '%24%7B%7Bamount%7D%7D', options: SHOPIFY_OPTIONS}));
+      })
+      .then(() => {
+        window.clearTimeout(timer);
+        if (settled) return;
+        if (!node.childElementCount) { fallback(); return; }
+        settled = true;
+        waiting.remove();
+      })
+      .catch((error) => {
+        window.clearTimeout(timer);
+        console.warn('Shopify Buy Button did not load:', error);
+        fallback();
+      });
+    return holder;
+  }
+
+  // The buy control, then the price, "ships from" and delivery window, each only if the source states it.
+  function buyArea(product) {
+    const area = el('div', 'product-buy');
+    const action = FI.buyAction(product);
+    let control;
+    if (action.kind === 'link' || action.kind === 'quote') {
+      control = actionLink(action);
+    } else if (action.kind === 'embed') {
+      control = shopifyEmbed(action);
+    } else {
+      control = el('button', 'button button-primary product-buy-button', action.label);
+      control.type = 'button';
+      control.disabled = true;
+    }
+    area.append(control);
+    const facts = FI.purchaseFacts(product);
+    if (facts.length) {
+      const list = el('dl', 'product-facts');
+      for (const fact of facts) {
+        const row = el('div', fact.label === 'Price' ? 'is-price' : '');
+        row.append(el('dt', '', fact.label), el('dd', '', fact.value));
+        list.append(row);
+      }
+      area.append(list);
+    }
+    area.append(el('p', 'product-buy-note', action.note));
+    return area;
   }
 
   function trustPanel(product) {
@@ -186,10 +271,10 @@
     document.querySelector('#crumb-product').textContent = 'Not found';
   }
 
-  const id = new URLSearchParams(window.location.search).get('id');
+  const handle = FI.parseHandle(window.location.search);
   FI.loadProducts()
     .then((products) => {
-      const product = id && FI.findProduct(products, id);
+      const product = handle && FI.findProduct(products, handle);
       if (!product) { notFound('It may have been removed, or the link is incomplete.'); return; }
       document.title = `${product.product} | FABINT Shop`;
       const crumb = document.querySelector('#crumb-category');

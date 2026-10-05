@@ -9,27 +9,56 @@
     {id: 'taps', name: 'Taps'},
   ];
   const CATEGORY_IDS = CATEGORIES.map((category) => category.id);
-  const STATUSES = ['checked', 'not found'];
-  const TEXT_FIELDS = ['id', 'product', 'category', 'maker', 'country', 'material', 'photo_url', 'story_en', 'price_unit', 'delivery_estimate'];
+  const CHECK_STATUSES = ['checked', 'not found'];
+  // Every product starts as a draft. Only a person approves it, and only a person sets it live.
+  const PRODUCT_STATUSES = ['draft', 'approved', 'live', 'rejected'];
+  const LISTED_STATUSES = ['approved', 'live'];
+  const NOT_STATED = 'not stated';
+  const TEXT_FIELDS = ['handle', 'status', 'product', 'category', 'maker', 'country', 'ships_from', 'material', 'photo_url', 'story_en', 'price_unit', 'delivery_estimate'];
+  const LINK_FIELDS = ['shopify_url', 'shopify_buy_button', 'stripe_link'];
+  // Keys that must never reach the browser: Stripe secret, restricted and webhook keys, Shopify Admin tokens, private keys.
+  const SECRET_PATTERNS = [/\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{6,}/, /\bwhsec_[A-Za-z0-9]{6,}/, /\bshp(?:at|ca|pa|ss)_[A-Za-z0-9]{6,}/, /-----BEGIN [A-Z ]*PRIVATE KEY-----/];
+  const SHOPIFY_SDK = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
 
   const isHttps = (value) => typeof value === 'string' && /^https:\/\/[^\s"'<>]+$/.test(value);
   const isStripeLink = (value) => typeof value === 'string' && /^https:\/\/buy\.stripe\.com\/[A-Za-z0-9_-]+$/.test(value);
   const isSitePath = (value) => typeof value === 'string' && /^[A-Za-z0-9][A-Za-z0-9/_.-]*$/.test(value) && !value.includes('..');
+  const isStated = (value) => (typeof value === 'number' ? Number.isFinite(value) : typeof value === 'string' && value.trim() !== '' && value.trim().toLowerCase() !== NOT_STATED);
+
+  function containsSecret(value) {
+    if (typeof value === 'string') return SECRET_PATTERNS.some((pattern) => pattern.test(value));
+    if (Array.isArray(value)) return value.some(containsSecret);
+    if (value && typeof value === 'object') return Object.values(value).some(containsSecret);
+    return false;
+  }
+
+  // Reads a pasted Shopify Buy Button snippet for its store, public storefront token and product id.
+  // The snippet is never run as code; product.js loads Shopify's own script and builds the button itself.
+  function parseShopifyBuyButton(snippet) {
+    if (typeof snippet !== 'string' || !snippet.trim()) return null;
+    const domain = (snippet.match(/domain:\s*['"]([a-z0-9][a-z0-9-]*\.myshopify\.com)['"]/i) || [])[1];
+    const storefrontAccessToken = (snippet.match(/storefrontAccessToken:\s*['"]([a-f0-9]{32})['"]/i) || [])[1];
+    const productId = (snippet.match(/createComponent\(\s*['"]product['"]\s*,\s*\{[\s\S]*?\bid:\s*\[?\s*['"]?(\d+)['"]?/) || [])[1];
+    if (!domain || !storefrontAccessToken || !productId) return null;
+    return {domain: domain.toLowerCase(), storefrontAccessToken, productId};
+  }
 
   // Every reason a product can't be shown. An empty list means the product is fine.
   function productProblems(product) {
     if (!product || typeof product !== 'object' || Array.isArray(product)) return ['not a product object'];
     const problems = [];
+    if (containsSecret(product)) problems.push('contains what looks like a secret key; remove it, secret keys never go in products.json');
     for (const key of TEXT_FIELDS) {
-      if (typeof product[key] !== 'string' || !product[key].trim()) problems.push(`${key} is missing`);
+      if (typeof product[key] !== 'string' || !product[key].trim()) problems.push(`${key} is missing (write "not stated" if the source doesn’t say)`);
     }
-    if (typeof product.id === 'string' && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.id)) problems.push('id must be lowercase words joined by hyphens');
+    if (typeof product.handle === 'string' && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.handle)) problems.push('handle must be lowercase words joined by hyphens');
+    if (!PRODUCT_STATUSES.includes(product.status)) problems.push(`status must be one of ${PRODUCT_STATUSES.join(', ')}`);
     if (!CATEGORY_IDS.includes(product.category)) problems.push(`category must be one of ${CATEGORY_IDS.join(', ')}`);
     if (typeof product.sample !== 'boolean') problems.push('sample must be true or false');
     for (const key of ['finishes', 'sizes']) {
       if (!Array.isArray(product[key]) || !product[key].length || product[key].some((value) => typeof value !== 'string' || !value.trim())) problems.push(`${key} must be a list of words`);
     }
-    if (typeof product.price_aud !== 'number' || !(product.price_aud > 0)) problems.push('price_aud must be a positive number');
+    if (product.price_aud !== NOT_STATED && (typeof product.price_aud !== 'number' || !(product.price_aud > 0))) problems.push('price_aud must be a positive number or "not stated"');
     if (!Number.isInteger(product.fi_score) || product.fi_score < 0 || product.fi_score > 100) problems.push('fi_score must be a whole number from 0 to 100');
     if (product.maker_url !== '' && !isHttps(product.maker_url)) problems.push('maker_url must be an https link or empty');
     if (!Array.isArray(product.certificates) || !product.certificates.length) {
@@ -38,28 +67,37 @@
       product.certificates.forEach((check, index) => {
         const label = `certificate ${index + 1}`;
         if (!check || typeof check.name !== 'string' || !check.name.trim()) problems.push(`${label} needs a name`);
-        if (!check || !STATUSES.includes(check.status)) problems.push(`${label} status must be "checked" or "not found"`);
+        if (!check || !CHECK_STATUSES.includes(check.status)) problems.push(`${label} status must be "checked" or "not found"`);
         if (!check || (check.link !== '' && !isHttps(check.link))) problems.push(`${label} link must be an https link or empty`);
       });
     }
     if (!isSitePath(product.photo_url) && !isHttps(product.photo_url)) problems.push('photo_url must be a path on this site or an https link');
-    if (product.stripe_link !== '' && !isStripeLink(product.stripe_link)) problems.push('stripe_link must be a buy.stripe.com link or empty');
-    if (product.sample === true && product.stripe_link !== '') problems.push('a sample product cannot have a stripe_link');
+    for (const key of LINK_FIELDS) {
+      if (typeof product[key] !== 'string') problems.push(`${key} must be text (empty if there is none)`);
+    }
+    if (product.shopify_url && !isHttps(product.shopify_url)) problems.push('shopify_url must be an https link or empty');
+    if (product.stripe_link && !isStripeLink(product.stripe_link)) problems.push('stripe_link must be a buy.stripe.com link or empty');
+    if (product.stripe_price_aud !== undefined && product.stripe_price_aud !== '' && !(typeof product.stripe_price_aud === 'number' && product.stripe_price_aud > 0)) problems.push('stripe_price_aud must be a positive number or empty');
+    if (product.sample === true && (product.status === 'live' || LINK_FIELDS.some((key) => product[key]))) problems.push('a sample product cannot be live or have checkout links');
     return problems;
   }
 
   // Keeps only products that pass every rule, and says which were left out and why.
   function validProducts(list, warn = () => {}) {
     if (!Array.isArray(list)) throw new Error('products.json must be a list');
-    const ids = new Set();
+    const handles = new Set();
     return list.filter((product) => {
       const problems = productProblems(product);
-      if (!problems.length && ids.has(product.id)) problems.push('id is used twice');
-      if (problems.length) { warn(`Left out ${product && product.id ? product.id : 'a product'}: ${problems.join('; ')}`); return false; }
-      ids.add(product.id);
+      if (!problems.length && handles.has(product.handle)) problems.push('handle is used twice');
+      if (problems.length) { warn(`Left out ${product && product.handle ? product.handle : 'a product'}: ${problems.join('; ')}`); return false; }
+      handles.add(product.handle);
       return true;
     });
   }
+
+  // The shop and its counts show approved and live products only. Drafts and rejected products stay out.
+  const isListed = (product) => LISTED_STATUSES.includes(product.status);
+  const listedProducts = (list) => list.filter(isListed);
 
   const byScore = (a, b) => b.fi_score - a.fi_score || a.product.localeCompare(b.product);
   const sortByScore = (list) => [...list].sort(byScore);
@@ -76,6 +114,12 @@
     return CATEGORY_IDS.includes(value) ? value : 'all';
   }
 
+  // product.html?handle=<handle>; ?id= still works for older links.
+  function parseHandle(search) {
+    const params = new URLSearchParams(search || '');
+    return params.get('handle') || params.get('id') || '';
+  }
+
   const categoryName = (id) => (CATEGORIES.find((category) => category.id === id) || {name: 'All products'}).name;
 
   function formatPrice(value) {
@@ -83,7 +127,10 @@
     return 'A$' + value.toLocaleString('en-AU', {minimumFractionDigits: digits, maximumFractionDigits: digits});
   }
 
+  const shownValue = (value) => (isStated(value) ? value : 'Not stated');
   const imageAlt = (product) => (product.sample ? `Sample illustration of a ${product.product.toLowerCase()}` : product.product);
+  const productUrl = (product) => `product.html?handle=${encodeURIComponent(product.handle)}`;
+  const quoteHref = (product) => `contact.html?product=${encodeURIComponent(product.product)}#contact-form`;
 
   function scoreBand(score) {
     if (score >= 85) return 'high';
@@ -91,20 +138,38 @@
     return 'fair';
   }
 
-  const findProduct = (list, id) => list.find((product) => product.id === id) || null;
+  const findProduct = (list, handle) => list.find((product) => product.handle === handle) || null;
 
-  // The Buy button only works for a real product with a real Stripe Payment Link.
-  function buyState(product) {
-    if (product.sample) return {enabled: false, label: 'Sample: not for sale', note: 'This sample shows how the shop works. It can’t be bought.'};
-    if (!isStripeLink(product.stripe_link)) return {enabled: false, label: 'Not on sale yet', note: 'Ask us about this product and we’ll reply within 48 hours.'};
-    return {enabled: true, label: 'Buy now', href: product.stripe_link, note: 'Secure checkout with Stripe. Prices include GST.'};
+  // What the buy area shows. Only live products can be bought, in this order: Shopify embed, Shopify link, Stripe link, then a quote request.
+  function buyAction(product) {
+    if (product.sample) return {kind: 'none', label: 'Sample: not for sale', note: 'This sample shows how the shop works. It can’t be bought.'};
+    if (product.status === 'draft') return {kind: 'none', label: 'Draft: not for sale', note: 'This product hasn’t been approved yet.'};
+    if (product.status === 'rejected') return {kind: 'none', label: 'Not available', note: 'This product is no longer listed.'};
+    const quote = {kind: 'quote', label: 'Request a quote', href: quoteHref(product), note: 'Ask us for a price and delivery time. We reply within 48 hours.'};
+    if (product.status !== 'live') return quote;
+    const shopifyLink = isHttps(product.shopify_url) ? {kind: 'link', label: 'Buy', href: product.shopify_url, note: 'Secure checkout with Shopify.'} : null;
+    const stripeLink = isStripeLink(product.stripe_link) ? {kind: 'link', label: 'Buy', href: product.stripe_link, note: 'Secure checkout with Stripe.'} : null;
+    const embed = parseShopifyBuyButton(product.shopify_buy_button);
+    if (embed) return {kind: 'embed', embed, sdk: SHOPIFY_SDK, fallback: shopifyLink || stripeLink || quote, note: 'Secure checkout with Shopify.'};
+    return shopifyLink || stripeLink || quote;
   }
+
+  // Shown under the buy button, and only when the product's source states them.
+  function purchaseFacts(product) {
+    const facts = [];
+    if (isStated(product.price_aud)) facts.push({label: 'Price', value: `${formatPrice(product.price_aud)}${isStated(product.price_unit) ? ` ${product.price_unit}` : ''}, incl. GST`});
+    if (isStated(product.ships_from)) facts.push({label: 'Ships from', value: product.ships_from});
+    if (isStated(product.delivery_estimate)) facts.push({label: 'Delivery', value: product.delivery_estimate});
+    return facts;
+  }
+
+  const cardPrice = (product) => (isStated(product.price_aud) ? {value: formatPrice(product.price_aud), unit: isStated(product.price_unit) ? product.price_unit : ''} : {value: 'Price on request', unit: ''});
 
   // Photos first; the maker's origin story is always the last slide.
   function galleryItems(product) {
     return [
       {type: 'photo', src: product.photo_url, alt: imageAlt(product)},
-      {type: 'story', title: `Made by ${product.maker}`, place: product.country, text: product.story_en},
+      {type: 'story', title: `Made by ${product.maker}`, place: shownValue(product.country), text: product.story_en},
     ];
   }
 
@@ -123,10 +188,10 @@
   }
 
   const specRows = (product) => [
-    ['Material', product.material],
+    ['Material', shownValue(product.material)],
     ['Finishes', product.finishes.join(', ')],
     ['Sizes', product.sizes.join(', ')],
-    ['Made in', product.country],
+    ['Made in', shownValue(product.country)],
     ['Maker', product.maker],
   ];
 
@@ -136,7 +201,7 @@
     return validProducts(await response.json(), (message) => console.warn(message));
   }
 
-  const api = {CATEGORIES, CATEGORY_IDS, STATUSES, isHttps, isStripeLink, productProblems, validProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, categoryName, formatPrice, imageAlt, scoreBand, findProduct, buyState, galleryItems, checkItems, checkSummary, specRows, loadProducts};
+  const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts};
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (typeof window !== 'undefined') window.FICatalogue = api;
 })();

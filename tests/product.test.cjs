@@ -8,21 +8,19 @@ const read = (name) => fs.readFileSync(path.join(dist, name), 'utf8')
 const catalogue = require('../dist/catalogue.js')
 const products = JSON.parse(read('data/products.json'))
 const sample = products[0]
-const real = {...sample, sample: false, maker: 'Real maker', stripe_link: 'https://buy.stripe.com/test_abc123'}
+const real = {...sample, sample: false, status: 'live', maker: 'Real maker', stripe_link: 'https://buy.stripe.com/test_abc123'}
 
-test('Buy only works for a real product with a real Stripe Payment Link', () => {
+test('samples never get a buy button, and a live product buys through its Stripe Payment Link', () => {
   for (const product of products.filter((item) => item.sample)) {
-    const state = catalogue.buyState(product)
-    assert.equal(state.enabled, false)
-    assert.equal(state.label, 'Sample: not for sale')
-    assert.equal(state.href, undefined)
+    const action = catalogue.buyAction(product)
+    assert.equal(action.kind, 'none')
+    assert.equal(action.label, 'Sample: not for sale')
+    assert.equal(action.href, undefined)
   }
-  const unpriced = catalogue.buyState({...real, stripe_link: ''})
-  assert.equal(unpriced.enabled, false)
-  assert.equal(unpriced.label, 'Not on sale yet')
-  assert.equal(catalogue.buyState({...real, stripe_link: 'https://evil.example/pay'}).enabled, false)
-  const live = catalogue.buyState(real)
-  assert.equal(live.enabled, true)
+  assert.equal(catalogue.buyAction({...real, stripe_link: ''}).kind, 'quote')
+  assert.equal(catalogue.buyAction({...real, stripe_link: 'https://evil.example/pay'}).kind, 'quote')
+  const live = catalogue.buyAction(real)
+  assert.equal(live.kind, 'link')
   assert.equal(live.href, 'https://buy.stripe.com/test_abc123')
 })
 
@@ -51,7 +49,7 @@ test('the trust panel lists every check as checked or not found, with its link',
   assert.equal(catalogue.checkItems({certificates: [{name: 'X', status: 'checked', link: 'javascript:alert(1)'}]})[0].link, null, 'unsafe links are dropped')
   assert.equal(catalogue.checkSummary(sample), '2 of 3 checked')
   assert.deepEqual(catalogue.specRows(sample).map(([name]) => name), ['Material', 'Finishes', 'Sizes', 'Made in', 'Maker'])
-  assert.equal(catalogue.findProduct(products, sample.id), sample)
+  assert.equal(catalogue.findProduct(products, sample.handle), sample)
   assert.equal(catalogue.findProduct(products, 'missing'), null)
 })
 
@@ -66,6 +64,8 @@ test('product page loads the catalogue first and builds everything without raw H
   assert.doesNotMatch(script, /innerHTML/)
   assert.match(script, /'Why we trust this maker'/)
   assert.match(script, /rel = 'noopener noreferrer'/, 'outside links open safely')
-  assert.match(script, /if \(state\.enabled\)/, 'the Buy link exists only when buying is allowed')
+  assert.match(script, /const action = FI\.buyAction\(product\)/, 'the buy area follows the shared buy rules')
+  assert.match(script, /FI\.purchaseFacts\(product\)/, 'price, ships from and delivery come from the stated facts')
+  assert.match(script, /FI\.parseHandle\(window\.location\.search\)/)
   assert.match(script, /We couldn’t find that product/)
 })
