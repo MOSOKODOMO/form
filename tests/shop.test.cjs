@@ -31,8 +31,8 @@ test('sample products are clearly marked and can never be bought', () => {
     assert.equal(product.shopify_url, '')
     assert.equal(product.shopify_buy_button, '')
     assert.notEqual(product.status, 'live')
-    assert.ok(product.certificates.some((check) => check.status === 'checked'), `${product.handle} shows a checked item`)
-    assert.ok(product.certificates.some((check) => check.status === 'not found'), `${product.handle} shows a not-found item`)
+    assert.ok(product.certificates.some((check) => check.status === 'verified'), `${product.handle} shows a verified item`)
+    assert.ok(product.certificates.some((check) => check.status === 'not stated'), `${product.handle} shows a not-stated item`)
   }
   assert.deepEqual(catalogue.productProblems(variant({stripe_link: 'https://buy.stripe.com/test_abc123'})), ['a sample product cannot be live or have checkout links'])
 })

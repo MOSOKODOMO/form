@@ -9,7 +9,9 @@
     {id: 'taps', name: 'Taps'},
   ];
   const CATEGORY_IDS = CATEGORIES.map((category) => category.id);
-  const CHECK_STATUSES = ['checked', 'not found'];
+  // Verified: a person confirmed it on the issuer's own database. Claimed: on the maker's page only. Failed: checked and it didn't hold up.
+  const CHECK_STATUSES = ['verified', 'claimed', 'failed', 'not stated'];
+  const CHECK_LABELS = {verified: 'Verified', claimed: 'Claimed, not yet checked', failed: 'Failed our check', 'not stated': 'Not stated'};
   // Every product starts as a draft. Only a person approves it, and only a person sets it live.
   const PRODUCT_STATUSES = ['draft', 'approved', 'live', 'rejected'];
   const LISTED_STATUSES = ['approved', 'live'];
@@ -67,7 +69,7 @@
       product.certificates.forEach((check, index) => {
         const label = `certificate ${index + 1}`;
         if (!check || typeof check.name !== 'string' || !check.name.trim()) problems.push(`${label} needs a name`);
-        if (!check || !CHECK_STATUSES.includes(check.status)) problems.push(`${label} status must be "checked" or "not found"`);
+        if (!check || !CHECK_STATUSES.includes(check.status)) problems.push(`${label} status must be one of ${CHECK_STATUSES.join(', ')}`);
         if (!check || (check.link !== '' && !isHttps(check.link))) problems.push(`${label} link must be an https link or empty`);
       });
     }
@@ -169,22 +171,22 @@
   function galleryItems(product) {
     return [
       {type: 'photo', src: product.photo_url, alt: imageAlt(product)},
-      {type: 'story', title: `Made by ${product.maker}`, place: shownValue(product.country), text: product.story_en},
+      {type: 'story', title: `Made by ${product.maker}`, place: shownValue(product.country), text: isStated(product.story_en) ? product.story_en : 'We haven’t recorded this maker’s story yet.'},
     ];
   }
 
   function checkItems(product) {
     return product.certificates.map((check) => ({
       name: check.name,
-      checked: check.status === 'checked',
-      status: check.status === 'checked' ? 'Checked' : 'Not found',
-      link: isHttps(check.link) ? check.link : null,
+      state: check.status,
+      status: CHECK_LABELS[check.status] || 'Not stated',
+      link: check.status === 'verified' && isHttps(check.link) ? check.link : null,
     }));
   }
 
   function checkSummary(product) {
-    const checked = product.certificates.filter((check) => check.status === 'checked').length;
-    return `${checked} of ${product.certificates.length} checked`;
+    const verified = product.certificates.filter((check) => check.status === 'verified').length;
+    return `${verified} of ${product.certificates.length} verified`;
   }
 
   const specRows = (product) => [
@@ -201,7 +203,7 @@
     return validProducts(await response.json(), (message) => console.warn(message));
   }
 
-  const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts};
+  const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, CHECK_LABELS, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts};
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (typeof window !== 'undefined') window.FICatalogue = api;
 })();

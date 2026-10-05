@@ -38,16 +38,26 @@ test('the gallery shows the photo first and the origin story last', () => {
   }
 })
 
-test('the trust panel lists every check as checked or not found, with its link', () => {
+test('the trust panel shows each check as verified, claimed, failed or not stated, linking only verified ones', () => {
   const checks = catalogue.checkItems(sample)
   assert.equal(checks.length, sample.certificates.length)
   sample.certificates.forEach((certificate, index) => {
     assert.equal(checks[index].name, certificate.name)
-    assert.equal(checks[index].status, certificate.status === 'checked' ? 'Checked' : 'Not found')
-    assert.equal(checks[index].link, certificate.link || null)
+    assert.equal(checks[index].status, catalogue.CHECK_LABELS[certificate.status])
+    assert.equal(checks[index].link, certificate.status === 'verified' ? certificate.link || null : null)
   })
-  assert.equal(catalogue.checkItems({certificates: [{name: 'X', status: 'checked', link: 'javascript:alert(1)'}]})[0].link, null, 'unsafe links are dropped')
-  assert.equal(catalogue.checkSummary(sample), '2 of 3 checked')
+  const states = catalogue.checkItems({certificates: [
+    {name: 'A', status: 'verified', link: 'https://www.iafcertsearch.org/'},
+    {name: 'B', status: 'claimed', link: 'https://example.com/claim'},
+    {name: 'C', status: 'failed', link: ''},
+    {name: 'D', status: 'not stated', link: ''},
+  ]})
+  assert.deepEqual(states.map((check) => check.status), ['Verified', 'Claimed, not yet checked', 'Failed our check', 'Not stated'])
+  assert.deepEqual(states.map((check) => check.link), ['https://www.iafcertsearch.org/', null, null, null], 'only verified checks link to where we checked')
+  assert.equal(catalogue.checkItems({certificates: [{name: 'X', status: 'verified', link: 'javascript:alert(1)'}]})[0].link, null, 'unsafe links are dropped')
+  assert.equal(catalogue.checkSummary(sample), '2 of 3 verified')
+  assert.match(catalogue.productProblems({...sample, certificates: [{name: 'X', status: 'checked', link: ''}]}).join(), /status must be one of verified, claimed, failed, not stated/)
+  assert.equal(catalogue.galleryItems({...sample, story_en: 'not stated'}).at(-1).text, 'We haven’t recorded this maker’s story yet.')
   assert.deepEqual(catalogue.specRows(sample).map(([name]) => name), ['Material', 'Finishes', 'Sizes', 'Made in', 'Maker'])
   assert.equal(catalogue.findProduct(products, sample.handle), sample)
   assert.equal(catalogue.findProduct(products, 'missing'), null)

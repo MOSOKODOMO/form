@@ -83,3 +83,49 @@ def parse_shopify_buy_button(snippet) -> dict | None:
 def label(product, index: int) -> str:
     handle = product.get('handle') if isinstance(product, dict) else None
     return handle or f'product #{index + 1}'
+
+
+# Part 2: drafts, settings and the inbox for pages saved by hand.
+DRAFTS = DATA / 'drafts'
+INBOX = ROOT / 'inbox'
+SETTINGS = DATA / 'settings.json'
+CATEGORY_IDS = ('handles', 'knobs', 'tiles', 'taps')
+# Same columns as Prem's fi-shopify-products-draft.csv.
+SHOPIFY_COLUMNS = ['Handle', 'Title', 'Body (HTML)', 'Vendor', 'Type', 'Tags', 'Published', 'Option1 Name', 'Option1 Value',
+                   'Variant SKU', 'Variant Grams', 'Variant Inventory Policy', 'Variant Fulfillment Service', 'Variant Price',
+                   'Variant Requires Shipping', 'Variant Taxable', 'Status']
+SHOPIFY_TYPES = {'handles': 'Cabinet hardware', 'knobs': 'Cabinet hardware', 'tiles': 'Tiles', 'taps': 'Tapware'}
+
+
+def load_settings(path: Path = SETTINGS) -> dict:
+    return json.loads(Path(path).read_text(encoding='utf-8')) if Path(path).exists() else {}
+
+
+def load_env(path: Path = ROOT / '.env') -> dict:
+    """Reads KEY=VALUE lines from .env (never committed). Values already set in the environment win."""
+    import os
+    values = {}
+    if Path(path).exists():
+        for line in Path(path).read_text(encoding='utf-8').splitlines():
+            line = line.strip()
+            if line and not line.startswith('#') and '=' in line:
+                key, value = line.split('=', 1)
+                values[key.strip()] = value.strip().strip('"').strip("'")
+    for key in list(values):
+        if os.environ.get(key):
+            values[key] = os.environ[key]
+    return values
+
+
+def slugify(text: str, limit: int = 60) -> str:
+    slug = re.sub(r'[^a-z0-9]+', '-', str(text).lower()).strip('-')
+    return slug[:limit].rstrip('-') or 'product'
+
+
+def today() -> str:
+    from datetime import date
+    return date.today().isoformat()
+
+
+def stated_or(value, fallback=NOT_STATED):
+    return value if is_stated(value) else fallback

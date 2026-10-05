@@ -1,0 +1,10 @@
+{
+  "usd_to_aud": 1.42,
+  "usd_to_aud_note": "Set this yourself before pricing. 1.42 is the rate Lincy used on 24 Sep 2026.",
+  "shipping_per_unit_aud": null,
+  "packaging_per_unit_aud": null,
+  "costs_note": "Shipping and packaging per unit, in AUD. While they are null, estimates show the factory price only and say so.",
+  "gst_rate": 0.1,
+  "price_red_flag_ratio": 0.5,
+  "price_red_flag_note": "Flag a draft whose price is under this share of the median price of similar products (same category)."
+}

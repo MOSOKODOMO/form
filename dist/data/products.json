@@ -27,17 +27,17 @@
     "certificates": [
       {
         "name": "Business licence",
-        "status": "checked",
+        "status": "verified",
         "link": "https://www.gsxt.gov.cn/"
       },
       {
         "name": "ISO 9001 quality management certificate",
-        "status": "checked",
+        "status": "verified",
         "link": "https://www.iafcertsearch.org/"
       },
       {
         "name": "Salt spray test for the finish (ISO 9227)",
-        "status": "not found",
+        "status": "not stated",
         "link": ""
       }
     ],
@@ -75,17 +75,17 @@
     "certificates": [
       {
         "name": "Business registration",
-        "status": "checked",
+        "status": "verified",
         "link": "https://dangkykinhdoanh.gov.vn/"
       },
       {
         "name": "ISO 9001 quality management certificate",
-        "status": "checked",
+        "status": "verified",
         "link": "https://www.iafcertsearch.org/"
       },
       {
         "name": "Slip resistance test for floors (AS 4586)",
-        "status": "not found",
+        "status": "not stated",
         "link": ""
       }
     ],
@@ -123,17 +123,17 @@
     "certificates": [
       {
         "name": "Business licence",
-        "status": "checked",
+        "status": "verified",
         "link": "https://www.gsxt.gov.cn/"
       },
       {
         "name": "Lead and cadmium test for the glaze",
-        "status": "checked",
+        "status": "verified",
         "link": "https://www.sgs.com/"
       },
       {
         "name": "ISO 9001 quality management certificate",
-        "status": "not found",
+        "status": "not stated",
         "link": ""
       }
     ],

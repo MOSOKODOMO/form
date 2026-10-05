@@ -237,8 +237,8 @@
 
     const list = el('ul', 'trust-list');
     for (const check of FI.checkItems(product)) {
-      const item = el('li', `trust-item ${check.checked ? 'trust-item--checked' : 'trust-item--missing'}`);
-      const mark = el('span', 'trust-mark', check.checked ? '✓' : '✕');
+      const item = el('li', `trust-item trust-item--${check.state.replace(' ', '-')}`);
+      const mark = el('span', 'trust-mark', {verified: '✓', claimed: '?', failed: '✕'}[check.state] || '–');
       mark.setAttribute('aria-hidden', 'true');
       const text = el('div', 'trust-text');
       text.append(el('p', 'trust-name', check.name), el('p', 'trust-status', check.status));
@@ -249,13 +249,13 @@
         source.setAttribute('aria-label', `View source for ${check.name} (opens in a new tab)`);
         item.append(source);
       } else {
-        item.append(el('span', 'trust-link trust-link--none', check.checked ? 'No public link' : 'Nothing to show'));
+        item.append(el('span', 'trust-link trust-link--none', check.state === 'claimed' ? 'Not checked yet' : 'Nothing to show'));
       }
       list.append(item);
     }
 
     const notes = el('div', 'trust-notes');
-    notes.append(el('p', '', '“Not found” means we looked and couldn’t find it. It lowers the FI Score.'));
+    notes.append(el('p', '', 'Verified means we checked it on the issuer’s own database. Claimed means the maker says so and we haven’t checked it yet. Not stated means the maker doesn’t mention it.'));
     if (product.sample) notes.append(el('p', '', 'These checks are examples for a sample product. The links go to the registers where checks like these are made.'));
     section.append(heading, list, notes);
     return section;

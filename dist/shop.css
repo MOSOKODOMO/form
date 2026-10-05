@@ -136,12 +136,16 @@ button.product-buy-button:disabled { color: var(--muted); background: var(--soft
 .trust-list { margin: 26px 0 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
 .trust-item { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
 .trust-mark { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; font-weight: 800; }
-.trust-item--checked .trust-mark { color: var(--on-accent); background: var(--accent); }
-.trust-item--missing .trust-mark { border: 1px solid var(--amber); color: var(--amber); }
+.trust-item--verified .trust-mark { color: var(--on-accent); background: var(--accent); }
+.trust-item--claimed .trust-mark { border: 1px solid var(--amber); color: var(--amber); }
+.trust-item--failed .trust-mark { border: 1px solid var(--error); color: var(--error); }
+.trust-item--not-stated .trust-mark { border: 1px solid var(--line); color: var(--muted); }
 .trust-name { font-size: 16px; font-weight: 600; }
 .trust-status { margin-top: 2px; font: 500 10px/1.5 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
-.trust-item--checked .trust-status { color: var(--accent); }
-.trust-item--missing .trust-status { color: var(--amber); }
+.trust-item--verified .trust-status { color: var(--accent); }
+.trust-item--claimed .trust-status { color: var(--amber); }
+.trust-item--failed .trust-status { color: var(--error); }
+.trust-item--not-stated .trust-status { color: var(--muted); }
 .trust-link { color: var(--accent); font-size: 13px; font-weight: 700; text-underline-offset: 3px; white-space: nowrap; }
 .trust-link--none { color: var(--muted); font-weight: 500; }
 .trust-notes { display: grid; gap: 6px; margin-top: 18px; color: var(--muted); font-size: 12px; }
