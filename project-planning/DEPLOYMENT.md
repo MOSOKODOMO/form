@@ -1,4 +1,14 @@
-# Deployment, 17 September 2026
+# Deployment, 5 October 2026
+
+Published website commit: `c0852f6` (product-free FI Verify marketplace preparation).
+Primary URL: https://fabricationintelligence.com/.
+Hosting: GitHub Pages, `MOSOKODOMO/form`, GitHub Actions deployment of `dist/` from `main`.
+
+The publishing workflow completed successfully. The homepage serves the new “Know who made it. See the proof.” copy; Shop, product detail, Verified Makers, and Partner pages return HTTP 200. The public products, makers, and reports JSON files all remain empty arrays. The release passed 75 automated tests before publication.
+
+This publishes the static storefront only. The October Supabase migration has not been applied; GA4 and Axiom remain unconfigured; checkout is off. The alternate Vercel alias still served the earlier homepage when checked, so use the custom domain for this release.
+
+## Earlier deployment, 17 September 2026
 
 Published commit: 1f39ea3 (bilingual RFQ prototype and staircase catalogue).
 Hosting: GitHub Pages, MOSOKODOMO/form, GitHub Actions deployment from dist.

@@ -62,7 +62,7 @@ test('the pricing page shows the 10% fee as a table and Services links to it', (
 test('the feedback form sends answers to the team inbox and is linked after a request', () => {
   assert.match(read('feedback.js'), /formsubmit\.co\/ajax\/fabricationintelligence@gmail\.com/)
   const page = read('feedback.html')
-  for (const name of ['role', 'would_use', 'fee', 'email']) assert.match(page, new RegExp(`name="${name}"`))
+  for (const name of ['role', 'would_use', 'proof', 'concern', 'email']) assert.match(page, new RegExp(`name="${name}"`))
   assert.match(read('stage2.html'), /href="feedback\.html"/)
   assert.match(read('privacy.html'), /quote request or the feedback form/)
 })

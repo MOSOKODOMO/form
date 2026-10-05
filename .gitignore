@@ -12,3 +12,4 @@ __pycache__/
 # Part 2: pages saved by hand, and drafts (supplier research, raw page text and source photos) stay off the public repo.
 inbox/
 data/drafts/
+data/product-sheet/

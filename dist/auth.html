@@ -11,6 +11,7 @@
     <script type="module" src="auth.js" defer></script>
     <link rel="stylesheet" href="site-motion.css">
     <script src="site-motion.js" defer></script>
+    <script src="telemetry.js" defer></script>
   </head>
   <body data-motion-page="functional">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -32,8 +33,8 @@
       <section class="auth-intro">
         <p class="eyebrow"><span></span> YOUR ACCOUNT</p>
         <h1>One login.<br>Your side of the work.</h1>
-        <p>Clients can keep their requests together. Manufacturers can introduce their company and apply for FI review.</p>
-        <div class="auth-guardrail"><strong>Manufacturer accounts are not automatic approval.</strong><br>FI checks every applicant before connecting it to the supplier workspace.</div>
+        <p>Client accounts currently keep sourcing requests together. Manufacturers can introduce their company and apply for FI review. Shop purchases are not connected to accounts yet.</p>
+        <div class="auth-guardrail"><strong>Manufacturer accounts are not automatic approval.</strong><br>FI checks every applicant before connecting it to the supplier workspace. Creating a client account does not place an order.</div>
       </section>
       <section class="auth-card" aria-labelledby="auth-title">
         <div class="auth-tabs" role="tablist" aria-label="Account action">
@@ -46,7 +47,7 @@
           <div id="signup-fields" hidden>
             <fieldset class="role-picker">
               <legend>I’m joining as</legend>
-              <label><input type="radio" name="role" value="client" checked><span><strong>Client</strong><small>Request and track sourcing work</small></span></label>
+              <label><input type="radio" name="role" value="client" checked><span><strong>Client</strong><small>Save and track sourcing requests</small></span></label>
               <label><input type="radio" name="role" value="manufacturer"><span><strong>Manufacturer</strong><small>Apply to join the supplier network</small></span></label>
             </fieldset>
             <label class="account-field"><span>Full name</span><input name="full_name" autocomplete="name" maxlength="160"></label>

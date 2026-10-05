@@ -4,7 +4,7 @@ const fs = require('node:fs')
 const path = require('node:path')
 
 const read = (file) => fs.readFileSync(path.resolve('dist', file), 'utf8')
-const pages = ['windows.html', 'how-it-works.html']
+const pages = ['windows.html']
 const headings = [
   'Send your brief',
   'Compare your window quote',
@@ -21,9 +21,9 @@ const getJourney = (page) => {
 }
 const text = (html) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 
-test('both public journey entry points show the same complete, ordered six-step infographic', () => {
+test('the windows page shows the complete, ordered six-step infographic', () => {
   const sections = pages.map(getJourney)
-  assert.equal(sections[0].trim(), sections[1].trim(), 'windows page and dedicated page share the same journey content')
+  assert.doesNotMatch(read('how-it-works.html'), /class="customer-journey"/, 'How it works now explains the shop method instead')
   for (const [index, section] of sections.entries()) {
     const page = pages[index]
     assert.match(section, /<h[1-6]\b[^>]*id="journey-title"[^>]*>/, `${page} resolves its accessible heading`)

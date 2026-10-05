@@ -1,6 +1,6 @@
-# Fabrication Intelligence: next website version
+# Fabrication Intelligence: earlier website planning
 
-Current status (21 September 2026): the Week 3 public pages and account flows are implemented; account and supplier schemas are installed in Supabase. See [WEEK-3-IMPLEMENTATION.md](WEEK-3-IMPLEMENTATION.md) for the current release. Earlier sections below retain the development history.
+October 2026: the product-free marketplace preparation is described in [catalogue-data.md](catalogue-data.md) and the repository [README](../README.md). The sections below retain the earlier windows/sourcing development history. The Week 3 public pages and account flows were implemented in September; their account and supplier schemas were installed in Supabase. See [WEEK-3-IMPLEMENTATION.md](WEEK-3-IMPLEMENTATION.md) for that earlier release.
 
 Decision: 17 September 2026. The product is a full public website at fabricationintelligence.com, built and tested in stages. The team personally manages sourcing. Only checked, real fabricators may appear as directory members. No online payments yet.
 

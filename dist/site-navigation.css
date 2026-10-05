@@ -1,4 +1,4 @@
-/* Public navigation is identical on each page, including the selected link. */
+/* Keep one primary menu across current and earlier pilot pages. */
 html { scrollbar-gutter: stable; }
 .site-header.site-header--public {
   display: flex;
@@ -48,12 +48,15 @@ html { scrollbar-gutter: stable; }
 .site-header--public .site-nav > .nav-cta > [data-en] { translate: none; }
 .site-header--public .site-nav > .nav-cta[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--on-accent); }
 .site-header--public a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.legacy-notice { padding: 15px 5%; border-bottom: 1px solid var(--line); background: var(--surface); color: var(--muted); font: 400 12px/1.6 'Manrope', system-ui, sans-serif; }
+.legacy-notice strong { color: var(--ink); }
+.legacy-notice a { color: var(--accent); text-underline-offset: 3px; }
 
 /* Keep request-form utilities separate from the stable public menu. */
 .stage2-tools { display: flex; align-items: center; justify-content: flex-end; gap: 26px; padding: 10px 5%; border-bottom: 1px solid var(--line); }
 .stage2-tools .stage2-nav { flex-wrap: wrap; }
 
-@media (max-width: 1100px) {
+@media (max-width: 1360px) {
   .site-header.site-header--public { flex-direction: column; align-items: flex-start; gap: 12px; }
   .site-header--public > .brand { flex-basis: auto; }
   .site-header--public .site-nav { width: 100%; justify-content: space-between; gap: 12px; }

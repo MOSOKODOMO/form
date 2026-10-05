@@ -30,13 +30,10 @@ feedbackForm.addEventListener('submit', async (event) => {
   }
   const lines = [
     `Role: ${role}`,
-    `Tried the request form: ${answer('tried_form') || 'none'}`,
-    `Ease of sending a request (1–5): ${answer('ease') || 'none'}`,
-    `Confusing or missing: ${answer('confusing') || 'none'}`,
-    `Would use on a real project: ${wouldUse}`,
-    `Why: ${answer('why') || 'none'}`,
-    `10% fee after the pilot: ${answer('fee') || 'none'}`,
-    `Product to source: ${answer('source_next') || 'none'}`,
+    `Maker evidence helps purchase decision: ${wouldUse}`,
+    `Proof that matters most: ${answer('proof') || 'none'}`,
+    `Remaining concern: ${answer('concern') || 'none'}`,
+    `Product to check: ${answer('source_next') || 'none'}`,
     `Name: ${answer('name') || 'none'}`,
     `Email: ${email || 'none'}`,
   ];
@@ -53,6 +50,7 @@ feedbackForm.addEventListener('submit', async (event) => {
     try { data = await response.json(); } catch {}
     if (!response.ok || String(data.success) !== 'true') throw new Error(data.message || `HTTP ${response.status}`);
     feedbackForm.hidden = true;
+    window.fiTrackEvent?.('feedback_submit');
     const thanks = document.querySelector('#feedback-thanks');
     thanks.hidden = false;
     thanks.focus();
