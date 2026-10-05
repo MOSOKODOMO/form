@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <!-- Sample illustration drawn for FABINT: a knurled brass bar pull. Not a photo of a real product. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b4335"/><stop offset="1" stop-color="#232921"/></linearGradient>
+    <radialGradient id="light" cx=".5" cy=".42" r=".6"><stop offset="0" stop-color="#5a6750" stop-opacity=".8"/><stop offset="1" stop-color="#5a6750" stop-opacity="0"/></radialGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7d5a22"/><stop offset=".18" stop-color="#ecd38c"/><stop offset=".42" stop-color="#c99c47"/><stop offset=".78" stop-color="#8a6326"/><stop offset="1" stop-color="#b98d3f"/></linearGradient>
+    <linearGradient id="post" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7d5a22"/><stop offset=".35" stop-color="#e3c47a"/><stop offset=".7" stop-color="#a87c35"/><stop offset="1" stop-color="#6d4d1b"/></linearGradient>
+    <pattern id="knurl" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M0 0L9 9M9 0L0 9" stroke="#4a3410" stroke-opacity=".45" stroke-width="1.2"/></pattern>
+    <radialGradient id="shade"><stop offset="0" stop-color="#0b0e0a" stop-opacity=".85"/><stop offset=".55" stop-color="#0b0e0a" stop-opacity=".45"/><stop offset="1" stop-color="#0b0e0a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect width="800" height="1000" fill="url(#light)"/>
+  <rect y="674" width="800" height="326" fill="#1d221b" opacity=".6"/>
+  <ellipse cx="400" cy="686" rx="300" ry="34" fill="url(#shade)"/>
+  <rect x="222" y="508" width="40" height="150" fill="url(#post)"/>
+  <rect x="538" y="508" width="40" height="150" fill="url(#post)"/>
+  <rect x="198" y="652" width="88" height="22" rx="11" fill="url(#post)"/>
+  <rect x="514" y="652" width="88" height="22" rx="11" fill="url(#post)"/>
+  <rect x="110" y="452" width="580" height="60" rx="30" fill="url(#bar)"/>
+  <rect x="250" y="452" width="300" height="60" fill="url(#knurl)"/>
+  <path d="M250 452v60M550 452v60" stroke="#5f4416" stroke-opacity=".55" stroke-width="2"/>
+  <rect x="134" y="462" width="532" height="7" rx="3.5" fill="#fff6d8" opacity=".35"/>
+</svg>

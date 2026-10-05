@@ -7,8 +7,11 @@
     <title>Shop | FABINT</title>
     <link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg">
     <link rel="stylesheet" href="builders.css">
+    <link rel="stylesheet" href="shop.css">
     <link rel="stylesheet" href="site-motion.css">
     <script src="site-motion.js" defer></script>
+    <script src="catalogue.js" defer></script>
+    <script src="shop.js" defer></script>
   </head>
   <body data-motion-page="functional">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -28,11 +31,33 @@
     </header>
 
     <main id="main">
-      <section class="page-hero">
-        <p class="eyebrow"><span></span> SHOP</p>
-        <h1>Verified design products.</h1>
-        <p>We’re stocking the first products now. Every one will show its FI Score out of 100 and the checks behind it. <a class="text-link" href="./#how-it-works">How it works</a></p>
+      <section class="shop-hero" aria-labelledby="shop-title">
+        <div>
+          <p class="eyebrow"><span></span> SHOP</p>
+          <h1 id="shop-title">Verified design products.</h1>
+        </div>
+        <p>Every product shows its FI Score out of 100 and the checks behind it, highest score first.</p>
       </section>
+
+      <aside id="sample-banner" class="sample-banner" aria-label="About the sample products" hidden>
+        <p class="sample-banner-label">SAMPLE PRODUCTS</p>
+        <p>These are samples that show how the shop works. Their makers, scores and checks are made up, and they’re not for sale.</p>
+      </aside>
+
+      <div class="shop-toolbar">
+        <div class="shop-filters" role="group" aria-label="Filter by category">
+          <button class="shop-filter" type="button" data-category="all" aria-pressed="true">All <span class="shop-filter-count"></span></button>
+          <button class="shop-filter" type="button" data-category="handles" aria-pressed="false">Handles <span class="shop-filter-count"></span></button>
+          <button class="shop-filter" type="button" data-category="knobs" aria-pressed="false">Knobs <span class="shop-filter-count"></span></button>
+          <button class="shop-filter" type="button" data-category="tiles" aria-pressed="false">Tiles <span class="shop-filter-count"></span></button>
+          <button class="shop-filter" type="button" data-category="taps" aria-pressed="false">Taps <span class="shop-filter-count"></span></button>
+        </div>
+        <p class="shop-sort">SORTED BY FI SCORE</p>
+      </div>
+
+      <p id="shop-status" class="shop-status" role="status" aria-live="polite">Loading products…</p>
+      <ul id="product-grid" class="product-grid" aria-busy="true"></ul>
+      <noscript><p class="shop-status">The shop needs JavaScript to show products. Email <a href="mailto:fabricationintelligence@gmail.com">fabricationintelligence@gmail.com</a> and we’ll help.</p></noscript>
     </main>
 
     <footer class="site-footer">

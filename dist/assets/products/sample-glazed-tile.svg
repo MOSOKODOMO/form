@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <!-- Sample illustration drawn for FABINT: handmade glazed wall tiles. Not a photo of a real product. -->
+  <defs>
+    <linearGradient id="grout" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d8d3bf"/><stop offset="1" stop-color="#bdb7a1"/></linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".2"/><stop offset=".45" stop-color="#ffffff" stop-opacity="0"/><stop offset="1" stop-color="#0b120a" stop-opacity=".28"/></linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#grout)"/>
+  <rect x="58" y="42" width="220" height="220" rx="6" fill="#5f7a4f"/>
+  <rect x="58" y="42" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M84 94q70 -10 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+  <rect x="290" y="42" width="220" height="220" rx="6" fill="#6f8a5c"/>
+  <rect x="290" y="42" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M316 101q70 -21 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+  <rect x="522" y="42" width="220" height="220" rx="6" fill="#56714a"/>
+  <rect x="522" y="42" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M548 108q70 -10 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+  <rect x="58" y="274" width="220" height="220" rx="6" fill="#7a9466"/>
+  <rect x="58" y="274" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M84 347q70 -21 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+  <rect x="290" y="274" width="220" height="220" rx="6" fill="#4f683f"/>
+  <rect x="290" y="274" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M316 328q70 -10 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+  <rect x="522" y="274" width="220" height="220" rx="6" fill="#688352"/>
+  <rect x="522" y="274" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M548 335q70 -21 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+  <rect x="58" y="506" width="220" height="220" rx="6" fill="#5c784e"/>
+  <rect x="58" y="506" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M84 574q70 -10 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+  <rect x="290" y="506" width="220" height="220" rx="6" fill="#73905f"/>
+  <rect x="290" y="506" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M316 581q70 -21 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+  <rect x="522" y="506" width="220" height="220" rx="6" fill="#527047"/>
+  <rect x="522" y="506" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M548 562q70 -10 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+  <rect x="58" y="738" width="220" height="220" rx="6" fill="#6a8560"/>
+  <rect x="58" y="738" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M84 801q70 -21 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+  <rect x="290" y="738" width="220" height="220" rx="6" fill="#597449"/>
+  <rect x="290" y="738" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M316 808q70 -10 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+  <rect x="522" y="738" width="220" height="220" rx="6" fill="#7c9768"/>
+  <rect x="522" y="738" width="220" height="220" rx="6" fill="url(#sheen)"/>
+  <path d="M548 815q70 -21 140 -4" fill="none" stroke="#f4f7e8" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+</svg>

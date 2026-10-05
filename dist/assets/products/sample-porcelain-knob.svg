@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <!-- Sample illustration drawn for FABINT: a glazed porcelain cabinet knob. Not a photo of a real product. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b4335"/><stop offset="1" stop-color="#232921"/></linearGradient>
+    <radialGradient id="light" cx=".5" cy=".42" r=".6"><stop offset="0" stop-color="#5a6750" stop-opacity=".8"/><stop offset="1" stop-color="#5a6750" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glaze" cx=".34" cy=".26" r=".9"><stop offset="0" stop-color="#d3e0c8"/><stop offset=".32" stop-color="#9db394"/><stop offset=".72" stop-color="#627a5b"/><stop offset="1" stop-color="#435640"/></radialGradient>
+    <linearGradient id="neck" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4f6649"/><stop offset=".4" stop-color="#a6bb9c"/><stop offset="1" stop-color="#435640"/></linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7d5a22"/><stop offset=".35" stop-color="#e3c47a"/><stop offset=".7" stop-color="#a87c35"/><stop offset="1" stop-color="#6d4d1b"/></linearGradient>
+    <radialGradient id="shade"><stop offset="0" stop-color="#0b0e0a" stop-opacity=".85"/><stop offset=".55" stop-color="#0b0e0a" stop-opacity=".45"/><stop offset="1" stop-color="#0b0e0a" stop-opacity="0"/></radialGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect width="800" height="1000" fill="url(#light)"/>
+  <rect y="714" width="800" height="286" fill="#1d221b" opacity=".6"/>
+  <ellipse cx="400" cy="726" rx="250" ry="32" fill="url(#shade)"/>
+  <rect x="318" y="692" width="164" height="22" rx="11" fill="url(#brass)"/>
+  <path d="M362 694C369 668 369 644 357 620H443C431 644 431 668 438 694Z" fill="url(#neck)"/>
+  <path d="M220 540C220 392 302 304 400 304S580 392 580 540C580 590 548 622 498 622H302C252 622 220 590 220 540Z" fill="url(#glaze)"/>
+  <path d="M234 566C248 602 272 622 302 622H498C528 622 552 602 566 566" fill="none" stroke="#33422f" stroke-opacity=".45" stroke-width="6"/>
+  <ellipse cx="318" cy="398" rx="58" ry="30" transform="rotate(-32 318 398)" fill="#ffffff" opacity=".45" filter="url(#soft)"/>
+</svg>
