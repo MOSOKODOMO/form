@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const pages = ['index.html', 'shop.html', 'windows.html', 'how-it-works.html', 'services.html', 'pricing.html', 'about.html', 'contact.html', 'auth.html', 'stage2.html', 'builders.html', 'glass-guide.html', 'feedback.html', 'privacy.html'];
+const pages = ['index.html', 'shop.html', 'product.html', 'windows.html', 'how-it-works.html', 'services.html', 'pricing.html', 'about.html', 'contact.html', 'auth.html', 'stage2.html', 'builders.html', 'glass-guide.html', 'feedback.html', 'privacy.html'];
 const expected = [
   ['./', 'Home'], ['shop.html', 'Shop'], ['how-it-works.html', 'How it works'], ['services.html', 'Services'],
   ['pricing.html', 'Pricing'], ['about.html', 'About'], ['contact.html', 'Contact'],

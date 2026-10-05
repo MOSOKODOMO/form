@@ -91,13 +91,52 @@
     return 'fair';
   }
 
+  const findProduct = (list, id) => list.find((product) => product.id === id) || null;
+
+  // The Buy button only works for a real product with a real Stripe Payment Link.
+  function buyState(product) {
+    if (product.sample) return {enabled: false, label: 'Sample: not for sale', note: 'This sample shows how the shop works. It can’t be bought.'};
+    if (!isStripeLink(product.stripe_link)) return {enabled: false, label: 'Not on sale yet', note: 'Ask us about this product and we’ll reply within 48 hours.'};
+    return {enabled: true, label: 'Buy now', href: product.stripe_link, note: 'Secure checkout with Stripe. Prices include GST.'};
+  }
+
+  // Photos first; the maker's origin story is always the last slide.
+  function galleryItems(product) {
+    return [
+      {type: 'photo', src: product.photo_url, alt: imageAlt(product)},
+      {type: 'story', title: `Made by ${product.maker}`, place: product.country, text: product.story_en},
+    ];
+  }
+
+  function checkItems(product) {
+    return product.certificates.map((check) => ({
+      name: check.name,
+      checked: check.status === 'checked',
+      status: check.status === 'checked' ? 'Checked' : 'Not found',
+      link: isHttps(check.link) ? check.link : null,
+    }));
+  }
+
+  function checkSummary(product) {
+    const checked = product.certificates.filter((check) => check.status === 'checked').length;
+    return `${checked} of ${product.certificates.length} checked`;
+  }
+
+  const specRows = (product) => [
+    ['Material', product.material],
+    ['Finishes', product.finishes.join(', ')],
+    ['Sizes', product.sizes.join(', ')],
+    ['Made in', product.country],
+    ['Maker', product.maker],
+  ];
+
   async function loadProducts(url = 'data/products.json') {
     const response = await fetch(url, {cache: 'no-cache'});
     if (!response.ok) throw new Error(`Could not load products (HTTP ${response.status})`);
     return validProducts(await response.json(), (message) => console.warn(message));
   }
 
-  const api = {CATEGORIES, CATEGORY_IDS, STATUSES, isHttps, isStripeLink, productProblems, validProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, categoryName, formatPrice, imageAlt, scoreBand, loadProducts};
+  const api = {CATEGORIES, CATEGORY_IDS, STATUSES, isHttps, isStripeLink, productProblems, validProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, categoryName, formatPrice, imageAlt, scoreBand, findProduct, buyState, galleryItems, checkItems, checkSummary, specRows, loadProducts};
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (typeof window !== 'undefined') window.FICatalogue = api;
 })();
