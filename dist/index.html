@@ -8,8 +8,11 @@
     <link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg">
     <link rel="stylesheet" href="builders.css">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="contact-form.css">
     <link rel="stylesheet" href="site-motion.css">
     <script src="site-motion.js" defer></script>
+    <script src="testimonials.js" defer></script>
+    <script src="contact-form.js" defer></script>
   </head>
   <body data-motion-page="editorial">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -78,11 +81,10 @@
         </div>
       </aside>
 
-      <section id="team" class="team-section" data-motion-section="Our team" aria-labelledby="team-title">
-        <div>
-          <p class="eyebrow"><span></span> THE TEAM</p>
-          <h2 id="team-title">A bigger goal.<br>A hands-on team.</h2>
-          <p class="team-intro">Three RMIT architecture students working towards more affordable Australian homes, starting with windows and glass. Every enquiry is handled personally.</p>
+      <section id="founders" class="team-section home-founders" data-motion-section="Founders" aria-labelledby="team-title">
+        <div class="home-section-heading">
+          <div><p class="eyebrow"><span></span> FOUNDERS</p><h2 id="team-title">The people<br>behind FI.</h2></div>
+          <p>Three final-year RMIT architecture students building a shop where you can see why to trust the maker. Every message reaches one of us.</p>
         </div>
         <div class="team-grid">
           <article class="team-card">
@@ -103,6 +105,48 @@
             <h3>Build &amp; testing</h3>
             <small>Mos is a final-year architecture student with a deep passion for coding and technology.</small>
           </article>
+        </div>
+      </section>
+
+      <section id="testimonials" class="home-testimonials" data-motion-section="Reviews" aria-labelledby="testimonials-title">
+        <div class="home-testimonials-box">
+          <div>
+            <p class="eyebrow"><span></span> WHAT BUYERS SAY</p>
+            <h2 id="testimonials-title">Real reviews only.</h2>
+            <p class="home-testimonials-note">We’ll share quotes from real buyers here, with their permission. We never write or edit them.</p>
+          </div>
+          <div id="testimonial-list" class="testimonial-list">
+            <p class="testimonial-empty"><strong>No reviews yet</strong>Our first buyers’ words will appear here.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="home-contact" data-motion-section="Contact" aria-labelledby="contact-title">
+        <div class="home-contact-copy">
+          <p class="eyebrow"><span></span> CONTACT</p>
+          <h2 id="contact-title">Ask us<br>anything.</h2>
+          <p>Questions about a product, a maker or how the shop works? Send a message and one of the founders will reply, usually within 48 hours.</p>
+          <p class="home-contact-email">Or email <a href="mailto:fabricationintelligence@gmail.com">fabricationintelligence@gmail.com</a></p>
+        </div>
+        <div class="contact-block" data-contact-block>
+          <form class="contact-form" data-contact-form novalidate>
+            <div class="contact-form-row">
+              <label>Name<input type="text" name="name" autocomplete="name" maxlength="120" required></label>
+              <label>Email<input type="email" name="email" autocomplete="email" maxlength="200" required></label>
+            </div>
+            <label><span>Product <small>(optional)</small></span><input type="text" name="product" maxlength="200" placeholder="For example, the brass pull handle"></label>
+            <label>Message<textarea name="message" rows="5" maxlength="4000" required></textarea></label>
+            <label class="contact-honeypot" aria-hidden="true">Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            <div class="contact-form-actions">
+              <button class="button button-primary" type="submit">Send message <span aria-hidden="true">↗</span></button>
+              <p class="contact-form-status" role="status" aria-live="polite"></p>
+            </div>
+            <p class="contact-form-privacy">Your message goes to our team inbox. See our <a href="privacy.html">privacy notice</a>.</p>
+          </form>
+          <div class="contact-thanks" tabindex="-1" hidden>
+            <h3>Thanks, your message is on its way.</h3>
+            <p>We’ll reply to your email, usually within 48 hours.</p>
+          </div>
         </div>
       </section>
     </main>

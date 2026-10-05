@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="en">
-  <head><meta charset="utf-8"><meta name="theme-color" content="#252b23"><meta name="color-scheme" content="dark"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Contact Fabrication Intelligence or send a detailed sourcing request."><meta property="og:type" content="website"><meta property="og:site_name" content="FABINT"><meta property="og:title" content="Contact | Fabrication Intelligence"><meta property="og:description" content="Contact Fabrication Intelligence or send a detailed sourcing request."><meta property="og:url" content="https://fabricationintelligence.com/contact.html"><meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><title>Contact | Fabrication Intelligence</title><link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg"><link rel="stylesheet" href="builders.css">
+  <head><meta charset="utf-8"><meta name="theme-color" content="#252b23"><meta name="color-scheme" content="dark"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Contact Fabrication Intelligence about a product, a maker or how the shop works."><meta property="og:type" content="website"><meta property="og:site_name" content="FABINT"><meta property="og:title" content="Contact | Fabrication Intelligence"><meta property="og:description" content="Contact Fabrication Intelligence about a product, a maker or how the shop works."><meta property="og:url" content="https://fabricationintelligence.com/contact.html"><meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><title>Contact | Fabrication Intelligence</title><link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg"><link rel="stylesheet" href="builders.css"><link rel="stylesheet" href="contact-form.css">
     <link rel="stylesheet" href="site-motion.css">
     <script src="site-motion.js" defer></script>
+    <script src="contact-form.js" defer></script>
   </head>
   <body data-motion-page="functional"><a class="skip-link" href="#main">Skip to content</a><header class="site-header site-header--public"><a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a><nav class="site-nav" aria-label="Primary navigation">
         <a href="./">Home</a>
@@ -15,9 +16,27 @@
         <a href="auth.html">Log in</a>
         <a class="nav-cta" href="stage2.html#request">Send a request <span aria-hidden="true">↗</span></a>
       </nav></header>
-    <main id="main"><section class="page-hero"><p class="eyebrow"><span></span> CONTACT</p><h1>Start with the thing<br>you can’t source.</h1><p>A detailed request gives us the fastest start. If you have a general question, email the team directly.</p></section>
-      <section class="content-section contact-grid"><div><p class="eyebrow"><span></span> FOR A SOURCING REQUEST</p><h2>Send the brief once.</h2><p class="content-lead">The request form captures the item, size, quantity, destination, timing and an optional private drawing. Signed-in clients will also see new requests in their account.</p><a class="button button-primary" href="stage2.html#request" style="margin-top:28px">Open the request form <span aria-hidden="true">↗</span></a></div><aside class="contact-card"><p class="eyebrow eyebrow-light"><span></span> EMAIL</p><a href="mailto:fabricationintelligence@gmail.com">fabricationintelligence@gmail.com</a><p>Use email for questions about the pilot, an existing request, manufacturer applications or privacy. Include your FI reference if you have one.</p></aside></section>
-      <section class="content-section"><p class="eyebrow"><span></span> BEFORE YOU SEND</p><div class="content-grid"><article class="info-card"><span>01</span><h3>Show the item</h3><p>A drawing, photo or sketch is useful, even if it is rough.</p></article><article class="info-card"><span>02</span><h3>Give the basics</h3><p>Rough size, quantity, destination and timing let us approach the right makers.</p></article><article class="info-card"><span>03</span><h3>Share the benchmark</h3><p>If you already have a quote, send its scope so we know what needs to improve.</p></article></div></section>
-    </main><footer class="site-footer"><a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a><p>Personally managed sourcing for difficult building elements.</p><div class="site-footer-links"><a href="privacy.html">Privacy</a><a href="auth.html">Log in</a></div></footer>
+    <main id="main"><section class="page-hero"><p class="eyebrow"><span></span> CONTACT</p><h1>Ask us<br>anything.</h1><p>Questions about a product, a maker or how the shop works? Send a message and one of the founders will reply, usually within 48 hours.</p></section>
+      <section class="content-section contact-grid"><div class="contact-block" data-contact-block>
+          <form class="contact-form" data-contact-form novalidate>
+            <div class="contact-form-row">
+              <label>Name<input type="text" name="name" autocomplete="name" maxlength="120" required></label>
+              <label>Email<input type="email" name="email" autocomplete="email" maxlength="200" required></label>
+            </div>
+            <label><span>Product <small>(optional)</small></span><input type="text" name="product" maxlength="200" placeholder="For example, the brass pull handle"></label>
+            <label>Message<textarea name="message" rows="6" maxlength="4000" required></textarea></label>
+            <label class="contact-honeypot" aria-hidden="true">Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            <div class="contact-form-actions">
+              <button class="button button-primary" type="submit">Send message <span aria-hidden="true">↗</span></button>
+              <p class="contact-form-status" role="status" aria-live="polite"></p>
+            </div>
+            <p class="contact-form-privacy">Your message goes to our team inbox. See our <a href="privacy.html">privacy notice</a>.</p>
+          </form>
+          <div class="contact-thanks" tabindex="-1" hidden>
+            <h3>Thanks, your message is on its way.</h3>
+            <p>We’ll reply to your email, usually within 48 hours.</p>
+          </div>
+        </div><aside class="contact-card"><p class="eyebrow eyebrow-light"><span></span> EMAIL</p><a href="mailto:fabricationintelligence@gmail.com">fabricationintelligence@gmail.com</a><p>Use email for questions about the pilot, an existing request, manufacturer applications or privacy. Include your FI reference if you have one.</p><p>Looking for something we don’t sell yet? <a class="text-link" href="stage2.html#request">Send a sourcing request</a></p></aside></section>
+    </main><footer class="site-footer"><a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a><p>Design products from makers we’ve verified.</p><div class="site-footer-links"><a href="privacy.html">Privacy</a><a href="auth.html">Log in</a></div></footer>
   </body>
 </html>
