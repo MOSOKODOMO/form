@@ -19,7 +19,7 @@ The feedback form still sends its response to the team inbox via FormSubmit. It 
 
 ## Publishing and environment
 
-This preparation is local to the `codex/fi-verify-catalogue-prep` branch; it has not been deployed. The existing GitHub Actions workflow publishes `dist/` to https://fabricationintelligence.com/ on pushes to `main`, and Vercel serves the same static site at https://fabrication-intelligence.vercel.app/ using `vercel.json`.
+The static marketplace preparation was published to https://fabricationintelligence.com/ on 5 October 2026 from commit `c0852f6`. The existing GitHub Actions workflow publishes `dist/` on pushes to `main`. The alternate Vercel configuration remains in `vercel.json`, but this release was confirmed on the custom domain through GitHub Pages. See [deployment notes](project-planning/DEPLOYMENT.md).
 
 The existing Supabase project `dszagdjnymxalpwamjyh` stores private request, account, and manufacturer data. Only the browser-safe publishable key belongs in the website. Never commit service keys, private customer records, or unpublished research notes. The October marketplace migration needs separate review and an explicit apply step before any database-backed catalogue goes live.
 
