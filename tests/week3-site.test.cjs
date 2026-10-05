@@ -6,22 +6,18 @@ const path = require('node:path')
 const dist = path.resolve('dist')
 const read = (name) => fs.readFileSync(path.join(dist, name), 'utf8')
 
-test('the homepage presents an anonymous Thai window estimate alongside one named Australian benchmark', () => {
+test('the homepage introduces the evidence-led marketplace without inventing stock', () => {
   const home = read('index.html')
-  assert.match(home.replace(/<[^>]*>/g, ' '), /Creating\s+more affordable\s+homes for\s+Australians/i)
-  assert.equal((home.match(/class="quote-card(?: quote-card-featured)?"/g) || []).length, 2)
-  assert.match(home, /WINDOW PRICE COMPARISON/)
-  for (const value of ['Thai window estimate', 'A$356.55', 'Stegbar', 'A$742.50']) {
-    assert.ok(home.includes(value), `missing window comparison value: ${value}`)
-  }
-  assert.match(home, /Planning estimate, not a confirmed quote/i)
-  assert.ok(home.indexOf('<h3>Thai window estimate</h3>') < home.indexOf('<h3>Stegbar</h3>'), 'the Thai window appears before the Australian benchmark')
-  assert.doesNotMatch(home, /Superhouse|SMG Glass|uPVC\.com\.au|up to three quotes/i)
+  assert.match(home, /Know who made it\.<br>See the proof\./)
+  assert.match(home, /Verify\. List\. Buy\. Review\./)
+  assert.match(home, /Only approved records will appear in the shop/)
+  assert.match(home, /shop\.html/)
+  assert.doesNotMatch(home, /Thai window estimate|A\$356\.55|Stegbar|WINDOW PRICE COMPARISON/i)
 })
 
-test('team portraits and biographies follow the confirmed left-to-right identities', () => {
-  for (const page of ['index.html', 'builders.html']) {
-    const cards = [...read(page).matchAll(/<article class="team-card">([\s\S]*?)<\/article>/g)].map((match) => match[1])
+test('team portraits and biographies follow the confirmed identities on the About and pilot pages', () => {
+  for (const [page, cardClass] of [['about.html', 'bio-card'], ['builders.html', 'team-card']]) {
+    const cards = [...read(page).matchAll(new RegExp(`<article class="${cardClass}"[^>]*>([\\s\\S]*?)<\\/article>`, 'g'))].map((match) => match[1])
     assert.equal(cards.length, 3, `${page} has three team members`)
     for (const [index, name, image, role] of [
       [0, 'Prem', 'prem-portrait.jpg', 'CEO'],
@@ -31,7 +27,7 @@ test('team portraits and biographies follow the confirmed left-to-right identiti
       assert.ok(cards[index].includes(`src="assets/team/${image}"`), `${page}: correct portrait for ${name}`)
       assert.ok(cards[index].includes(`alt="Portrait of ${name}"`), `${page}: correct accessible name for ${name}`)
       assert.ok(cards[index].includes(`${name.toUpperCase()} · ${role}`), `${page}: correct role for ${name}`)
-      assert.ok(cards[index].includes(`<small>${name} `), `${page}: correct biography for ${name}`)
+      assert.ok(cards[index].includes(`${name} is a final-year architecture student`) || (name === 'Mos' && cards[index].includes('Mos is a final-year architecture student')), `${page}: correct biography for ${name}`)
     }
   }
 })
@@ -62,17 +58,20 @@ test('the pricing page shows the 10% fee as a table and Services links to it', (
 test('the feedback form sends answers to the team inbox and is linked after a request', () => {
   assert.match(read('feedback.js'), /formsubmit\.co\/ajax\/fabricationintelligence@gmail\.com/)
   const page = read('feedback.html')
-  for (const name of ['role', 'would_use', 'fee', 'email']) assert.match(page, new RegExp(`name="${name}"`))
+  for (const name of ['role', 'would_use', 'proof', 'concern', 'email']) assert.match(page, new RegExp(`name="${name}"`))
   assert.match(read('stage2.html'), /href="feedback\.html"/)
   assert.match(read('privacy.html'), /quote request or the feedback form/)
 })
 
-test('public pages use no em dashes and share a preview card', () => {
-  for (const name of fs.readdirSync(dist).filter((file) => /\.(html|js)$/.test(file))) {
+test('public page HTML uses no em dashes and has share metadata', () => {
+  for (const name of fs.readdirSync(dist).filter((file) => /\.html$/.test(file))) {
     assert.ok(!read(name).includes('—'), `${name} contains an em dash`)
   }
-  for (const page of ['index.html', 'pricing.html', 'feedback.html', 'stage2.html', 'how-it-works.html']) {
+  for (const page of ['pricing.html', 'feedback.html', 'stage2.html']) {
     assert.match(read(page), /property="og:image" content="https:\/\/fabricationintelligence\.com\/assets\/share-card\.jpg"/, `${page} has a share preview`)
+  }
+  for (const page of ['index.html', 'how-it-works.html', 'shop.html', 'product.html']) {
+    assert.match(read(page), /property="og:description"/, `${page} has share metadata`)
   }
   assert.ok(fs.existsSync(path.join(dist, 'assets', 'share-card.jpg')))
   assert.ok(!fs.existsSync(path.join(dist, 'concept.html')), 'the old staircase concept page stays removed')

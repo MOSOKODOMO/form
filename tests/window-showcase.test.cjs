@@ -49,15 +49,11 @@ function setup({ reduced = false, roomy = true, imageBroken = false, imageLoadin
   return { root, section, properties, events, image, imageEvents, media, steps, label, flush, scrollTo(top) { bounds = { ...bounds, top }; events.scroll.handler(); flush(); } };
 }
 
-test('glass showcase has complete static content and a qualified conceptual image', () => {
+test('the current homepage keeps legacy window animation out of the marketplace presentation', () => {
   const html = read('index.html');
-  assert.match(html, /window-showcase\.css/);
-  assert.match(html, /id="glass" class="window-showcase"/);
-  assert.match(html, /src="window-showcase\.js" defer/);
-  assert.equal((html.match(/<li data-window-step>/g) || []).length, 3);
-  assert.match(html, /Concept visual only, not a supplier drawing, an exact product depiction or certified performance evidence/);
-  assert.match(html, /src="assets\/window-low-e-marketing\.png"/);
-  assert.match(html, /quality\. Then cost\./i);
+  assert.doesNotMatch(html, /window-showcase\.css|src="window-showcase\.js"|id="glass" class="window-showcase"/);
+  assert.match(html, /Windows are coming later/);
+  assert.match(html, /href="glass-guide\.html">Read the glass guide/);
   assert.match(read('window-showcase.css'), /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(script, /min-height: 640px/);
 });

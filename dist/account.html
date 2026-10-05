@@ -11,6 +11,7 @@
     <script type="module" src="account.js" defer></script>
     <link rel="stylesheet" href="site-motion.css">
     <script src="site-motion.js" defer></script>
+    <script src="telemetry.js" defer></script>
   </head>
   <body data-motion-page="functional">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -27,9 +28,9 @@
       <p id="account-status" class="account-status" role="status" aria-live="polite"></p>
 
       <section id="client-dashboard" class="account-dashboard" hidden aria-labelledby="client-title">
-        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> CLIENT</p><h2 id="client-title">Your quote requests</h2></div><a class="button button-primary" href="stage2.html#request">New request <span aria-hidden="true">↗</span></a></div>
+        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> CLIENT</p><h2 id="client-title">Your sourcing requests</h2></div><a class="button button-primary" href="stage2.html#request">New request <span aria-hidden="true">↗</span></a></div>
         <div id="client-requests" class="request-account-list"></div>
-        <p class="account-footnote">Requests sent while signed out cannot be attached automatically. New signed-in requests will appear here.</p>
+        <p class="account-footnote">Requests sent while signed out cannot be attached automatically. New signed-in requests will appear here. Shop orders will be added after checkout is connected.</p>
       </section>
 
       <section id="manufacturer-dashboard" class="account-dashboard" hidden aria-labelledby="manufacturer-title">

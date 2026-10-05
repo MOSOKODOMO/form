@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "00000000-0000-4000-8000-000000000000",
+  "status": "draft",
+  "maker": {
+    "name": "Example Maker (fictional placeholder)",
+    "website": "https://example.com/",
+    "productType": "example category"
+  },
+  "dateChecked": "2026-10-05",
+  "checks": {
+    "identity": { "outcome": "not_checked", "summary": "", "sources": [] },
+    "yearsTrading": { "outcome": "not_checked", "summary": "", "sources": [] },
+    "marketplaceAuditBadges": { "outcome": "not_checked", "summary": "", "sources": [] },
+    "documents": { "outcome": "not_checked", "summary": "", "sources": [] },
+    "redFlags": { "outcome": "not_checked", "summary": "", "sources": [] },
+    "valueVsLocal": { "outcome": "not_checked", "summary": "", "sources": [] },
+    "buyerExperience": { "outcome": "not_checked", "summary": "No reviews yet", "sources": [] }
+  },
+  "certificates": [],
+  "testReports": [],
+  "verdict": "",
+  "decision": null,
+  "humanReviewer": null
+}
