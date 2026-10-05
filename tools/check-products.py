@@ -74,9 +74,28 @@ def check_product(product: dict) -> tuple[list[str], list[str]]:
     elif stripe_price not in (None, '') and not is_stated(price):
         warnings.append(f'Stripe charges A${stripe_price} but price_aud is not stated')
 
+    errors += photo_problems(product)
+    if not product.get('sample') and not is_stated(product.get('photo_alt')):
+        warnings.append('has no photo_alt; run tools/make-images.py to write alt text from the product facts')
+
     if status in ('draft', 'rejected'):
         warnings.append(f"is {status}, so the shop doesn't list it")
     return errors, warnings
+
+
+def photo_problems(product: dict) -> list[str]:
+    """A supplier's photo is only shown with written permission, and a render is always labelled as one."""
+    if product.get('sample'):
+        return []
+    problems, photo, handle = [], str(product.get('photo_url') or ''), product.get('handle', '')
+    allowed = product.get('photo_permission') == 'yes'
+    if photo in (f'assets/products/{handle}.webp', f'assets/products/{handle}-2000.jpg') and not allowed:
+        problems.append("shows the maker's photo but photo_permission is not \"yes\"; run tools/make-images.py to switch to the placeholder card")
+    if is_https(photo) and not allowed:
+        problems.append('shows a photo from another site without written permission (photo_permission is not "yes")')
+    if photo.endswith('-render.webp') and not (product.get('photo_is_render') is True and str(product.get('photo_alt', '')).startswith('AI render')):
+        problems.append('shows an AI render that is not marked as one (photo_is_render and an "AI render" alt text are needed)')
+    return problems
 
 
 def scan_for_secrets(root: Path) -> list[str]:

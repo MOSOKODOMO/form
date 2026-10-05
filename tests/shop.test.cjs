@@ -88,3 +88,11 @@ test('shop page loads the catalogue first and offers every category with a sampl
   assert.match(script, /products = FI\.listedProducts\(list\)/, 'drafts and rejected products stay out of the shop')
   assert.match(script, /cardAction\(product\)/, 'cards get their own Buy or quote button')
 })
+
+test('photos use the alt text written from the product facts, and samples say they are illustrations', () => {
+  const product = {product: 'Example Knurled Brass Pull', sample: false, photo_alt: 'Brass cabinet handle in brushed gold, made by Example Hardware Co., Ltd. in China.'}
+  assert.equal(catalogue.imageAlt(product), product.photo_alt)
+  assert.equal(catalogue.imageAlt({...product, photo_alt: 'not stated'}), 'Example Knurled Brass Pull')
+  assert.equal(catalogue.imageAlt({...product, photo_alt: undefined}), 'Example Knurled Brass Pull')
+  assert.match(catalogue.imageAlt(products.find((item) => item.sample)), /^Sample illustration of a /)
+})

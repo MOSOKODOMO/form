@@ -130,7 +130,10 @@
   }
 
   const shownValue = (value) => (isStated(value) ? value : 'Not stated');
-  const imageAlt = (product) => (product.sample ? `Sample illustration of a ${product.product.toLowerCase()}` : product.product);
+  const imageAlt = (product) => {
+    if (product.sample) return `Sample illustration of a ${product.product.toLowerCase()}`;
+    return isStated(product.photo_alt) ? product.photo_alt : product.product;  // written by tools/make-images.py from the product facts
+  };
   const productUrl = (product) => `product.html?handle=${encodeURIComponent(product.handle)}`;
   const quoteHref = (product) => `contact.html?product=${encodeURIComponent(product.product)}#contact-form`;
 

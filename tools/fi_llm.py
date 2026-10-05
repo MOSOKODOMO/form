@@ -9,7 +9,7 @@ import json
 import re
 
 from fi_extract import grounded
-from fi_products import NOT_STATED
+from fi_products import NOT_STATED, is_stated
 
 ENDPOINT = 'https://openrouter.ai/api/v1/chat/completions'
 DEFAULT_MODEL = 'anthropic/claude-haiku-4.5'
@@ -71,3 +71,38 @@ def fill_gaps(draft: dict, answer: dict, source: str) -> list[str]:
             draft['platform_badges'].append(badge)
             filled.append(f'badge {badge}')
     return filled
+
+
+IMAGE_MODEL = 'google/gemini-2.5-flash-image'
+
+
+def render_prompt(product: dict) -> str:
+    """Asks for the product exactly as photographed, with only the facts the page stated."""
+    facts = []
+    if is_stated(product.get('product')):
+        facts.append(f"Product: {product['product']}.")
+    if is_stated(product.get('material')):
+        facts.append(f"Material: {product['material']}.")
+    finishes = [finish for finish in product.get('finishes') or [] if is_stated(finish)]
+    if finishes:
+        facts.append(f'Finish: {finishes[0]}.')
+    return ('Make a clean studio product photo of the exact product in the reference photo. Keep its shape, proportions, details, '
+            'colour and finish exactly as they are. ' + ' '.join(facts) + ' Plain warm off-white background (#F6F2EA), soft natural '
+            'shadow, product centred and fully in frame. No text, logos, watermarks, props or hands.')
+
+
+def render_image(product: dict, reference: bytes, mime: str, api_key: str, model: str = '', timeout: int = 180) -> bytes:
+    """One image request to OpenRouter. Returns the image bytes. The key is only sent to OpenRouter."""
+    import base64
+    import requests
+    content = [{'type': 'text', 'text': render_prompt(product)},
+               {'type': 'image_url', 'image_url': {'url': f'data:{mime};base64,{base64.b64encode(reference).decode()}'}}]
+    response = requests.post(ENDPOINT, timeout=timeout, headers={'Authorization': f'Bearer {api_key}', 'Content-Type': 'application/json',
+                                                                 'X-Title': 'FABINT make-images'},
+                             json={'model': model or IMAGE_MODEL, 'modalities': ['image', 'text'], 'messages': [{'role': 'user', 'content': content}]})
+    response.raise_for_status()
+    for image in response.json()['choices'][0]['message'].get('images') or []:
+        url = (image.get('image_url') or {}).get('url', '')
+        if url.startswith('data:image/'):
+            return base64.b64decode(url.split(',', 1)[1])
+    raise ValueError('the model did not return an image')

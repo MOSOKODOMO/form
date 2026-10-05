@@ -14,7 +14,7 @@ A shop for design products from overseas makers we've checked: handles, knobs, t
 Run `node preview.mjs`, then open http://127.0.0.1:4173/. No build is needed.
 
 - Site, FI Verify and importer tests: `node --test tests/*.test.cjs fi-verify/*.test.cjs scripts/catalogue-integration.test.cjs`
-- Product tools: `py -m unittest discover -s tests -p "test_*.py"`. The tools need Python 3 and `py -m pip install requests beautifulsoup4`. Playwright is optional, for pages that only work with JavaScript.
+- Product tools: `py -m unittest discover -s tests -p "test_*.py"`. The tools need Python 3 and `py -m pip install requests beautifulsoup4 pillow "rembg[cpu]"`. Playwright is optional, for pages that only work with JavaScript.
 
 ## Add a product
 
@@ -28,9 +28,14 @@ Nothing goes live automatically. Every product starts as a draft, and only a per
 
    Anything the page doesn't say is "not stated". If a site blocks the tool or shows a CAPTCHA, save the page in your browser (Ctrl+S, "Webpage, complete") into `inbox/` and run `py tools/add-product.py --from-file inbox/<file>`.
 2. Read `data/drafts/<handle>.verify.md`. Check each claim on the linked register, and record the result in the draft.
-3. `py tools/approve.py <handle>` asks you to confirm the price, the photo permission and the checkout link. The product then joins the shop as `approved`, with an early FI Score.
-4. Paste checkout links into `data/checkout-links.csv` and run `py tools/apply-links.py`. Shopify product URLs and Stripe Payment Links are public, so they're safe here.
-5. When it's ready to sell, set `"status": "live"` in `dist/data/products.json`. Run `py tools/check-products.py` before publishing.
+3. `py tools/make-images.py <handle>` saves the product's photos into `data/drafts/<handle>/source/`, for reference only. It then makes the shop image:
+   - **With the maker's written permission** (`photo_permission` is `"yes"`): a studio image, cut out with rembg's U2-Net model (about 176 MB, downloaded once) and centred on #F6F2EA with a soft shadow. It writes `<handle>-2000.jpg` for Shopify and a 1200 px `<handle>.webp` under 300 KB for the site. Use `--source <file>` for a photo the maker sent you.
+   - **Without permission:** a placeholder card. An AI render is optional: `--render-from <file>`, or `--ai-render` with `OPENROUTER_API_KEY` in `.env`. A render always carries a visible "Render" label, and it's only published once you confirm it looks like the real product.
+
+   Either way, it writes alt text from the product facts.
+4. `py tools/approve.py <handle>` asks you to confirm the price, the photo permission and the checkout link. The product then joins the shop as `approved`, with an early FI Score.
+5. Paste checkout links into `data/checkout-links.csv` and run `py tools/apply-links.py`. Shopify product URLs and Stripe Payment Links are public, so they're safe here.
+6. When it's ready to sell, set `"status": "live"` in `dist/data/products.json`. Run `py tools/check-products.py` before publishing. It also stops a supplier's photo going up without permission.
 
 ## Ground rules
 

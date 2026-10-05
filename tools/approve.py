@@ -16,9 +16,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fi_products import (CATEGORY_IDS, DRAFTS, NOT_STATED, PRODUCTS, ROOT, is_https, is_stated, is_stripe_link,  # noqa: E402
                          load_products, save_products, today)
+from fi_images import alt_text, site_photo  # noqa: E402
 from fi_score import score  # noqa: E402
 
-PLACEHOLDER = 'assets/products/photo-coming-soon.svg'
+ASSETS = ROOT / 'dist' / 'assets' / 'products'
 CHECK_STATES = ('verified', 'failed', 'claimed')
 
 
@@ -101,6 +102,7 @@ def main(argv=None) -> int:
     parser.add_argument('--yes', action='store_true', help='accept the suggested answers without asking')
     parser.add_argument('--drafts', type=Path, default=DRAFTS, help=argparse.SUPPRESS)
     parser.add_argument('--products', type=Path, default=PRODUCTS, help=argparse.SUPPRESS)
+    parser.add_argument('--assets', type=Path, default=ASSETS, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
 
     path = args.drafts / f'{args.handle}.json'
@@ -172,14 +174,15 @@ def main(argv=None) -> int:
         print('Not approved. The draft is unchanged.')
         return 1
 
-    processed = ROOT / 'dist' / 'assets' / 'products' / f"{draft['handle']}.webp"
+    # The image tools/make-images.py made: the maker's photo (with permission), a render a person checked, or a placeholder card.
+    photo_url, photo_kind = site_photo(draft['handle'], permission, args.assets, render_ok=bool(draft.get('photo_is_render')))
     product = {
         'handle': draft['handle'], 'sample': False, 'status': 'approved', 'product': draft['product'], 'category': category,
         'maker': draft['maker'], 'maker_url': draft['maker_url'] if is_https(draft.get('maker_url')) else '',
         'country': draft['country'], 'ships_from': NOT_STATED, 'material': draft['material'],
         'finishes': draft['finishes'], 'sizes': draft['sizes'], 'price_aud': price, 'price_unit': unit,
         'delivery_estimate': NOT_STATED, 'fi_score': result['total'], 'certificates': certificates,
-        'photo_url': f"assets/products/{processed.name}" if permission == 'yes' and processed.exists() else PLACEHOLDER,
+        'photo_url': photo_url, 'photo_is_render': photo_kind == 'render',
         'story_en': NOT_STATED, 'shopify_url': shopify_url, 'shopify_buy_button': '', 'stripe_link': stripe_link,
         'stripe_price_aud': stripe_price,
         'city': draft.get('city', NOT_STATED), 'source_url': draft['source_url'], 'source_site': draft.get('source_site', NOT_STATED),
@@ -188,6 +191,7 @@ def main(argv=None) -> int:
         'photo_permission': permission, 'photo_permission_note': permission_note, 'local_price_aud': local_price if local_price is not None else '',
         'score_parts': result['parts'], 'score_notes': result['notes'], 'score_checked': today(), 'reviews': [], 'approved_on': today(),
     }
+    product['photo_alt'] = alt_text(product, photo_kind)
     products = load_products(args.products)
     products = [existing for existing in products if existing.get('handle') != product['handle']] + [product]
     save_products(products, args.products)
@@ -196,6 +200,8 @@ def main(argv=None) -> int:
                   'photo_permission_note': permission_note, 'shopify_url': shopify_url, 'stripe_link': stripe_link})
     path.write_text(json.dumps(draft, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f"\nAdded {product['handle']} to {args.products} with status approved.")
+    if photo_kind == 'placeholder':
+        print(f"Photo: a placeholder for now. Run py tools/make-images.py {product['handle']} to make the card (or the photo, once you have permission).")
     print('Next: py tools/check-products.py. The shop shows it with "Request a quote" until you set "status": "live" by hand.')
     return 0
 

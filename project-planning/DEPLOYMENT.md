@@ -1,4 +1,12 @@
-# Deployment, 5 October 2026
+# Deployment, 5 October 2026, evening
+
+Published website commit: `f52fef1`, which merges the verified shop with the October marketplace preparation.
+Primary URL: https://fabricationintelligence.com/.
+Hosting: GitHub Pages, `MOSOKODOMO/form`, GitHub Actions deployment of `dist/` from `main` (run 37284587354, successful).
+
+The homepage serves "Design products from makers we've verified". Shop, product pages, How it works, Verified makers and Partner return HTTP 200. The shop lists three products labelled SAMPLE, which are not for sale. No real product is live, and no checkout link is set. The release passed 102 Node tests and 22 Python tests. The Supabase migration is still not applied, and GA4 and Axiom are still not configured.
+
+## Earlier deployment, 5 October 2026, afternoon
 
 Published website commit: `c0852f6` (product-free FI Verify marketplace preparation).
 Primary URL: https://fabricationintelligence.com/.
