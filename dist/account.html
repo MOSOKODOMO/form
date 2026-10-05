@@ -27,10 +27,20 @@
       </header>
       <p id="account-status" class="account-status" role="status" aria-live="polite"></p>
 
+      <section id="profile-card" class="account-profile" hidden aria-labelledby="profile-title">
+        <div><p class="eyebrow"><span></span> YOUR DETAILS</p><h2 id="profile-title">How we address you.</h2><p>Your email and account type stay the same. Editing these details does not change a submitted manufacturer application.</p></div>
+        <form id="profile-form" class="account-profile-form" novalidate>
+          <label class="account-field"><span>Full name</span><input name="full_name" autocomplete="name" maxlength="160" required></label>
+          <label class="account-field"><span>Company name</span><input name="company_name" autocomplete="organization" maxlength="200"><small>Required for manufacturer accounts; optional for clients.</small></label>
+          <button id="profile-save" class="button button-primary" type="submit">Save details <span aria-hidden="true">↗</span></button>
+          <p id="profile-status" class="account-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
       <section id="client-dashboard" class="account-dashboard" hidden aria-labelledby="client-title">
         <div class="dashboard-heading"><div><p class="eyebrow"><span></span> CLIENT</p><h2 id="client-title">Your sourcing requests</h2></div><a class="button button-primary" href="stage2.html#request">New request <span aria-hidden="true">↗</span></a></div>
         <div id="client-requests" class="request-account-list"></div>
-        <p class="account-footnote">Requests sent while signed out cannot be attached automatically. New signed-in requests will appear here. Shop orders will be added after checkout is connected.</p>
+        <p class="account-footnote">Requests sent while signed out cannot be attached automatically. New signed-in requests will appear here. Payments are shown separately after FI confirms your quote.</p>
       </section>
 
       <section id="manufacturer-dashboard" class="account-dashboard" hidden aria-labelledby="manufacturer-title">
@@ -50,6 +60,13 @@
           <p id="manufacturer-status" class="account-status" role="status" aria-live="polite"></p>
         </form>
         <div id="review-note" class="review-note" hidden></div>
+      </section>
+
+      <section id="payments-dashboard" class="account-dashboard" hidden aria-labelledby="payments-title">
+        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> PAYMENTS</p><h2 id="payments-title">Your payments</h2></div></div>
+        <p class="account-footnote">Payment requests are separate from sourcing requests and appear only after FI confirms a quote. Checkout is not available from this account page yet.</p>
+        <p id="payments-status" class="account-status" role="status" aria-live="polite"></p>
+        <div id="account-payments" class="account-payment-list"></div>
       </section>
     </main>
     <footer class="site-footer"><a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a><p>Personally managed sourcing for difficult building elements.</p><div class="site-footer-links"><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></div></footer>

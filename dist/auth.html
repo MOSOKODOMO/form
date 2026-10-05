@@ -36,9 +36,10 @@
         <h1>One login.<br>Your side of the work.</h1>
         <p>Client accounts currently keep sourcing requests together. Manufacturers can introduce their company and apply for FI review. Shop purchases are not connected to accounts yet.</p>
         <div class="auth-guardrail"><strong>Manufacturer accounts are not automatic approval.</strong><br>FI checks every applicant before connecting it to the supplier workspace. Creating a client account does not place an order.</div>
+        <div class="auth-guardrail"><strong>Email setup is in progress.</strong><br>New-account confirmation and password-reset emails are not available to customers yet. Existing users can still sign in.</div>
       </section>
       <section class="auth-card" aria-labelledby="auth-title">
-        <div class="auth-tabs" role="tablist" aria-label="Account action">
+        <div id="auth-tabs" class="auth-tabs" role="tablist" aria-label="Account action">
           <button type="button" role="tab" data-auth-mode="login" aria-selected="true">Sign in</button>
           <button type="button" role="tab" data-auth-mode="signup" aria-selected="false">Create account</button>
         </div>
@@ -54,12 +55,16 @@
             <label class="account-field"><span>Full name</span><input name="full_name" autocomplete="name" maxlength="160"></label>
             <label id="company-field" class="account-field" hidden><span>Company name</span><input name="company_name" autocomplete="organization" maxlength="200"></label>
           </div>
-          <label class="account-field"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="320" required></label>
-          <label class="account-field"><span>Password</span><input name="password" type="password" autocomplete="current-password" minlength="8" required><small id="password-help">At least 8 characters.</small></label>
+          <label id="email-field" class="account-field"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="320" required></label>
+          <label id="password-field" class="account-field"><span id="password-label">Password</span><input name="password" type="password" autocomplete="current-password" minlength="8" required><small id="password-help">At least 8 characters.</small></label>
           <label id="confirm-field" class="account-field" hidden><span>Confirm password</span><input name="confirm_password" type="password" autocomplete="new-password" minlength="8"></label>
           <button id="auth-submit" class="button button-primary account-submit" type="submit">Sign in <span aria-hidden="true">↗</span></button>
           <p id="auth-status" class="account-status" role="status" aria-live="polite"></p>
         </form>
+        <div class="auth-help-actions">
+          <button id="forgot-password" type="button">Forgot your password?</button>
+          <button id="back-to-signin" type="button" hidden>Back to sign in</button>
+        </div>
         <p class="auth-privacy">By creating an account, you acknowledge our <a href="privacy.html">privacy notice</a>.</p>
       </section>
     </main>

@@ -73,7 +73,8 @@ alter table public.fi_manufacturer_application_reviews enable row level security
 
 revoke all on public.fi_user_profiles, public.fi_manufacturer_applications,
   public.fi_manufacturer_application_reviews from anon, authenticated;
-grant select, insert, update on public.fi_user_profiles to authenticated;
+grant select, insert on public.fi_user_profiles to authenticated;
+grant update (full_name, company_name, updated_at) on public.fi_user_profiles to authenticated;
 grant select, insert, update on public.fi_manufacturer_applications to authenticated;
 grant select, insert, update on public.fi_manufacturer_application_reviews to authenticated;
 

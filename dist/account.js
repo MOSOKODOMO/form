@@ -1,10 +1,10 @@
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/+esm'
+import { createClient, isAuthSessionMissingError } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/+esm'
 
 const SUPABASE_URL = 'https://dszagdjnymxalpwamjyh.supabase.co'
 const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_Dm6trfXjIO0C1r9A71PbNw_Q_PF4OM5'
 const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
 const $ = (selector) => document.querySelector(selector)
-let session
+let currentUser
 let profile
 let application
 let applicationReview
@@ -25,6 +25,48 @@ function fillForm(form, values) {
 function friendlyStatus(review, submittedAt) {
   if (review?.status) return review.status.replaceAll('_', ' ')
   return submittedAt ? 'submitted' : 'draft'
+}
+
+function validatedProfileFields(form) {
+  const fullName = form.elements.full_name.value.trim()
+  const companyName = form.elements.company_name.value.trim()
+  if (fullName.length < 1 || fullName.length > 160) {
+    setStatus('#profile-status', 'Enter a full name of up to 160 characters.', 'error')
+    form.elements.full_name.focus()
+    return null
+  }
+  if (companyName.length > 200 || (profile.role === 'manufacturer' && companyName.length < 1)) {
+    setStatus('#profile-status', 'Enter a company name of up to 200 characters.', 'error')
+    form.elements.company_name.focus()
+    return null
+  }
+  return {full_name: fullName, company_name: companyName || null}
+}
+
+async function saveProfile(event) {
+  event.preventDefault()
+  const form = event.currentTarget
+  if (!form.reportValidity()) return
+  const fields = validatedProfileFields(form)
+  if (!fields) return
+  const button = $('#profile-save')
+  button.disabled = true
+  setStatus('#profile-status', 'Saving your details…')
+  try {
+    const {data, error} = await supabase.from('fi_user_profiles')
+      .update({...fields, updated_at: new Date().toISOString()})
+      .eq('user_id', currentUser.id)
+      .select('user_id, role, full_name, company_name')
+      .single()
+    if (error) throw error
+    profile = data
+    $('#account-title').textContent = 'Hi, ' + profile.full_name + '.'
+    setStatus('#profile-status', 'Your details were saved.', 'success')
+  } catch (error) {
+    setStatus('#profile-status', error?.message || 'We could not save your details. Please try again.', 'error')
+  } finally {
+    button.disabled = false
+  }
 }
 
 function renderClientRequests(rows) {
@@ -63,7 +105,7 @@ async function loadClientDashboard() {
   const { data, error } = await supabase
     .from('fi_quote_requests')
     .select('id, reference, created_at, status, project_name, category, material, quantity, destination_port')
-    .eq('requester_user_id', session.user.id)
+    .eq('requester_user_id', currentUser.id)
     .order('created_at', {ascending: false})
   if (error) throw error
   renderClientRequests(data || [])
@@ -72,9 +114,9 @@ async function loadClientDashboard() {
 async function loadManufacturerDashboard() {
   $('#manufacturer-dashboard').hidden = false
   const [applicationResult, reviewResult, membershipResult] = await Promise.all([
-    supabase.from('fi_manufacturer_applications').select('*').eq('user_id', session.user.id).maybeSingle(),
-    supabase.from('fi_manufacturer_application_reviews').select('*').eq('manufacturer_user_id', session.user.id).maybeSingle(),
-    supabase.from('fi_supplier_memberships').select('supplier_id, role').ilike('email', session.user.email),
+    supabase.from('fi_manufacturer_applications').select('*').eq('user_id', currentUser.id).maybeSingle(),
+    supabase.from('fi_manufacturer_application_reviews').select('*').eq('manufacturer_user_id', currentUser.id).maybeSingle(),
+    supabase.from('fi_supplier_memberships').select('supplier_id, role').eq('email', currentUser.email),
   ])
   if (applicationResult.error) throw applicationResult.error
   if (reviewResult.error) throw reviewResult.error
@@ -107,7 +149,7 @@ async function saveManufacturerApplication(event) {
   }
   const values = Object.fromEntries(new FormData(event.currentTarget).entries())
   const payload = {
-    user_id: session.user.id,
+    user_id: currentUser.id,
     company_name: values.company_name.trim() || null,
     country: values.country.trim() || null,
     website: values.website.trim() || null,
@@ -129,45 +171,117 @@ async function saveManufacturerApplication(event) {
   setStatus('#manufacturer-status', action === 'submit' ? 'Application submitted to FI for review.' : 'Draft saved.', 'success')
 }
 
+function paymentAmount(row) {
+  const currency = String(row.currency || '').toUpperCase()
+  if (!/^[A-Z]{3}$/.test(currency) || !Number.isSafeInteger(row.amount_minor) || row.amount_minor < 0) return 'Amount unavailable'
+  try {
+    const formatter = new Intl.NumberFormat('en-AU', {style: 'currency', currency})
+    const decimals = formatter.resolvedOptions().maximumFractionDigits
+    return formatter.format(row.amount_minor / (10 ** decimals))
+  } catch {
+    return 'Amount unavailable'
+  }
+}
+
+function renderPayments(rows) {
+  const list = $('#account-payments')
+  list.replaceChildren()
+  if (!rows.length) {
+    const empty = document.createElement('div')
+    empty.className = 'account-empty'
+    const heading = document.createElement('strong')
+    heading.textContent = 'No payments yet.'
+    const copy = document.createElement('p')
+    copy.textContent = 'Payment requests will appear here after FI confirms your quote.'
+    empty.append(heading, copy)
+    list.append(empty)
+    return
+  }
+  const labels = {
+    awaiting_payment: 'Awaiting payment',
+    processing: 'Processing',
+    paid: 'Paid',
+    failed: 'Failed',
+    refunded: 'Refunded',
+    cancelled: 'Cancelled',
+  }
+  rows.forEach((row) => {
+    const card = document.createElement('article')
+    card.className = 'account-payment-card'
+    const heading = document.createElement('h3')
+    heading.textContent = row.description || 'FI payment request'
+    const amount = document.createElement('p')
+    amount.className = 'account-payment-amount'
+    amount.textContent = paymentAmount(row)
+    const state = document.createElement('span')
+    state.className = 'account-badge'
+    state.textContent = labels[row.status] || 'Status unavailable'
+    const date = document.createElement('small')
+    const when = row.paid_at && row.status === 'paid' ? row.paid_at : row.created_at
+    const parsed = new Date(when)
+    date.textContent = Number.isNaN(parsed.valueOf()) ? '' :
+      (row.paid_at && row.status === 'paid' ? 'Paid ' : 'Created ') +
+      new Intl.DateTimeFormat('en-AU', {dateStyle: 'medium'}).format(parsed)
+    card.append(heading, amount, state, date)
+    list.append(card)
+  })
+}
+
+async function loadPayments() {
+  $('#payments-dashboard').hidden = false
+  const {data, error} = await supabase.from('fi_account_payments')
+    .select('id, description, amount_minor, currency, status, created_at, paid_at')
+    .eq('customer_user_id', currentUser.id)
+    .order('created_at', {ascending: false})
+  if (error) {
+    $('#account-payments').replaceChildren()
+    setStatus('#payments-status', 'Payments are unavailable right now. Please try again later or contact FI.', 'error')
+    return
+  }
+  setStatus('#payments-status', '')
+  renderPayments(data || [])
+}
+
 async function signOut() {
-  await supabase.auth.signOut()
-  location.replace('auth.html')
+  const {error} = await supabase.auth.signOut()
+  if (error) setStatus('#account-status', 'We could not sign you out. Please try again.', 'error')
+  else location.replace('auth.html')
 }
 
 async function boot() {
-  const { data } = await supabase.auth.getSession()
-  session = data.session
-  if (!session?.user) {
+  const {data: {user}, error: userError} = await supabase.auth.getUser()
+  if (userError && !isAuthSessionMissingError(userError)) {
+    setStatus('#account-status', 'We could not verify your account. Please reload and try again.', 'error')
+    return
+  }
+  if (!user) {
     location.replace('auth.html?next=account.html')
     return
   }
-  $('#account-email').textContent = session.user.email
+  currentUser = user
+  $('#account-email').textContent = currentUser.email
   try {
-    let { data: storedProfile, error } = await supabase.from('fi_user_profiles').select('*').eq('user_id', session.user.id).maybeSingle()
+    const {data: storedProfile, error} = await supabase.from('fi_user_profiles')
+      .select('user_id, role, full_name, company_name')
+      .eq('user_id', currentUser.id)
+      .maybeSingle()
     if (error) throw error
-    if (!storedProfile) {
-      const metadata = session.user.user_metadata || {}
-      const fallbackRole = metadata.role === 'manufacturer' ? 'manufacturer' : 'client'
-      const created = await supabase.from('fi_user_profiles').insert({
-        user_id: session.user.id,
-        role: fallbackRole,
-        full_name: metadata.full_name || null,
-        company_name: metadata.company_name || null,
-      }).select('*').single()
-      if (created.error) throw created.error
-      storedProfile = created.data
-    }
+    if (!storedProfile) throw new Error('Your account profile is not ready. Please contact FI; do not create a second account.')
     profile = storedProfile
+    fillForm($('#profile-form'), profile)
+    $('#profile-form').elements.company_name.required = profile.role === 'manufacturer'
+    $('#profile-card').hidden = false
     $('#account-title').textContent = profile.full_name ? `Hi, ${profile.full_name}.` : 'Your Fabrication Intelligence account'
     if (profile.role === 'manufacturer') await loadManufacturerDashboard()
     else await loadClientDashboard()
+    await loadPayments()
     setStatus('#account-status', '')
   } catch (error) {
-    console.error(error)
-    setStatus('#account-status', 'We could not load your account. Please reload or contact FI if the problem continues.', 'error')
+    setStatus('#account-status', error?.message || 'We could not load your account. Please reload or contact FI if the problem continues.', 'error')
   }
 }
 
 $('#sign-out').addEventListener('click', signOut)
+$('#profile-form').addEventListener('submit', saveProfile)
 $('#manufacturer-form').addEventListener('submit', saveManufacturerApplication)
 await boot()
