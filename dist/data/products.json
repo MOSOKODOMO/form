@@ -23,7 +23,7 @@
     "price_aud": 39,
     "price_unit": "each",
     "delivery_estimate": "not stated",
-    "fi_score": 86,
+    "fi_score": 66,
     "certificates": [
       {
         "name": "Business licence",
@@ -46,7 +46,15 @@
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
-    "stripe_price_aud": ""
+    "stripe_price_aud": "",
+    "score_parts": {
+      "maker_check": 40,
+      "product_proof": 12,
+      "value": 14,
+      "buyers": 0
+    },
+    "score_checked": "2026-10-05",
+    "reviews": []
   },
   {
     "handle": "sample-glazed-wall-tile",
@@ -71,7 +79,7 @@
     "price_aud": 129,
     "price_unit": "per m²",
     "delivery_estimate": "not stated",
-    "fi_score": 81,
+    "fi_score": 61,
     "certificates": [
       {
         "name": "Business registration",
@@ -94,7 +102,15 @@
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
-    "stripe_price_aud": ""
+    "stripe_price_aud": "",
+    "score_parts": {
+      "maker_check": 37,
+      "product_proof": 12,
+      "value": 12,
+      "buyers": 0
+    },
+    "score_checked": "2026-10-05",
+    "reviews": []
   },
   {
     "handle": "sample-porcelain-cabinet-knob",
@@ -119,7 +135,7 @@
     "price_aud": 12,
     "price_unit": "each",
     "delivery_estimate": "not stated",
-    "fi_score": 78,
+    "fi_score": 52,
     "certificates": [
       {
         "name": "Business licence",
@@ -142,6 +158,14 @@
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
-    "stripe_price_aud": ""
+    "stripe_price_aud": "",
+    "score_parts": {
+      "maker_check": 31,
+      "product_proof": 12,
+      "value": 9,
+      "buyers": 0
+    },
+    "score_checked": "2026-10-05",
+    "reviews": []
   }
 ]

@@ -5,6 +5,13 @@ A shop for design products from overseas makers we've checked: handles, knobs, t
 ## What's on the site
 
 - **Homepage, [Shop](dist/shop.html) and product pages.** Until the first real product is approved, the shop shows three products labelled SAMPLE. Their makers, scores and checks are made up, and they're not for sale.
+- **[Rankings](dist/rankings.html)** lists live products by FI Score, or their makers by maker check. Each entry shows:
+  - the score in four parts (maker check 40, product proof 30, value 15, buyers 15);
+  - each check as Verified, Claimed, Failed or Not stated;
+  - "No reviews yet. Early score, based on our research." until real reviews exist;
+  - the date the score was checked.
+
+  It reads only `dist/data/products.json`. Until a product is live, it shows the samples as a labelled example.
 - **Buying.** Only a product set to `live` can be bought. Its product page uses, in order: a Shopify Buy Button, a Shopify product link, a Stripe Payment Link, or else "Request a quote" (the contact form, with the product filled in).
 - **[How it works](dist/how-it-works.html), [Verified makers](dist/verified-makers.html) and [Partner with us](dist/partner.html)** came from the October marketplace preparation. The Verified makers directory reads `dist/data/makers.json` and `reports.json`, which stay empty until an FI Verify report is approved.
 - **The earlier windows sourcing pilot** (Services, Pricing, the request form, the glass guide and [windows.html](dist/windows.html)) stays online, labelled as earlier work.
@@ -36,6 +43,7 @@ Nothing goes live automatically. Every product starts as a draft, and only a per
 4. `py tools/approve.py <handle>` asks you to confirm the price, the photo permission and the checkout link. The product then joins the shop as `approved`, with an early FI Score.
 5. Paste checkout links into `data/checkout-links.csv` and run `py tools/apply-links.py`. Shopify product URLs and Stripe Payment Links are public, so they're safe here.
 6. When it's ready to sell, set `"status": "live"` in `dist/data/products.json`. Run `py tools/check-products.py` before publishing. It also stops a supplier's photo going up without permission.
+7. Push to `main`. The product appears in the shop with its Buy button, and in [Rankings](https://fabricationintelligence.com/rankings.html) by its FI Score.
 
 ## Ground rules
 

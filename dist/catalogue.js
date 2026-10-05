@@ -12,6 +12,14 @@
   // Verified: a person confirmed it on the issuer's own database. Claimed: on the maker's page only. Failed: checked and it didn't hold up.
   const CHECK_STATUSES = ['verified', 'claimed', 'failed', 'not stated'];
   const CHECK_LABELS = {verified: 'Verified', claimed: 'Claimed, not yet checked', failed: 'Failed our check', 'not stated': 'Not stated'};
+  const CHIP_LABELS = {verified: 'Verified', claimed: 'Claimed', failed: 'Failed', 'not stated': 'Not stated'};
+  // The FI Score out of 100. Buyers stays at 0 until a product has real reviews, so an early score tops out at 85.
+  const SCORE_PARTS = [
+    {key: 'maker_check', label: 'Maker check', max: 40},
+    {key: 'product_proof', label: 'Product proof', max: 30},
+    {key: 'value', label: 'Value', max: 15},
+    {key: 'buyers', label: 'Buyers', max: 15},
+  ];
   // Every product starts as a draft. Only a person approves it, and only a person sets it live.
   const PRODUCT_STATUSES = ['draft', 'approved', 'live', 'rejected'];
   const LISTED_STATUSES = ['approved', 'live'];
@@ -81,6 +89,12 @@
     if (product.stripe_link && !isStripeLink(product.stripe_link)) problems.push('stripe_link must be a buy.stripe.com link or empty');
     if (product.stripe_price_aud !== undefined && product.stripe_price_aud !== '' && !(typeof product.stripe_price_aud === 'number' && product.stripe_price_aud > 0)) problems.push('stripe_price_aud must be a positive number or empty');
     if (product.sample === true && (product.status === 'live' || LINK_FIELDS.some((key) => product[key]))) problems.push('a sample product cannot be live or have checkout links');
+    if (product.score_parts !== undefined) {
+      const parts = product.score_parts && typeof product.score_parts === 'object' ? product.score_parts : {};
+      const fits = SCORE_PARTS.every(({key, max}) => Number.isInteger(parts[key]) && parts[key] >= 0 && parts[key] <= max);
+      if (!fits) problems.push('score_parts needs maker_check (0 to 40), product_proof (0 to 30), value (0 to 15) and buyers (0 to 15)');
+      else if (SCORE_PARTS.reduce((sum, {key}) => sum + parts[key], 0) !== product.fi_score) problems.push('score_parts must add up to fi_score');
+    }
     return problems;
   }
 
@@ -200,13 +214,62 @@
     ['Maker', product.maker],
   ];
 
+  // ---------- rankings ----------
+  const isLive = (product) => product.status === 'live';
+  const parseView = (search) => (new URLSearchParams(search).get('view') === 'makers' ? 'makers' : 'products');
+
+  function scoreBreakdown(product) {
+    const parts = product.score_parts && typeof product.score_parts === 'object' ? product.score_parts : {};
+    return SCORE_PARTS.map((part) => ({...part, points: Number.isInteger(parts[part.key]) ? parts[part.key] : null}));
+  }
+
+  function certificateChips(product) {
+    return product.certificates.map((check) => ({name: check.name, state: check.status, label: CHIP_LABELS[check.status] || 'Not stated'}));
+  }
+
+  const isRegistration = (check) => /registration|licen[cs]e/i.test(check.name);
+
+  // Makers ranked by their maker check, then by their best product.
+  function rankMakers(products) {
+    const groups = new Map();
+    for (const product of sortByScore(products)) {
+      const key = product.maker.trim().toLowerCase();
+      if (!groups.has(key)) groups.set(key, {maker: product.maker, country: product.country, products: [], makerCheck: null, checks: [], checked: '', sample: true});
+      const group = groups.get(key);
+      group.products.push(product);
+      group.sample = group.sample && product.sample === true;
+      const points = scoreBreakdown(product)[0].points;
+      if (points !== null && (group.makerCheck === null || points > group.makerCheck)) group.makerCheck = points;
+      for (const check of product.certificates.filter(isRegistration)) {
+        if (!group.checks.some((existing) => existing.name === check.name)) group.checks.push({name: check.name, state: check.status, label: CHIP_LABELS[check.status] || 'Not stated'});
+      }
+      if (typeof product.score_checked === 'string' && product.score_checked > group.checked) group.checked = product.score_checked;
+    }
+    return [...groups.values()].sort((a, b) => (b.makerCheck ?? -1) - (a.makerCheck ?? -1)
+      || b.products[0].fi_score - a.products[0].fi_score || a.maker.localeCompare(b.maker));
+  }
+
+  const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function formatDate(iso) {
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(typeof iso === 'string' ? iso : '');
+    return match ? `${Number(match[3])} ${MONTHS[Number(match[2]) - 1]} ${match[1]}` : '';
+  }
+
+  function scoreNotes(product) {
+    const reviews = Array.isArray(product.reviews) ? product.reviews.length : 0;
+    const notes = reviews ? [`Includes ${reviews} buyer review${reviews === 1 ? '' : 's'}.`] : ['No reviews yet.', 'Early score, based on our research.'];
+    const checked = formatDate(product.score_checked);
+    if (checked) notes.push(`Score checked ${checked}.`);
+    return notes;
+  }
+
   async function loadProducts(url = 'data/products.json') {
     const response = await fetch(url, {cache: 'no-cache'});
     if (!response.ok) throw new Error(`Could not load products (HTTP ${response.status})`);
     return validProducts(await response.json(), (message) => console.warn(message));
   }
 
-  const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, CHECK_LABELS, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts};
+  const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, CHECK_LABELS, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts, SCORE_PARTS, CHIP_LABELS, isLive, parseView, scoreBreakdown, certificateChips, rankMakers, formatDate, scoreNotes};
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (typeof window !== 'undefined') window.FICatalogue = api;
 })();
