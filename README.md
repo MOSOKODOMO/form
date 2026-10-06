@@ -2,6 +2,12 @@
 
 A shop for design products from overseas makers we've checked: handles, knobs, tiles and taps first. Every product shows its FI Score out of 100 and the checks behind it. Live at https://fabricationintelligence.com/.
 
+## Warehouse commerce: 7 October 2026
+
+The new [FI commerce workspace](dist/commerce-admin.html) stores supplier links, reviewed products and evidence, receiving warehouses, inclusive AUD quotes, customer-owned orders, payment references, supplier purchases, inspections and both shipping legs in Supabase. [My orders](dist/orders.html) shows this flow; [the order catalogue](dist/order-catalogue.html) accepts requests for published commerce entries. The existing shop, rankings and local product/image tools are preserved, and importer JSON drafts can be loaded into the workspace for review.
+
+The database and authenticated backend are deployed; live checkout and supplier auto-buy remain disabled. The owner still needs to enter the warehouse, choose whether costs are added within the inclusive price or absorbed, and configure/test Stripe. The supplied Alibaba link is saved as a private draft. See [the implementation and review handoff](project-planning/COMMERCE.md) for activation steps, exact boundaries and test results. This warehouse procurement model supersedes the earlier immediate supplier-split plan for these orders.
+
 ## What's on the site
 
 - **Homepage, [Shop](dist/shop.html) and product pages.** Until the first real product is approved, the shop shows three products labelled SAMPLE. Their makers, scores and checks are made up, and they're not for sale.
@@ -68,7 +74,9 @@ GitHub Actions publishes `dist/` to https://fabricationintelligence.com/ on ever
 
 The Supabase project `dszagdjnymxalpwamjyh` stores private request, account and manufacturer data. Only the browser-safe publishable key belongs in the website. Never commit service keys, private customer records or unpublished research notes.
 
-### Accounts and payment readiness — 5 October 2026
+### Historical accounts and payment readiness — 5 October 2026
+
+The payment-backend status and proposed supplier-split approach below describe the earlier release; see the 7 October warehouse commerce section above for the current implementation.
 
 - Restored the existing Supabase project. `auth.html` supports email/password sign-in, signup confirmation and password recovery. `account.html` supports editing your own name/company and preserves client requests and manufacturer applications.
 - Set Auth Site URL to `https://fabricationintelligence.com` and added the exact recovery redirect `https://fabricationintelligence.com/auth.html?mode=reset`. Existing redirect entries were preserved.

@@ -1,14 +1,309 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>FI commerce operations</title><link rel="icon" href="assets/fabint-icon.svg"><link rel="stylesheet" href="commerce.css"><script type="module" src="commerce-admin.js"></script><link rel="stylesheet" href="site-motion.css"><script src="site-motion.js" defer></script></head>
-<body data-motion-page="functional"><header class="commerce-header"><a href="./"><img src="assets/fabint-logo.svg" alt="Fabrication Intelligence"></a><nav><a href="order-catalogue.html">Catalogue</a><a href="orders.html">My orders</a><a href="supplier-portal.html">Supplier workspace</a><a href="account.html">Account</a></nav></header>
-<main class="commerce-main"><p class="eyebrow">Private FI operations</p><h1>Source to warehouse.<br>Inspection to delivery.</h1><p id="access-note">Checking your FI team access…</p><p id="status" class="status" role="status" aria-live="polite"></p>
-<div id="workspace" hidden>
-<nav class="toolbar tabs" aria-label="Operations sections"><a href="#catalogue">Products & sources</a><a href="#warehouse">Warehouse & fulfilment</a><a href="#pricing">Pricing policy</a><a href="#order-queue">Order queue</a></nav>
-<section id="catalogue"><p class="eyebrow">01 / Catalogue</p><h2>Save a supplier link. Build a reviewed product.</h2><p class="muted">Sources and costs stay private. Each entry represents one exact supplier variant. AI extraction and supplier API purchasing are not connected yet; verify the details before publishing.</p>
-<form id="product-form" class="card form-grid"><input name="id" type="hidden"><label class="wide">Alibaba source URL<input name="source_url" type="url" maxlength="4000" required placeholder="https://www.alibaba.com/product-detail/…"></label><label>Product title<input name="title" maxlength="200" required></label><label>Category<select name="category_slug" id="categories" required></select></label><label>Supplier name<input name="supplier_name" maxlength="200"></label><label>Exact supplier variant<input name="supplier_variant" maxlength="300" placeholder="Model, size, finish and lock type"></label><label>SKU / model<input name="sku" maxlength="120"></label><label>Minimum order quantity<input name="min_quantity" type="number" min="1" value="1" max="10000" required></label><label>Source unit price<input name="source_price" type="number" min="0.01" step="0.01" placeholder="Leave unknown prices blank"></label><label>Source currency<select name="source_currency"><option value="">Not confirmed</option><option>AUD</option><option>USD</option><option>CNY</option><option>EUR</option><option>GBP</option><option>NZD</option></select></label><label>1 source-currency unit in AUD<input name="fx_to_aud" type="number" step="0.00000001" min="0.00000001" placeholder="AUD = 1"></label><label>Supplier price valid until<input name="valid_until" type="datetime-local"></label><label class="wide">Description<textarea name="description" maxlength="5000"></textarea></label><label class="wide">Chinese description (optional)<textarea name="description_zh" maxlength="5000"></textarea></label><label>Variant options (JSON)<textarea name="variant_options">{}</textarea></label><label>Confirmed specifications (JSON)<textarea name="specifications">{}</textarea></label><label class="wide">Permitted product image URL<input name="image_url" type="url" placeholder="https://…"></label><label class="wide check"><input type="checkbox" name="image_permission_confirmed">I have confirmed permission to use this image.</label><label class="wide check"><input type="checkbox" name="reviewed">I checked the exact model, variant, price, currency and availability.</label><label>Status<select name="status"><option value="draft">Private draft</option><option value="published">Published catalogue entry</option></select></label><div class="toolbar"><button type="submit">Save product</button><button id="new-product" type="button" class="secondary">New entry</button></div></form>
-<div id="product-list" class="grid" style="margin-top:24px"></div>
-<details class="card"><summary>Add a supporting reference</summary><form id="evidence-form" class="form-grid"><label>Product<select name="product_id" id="evidence-products" required></select></label><label>Specification field<input name="field_name" required placeholder="Material"></label><label class="wide">Claim<input name="claimed_value" required maxlength="2000"></label><label class="wide">Reference URL<input name="source_url" type="url" required></label><label class="wide">Supporting excerpt<textarea name="excerpt" maxlength="4000"></textarea></label><label>Evidence status<select name="evidence_status"><option value="supplier_stated">Supplier stated</option><option value="document_supported">Matching documentation</option><option value="needs_confirmation">Needs confirmation</option><option value="conflicting">Conflicting sources</option></select></label><button type="submit">Save reference</button></form></details></section>
-<section id="warehouse"><p class="eyebrow">02 / Warehouse & fulfilment</p><h2>Your receiving warehouse</h2><p class="muted">Add or update this when your warehouse is ready. Purchases keep the receiving address assigned when the instructions were created.</p><form id="warehouse-form" class="card form-grid"><input name="id" type="hidden"><label>Warehouse name<input name="warehouse_name" required maxlength="200"></label><label>Receiving contact<input name="contact_name" required maxlength="160"></label><label>Phone<input name="phone" type="tel" required maxlength="40"></label><label>Email<input name="email" type="email"></label><label class="wide">Street address<input name="line1" required maxlength="200"></label><label class="wide">Unit / building<input name="line2" maxlength="200"></label><label>City<input name="city" required></label><label>State / province<input name="state" required></label><label>Postcode<input name="postal_code" required></label><label>Country code<input name="country" pattern="[A-Z]{2}" placeholder="CN or AU" maxlength="2" required></label><label class="wide">Receiving instructions<textarea name="receiving_instructions" maxlength="2000"></textarea></label><label class="check wide"><input name="active" type="checkbox">This warehouse can receive supplier deliveries.</label><div class="toolbar wide"><button type="submit">Save warehouse</button><button id="new-warehouse" type="button" class="secondary">Add another warehouse</button></div></form><div id="warehouse-list" class="grid" style="margin-top:24px"></div></section>
-<section id="pricing"><p class="eyebrow">03 / Pricing</p><h2>One inclusive customer total in AUD</h2><form id="settings-form" class="card form-grid"><label class="wide">Pricing policy<select name="pricing_mode" required><option value="">Choose before approving quotes</option><option value="costs_included">Source + 10% markup + freight, inspection, duties, tax and processing costs</option><option value="absorb_costs">Source × 1.10 ; FI absorbs all other costs</option></select></label><p class="wide muted">Example: a $10 source item and $4 in other costs produces a $15 inclusive total under the first policy, or $11 under the second. The second leaves a $3 loss before other overheads. Cost amounts must be confirmed for the order; they are not automatically estimated.</p><button type="submit">Save pricing policy</button></form></section>
-<section id="order-queue"><p class="eyebrow">04 / Operations</p><h2>Orders, inspections and shipments</h2><div class="toolbar"><button id="refresh-orders" class="secondary">Refresh orders</button></div><div id="order-list" class="list"></div></section>
-</div></main></body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; connect-src 'self' https://cdn.jsdelivr.net https://dszagdjnymxalpwamjyh.supabase.co wss://dszagdjnymxalpwamjyh.supabase.co; frame-src https://*.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com"
+    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>FI commerce operations</title>
+    <link rel="icon" href="assets/fabint-icon.svg" />
+    <link rel="stylesheet" href="commerce.css" />
+    <script type="module" src="commerce-admin.js"></script>
+    <link rel="stylesheet" href="site-motion.css" />
+    <script src="site-motion.js" defer></script>
+  </head>
+  <body data-motion-page="functional">
+    <header class="commerce-header">
+      <a href="./"
+        ><img src="assets/fabint-logo.svg" alt="Fabrication Intelligence"
+      /></a>
+      <nav>
+        <a href="order-catalogue.html">Catalogue</a
+        ><a href="orders.html">My orders</a
+        ><a href="supplier-portal.html">Supplier workspace</a
+        ><a href="account.html">Account</a>
+      </nav>
+    </header>
+    <main class="commerce-main">
+      <p class="eyebrow">Private FI operations</p>
+      <h1>Source to warehouse.<br />Inspection to delivery.</h1>
+      <p id="access-note">Checking your FI team access…</p>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <div id="workspace" hidden>
+        <nav class="toolbar tabs" aria-label="Operations sections">
+          <a href="#catalogue">Products & sources</a
+          ><a href="#warehouse">Warehouse & fulfilment</a
+          ><a href="#pricing">Pricing policy</a
+          ><a href="#order-queue">Order queue</a>
+        </nav>
+        <section id="catalogue">
+          <p class="eyebrow">01 / Catalogue</p>
+          <h2>Save a supplier link. Build a reviewed product.</h2>
+          <p class="muted">
+            Sources and costs stay private. Each entry represents one exact
+            supplier variant. Load a JSON draft from the existing supplier-link
+            importer, or enter details here. Review prices, evidence and image
+            permission before saving. Supplier API purchasing is not connected
+            yet.
+          </p>
+          <label class="notice"
+            >Load an importer draft (JSON)<input
+              id="draft-file"
+              type="file"
+              accept="application/json,.json"
+            /><small
+              >This fills the form for your review. It does not publish or save
+              automatically.</small
+            ></label
+          >
+          <form id="product-form" class="card form-grid">
+            <input name="id" type="hidden" /><label class="wide"
+              >Alibaba source URL<input
+                name="source_url"
+                type="url"
+                maxlength="4000"
+                required
+                placeholder="https://www.alibaba.com/product-detail/…" /></label
+            ><label
+              >Product title<input
+                name="title"
+                maxlength="200"
+                required /></label
+            ><label
+              >Category<select
+                name="category_slug"
+                id="categories"
+                required
+              ></select></label
+            ><label
+              >Supplier name<input
+                name="supplier_name"
+                maxlength="200" /></label
+            ><label
+              >Exact supplier variant<input
+                name="supplier_variant"
+                maxlength="300"
+                placeholder="Model, size, finish and lock type" /></label
+            ><label>SKU / model<input name="sku" maxlength="120" /></label
+            ><label
+              >Minimum order quantity<input
+                name="min_quantity"
+                type="number"
+                min="1"
+                value="1"
+                max="10000"
+                required /></label
+            ><label
+              >Source unit price<input
+                name="source_price"
+                type="number"
+                min="0.01"
+                step="0.01"
+                placeholder="Leave unknown prices blank" /></label
+            ><label
+              >Source currency<select name="source_currency">
+                <option value="">Not confirmed</option>
+                <option>AUD</option>
+                <option>USD</option>
+                <option>CNY</option>
+                <option>EUR</option>
+                <option>GBP</option>
+                <option>NZD</option>
+              </select></label
+            ><label
+              >1 source-currency unit in AUD<input
+                name="fx_to_aud"
+                type="number"
+                step="0.00000001"
+                min="0.00000001"
+                placeholder="AUD = 1" /></label
+            ><label
+              >Supplier price valid until<input
+                name="valid_until"
+                type="datetime-local" /></label
+            ><label class="wide"
+              >Description<textarea
+                name="description"
+                maxlength="5000"
+              ></textarea></label
+            ><label class="wide"
+              >Chinese description (optional)<textarea
+                name="description_zh"
+                maxlength="5000"
+              ></textarea></label
+            ><label
+              >Variant options (JSON)<textarea name="variant_options">
+{}</textarea></label
+            ><label
+              >Confirmed specifications (JSON)<textarea name="specifications">
+{}</textarea></label
+            ><label class="wide"
+              >Permitted product image URL<input
+                name="image_url"
+                type="url"
+                placeholder="https://…" /></label
+            ><label class="wide check"
+              ><input type="checkbox" name="image_permission_confirmed" />I have
+              confirmed permission to use this image.</label
+            ><label class="wide check"
+              ><input type="checkbox" name="reviewed" />I checked the exact
+              model, variant, price, currency and availability.</label
+            ><label
+              >Status<select name="status">
+                <option value="draft">Private draft</option>
+                <option value="published">Published catalogue entry</option>
+              </select></label
+            >
+            <div class="toolbar">
+              <button type="submit">Save product</button
+              ><button id="new-product" type="button" class="secondary">
+                New entry
+              </button>
+            </div>
+          </form>
+          <div id="product-list" class="grid" style="margin-top: 24px"></div>
+          <details class="card">
+            <summary>Add a supporting reference</summary>
+            <form id="evidence-form" class="form-grid">
+              <label
+                >Product<select
+                  name="product_id"
+                  id="evidence-products"
+                  required
+                ></select></label
+              ><label
+                >Specification field<input
+                  name="field_name"
+                  required
+                  placeholder="Material" /></label
+              ><label class="wide"
+                >Claim<input
+                  name="claimed_value"
+                  required
+                  maxlength="2000" /></label
+              ><label class="wide"
+                >Reference URL<input
+                  name="source_url"
+                  type="url"
+                  required /></label
+              ><label class="wide"
+                >Supporting excerpt<textarea
+                  name="excerpt"
+                  maxlength="4000"
+                ></textarea></label
+              ><label
+                >Evidence status<select name="evidence_status">
+                  <option value="supplier_stated">Supplier stated</option>
+                  <option value="document_supported">
+                    Matching documentation
+                  </option>
+                  <option value="needs_confirmation">Needs confirmation</option>
+                  <option value="conflicting">Conflicting sources</option>
+                </select></label
+              ><button type="submit">Save reference</button>
+            </form>
+          </details>
+        </section>
+        <section id="warehouse">
+          <p class="eyebrow">02 / Warehouse & fulfilment</p>
+          <h2>Your receiving warehouse</h2>
+          <p class="muted">
+            Add or update this when your warehouse is ready. Purchases keep the
+            receiving address assigned when the instructions were created.
+          </p>
+          <form id="warehouse-form" class="card form-grid">
+            <input name="id" type="hidden" /><label
+              >Warehouse name<input
+                name="warehouse_name"
+                required
+                maxlength="200" /></label
+            ><label
+              >Receiving contact<input
+                name="contact_name"
+                required
+                maxlength="160" /></label
+            ><label
+              >Phone<input
+                name="phone"
+                type="tel"
+                required
+                maxlength="40" /></label
+            ><label>Email<input name="email" type="email" /></label
+            ><label class="wide"
+              >Street address<input
+                name="line1"
+                required
+                maxlength="200" /></label
+            ><label class="wide"
+              >Unit / building<input name="line2" maxlength="200" /></label
+            ><label>City<input name="city" required /></label
+            ><label>State / province<input name="state" required /></label
+            ><label>Postcode<input name="postal_code" required /></label
+            ><label
+              >Country code<input
+                name="country"
+                pattern="[A-Z]{2}"
+                placeholder="CN or AU"
+                maxlength="2"
+                required /></label
+            ><label class="wide"
+              >Receiving instructions<textarea
+                name="receiving_instructions"
+                maxlength="2000"
+              ></textarea></label
+            ><label class="check wide"
+              ><input name="active" type="checkbox" />This warehouse can receive
+              supplier deliveries.</label
+            >
+            <div class="toolbar wide">
+              <button type="submit">Save warehouse</button
+              ><button id="new-warehouse" type="button" class="secondary">
+                Add another warehouse
+              </button>
+            </div>
+          </form>
+          <div id="warehouse-list" class="grid" style="margin-top: 24px"></div>
+        </section>
+        <section id="pricing">
+          <p class="eyebrow">03 / Pricing</p>
+          <h2>One inclusive customer total in AUD</h2>
+          <form id="settings-form" class="card form-grid">
+            <label class="wide"
+              >Pricing policy<select name="pricing_mode" required>
+                <option value="">Choose before approving quotes</option>
+                <option value="costs_included">
+                  Source + 10% markup + freight, inspection, duties, tax and
+                  processing costs
+                </option>
+                <option value="absorb_costs">
+                  Source × 1.10 ; FI absorbs all other costs
+                </option>
+              </select></label
+            >
+            <p class="wide muted">
+              Example: a $10 source item and $4 in other costs produces a $15
+              inclusive total under the first policy, or $11 under the second.
+              The second leaves a $3 loss before other overheads. Cost amounts
+              must be confirmed for the order; they are not automatically
+              estimated.
+            </p>
+            <button type="submit">Save pricing policy</button>
+          </form>
+        </section>
+        <section id="order-queue">
+          <p class="eyebrow">04 / Operations</p>
+          <h2>Orders, inspections and shipments</h2>
+          <div class="toolbar">
+            <button id="refresh-orders" class="secondary">
+              Refresh orders
+            </button>
+          </div>
+          <div id="order-list" class="list"></div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
