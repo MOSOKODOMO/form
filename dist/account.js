@@ -276,6 +276,8 @@ async function boot() {
     else await loadClientDashboard()
     await loadPayments()
     setStatus('#account-status', '')
+    const membership = await supabase.from('fi_team_members').select('role').eq('email', currentUser.email.toLowerCase()).maybeSingle()
+    if (!membership.error && membership.data) $('#commerce-admin-link').hidden = false
   } catch (error) {
     setStatus('#account-status', error?.message || 'We could not load your account. Please reload or contact FI if the problem continues.', 'error')
   }

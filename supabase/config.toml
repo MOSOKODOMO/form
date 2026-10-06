@@ -1,0 +1,6 @@
+[functions.fi-commerce]
+verify_jwt = true
+
+[functions.fi-stripe-webhook]
+# Authenticated by Stripe's raw-body signature, never by a browser session.
+verify_jwt = false
