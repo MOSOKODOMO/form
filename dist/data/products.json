@@ -9,7 +9,7 @@
     "maker_url": "",
     "country": "China",
     "ships_from": "China",
-    "material": "Brass (as listed)",
+    "material": "Brass (maker’s page)",
     "finishes": [
       "Matte black"
     ],
@@ -19,7 +19,7 @@
     "price_aud": 220,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 21,
+    "fi_score": 25,
     "certificates": [
       {
         "name": "Company registration",
@@ -27,7 +27,7 @@
         "link": ""
       }
     ],
-    "story_en": "Shanghai Yila Hardware makes and sells this through Alibaba, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Heirloom solid brass handle sells for A$49 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 55% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Shanghai Yila Hardware makes these under its Santaya brand in Qingpu, Shanghai. Its TUV Rheinland verification report on Alibaba lists 17 staff, 20 CNC machines and a 1,000 m² workshop, and 4 years in the industry. Note: the company itself was only registered on 28 Feb 2026, with 100,000 CNY capital, so it is a young business. Buyers rate it 4.9 out of 5 from 48 Alibaba reviews. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Heirloom solid brass handle sells for A$49 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 55% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. Company details come from the third-party report on Alibaba (checked 8 Oct 2026). We haven't yet confirmed them on China's official company register, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "https://buy.stripe.com/test_00w14n1BR5wQ6tccp74ZG00",
@@ -37,13 +37,16 @@
     "source_site": "Alibaba",
     "moq": "1 piece",
     "lead_time": "not stated",
-    "maker_years_in_business": "not stated",
-    "platform_badges": [],
+    "maker_years_in_business": 0,
+    "platform_badges": [
+      "Verified Manufacturer, audited by TUV Rheinland (Alibaba verification report)",
+      "1 year on Alibaba"
+    ],
     "photo_permission": "no",
     "photo_permission_note": "",
     "local_price_aud": 490,
     "score_parts": {
-      "maker_check": 6,
+      "maker_check": 10,
       "product_proof": 0,
       "value": 15,
       "buyers": 0
@@ -51,7 +54,8 @@
     "score_notes": {
       "maker_check": [
         "Company named but its registration is not checked yet (+6).",
-        "Years in business not stated (+0)."
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "0 years in business (+0)."
       ],
       "product_proof": [
         "No product certificates stated (+0)."
@@ -80,7 +84,7 @@
     "maker_url": "",
     "country": "China",
     "ships_from": "China",
-    "material": "Brass (as listed)",
+    "material": "Solid brass (maker’s page)",
     "finishes": [
       "Antique bronze"
     ],
@@ -90,7 +94,7 @@
     "price_aud": 220,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 21,
+    "fi_score": 32,
     "certificates": [
       {
         "name": "Company registration",
@@ -98,7 +102,7 @@
         "link": ""
       }
     ],
-    "story_en": "Xiamen Qiansi Home Decoration makes and sells this through Alibaba, in China. The maker has been on Alibaba for 8 years. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Heirloom solid brass handle sells for A$49 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 55% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Xiamen Qiansi Home Decoration is a manufacturer in Xiamen, China. Its SGS verification report on Alibaba says it was registered on 9 Oct 2016 with 1,000,000 CNY capital, and has 28 staff, 3 production lines and a 1,666 m² workshop. Buyers rate it 4.8 out of 5 from 54 Alibaba reviews. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Heirloom solid brass handle sells for A$49 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 55% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. Company details come from the third-party report on Alibaba (checked 8 Oct 2026). We haven't yet confirmed them on China's official company register, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "https://buy.stripe.com/test_dRm14ndkzaRa04O9cV4ZG02",
@@ -108,15 +112,16 @@
     "source_site": "Alibaba",
     "moq": "1 piece",
     "lead_time": "not stated",
-    "maker_years_in_business": "not stated",
+    "maker_years_in_business": 9,
     "platform_badges": [
+      "Verified Manufacturer, audited by SGS (Alibaba verification report)",
       "8 years on Alibaba"
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
     "local_price_aud": 490,
     "score_parts": {
-      "maker_check": 6,
+      "maker_check": 17,
       "product_proof": 0,
       "value": 15,
       "buyers": 0
@@ -124,7 +129,8 @@
     "score_notes": {
       "maker_check": [
         "Company named but its registration is not checked yet (+6).",
-        "Years in business not stated (+0)."
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "9 years in business (+7)."
       ],
       "product_proof": [
         "No product certificates stated (+0)."
@@ -153,7 +159,7 @@
     "maker_url": "",
     "country": "China",
     "ships_from": "China",
-    "material": "Brass with marble (as listed)",
+    "material": "Solid brass and natural marble (maker’s page)",
     "finishes": [
       "Brass with marble"
     ],
@@ -163,7 +169,7 @@
     "price_aud": 279,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 19,
+    "fi_score": 26,
     "certificates": [
       {
         "name": "Company registration",
@@ -171,7 +177,7 @@
         "link": ""
       }
     ],
-    "story_en": "Yiwu Mugu Hardware makes and sells this through Alibaba, in China. Sold as a set of 10 (A$279) or a set of 20 (A$499), for a whole kitchen or wardrobe run. Price check: a plain solid brass handle (no marble), the Heirloom, sells for A$49 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$27.90 a piece, about 43% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Yiwu Mugu Hardware Products is a trading company in Zhejiang, China, set up in 2018. It names its factory as Jinhua Muduo Hardware Products. It has no third-party audit on Alibaba, which is one reason we check every piece. Buyers rate it 4.9 out of 5 from 53 Alibaba reviews. Sold as a set of 10 (A$279) or a set of 20 (A$499), for a whole kitchen or wardrobe run. Price check: a plain solid brass handle (no marble), the Heirloom, sells for A$49 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$27.90 a piece, about 43% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. Company details come from the third-party report on Alibaba (checked 8 Oct 2026). We haven't yet confirmed them on China's official company register, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "https://buy.stripe.com/test_14A14ngwL2kEbNwbl34ZG04",
@@ -181,13 +187,16 @@
     "source_site": "Alibaba",
     "moq": "10 pieces",
     "lead_time": "not stated",
-    "maker_years_in_business": "not stated",
-    "platform_badges": [],
+    "maker_years_in_business": 8,
+    "platform_badges": [
+      "Trading company, not audited",
+      "3 years on Alibaba"
+    ],
     "photo_permission": "no",
     "photo_permission_note": "",
     "local_price_aud": 490,
     "score_parts": {
-      "maker_check": 6,
+      "maker_check": 13,
       "product_proof": 0,
       "value": 13,
       "buyers": 0
@@ -195,7 +204,7 @@
     "score_notes": {
       "maker_check": [
         "Company named but its registration is not checked yet (+6).",
-        "Years in business not stated (+0)."
+        "8 years in business (+7)."
       ],
       "product_proof": [
         "No product certificates stated (+0)."
