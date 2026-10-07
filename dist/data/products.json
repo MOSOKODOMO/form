@@ -19,7 +19,7 @@
     "price_aud": 220,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 6,
+    "fi_score": 21,
     "certificates": [
       {
         "name": "Company registration",
@@ -27,7 +27,7 @@
         "link": ""
       }
     ],
-    "story_en": "Shanghai Yila Hardware makes and sells this through Alibaba, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Shanghai Yila Hardware makes and sells this through Alibaba, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Heirloom solid brass handle sells for A$49 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 55% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "https://buy.stripe.com/test_00w14n1BR5wQ6tccp74ZG00",
@@ -41,11 +41,11 @@
     "platform_badges": [],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 490,
     "score_parts": {
       "maker_check": 6,
       "product_proof": 0,
-      "value": 0,
+      "value": 15,
       "buyers": 0
     },
     "score_notes": {
@@ -57,13 +57,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "55% under the local price of A$490 (+15). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/yila-matte-black-brass-t-bar-card.svg",
@@ -90,7 +90,7 @@
     "price_aud": 220,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 6,
+    "fi_score": 21,
     "certificates": [
       {
         "name": "Company registration",
@@ -98,7 +98,7 @@
         "link": ""
       }
     ],
-    "story_en": "Xiamen Qiansi Home Decoration makes and sells this through Alibaba, in China. The maker has been on Alibaba for 8 years. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Xiamen Qiansi Home Decoration makes and sells this through Alibaba, in China. The maker has been on Alibaba for 8 years. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Heirloom solid brass handle sells for A$49 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 55% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "https://buy.stripe.com/test_dRm14ndkzaRa04O9cV4ZG02",
@@ -114,11 +114,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 490,
     "score_parts": {
       "maker_check": 6,
       "product_proof": 0,
-      "value": 0,
+      "value": 15,
       "buyers": 0
     },
     "score_notes": {
@@ -130,13 +130,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "55% under the local price of A$490 (+15). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/qiansi-knurled-antique-bronze-pull-card.svg",
@@ -163,7 +163,7 @@
     "price_aud": 279,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 6,
+    "fi_score": 19,
     "certificates": [
       {
         "name": "Company registration",
@@ -171,7 +171,7 @@
         "link": ""
       }
     ],
-    "story_en": "Yiwu Mugu Hardware makes and sells this through Alibaba, in China. Sold as a set of 10 (A$279) or a set of 20 (A$499), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Yiwu Mugu Hardware makes and sells this through Alibaba, in China. Sold as a set of 10 (A$279) or a set of 20 (A$499), for a whole kitchen or wardrobe run. Price check: a plain solid brass handle (no marble), the Heirloom, sells for A$49 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$27.90 a piece, about 43% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "https://buy.stripe.com/test_14A14ngwL2kEbNwbl34ZG04",
@@ -185,11 +185,11 @@
     "platform_badges": [],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 490,
     "score_parts": {
       "maker_check": 6,
       "product_proof": 0,
-      "value": 0,
+      "value": 13,
       "buyers": 0
     },
     "score_notes": {
@@ -201,13 +201,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "43% under the local price of A$490 (+13). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/mugu-brass-marble-t-bar-card.svg",
@@ -235,7 +235,7 @@
     "price_aud": 220,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 10,
+    "fi_score": 25,
     "certificates": [
       {
         "name": "Company registration",
@@ -243,7 +243,7 @@
         "link": ""
       }
     ],
-    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Heirloom solid brass handle sells for A$49 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 55% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -259,11 +259,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 490,
     "score_parts": {
       "maker_check": 10,
       "product_proof": 0,
-      "value": 0,
+      "value": 15,
       "buyers": 0
     },
     "score_notes": {
@@ -276,13 +276,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "55% under the local price of A$490 (+15). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/xinjun-solid-brass-bamboo-t-bar-card.svg",
@@ -309,7 +309,7 @@
     "price_aud": 220,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 6,
+    "fi_score": 21,
     "certificates": [
       {
         "name": "Company registration",
@@ -317,7 +317,7 @@
         "link": ""
       }
     ],
-    "story_en": "Zhejiang Nuode Hardware makes and sells this through Alibaba, in China. The maker has been on Alibaba for 3 years. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Zhejiang Nuode Hardware makes and sells this through Alibaba, in China. The maker has been on Alibaba for 3 years. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Heirloom solid brass handle sells for A$49 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 55% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -333,11 +333,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 490,
     "score_parts": {
       "maker_check": 6,
       "product_proof": 0,
-      "value": 0,
+      "value": 15,
       "buyers": 0
     },
     "score_notes": {
@@ -349,13 +349,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "55% under the local price of A$490 (+15). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/nuode-solid-h59-brass-t-bar-black-card.svg",
@@ -391,7 +391,7 @@
         "link": ""
       }
     ],
-    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: we haven't found a fair Australian comparison for this one yet. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -430,7 +430,7 @@
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/xinjun-solid-brass-edge-pull-card.svg",
@@ -457,7 +457,7 @@
     "price_aud": 220,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 10,
+    "fi_score": 17,
     "certificates": [
       {
         "name": "Company registration",
@@ -465,7 +465,7 @@
         "link": ""
       }
     ],
-    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Cassia solid brass knob sells for A$29 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 24% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -481,11 +481,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 290,
     "score_parts": {
       "maker_check": 10,
       "product_proof": 0,
-      "value": 0,
+      "value": 7,
       "buyers": 0
     },
     "score_notes": {
@@ -498,13 +498,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "24% under the local price of A$290 (+7). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/xinjun-hammered-brass-knob-card.svg",
@@ -531,7 +531,7 @@
     "price_aud": 220,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 10,
+    "fi_score": 17,
     "certificates": [
       {
         "name": "Company registration",
@@ -539,7 +539,7 @@
         "link": ""
       }
     ],
-    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Cassia solid brass knob sells for A$29 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 24% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -555,11 +555,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 290,
     "score_parts": {
       "maker_check": 10,
       "product_proof": 0,
-      "value": 0,
+      "value": 7,
       "buyers": 0
     },
     "score_notes": {
@@ -572,13 +572,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "24% under the local price of A$290 (+7). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/xinjun-vertical-knurled-brass-knob-card.svg",
@@ -605,7 +605,7 @@
     "price_aud": 220,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 10,
+    "fi_score": 17,
     "certificates": [
       {
         "name": "Company registration",
@@ -613,7 +613,7 @@
         "link": ""
       }
     ],
-    "story_en": "Jiangmen Decormate Hardware makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Jiangmen Decormate Hardware makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Cassia solid brass knob sells for A$29 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 24% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -629,11 +629,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 290,
     "score_parts": {
       "maker_check": 10,
       "product_proof": 0,
-      "value": 0,
+      "value": 7,
       "buyers": 0
     },
     "score_notes": {
@@ -646,13 +646,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "24% under the local price of A$290 (+7). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/decormate-solid-brass-drawer-knob-card.svg",
@@ -679,7 +679,7 @@
     "price_aud": 220,
     "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 6,
+    "fi_score": 13,
     "certificates": [
       {
         "name": "Company registration",
@@ -687,7 +687,7 @@
         "link": ""
       }
     ],
-    "story_en": "Anyang Mengyue Furniture makes and sells this through Alibaba, in China. The maker has been on Alibaba for 1 year. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Anyang Mengyue Furniture makes and sells this through Alibaba, in China. The maker has been on Alibaba for 1 year. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Price check: the Cassia solid brass knob sells for A$29 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$22 a piece, about 24% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -703,11 +703,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 290,
     "score_parts": {
       "maker_check": 6,
       "product_proof": 0,
-      "value": 0,
+      "value": 7,
       "buyers": 0
     },
     "score_notes": {
@@ -719,13 +719,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "24% under the local price of A$290 (+7). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/mengyue-matte-black-brass-dot-pull-card.svg",
@@ -766,7 +766,7 @@
         "link": ""
       }
     ],
-    "story_en": "Foshan Contop Bathroom makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Foshan Contop Bathroom makes and sells this through Made-in-China, in China. Price check: we haven't found a fair Australian comparison for this one yet. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -805,7 +805,7 @@
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/contop-toilet-roll-holder-card.svg",
@@ -844,7 +844,7 @@
         "link": ""
       }
     ],
-    "story_en": "Kaiping Landon Plumbing makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Kaiping Landon Plumbing makes and sells this through Made-in-China, in China. Price check: we haven't found a fair Australian comparison for this one yet. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -883,7 +883,7 @@
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/landonbath-bathroom-accessory-set-card.svg",
@@ -912,7 +912,7 @@
     "price_aud": 79,
     "price_unit": "each",
     "delivery_estimate": "not stated",
-    "fi_score": 10,
+    "fi_score": 25,
     "certificates": [
       {
         "name": "Company registration",
@@ -920,7 +920,7 @@
         "link": ""
       }
     ],
-    "story_en": "Foshan Aqua Gallery makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Foshan Aqua Gallery makes and sells this through Made-in-China, in China. Price check: the Nero Opal brass towel ring sells for A$158 at Buildmat (checked 8 Oct 2026). Here it works out at A$79 a piece, about 50% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -936,11 +936,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 158,
     "score_parts": {
       "maker_check": 10,
       "product_proof": 0,
-      "value": 0,
+      "value": 15,
       "buyers": 0
     },
     "score_notes": {
@@ -953,13 +953,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "50% under the local price of A$158 (+15). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/aqua-gallery-brass-towel-ring-card.svg",
@@ -994,7 +994,7 @@
         "link": ""
       }
     ],
-    "story_en": "Guangzhou Yuming Electrical makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Guangzhou Yuming Electrical makes and sells this through Made-in-China, in China. Price check: we haven't found a fair Australian comparison for this one yet. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -1033,7 +1033,7 @@
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/yuming-stainless-towel-bar-60-card.svg",
@@ -1072,7 +1072,7 @@
         "link": ""
       }
     ],
-    "story_en": "Jiangmen Jiangshuntong Hardware makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Jiangmen Jiangshuntong Hardware makes and sells this through Made-in-China, in China. Price check: we haven't found a fair Australian comparison for this one yet. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -1111,7 +1111,7 @@
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/jiangshuntong-matte-black-bathroom-set-card.svg",
@@ -1138,7 +1138,7 @@
     "price_aud": 99,
     "price_unit": "pack of 4",
     "delivery_estimate": "not stated",
-    "fi_score": 6,
+    "fi_score": 21,
     "certificates": [
       {
         "name": "Company registration",
@@ -1146,7 +1146,7 @@
         "link": ""
       }
     ],
-    "story_en": "ALLWIN Architectural Hardware makes and sells this through Alibaba, in Taiwan. The maker has been on Alibaba for 19 years. Also as a pack of 8 for A$149. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "ALLWIN Architectural Hardware makes and sells this through Alibaba, in Taiwan. The maker has been on Alibaba for 19 years. Also as a pack of 8 for A$149. Price check: a smooth solid brass door stop sells for A$54 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$24.75 a piece, about 54% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -1162,11 +1162,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 216,
     "score_parts": {
       "maker_check": 6,
       "product_proof": 0,
-      "value": 0,
+      "value": 15,
       "buyers": 0
     },
     "score_notes": {
@@ -1178,13 +1178,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "54% under the local price of A$216 (+15). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/allwin-solid-brass-dome-door-stop-card.svg",
@@ -1211,7 +1211,7 @@
     "price_aud": 199,
     "price_unit": "pack of 4",
     "delivery_estimate": "not stated",
-    "fi_score": 6,
+    "fi_score": 8,
     "certificates": [
       {
         "name": "Company registration",
@@ -1219,7 +1219,7 @@
         "link": ""
       }
     ],
-    "story_en": "Wenzhou Filta Hardware makes and sells this through Alibaba, in China. The maker has been on Alibaba for 15 years. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Wenzhou Filta Hardware makes and sells this through Alibaba, in China. The maker has been on Alibaba for 15 years. Price check: a smooth solid brass door stop sells for A$54 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$49.75 a piece, about 8% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -1235,11 +1235,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 216,
     "score_parts": {
       "maker_check": 6,
       "product_proof": 0,
-      "value": 0,
+      "value": 2,
       "buyers": 0
     },
     "score_notes": {
@@ -1251,13 +1251,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "8% under the local price of A$216 (+2). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/filta-solid-brass-door-stop-card.svg",
@@ -1284,7 +1284,7 @@
     "price_aud": 159,
     "price_unit": "pack of 4",
     "delivery_estimate": "not stated",
-    "fi_score": 6,
+    "fi_score": 14,
     "certificates": [
       {
         "name": "Company registration",
@@ -1292,7 +1292,7 @@
         "link": ""
       }
     ],
-    "story_en": "Sichuan Cozy Home Building Materials makes and sells this through Alibaba, in China. The maker has been on Alibaba for 1 year. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Sichuan Cozy Home Building Materials makes and sells this through Alibaba, in China. The maker has been on Alibaba for 1 year. Price check: a smooth solid brass door stop sells for A$54 at Kitchen Library (checked 8 Oct 2026). Here it works out at A$39.75 a piece, about 26% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -1308,11 +1308,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 216,
     "score_parts": {
       "maker_check": 6,
       "product_proof": 0,
-      "value": 0,
+      "value": 8,
       "buyers": 0
     },
     "score_notes": {
@@ -1324,13 +1324,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "26% under the local price of A$216 (+8). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/cozy-home-knurled-brass-door-stop-card.svg",
@@ -1365,7 +1365,7 @@
         "link": ""
       }
     ],
-    "story_en": "Foshan Contop Bathroom makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Foshan Contop Bathroom makes and sells this through Made-in-China, in China. Price check: we haven't found a fair Australian comparison for this one yet. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -1404,7 +1404,7 @@
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/contop-brass-hook-rail-card.svg",
@@ -1442,7 +1442,7 @@
         "link": ""
       }
     ],
-    "story_en": "Zhaoqing Chengrui Hardware makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Zhaoqing Chengrui Hardware makes and sells this through Made-in-China, in China. Price check: we haven't found a fair Australian comparison for this one yet. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -1481,7 +1481,7 @@
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/chengrui-stainless-wall-hooks-card.svg",
@@ -1508,7 +1508,7 @@
     "price_aud": 109,
     "price_unit": "pack of 4",
     "delivery_estimate": "not stated",
-    "fi_score": 10,
+    "fi_score": 21,
     "certificates": [
       {
         "name": "Company registration",
@@ -1516,7 +1516,7 @@
         "link": ""
       }
     ],
-    "story_en": "Foshan Benme Building Material makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "story_en": "Foshan Benme Building Material makes and sells this through Made-in-China, in China. Price check: the Meir solid brass robe hook (on sale, usually A$49) sells for A$42 at Blue Leaf Bath (checked 8 Oct 2026). Here it works out at A$27.25 a piece, about 35% less. What you get here that a marketplace does not give you: every piece comes to us first and we check it before it goes on to you, delivery in Australia is free, and any honest review, good or bad, earns store credit. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
@@ -1532,11 +1532,11 @@
     ],
     "photo_permission": "no",
     "photo_permission_note": "",
-    "local_price_aud": "",
+    "local_price_aud": 168,
     "score_parts": {
       "maker_check": 10,
       "product_proof": 0,
-      "value": 0,
+      "value": 11,
       "buyers": 0
     },
     "score_notes": {
@@ -1549,13 +1549,13 @@
         "No product certificates stated (+0)."
       ],
       "value": [
-        "Not compared with a local price yet (+0)."
+        "35% under the local price of A$168 (+11). Full marks at 50% under."
       ],
       "buyers": [
         "No reviews yet."
       ]
     },
-    "score_checked": "2026-10-07",
+    "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
     "photo_url": "assets/products/benme-brass-robe-hooks-card.svg",
