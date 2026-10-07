@@ -20,8 +20,8 @@ GENERIC_PLACEHOLDER = 'assets/products/photo-coming-soon.svg'
 # U2-Net (Apache-2.0, about 176 MB, downloaded once). rembg's own default model is about 1 GB and licensed for
 # non-commercial use only, so it is never used here. FI_REMBG_MODEL can name another rembg model with a suitable licence.
 REMBG_MODEL = 'u2net'
-NOUNS = {'handles': 'cabinet handle', 'knobs': 'cabinet knob', 'tiles': 'tile', 'taps': 'tap'}
-ICONS = {'handles': 'handle', 'knobs': 'knob', 'tiles': 'tile', 'taps': 'tap'}
+NOUNS = {'handles': 'cabinet handle', 'knobs': 'cabinet knob', 'tiles': 'tile', 'taps': 'tap', 'bathroom': 'bathroom accessory', 'doors': 'door and wall fitting'}
+ICONS = {'handles': 'handle', 'knobs': 'knob', 'tiles': 'tile', 'taps': 'tap', 'bathroom': 'bath', 'doors': 'door'}
 FONTS = ('C:/Windows/Fonts/segoeuib.ttf', 'C:/Windows/Fonts/arialbd.ttf', '/System/Library/Fonts/Supplemental/Arial Bold.ttf',
          '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 'DejaVuSans-Bold.ttf')
 

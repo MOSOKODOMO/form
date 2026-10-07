@@ -7,6 +7,8 @@
     {id: 'knobs', name: 'Knobs'},
     {id: 'tiles', name: 'Tiles'},
     {id: 'taps', name: 'Taps'},
+    {id: 'bathroom', name: 'Bathroom'},
+    {id: 'doors', name: 'Doors and walls'},
   ];
   const CATEGORY_IDS = CATEGORIES.map((category) => category.id);
   // Verified: a person confirmed it on the issuer's own database. Claimed: on the maker's page only. Failed: checked and it didn't hold up.

@@ -7,11 +7,12 @@ const dist = path.join(__dirname, '..', 'dist')
 const read = (name) => fs.readFileSync(path.join(dist, name), 'utf8')
 const catalogue = require('../dist/catalogue.js')
 const products = JSON.parse(read('data/products.json'))
-const sample = products[0]
+const samples = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures', 'sample-products.json'), 'utf8'))  // the 3 labelled samples, kept for tests now the shop has real products
+const sample = samples[0]
 const real = {...sample, sample: false, status: 'live', maker: 'Real maker', stripe_link: 'https://buy.stripe.com/test_abc123'}
 
 test('samples never get a buy button, and a live product buys through its Stripe Payment Link', () => {
-  for (const product of products.filter((item) => item.sample)) {
+  for (const product of samples) {
     const action = catalogue.buyAction(product)
     assert.equal(action.kind, 'none')
     assert.equal(action.label, 'Sample: not for sale')
@@ -59,7 +60,8 @@ test('the trust panel shows each check as verified, claimed, failed or not state
   assert.match(catalogue.productProblems({...sample, certificates: [{name: 'X', status: 'checked', link: ''}]}).join(), /status must be one of verified, claimed, failed, not stated/)
   assert.equal(catalogue.galleryItems({...sample, story_en: 'not stated'}).at(-1).text, 'We haven’t recorded this maker’s story yet.')
   assert.deepEqual(catalogue.specRows(sample).map(([name]) => name), ['Material', 'Finishes', 'Sizes', 'Made in', 'Maker'])
-  assert.equal(catalogue.findProduct(products, sample.handle), sample)
+  assert.equal(catalogue.findProduct(samples, sample.handle), sample)
+  assert.equal(catalogue.findProduct(products, products[0].handle), products[0])
   assert.equal(catalogue.findProduct(products, 'missing'), null)
 })
 

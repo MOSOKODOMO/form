@@ -1,0 +1,171 @@
+[
+  {
+    "handle": "sample-knurled-brass-pull",
+    "sample": true,
+    "status": "approved",
+    "product": "Knurled brass pull handle",
+    "category": "handles",
+    "maker": "Sample maker A",
+    "maker_url": "",
+    "country": "China",
+    "ships_from": "not stated",
+    "material": "Solid brass with a knurled grip",
+    "finishes": [
+      "Brushed brass",
+      "Aged brass",
+      "Matt black"
+    ],
+    "sizes": [
+      "128 mm centres",
+      "192 mm centres",
+      "320 mm centres"
+    ],
+    "price_aud": 39,
+    "price_unit": "each",
+    "delivery_estimate": "not stated",
+    "fi_score": 66,
+    "certificates": [
+      {
+        "name": "Business licence",
+        "status": "verified",
+        "link": "https://www.gsxt.gov.cn/"
+      },
+      {
+        "name": "ISO 9001 quality management certificate",
+        "status": "verified",
+        "link": "https://www.iafcertsearch.org/"
+      },
+      {
+        "name": "Salt spray test for the finish (ISO 9227)",
+        "status": "not stated",
+        "link": ""
+      }
+    ],
+    "photo_url": "assets/products/sample-pull-handle.svg",
+    "story_en": "Sample story. This is where the maker’s story goes: who they are, where they work and how long they’ve made this product. For example, a family workshop that machines and hand-finishes brass hardware in small batches.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "score_parts": {
+      "maker_check": 40,
+      "product_proof": 12,
+      "value": 14,
+      "buyers": 0
+    },
+    "score_checked": "2026-10-05",
+    "reviews": []
+  },
+  {
+    "handle": "sample-glazed-wall-tile",
+    "sample": true,
+    "status": "approved",
+    "product": "Handmade glazed wall tile",
+    "category": "tiles",
+    "maker": "Sample maker C",
+    "maker_url": "",
+    "country": "Vietnam",
+    "ships_from": "not stated",
+    "material": "Glazed terracotta, for walls",
+    "finishes": [
+      "Olive",
+      "Forest green",
+      "Cream"
+    ],
+    "sizes": [
+      "100 × 100 mm",
+      "Sold by the square metre"
+    ],
+    "price_aud": 129,
+    "price_unit": "per m²",
+    "delivery_estimate": "not stated",
+    "fi_score": 61,
+    "certificates": [
+      {
+        "name": "Business registration",
+        "status": "verified",
+        "link": "https://dangkykinhdoanh.gov.vn/"
+      },
+      {
+        "name": "ISO 9001 quality management certificate",
+        "status": "verified",
+        "link": "https://www.iafcertsearch.org/"
+      },
+      {
+        "name": "Slip resistance test for floors (AS 4586)",
+        "status": "not stated",
+        "link": ""
+      }
+    ],
+    "photo_url": "assets/products/sample-glazed-tile.svg",
+    "story_en": "Sample story. This is where the maker’s story goes: who they are, where they work and how long they’ve made this product. For example, a village workshop that presses, glazes and kiln-fires tiles by hand, so no two are quite the same.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "score_parts": {
+      "maker_check": 37,
+      "product_proof": 12,
+      "value": 12,
+      "buyers": 0
+    },
+    "score_checked": "2026-10-05",
+    "reviews": []
+  },
+  {
+    "handle": "sample-porcelain-cabinet-knob",
+    "sample": true,
+    "status": "approved",
+    "product": "Glazed porcelain cabinet knob",
+    "category": "knobs",
+    "maker": "Sample maker B",
+    "maker_url": "",
+    "country": "China",
+    "ships_from": "not stated",
+    "material": "Glazed porcelain with a brass screw",
+    "finishes": [
+      "Sage",
+      "Chalk white",
+      "Charcoal"
+    ],
+    "sizes": [
+      "32 mm diameter",
+      "38 mm diameter"
+    ],
+    "price_aud": 12,
+    "price_unit": "each",
+    "delivery_estimate": "not stated",
+    "fi_score": 52,
+    "certificates": [
+      {
+        "name": "Business licence",
+        "status": "verified",
+        "link": "https://www.gsxt.gov.cn/"
+      },
+      {
+        "name": "Lead and cadmium test for the glaze",
+        "status": "verified",
+        "link": "https://www.sgs.com/"
+      },
+      {
+        "name": "ISO 9001 quality management certificate",
+        "status": "not stated",
+        "link": ""
+      }
+    ],
+    "photo_url": "assets/products/sample-porcelain-knob.svg",
+    "story_en": "Sample story. This is where the maker’s story goes: who they are, where they work and how long they’ve made this product. For example, a small porcelain studio that throws, glazes and fires every knob by hand.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "score_parts": {
+      "maker_check": 31,
+      "product_proof": 12,
+      "value": 9,
+      "buyers": 0
+    },
+    "score_checked": "2026-10-05",
+    "reviews": []
+  }
+]

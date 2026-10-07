@@ -44,7 +44,7 @@ test('only live products can be bought; drafts, rejected products and samples ge
     assert.equal(action.kind, 'none', `${status} has no buy button`)
     assert.equal(action.href, undefined)
   }
-  const samples = JSON.parse(read('data/products.json')).filter((product) => product.sample)
+  const samples = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures', 'sample-products.json'), 'utf8'))
   for (const product of samples) assert.equal(catalogue.buyAction(product).kind, 'none')
   assert.match(catalogue.productProblems({...samples[0], status: 'live'}).join(), /sample product cannot be live/)
 })

@@ -61,7 +61,7 @@ class MakeImagesTest(unittest.TestCase):
         self.drafts, self.assets = self.dir / 'drafts', self.dir / 'assets'
         self.drafts.mkdir()
         self.products = self.dir / 'products.json'
-        shutil.copy(ROOT / 'dist' / 'data' / 'products.json', self.products)
+        shutil.copy(ROOT / 'tests' / 'fixtures' / 'sample-products.json', self.products)
         self.photo = draw_photo(self.dir / 'photo.png')
         self.write_draft(photo_permission='no')
 

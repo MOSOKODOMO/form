@@ -1,171 +1,1565 @@
 [
   {
-    "handle": "sample-knurled-brass-pull",
-    "sample": true,
-    "status": "approved",
-    "product": "Knurled brass pull handle",
+    "handle": "yila-matte-black-brass-t-bar",
+    "sample": false,
+    "status": "live",
+    "product": "Matte black brass T-bar handle",
     "category": "handles",
-    "maker": "Sample maker A",
+    "maker": "Shanghai Yila Hardware",
     "maker_url": "",
     "country": "China",
-    "ships_from": "not stated",
-    "material": "Solid brass with a knurled grip",
+    "ships_from": "China",
+    "material": "Brass (as listed)",
     "finishes": [
-      "Brushed brass",
-      "Aged brass",
-      "Matt black"
+      "Matte black"
     ],
     "sizes": [
-      "128 mm centres",
-      "192 mm centres",
-      "320 mm centres"
+      "not stated"
     ],
-    "price_aud": 39,
-    "price_unit": "each",
+    "price_aud": 220,
+    "price_unit": "set of 10",
     "delivery_estimate": "not stated",
-    "fi_score": 66,
+    "fi_score": 6,
     "certificates": [
       {
-        "name": "Business licence",
-        "status": "verified",
-        "link": "https://www.gsxt.gov.cn/"
-      },
-      {
-        "name": "ISO 9001 quality management certificate",
-        "status": "verified",
-        "link": "https://www.iafcertsearch.org/"
-      },
-      {
-        "name": "Salt spray test for the finish (ISO 9227)",
-        "status": "not stated",
+        "name": "Company registration",
+        "status": "claimed",
         "link": ""
       }
     ],
-    "photo_url": "assets/products/sample-pull-handle.svg",
-    "story_en": "Sample story. This is where the maker’s story goes: who they are, where they work and how long they’ve made this product. For example, a family workshop that machines and hand-finishes brass hardware in small batches.",
+    "story_en": "Shanghai Yila Hardware makes and sells this through Alibaba, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "https://buy.stripe.com/test_00w14n1BR5wQ6tccp74ZG00",
+    "stripe_price_aud": 220,
+    "city": "not stated",
+    "source_url": "https://www.alibaba.com/product-detail/Minimalist-Brass-Matte-Black-Cabinet-Handles_1601748564176.html",
+    "source_site": "Alibaba",
+    "moq": "1 piece",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 6,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/yila-matte-black-brass-t-bar-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass (as listed) cabinet handle in matte black, made by Shanghai Yila Hardware in China."
+  },
+  {
+    "handle": "qiansi-knurled-antique-bronze-pull",
+    "sample": false,
+    "status": "live",
+    "product": "Knurled antique bronze brass pull, 5 inch",
+    "category": "handles",
+    "maker": "Xiamen Qiansi Home Decoration",
+    "maker_url": "",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Brass (as listed)",
+    "finishes": [
+      "Antique bronze"
+    ],
+    "sizes": [
+      "5 inch"
+    ],
+    "price_aud": 220,
+    "price_unit": "set of 10",
+    "delivery_estimate": "not stated",
+    "fi_score": 6,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Xiamen Qiansi Home Decoration makes and sells this through Alibaba, in China. The maker has been on Alibaba for 8 years. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "https://buy.stripe.com/test_dRm14ndkzaRa04O9cV4ZG02",
+    "stripe_price_aud": 220,
+    "city": "not stated",
+    "source_url": "https://www.alibaba.com/product-detail/Qiansi-5-inch-Antique-Bronze-Brass_1600915047166.html",
+    "source_site": "Alibaba",
+    "moq": "1 piece",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "8 years on Alibaba"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 6,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/qiansi-knurled-antique-bronze-pull-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass (as listed) cabinet handle in antique bronze, made by Xiamen Qiansi Home Decoration in China."
+  },
+  {
+    "handle": "mugu-brass-marble-t-bar",
+    "sample": false,
+    "status": "live",
+    "product": "Brass and marble T-bar handle",
+    "category": "handles",
+    "maker": "Yiwu Mugu Hardware",
+    "maker_url": "",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Brass with marble (as listed)",
+    "finishes": [
+      "Brass with marble"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 279,
+    "price_unit": "set of 10",
+    "delivery_estimate": "not stated",
+    "fi_score": 6,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Yiwu Mugu Hardware makes and sells this through Alibaba, in China. Sold as a set of 10 (A$279) or a set of 20 (A$499), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "https://buy.stripe.com/test_14A14ngwL2kEbNwbl34ZG04",
+    "stripe_price_aud": 279,
+    "city": "not stated",
+    "source_url": "https://www.alibaba.com/product-detail/Luxury-Brass-and-Marble-Cabinet-Handles_1601457313227.html",
+    "source_site": "Alibaba",
+    "moq": "10 pieces",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 6,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/mugu-brass-marble-t-bar-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass with marble (as listed) cabinet handle in brass with marble, made by Yiwu Mugu Hardware in China."
+  },
+  {
+    "handle": "xinjun-solid-brass-bamboo-t-bar",
+    "sample": false,
+    "status": "approved",
+    "product": "Solid brass bamboo T-bar handle",
+    "category": "handles",
+    "maker": "Chengdu Xinjun Decorative Material",
+    "maker_url": "https://racyle.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Solid brass",
+    "finishes": [
+      "Gold"
+    ],
+    "sizes": [
+      "128 mm",
+      "160 mm"
+    ],
+    "price_aud": 220,
+    "price_unit": "set of 10",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
     "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://racyle.en.made-in-china.com/product/swJteRFoSCGZ/China-Bamboo-Design-Solid-Brass-Drawer-Cabinet-Furniture-Gold-T-Bar-Pull-Handle.html",
+    "source_site": "Made-in-China",
+    "moq": "1 piece",
+    "lead_time": "About 14 days for 1 to 100 pieces (maker page)",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
     "score_parts": {
-      "maker_check": 40,
-      "product_proof": 12,
-      "value": 14,
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
       "buyers": 0
     },
-    "score_checked": "2026-10-05",
-    "reviews": []
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/xinjun-solid-brass-bamboo-t-bar-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this solid brass cabinet handle in gold, made by Chengdu Xinjun Decorative Material in China."
   },
   {
-    "handle": "sample-glazed-wall-tile",
-    "sample": true,
+    "handle": "nuode-solid-h59-brass-t-bar-black",
+    "sample": false,
     "status": "approved",
-    "product": "Handmade glazed wall tile",
-    "category": "tiles",
-    "maker": "Sample maker C",
+    "product": "Solid H59 brass T-bar handle, matte black",
+    "category": "handles",
+    "maker": "Zhejiang Nuode Hardware",
     "maker_url": "",
-    "country": "Vietnam",
-    "ships_from": "not stated",
-    "material": "Glazed terracotta, for walls",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Solid H59 brass (as listed)",
     "finishes": [
-      "Olive",
-      "Forest green",
-      "Cream"
+      "Matte black"
     ],
     "sizes": [
-      "100 × 100 mm",
-      "Sold by the square metre"
+      "not stated"
+    ],
+    "price_aud": 220,
+    "price_unit": "set of 10",
+    "delivery_estimate": "not stated",
+    "fi_score": 6,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Zhejiang Nuode Hardware makes and sells this through Alibaba, in China. The maker has been on Alibaba for 3 years. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://www.alibaba.com/product-detail/Premium-Solid-H59-Brass-T-Bar_1601928048779.html",
+    "source_site": "Alibaba",
+    "moq": "2 pieces",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "3 years on Alibaba"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 6,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/nuode-solid-h59-brass-t-bar-black-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this solid h59 brass (as listed) cabinet handle in matte black, made by Zhejiang Nuode Hardware in China."
+  },
+  {
+    "handle": "xinjun-solid-brass-edge-pull",
+    "sample": false,
+    "status": "approved",
+    "product": "Solid brass edge pull",
+    "category": "knobs",
+    "maker": "Chengdu Xinjun Decorative Material",
+    "maker_url": "https://racyle.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Solid brass",
+    "finishes": [
+      "Gold"
+    ],
+    "sizes": [
+      "40 mm",
+      "96 mm"
+    ],
+    "price_aud": 220,
+    "price_unit": "set of 10",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://racyle.en.made-in-china.com/product/sYaprKPgJkcR/China-Solid-Brass-Golden-Edge-Pull-Handle-Drawer-Shell-Cabinet-Pull-for-Kitchen.html",
+    "source_site": "Made-in-China",
+    "moq": "1 piece",
+    "lead_time": "3 to 15 days (maker page)",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/xinjun-solid-brass-edge-pull-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this solid brass cabinet knob in gold, made by Chengdu Xinjun Decorative Material in China."
+  },
+  {
+    "handle": "xinjun-hammered-brass-knob",
+    "sample": false,
+    "status": "approved",
+    "product": "Solid brass hammered round knob",
+    "category": "knobs",
+    "maker": "Chengdu Xinjun Decorative Material",
+    "maker_url": "https://racyle.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Brass",
+    "finishes": [
+      "Gold, hammered"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 220,
+    "price_unit": "set of 10",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://racyle.en.made-in-china.com/product/hRgrFHpYHekl/China-Solid-Brass-Gold-Hammered-Texture-Cabinet-Wardrobe-Drawer-Door-Spherical-Knobs.html",
+    "source_site": "Made-in-China",
+    "moq": "1 piece",
+    "lead_time": "3 to 15 days (maker page)",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/xinjun-hammered-brass-knob-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass cabinet knob in gold, hammered, made by Chengdu Xinjun Decorative Material in China."
+  },
+  {
+    "handle": "xinjun-vertical-knurled-brass-knob",
+    "sample": false,
+    "status": "approved",
+    "product": "Solid brass vertical knurled knob",
+    "category": "knobs",
+    "maker": "Chengdu Xinjun Decorative Material",
+    "maker_url": "https://racyle.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Solid brass (as listed)",
+    "finishes": [
+      "not stated"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 220,
+    "price_unit": "set of 10",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Chengdu Xinjun Decorative Material makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://racyle.en.made-in-china.com/product/MUEYQXboahkr/China-Nordic-Brass-Solid-Handle-Vertical-Knurled-Vintage-Knob-for-Cabinets-Dresser-Wardrobe.html",
+    "source_site": "Made-in-China",
+    "moq": "20 pieces",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/xinjun-vertical-knurled-brass-knob-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this solid brass (as listed) cabinet knob, made by Chengdu Xinjun Decorative Material in China."
+  },
+  {
+    "handle": "decormate-solid-brass-drawer-knob",
+    "sample": false,
+    "status": "approved",
+    "product": "Solid brass drawer knob",
+    "category": "knobs",
+    "maker": "Jiangmen Decormate Hardware",
+    "maker_url": "https://jmdecormate.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Solid brass (as listed)",
+    "finishes": [
+      "not stated"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 220,
+    "price_unit": "set of 10",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Jiangmen Decormate Hardware makes and sells this through Made-in-China, in China. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://jmdecormate.en.made-in-china.com/product/JLmYjIsuVGkT/",
+    "source_site": "Made-in-China",
+    "moq": "20 pieces",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/decormate-solid-brass-drawer-knob-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this solid brass (as listed) cabinet knob, made by Jiangmen Decormate Hardware in China."
+  },
+  {
+    "handle": "mengyue-matte-black-brass-dot-pull",
+    "sample": false,
+    "status": "approved",
+    "product": "Matte black solid brass dot pull",
+    "category": "knobs",
+    "maker": "Anyang Mengyue Furniture",
+    "maker_url": "",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Solid brass (as listed)",
+    "finishes": [
+      "Matte black"
+    ],
+    "sizes": [
+      "Single hole"
+    ],
+    "price_aud": 220,
+    "price_unit": "set of 10",
+    "delivery_estimate": "not stated",
+    "fi_score": 6,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Anyang Mengyue Furniture makes and sells this through Alibaba, in China. The maker has been on Alibaba for 1 year. Sold as a set of 10 (A$220) or a set of 20 (A$399), for a whole kitchen or wardrobe run. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://www.alibaba.com/product-detail/Modern-Simple-Matte-Black-Solid-Brass_1601947551210.html",
+    "source_site": "Alibaba",
+    "moq": "1 piece",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "1 year on Alibaba"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 6,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/mengyue-matte-black-brass-dot-pull-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this solid brass (as listed) cabinet knob in matte black, made by Anyang Mengyue Furniture in China."
+  },
+  {
+    "handle": "contop-toilet-roll-holder",
+    "sample": false,
+    "status": "approved",
+    "product": "Toilet roll holder (2007BG)",
+    "category": "bathroom",
+    "maker": "Foshan Contop Bathroom",
+    "maker_url": "https://contopbathroom.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Brass or stainless steel: the maker's title says solid brass, its spec table says stainless. We are confirming.",
+    "finishes": [
+      "Polished rose gold",
+      "Matte black"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 119,
+    "price_unit": "each",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      },
+      {
+        "name": "WaterMark",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Foshan Contop Bathroom makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://contopbathroom.en.made-in-china.com/product/kdItiqLPCUrZ/China-Watermark-Approval-Solid-Brass-Polished-Rose-Gold-Bathroom-Accessories-Toilet-Roll-Paper-Holder.html",
+    "source_site": "Made-in-China",
+    "moq": "1 piece",
+    "lead_time": "Stocked items ship in 3 to 5 business days (maker page)",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "WaterMark doesn't apply to bathroom, so it doesn't count."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/contop-toilet-roll-holder-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass or stainless steel: the maker's title says solid brass, its spec table says stainless. we are confirming. bathroom accessory in polished rose gold, made by Foshan Contop Bathroom in China."
+  },
+  {
+    "handle": "landonbath-bathroom-accessory-set",
+    "sample": false,
+    "status": "approved",
+    "product": "Landonbath brass bathroom accessory set",
+    "category": "bathroom",
+    "maker": "Kaiping Landon Plumbing",
+    "maker_url": "https://landonbath.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Brass body",
+    "finishes": [
+      "Brushed gold",
+      "Matte black",
+      "Chrome",
+      "Brushed nickel",
+      "Gun metal"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 159,
+    "price_unit": "set",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Kaiping Landon Plumbing makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://landonbath.en.made-in-china.com/product/GwYaETdFgZrx/China-Landonbath-Brushed-Gold-Modern-Design-Complete-Bathroom-Set-Accessories-Chrome-Bath-Accessory.html",
+    "source_site": "Made-in-China",
+    "moq": "1 set",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/landonbath-bathroom-accessory-set-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass body bathroom accessory in brushed gold, made by Kaiping Landon Plumbing in China."
+  },
+  {
+    "handle": "aqua-gallery-brass-towel-ring",
+    "sample": false,
+    "status": "approved",
+    "product": "Brass and stainless towel ring (62307)",
+    "category": "bathroom",
+    "maker": "Foshan Aqua Gallery",
+    "maker_url": "https://fsaquagallery.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Brass and stainless steel",
+    "finishes": [
+      "Chrome",
+      "Brass",
+      "Nickel"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 79,
+    "price_unit": "each",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Foshan Aqua Gallery makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://fsaquagallery.en.made-in-china.com/product/erbRYkPcCihj/China-Bathroom-Wall-Mount-Shower-Organization-Brass-Stainless-Steel-Towel-Ring.html",
+    "source_site": "Made-in-China",
+    "moq": "1 piece",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/aqua-gallery-brass-towel-ring-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass and stainless steel bathroom accessory in chrome, made by Foshan Aqua Gallery in China."
+  },
+  {
+    "handle": "yuming-stainless-towel-bar-60",
+    "sample": false,
+    "status": "approved",
+    "product": "Stainless steel towel bar, 60 cm (MJ2003W)",
+    "category": "bathroom",
+    "maker": "Guangzhou Yuming Electrical",
+    "maker_url": "https://ym0086.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "304 stainless steel",
+    "finishes": [
+      "Chrome"
+    ],
+    "sizes": [
+      "60 cm"
     ],
     "price_aud": 129,
-    "price_unit": "per m²",
-    "delivery_estimate": "not stated",
-    "fi_score": 61,
-    "certificates": [
-      {
-        "name": "Business registration",
-        "status": "verified",
-        "link": "https://dangkykinhdoanh.gov.vn/"
-      },
-      {
-        "name": "ISO 9001 quality management certificate",
-        "status": "verified",
-        "link": "https://www.iafcertsearch.org/"
-      },
-      {
-        "name": "Slip resistance test for floors (AS 4586)",
-        "status": "not stated",
-        "link": ""
-      }
-    ],
-    "photo_url": "assets/products/sample-glazed-tile.svg",
-    "story_en": "Sample story. This is where the maker’s story goes: who they are, where they work and how long they’ve made this product. For example, a village workshop that presses, glazes and kiln-fires tiles by hand, so no two are quite the same.",
-    "shopify_url": "",
-    "shopify_buy_button": "",
-    "stripe_link": "",
-    "stripe_price_aud": "",
-    "score_parts": {
-      "maker_check": 37,
-      "product_proof": 12,
-      "value": 12,
-      "buyers": 0
-    },
-    "score_checked": "2026-10-05",
-    "reviews": []
-  },
-  {
-    "handle": "sample-porcelain-cabinet-knob",
-    "sample": true,
-    "status": "approved",
-    "product": "Glazed porcelain cabinet knob",
-    "category": "knobs",
-    "maker": "Sample maker B",
-    "maker_url": "",
-    "country": "China",
-    "ships_from": "not stated",
-    "material": "Glazed porcelain with a brass screw",
-    "finishes": [
-      "Sage",
-      "Chalk white",
-      "Charcoal"
-    ],
-    "sizes": [
-      "32 mm diameter",
-      "38 mm diameter"
-    ],
-    "price_aud": 12,
     "price_unit": "each",
     "delivery_estimate": "not stated",
-    "fi_score": 52,
+    "fi_score": 10,
     "certificates": [
       {
-        "name": "Business licence",
-        "status": "verified",
-        "link": "https://www.gsxt.gov.cn/"
-      },
-      {
-        "name": "Lead and cadmium test for the glaze",
-        "status": "verified",
-        "link": "https://www.sgs.com/"
-      },
-      {
-        "name": "ISO 9001 quality management certificate",
-        "status": "not stated",
+        "name": "Company registration",
+        "status": "claimed",
         "link": ""
       }
     ],
-    "photo_url": "assets/products/sample-porcelain-knob.svg",
-    "story_en": "Sample story. This is where the maker’s story goes: who they are, where they work and how long they’ve made this product. For example, a small porcelain studio that throws, glazes and fires every knob by hand.",
+    "story_en": "Guangzhou Yuming Electrical makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
     "shopify_url": "",
     "shopify_buy_button": "",
     "stripe_link": "",
     "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://ym0086.en.made-in-china.com/product/mOpEhHUYvPcW/China-Wall-Mounted-Brass-Washroom-Restroom-Bath-Toilet-Hotel-Bathroom-Accessories.html",
+    "source_site": "Made-in-China",
+    "moq": "1 set",
+    "lead_time": "In stock items ship in 1 to 3 days (maker page)",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
     "score_parts": {
-      "maker_check": 31,
-      "product_proof": 12,
-      "value": 9,
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
       "buyers": 0
     },
-    "score_checked": "2026-10-05",
-    "reviews": []
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/yuming-stainless-towel-bar-60-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this 304 stainless steel bathroom accessory in chrome, made by Guangzhou Yuming Electrical in China."
+  },
+  {
+    "handle": "jiangshuntong-matte-black-bathroom-set",
+    "sample": false,
+    "status": "approved",
+    "product": "Matte black bathroom accessory set",
+    "category": "bathroom",
+    "maker": "Jiangmen Jiangshuntong Hardware",
+    "maker_url": "https://jmsunda.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Stainless steel and zinc alloy",
+    "finishes": [
+      "Matte black",
+      "Chrome",
+      "Brushed",
+      "Gold",
+      "Gunmetal"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 149,
+    "price_unit": "set",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Jiangmen Jiangshuntong Hardware makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://jmsunda.en.made-in-china.com/product/UfcYgqzkVAVr/China-Strong-and-Still-Lightweight-Matte-Black-Bathroom-Accessories-Sets.html",
+    "source_site": "Made-in-China",
+    "moq": "1 piece",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/jiangshuntong-matte-black-bathroom-set-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this stainless steel and zinc alloy bathroom accessory in matte black, made by Jiangmen Jiangshuntong Hardware in China."
+  },
+  {
+    "handle": "allwin-solid-brass-dome-door-stop",
+    "sample": false,
+    "status": "approved",
+    "product": "Solid brass dome door stop",
+    "category": "doors",
+    "maker": "ALLWIN Architectural Hardware",
+    "maker_url": "",
+    "country": "Taiwan",
+    "ships_from": "Taiwan",
+    "material": "Solid brass (as listed)",
+    "finishes": [
+      "not stated"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 99,
+    "price_unit": "pack of 4",
+    "delivery_estimate": "not stated",
+    "fi_score": 6,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "ALLWIN Architectural Hardware makes and sells this through Alibaba, in Taiwan. The maker has been on Alibaba for 19 years. Also as a pack of 8 for A$149. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://www.alibaba.com/product-detail/OEM-ODM-Modern-Design-Solid-Brass_10000010885838.html",
+    "source_site": "Alibaba",
+    "moq": "2 sets",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "19 years on Alibaba"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 6,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/allwin-solid-brass-dome-door-stop-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this solid brass (as listed) door and wall fitting, made by ALLWIN Architectural Hardware in Taiwan."
+  },
+  {
+    "handle": "filta-solid-brass-door-stop",
+    "sample": false,
+    "status": "approved",
+    "product": "Solid brass door stop",
+    "category": "doors",
+    "maker": "Wenzhou Filta Hardware",
+    "maker_url": "",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Solid brass (as listed)",
+    "finishes": [
+      "not stated"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 199,
+    "price_unit": "pack of 4",
+    "delivery_estimate": "not stated",
+    "fi_score": 6,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Wenzhou Filta Hardware makes and sells this through Alibaba, in China. The maker has been on Alibaba for 15 years. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://www.alibaba.com/product-detail/Metal-Solid-Brass-Door-Stop-Sound_1601049005121.html",
+    "source_site": "Alibaba",
+    "moq": "2 pieces",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "15 years on Alibaba"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 6,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/filta-solid-brass-door-stop-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this solid brass (as listed) door and wall fitting, made by Wenzhou Filta Hardware in China."
+  },
+  {
+    "handle": "cozy-home-knurled-brass-door-stop",
+    "sample": false,
+    "status": "approved",
+    "product": "Solid brass knurled door stop, matte black",
+    "category": "doors",
+    "maker": "Sichuan Cozy Home Building Materials",
+    "maker_url": "",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Solid brass (as listed)",
+    "finishes": [
+      "Matte black"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 159,
+    "price_unit": "pack of 4",
+    "delivery_estimate": "not stated",
+    "fi_score": 6,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Sichuan Cozy Home Building Materials makes and sells this through Alibaba, in China. The maker has been on Alibaba for 1 year. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://www.alibaba.com/product-detail/Heavy-Duty-Solid-Brass-Knurled-Door_1601919136186.html",
+    "source_site": "Alibaba",
+    "moq": "2 pieces",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "1 year on Alibaba"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 6,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/cozy-home-knurled-brass-door-stop-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this solid brass (as listed) door and wall fitting in matte black, made by Sichuan Cozy Home Building Materials in China."
+  },
+  {
+    "handle": "contop-brass-hook-rail",
+    "sample": false,
+    "status": "approved",
+    "product": "Brass multi-hook rail",
+    "category": "doors",
+    "maker": "Foshan Contop Bathroom",
+    "maker_url": "https://contopbathroom.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Brass",
+    "finishes": [
+      "Chrome"
+    ],
+    "sizes": [
+      "2 to 6 hooks"
+    ],
+    "price_aud": 69,
+    "price_unit": "each",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Foshan Contop Bathroom makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://contopbathroom.en.made-in-china.com/product/ydHfxNtUYRYW/China-Brass-Chrome-Robe-Hook-Bathroom-Accessory-Sanitaryware-Wall-Mounted-Clothes-Hook.html",
+    "source_site": "Made-in-China",
+    "moq": "1 piece",
+    "lead_time": "Stocked items ship in 3 to 5 business days (maker page)",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/contop-brass-hook-rail-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass door and wall fitting in chrome, made by Foshan Contop Bathroom in China."
+  },
+  {
+    "handle": "chengrui-stainless-wall-hooks",
+    "sample": false,
+    "status": "approved",
+    "product": "Stainless steel wall hooks",
+    "category": "doors",
+    "maker": "Zhaoqing Chengrui Hardware",
+    "maker_url": "https://zhaoqingchengrui.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Stainless steel",
+    "finishes": [
+      "Chrome",
+      "Satin",
+      "Matt black",
+      "Gold"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 69,
+    "price_unit": "pack of 4",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Zhaoqing Chengrui Hardware makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://zhaoqingchengrui.en.made-in-china.com/product/VdGtOCfMSjrF/China-Wall-Mount-Hook-Kitchen-Modern-Stain-Brass-Bathroom-Clothes-Display-Towel-Metal-Door-Hanger-Coat-Wall-Hooks.html",
+    "source_site": "Made-in-China",
+    "moq": "10 pieces",
+    "lead_time": "7 to 15 working days for stocked items (maker page)",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/chengrui-stainless-wall-hooks-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this stainless steel door and wall fitting in chrome, made by Zhaoqing Chengrui Hardware in China."
+  },
+  {
+    "handle": "benme-brass-robe-hooks",
+    "sample": false,
+    "status": "approved",
+    "product": "Brass robe hooks (Bg-D21010)",
+    "category": "doors",
+    "maker": "Foshan Benme Building Material",
+    "maker_url": "https://fsbestme.en.made-in-china.com",
+    "country": "China",
+    "ships_from": "China",
+    "material": "Brass (as listed)",
+    "finishes": [
+      "Chrome"
+    ],
+    "sizes": [
+      "not stated"
+    ],
+    "price_aud": 109,
+    "price_unit": "pack of 4",
+    "delivery_estimate": "not stated",
+    "fi_score": 10,
+    "certificates": [
+      {
+        "name": "Company registration",
+        "status": "claimed",
+        "link": ""
+      }
+    ],
+    "story_en": "Foshan Benme Building Material makes and sells this through Made-in-China, in China. Every order comes to us first so we can check it before it goes on to you. We haven't checked the maker's company registration or certificates yet, so this is an early score.",
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "city": "not stated",
+    "source_url": "https://fsbestme.en.made-in-china.com/product/vNMQsuybPkVZ/",
+    "source_site": "Made-in-China",
+    "moq": "20 pieces",
+    "lead_time": "not stated",
+    "maker_years_in_business": "not stated",
+    "platform_badges": [
+      "Audited Supplier (Made-in-China)"
+    ],
+    "photo_permission": "no",
+    "photo_permission_note": "",
+    "local_price_aud": "",
+    "score_parts": {
+      "maker_check": 10,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "score_notes": {
+      "maker_check": [
+        "Company named but its registration is not checked yet (+6).",
+        "Audit badge shown on the platform, not checked yet (+4).",
+        "Years in business not stated (+0)."
+      ],
+      "product_proof": [
+        "No product certificates stated (+0)."
+      ],
+      "value": [
+        "Not compared with a local price yet (+0)."
+      ],
+      "buyers": [
+        "No reviews yet."
+      ]
+    },
+    "score_checked": "2026-10-07",
+    "reviews": [],
+    "approved_on": "2026-10-07",
+    "photo_url": "assets/products/benme-brass-robe-hooks-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass (as listed) door and wall fitting in chrome, made by Foshan Benme Building Material in China."
   }
 ]

@@ -7,7 +7,8 @@ const dist = path.join(__dirname, '..', 'dist')
 const read = (name) => fs.readFileSync(path.join(dist, name), 'utf8')
 const catalogue = require('../dist/catalogue.js')
 const products = JSON.parse(read('data/products.json'))
-const base = products[0]
+const samples = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures', 'sample-products.json'), 'utf8'))  // the 3 labelled samples, kept for tests now the shop has real products
+const base = samples[0]
 const variant = (changes) => ({...JSON.parse(JSON.stringify(base)), ...changes})
 
 test('every product in products.json passes the data rules and has its photo', () => {
@@ -22,8 +23,8 @@ test('every product in products.json passes the data rules and has its photo', (
 })
 
 test('sample products are clearly marked and can never be bought', () => {
-  const samples = products.filter((product) => product.sample)
   assert.equal(samples.length, 3)
+  for (const product of samples) assert.deepEqual(catalogue.productProblems(product), [], product.handle)
   for (const product of samples) {
     assert.match(product.maker, /^Sample maker/)
     assert.match(product.story_en, /^Sample story\./)
@@ -61,7 +62,7 @@ test('the shop sorts by FI Score and filters by category from the URL', () => {
   assert.deepEqual(catalogue.sortByScore(list).map((product) => product.handle), ['a', 'b', 'c'], 'highest score first, ties by name')
   assert.deepEqual(catalogue.filterByCategory(list, 'handles').map((product) => product.handle), ['a', 'c'])
   assert.equal(catalogue.filterByCategory(list, 'all').length, 3)
-  assert.deepEqual(catalogue.categoryCounts(list), {all: 3, handles: 2, knobs: 0, tiles: 1, taps: 0})
+  assert.deepEqual(catalogue.categoryCounts(list), {all: 3, handles: 2, knobs: 0, tiles: 1, taps: 0, bathroom: 0, doors: 0})
   assert.equal(catalogue.parseCategory('?category=tiles'), 'tiles')
   assert.equal(catalogue.parseCategory('?category=windows'), 'all')
   assert.equal(catalogue.parseCategory(''), 'all')
@@ -94,5 +95,5 @@ test('photos use the alt text written from the product facts, and samples say th
   assert.equal(catalogue.imageAlt(product), product.photo_alt)
   assert.equal(catalogue.imageAlt({...product, photo_alt: 'not stated'}), 'Example Knurled Brass Pull')
   assert.equal(catalogue.imageAlt({...product, photo_alt: undefined}), 'Example Knurled Brass Pull')
-  assert.match(catalogue.imageAlt(products.find((item) => item.sample)), /^Sample illustration of a /)
+  assert.match(catalogue.imageAlt(samples[0]), /^Sample illustration of a /)
 })

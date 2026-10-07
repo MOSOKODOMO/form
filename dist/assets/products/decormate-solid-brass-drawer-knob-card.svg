@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <!-- Placeholder card made by tools/make-images.py. No supplier photo is used. -->
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f362c"/><stop offset="1" stop-color="#20261e"/></linearGradient></defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect x="40" y="40" width="720" height="920" fill="none" stroke="#48513f" stroke-width="2" stroke-dasharray="10 10"/>
+  <g color="#dce970" transform="translate(304 170) scale(3)"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 30c0-9.4 6.7-16 15-16s15 6.6 15 16c0 3.3-2.2 5-5 5H22c-2.8 0-5-1.7-5-5z"/>
+      <path d="M23 22c2-2.6 5-4 8-4.2" stroke-opacity=".55"/>
+      <path d="M28 35v7M36 35v7M22 42h20"/>
+      <path d="M8 46h48" stroke-opacity=".4"/>
+    </g></g>
+  <text x="400" y="470" text-anchor="middle" fill="#dce970" font-family="DM Mono, Consolas, monospace" font-size="20" letter-spacing="4">PHOTO COMING SOON</text>
+  <text x="400" y="540" text-anchor="middle" fill="#f7f8f2" font-family="Manrope, Arial, sans-serif" font-size="36" font-weight="700">Solid brass drawer knob</text>
+  <text x="400" y="606" text-anchor="middle" fill="#bec7b5" font-family="Manrope, Arial, sans-serif" font-size="22">Jiangmen Decormate Hardware, China</text>
+  <text x="400" y="890" text-anchor="middle" fill="#bec7b5" font-family="Manrope, Arial, sans-serif" font-size="22">We only show photos the maker has allowed us to use.</text>
+</svg>

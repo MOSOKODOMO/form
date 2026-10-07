@@ -89,12 +89,12 @@ def label(product, index: int) -> str:
 DRAFTS = DATA / 'drafts'
 INBOX = ROOT / 'inbox'
 SETTINGS = DATA / 'settings.json'
-CATEGORY_IDS = ('handles', 'knobs', 'tiles', 'taps')
+CATEGORY_IDS = ('handles', 'knobs', 'tiles', 'taps', 'bathroom', 'doors')
 # Same columns as Prem's fi-shopify-products-draft.csv.
 SHOPIFY_COLUMNS = ['Handle', 'Title', 'Body (HTML)', 'Vendor', 'Type', 'Tags', 'Published', 'Option1 Name', 'Option1 Value',
                    'Variant SKU', 'Variant Grams', 'Variant Inventory Policy', 'Variant Fulfillment Service', 'Variant Price',
                    'Variant Requires Shipping', 'Variant Taxable', 'Status']
-SHOPIFY_TYPES = {'handles': 'Cabinet hardware', 'knobs': 'Cabinet hardware', 'tiles': 'Tiles', 'taps': 'Tapware'}
+SHOPIFY_TYPES = {'handles': 'Cabinet hardware', 'knobs': 'Cabinet hardware', 'tiles': 'Tiles', 'taps': 'Tapware', 'bathroom': 'Bathroom accessories', 'doors': 'Door and wall hardware'}
 
 
 def load_settings(path: Path = SETTINGS) -> dict:

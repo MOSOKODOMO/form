@@ -62,7 +62,9 @@ BADGES = [
     r'Audited by (?:SGS|T[ÜU]V(?: Rheinland| S[ÜU]D)?|Bureau Veritas|BV|Intertek)', r'\b[A-Z]{2} \d{1,2} ?yrs?\b',
 ]
 CATEGORY_WORDS = [('taps', r'\b(?:tap|taps|faucet|faucets|mixer|basin mixer)\b'), ('knobs', r'\bknobs?\b'),
-                  ('handles', r'\b(?:handles?|pulls?|pull bar|t-bar)\b'), ('tiles', r'\btiles?\b')]
+                  ('handles', r'\b(?:handles?|pulls?|pull bar|t-bar)\b'), ('tiles', r'\btiles?\b'),
+                  ('bathroom', r'\b(?:towel (?:ring|bar|rail)|toilet (?:roll|paper) holder|bathroom accessor(?:y|ies))\b'),
+                  ('doors', r'\b(?:door ?stops?|door ?stoppers?|robe hooks?|coat hooks?|wall hooks?|hook rail)\b')]
 
 
 @dataclass

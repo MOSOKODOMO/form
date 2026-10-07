@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <!-- Placeholder card made by tools/make-images.py. No supplier photo is used. -->
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f362c"/><stop offset="1" stop-color="#20261e"/></linearGradient></defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect x="40" y="40" width="720" height="920" fill="none" stroke="#48513f" stroke-width="2" stroke-dasharray="10 10"/>
+  <g color="#dce970" transform="translate(304 170) scale(3)"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8" y="20" width="48" height="7" rx="3.5"/>
+      <path d="M18 27v12M46 27v12M13 39h10M41 39h10"/>
+      <path d="M6 43h52" stroke-opacity=".4"/>
+    </g></g>
+  <text x="400" y="470" text-anchor="middle" fill="#dce970" font-family="DM Mono, Consolas, monospace" font-size="20" letter-spacing="4">PHOTO COMING SOON</text>
+  <text x="400" y="540" text-anchor="middle" fill="#f7f8f2" font-family="Manrope, Arial, sans-serif" font-size="36" font-weight="700">Brass and marble T-bar</text>
+  <text x="400" y="586" text-anchor="middle" fill="#f7f8f2" font-family="Manrope, Arial, sans-serif" font-size="36" font-weight="700">handle</text>
+  <text x="400" y="652" text-anchor="middle" fill="#bec7b5" font-family="Manrope, Arial, sans-serif" font-size="22">Yiwu Mugu Hardware, China</text>
+  <text x="400" y="890" text-anchor="middle" fill="#bec7b5" font-family="Manrope, Arial, sans-serif" font-size="22">We only show photos the maker has allowed us to use.</text>
+</svg>
