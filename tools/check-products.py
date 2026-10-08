@@ -88,7 +88,9 @@ def photo_problems(product: dict) -> list[str]:
     if product.get('sample'):
         return []
     problems, photo, handle = [], str(product.get('photo_url') or ''), product.get('handle', '')
-    allowed = product.get('photo_permission') == 'yes'
+    # 'owner-approved': FI's founders chose to show a dropship seller's listing photo (https only), with a note saying so.
+    allowed = product.get('photo_permission') == 'yes' or (product.get('photo_permission') == 'owner-approved'
+                                                           and is_https(photo) and bool(product.get('photo_permission_note')))
     if photo in (f'assets/products/{handle}.webp', f'assets/products/{handle}-2000.jpg') and not allowed:
         problems.append("shows the maker's photo but photo_permission is not \"yes\"; run tools/make-images.py to switch to the placeholder card")
     if is_https(photo) and not allowed:
