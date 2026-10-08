@@ -47,6 +47,7 @@
         let data = {};
         try { data = await response.json(); } catch {}
         if (!response.ok || String(data.success) !== 'true') throw new Error(data.message || `HTTP ${response.status}`);
+        window.fiTrackEvent?.('generate_lead', {form_name: window.location.pathname === '/' || window.location.pathname === '/index.html' ? 'contact_home' : 'contact_page'});
         form.hidden = true;
         thanks.hidden = false;
         thanks.focus();

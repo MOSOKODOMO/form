@@ -1,0 +1,9 @@
+.analytics-consent { position: fixed; z-index: 100; bottom: 18px; right: 18px; width: min(440px, calc(100% - 36px)); max-height: calc(100dvh - 36px); overflow: auto; padding: 22px; color: var(--ink); background: var(--surface); border: 1px solid var(--field-border); box-shadow: var(--shadow); font: 13px/1.65 var(--body, sans-serif); }
+.analytics-consent strong { font-size: 17px; }
+.analytics-consent p { margin: 10px 0; }
+.analytics-consent a { color: var(--accent); text-underline-offset: 3px; }
+.analytics-consent > div { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.analytics-consent button { flex: 1; min-height: 44px; padding: 8px 14px; color: var(--ink); background: var(--soft); border: 1px solid var(--field-border); cursor: pointer; font: inherit; }
+.analytics-consent button:hover { border-color: var(--accent); }
+.analytics-settings { padding: 0; color: var(--accent); background: none; border: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; font: 800 12px/1.6 var(--body, sans-serif); }
+@media print { .analytics-consent, .analytics-settings { display: none; } }

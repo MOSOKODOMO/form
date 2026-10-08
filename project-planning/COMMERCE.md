@@ -1,6 +1,6 @@
 # Warehouse commerce handoff
 
-Updated 7 October 2026 (Australia/Sydney).
+Updated 8 October 2026 (Australia/Sydney).
 
 ## Delivered
 
@@ -33,26 +33,35 @@ All 17 tables have RLS and explicit grants. Browsers cannot write prices, approv
 
 The previously prepared `fi_marketplace_*` migration remains unapplied and independent. Do not run a blind `supabase db push`: this repository has historical migrations that were prepared separately from the hosted schema. Inspect migration history first.
 
-## Pricing decision still needed
+## Pricing policy configured
 
 Confirmed: AUD and one inclusive displayed total. Markup is 10% of the source cost converted to AUD. All money is stored in integer cents; source unit conversion is rounded before multiplication by quantity, and markup is rounded on the source subtotal.
 
-The owner has not yet answered whether additional costs are added inside the displayed total or absorbed inside source × 1.10. `fi_commerce_settings.pricing_mode` is deliberately unset, and quote approval fails until the owner chooses in **Warehouse & commerce → Pricing policy**:
+The owner selected **Include all costs in the displayed price**. On 8 October, `fi_commerce_settings.pricing_mode` was set to `costs_included` in the hosted project with an audit entry: source + 10% markup + inbound freight + inspection + outbound freight + duties + applicable tax + payment-cost allowance. $10 AUD source and $4 other costs gives $15 AUD total. The customer sees one total, not an extra shipping charge at payment. The admin pricing selector displays the saved policy.
 
-- `costs_included`: source + 10% markup + inbound freight + inspection + outbound freight + duties + applicable tax + payment-cost allowance. $10 source and $4 other costs gives $15 total.
-- `absorb_costs`: source × 1.10; other recorded costs reduce FI's contribution. The same example gives $11 revenue and a $3 loss before other overheads.
+The receiving address was also saved privately in `fi_warehouses` as an **inactive draft**. Its contact name and phone are still missing, so it cannot be used for supplier purchasing. Keep the street address out of public source files and policy pages. The owner can finish it in **Warehouse & commerce → Warehouse**, then activate it.
 
 These are not automatic freight, tax or currency quotations. FI enters and approves current amounts, including explicit zero amounts, tax treatment and delivery scope. Destination-specific cost uncertainty is why the first version requests an inclusive quote before payment. A source price alone is not advertised as a final delivered price. No automatic tax registration or universal GST rate is assumed.
 
 ## Activation steps
 
-1. In `commerce-admin.html#warehouse`, enter the actual receiving address, contact, phone and instructions; mark it active. Nothing has been guessed or seeded here.
-2. Select the pricing policy. Verify each exact supplier variant, cost, currency conversion, stock/MOQ and source quote expiry before publishing its commerce entry.
-3. Confirm commercial delivery/refund terms and tax treatment. Finish the existing SMTP setup so customer signup and password recovery work for the intended recipients.
+1. In `commerce-admin.html#warehouse`, complete the saved warehouse's receiving contact and phone, check the address/instructions, and mark it active.
+2. Review the configured inclusive pricing policy. Verify each exact supplier variant, cost, currency conversion, stock/MOQ and source quote expiry before publishing its commerce entry.
+3. Review the new `terms.html`, `shipping.html` and `returns.html` policies against the actual selling entity, ABN and commercial operation before taking payments. They preserve consumer guarantees and link to the ACCC, but publishing pages alone does not establish compliance. Confirm tax treatment and quote-specific lead times/cancellation arrangements. Finish SMTP as described below so customer signup and password recovery work for the intended recipients.
 4. Configure **Supabase Edge Function secrets**, not frontend files: `STRIPE_SECRET_KEY` (prefer a restricted key), `STRIPE_WEBHOOK_SECRET` for this exact endpoint, `FI_PAYMENT_MODE=test`, `FI_SITE_URL=https://fabricationintelligence.com`. Keep `FI_CHECKOUT_ENABLED=false` until the endpoint and an authenticated test checkout have passed end to end. No new Stripe credentials were installed by this work.
 5. Register `https://dszagdjnymxalpwamjyh.supabase.co/functions/v1/fi-stripe-webhook` in the matching Stripe environment for `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed`, `checkout.session.expired`, `charge.refunded`, and `charge.dispute.created/updated/closed`.
 6. Test valid/invalid signatures, successful and delayed payment, webhook-before-response races, repeated clicks, replay, refund/dispute holds and reconciliation. Only then enable test checkout, then separately configure and verify live keys and `FI_PAYMENT_MODE=live` before enabling live checkout. A test payment never releases physical purchasing or dispatch.
 7. Supplier auto-buy is **not connected**. The saved URL is evidence and a manual purchase destination, not an API. Implement a supplier-supported ordering adapter with credentials, available stock/MOQ, current price checks, explicit cost limits, warehouse-only destination, idempotency and timeout reconciliation before enabling automation. No supplier purchases or money transfers were made.
+
+## Auth email activation
+
+Signup confirmation and password recovery remain blocked by the existing default-SMTP recipient restriction. No Resend key or custom SMTP credentials have been installed, and the website's email-setup notice remains visible.
+
+Resend's email service was located through Stripe Directory. Stripe Projects preflight returned `BROWSER_AUTH_REQUIRED`, with the remedy `stripe projects init` to sign in. Per the Stripe Projects skill, provisioning stopped at that point; no plan, billable resource or provider account was purchased. The CLI is available here through `npx --yes @stripe/cli@1.53.1` if there is no global `stripe` command.
+
+After that sign-in, retry the preflight and provision only the free Resend email plan. Verify a sender domain under FI's control using Resend's actual DNS records. Configure Supabase Auth custom SMTP with host `smtp.resend.com`, port `465`, username `resend`, the Resend API key as password, and a verified sender address/name. Store all keys outside the public repository. Keep signup confirmation enabled; do not bypass it to hide the delivery issue. Disable email link tracking so confirmation/recovery links are not rewritten. Check the production Site URL and redirect allowlist, send signup and recovery flows to an owner-authorized test mailbox, and confirm both complete before removing the notice. Provider acceptance alone does not prove inbox delivery.
+
+References: [Supabase custom SMTP](https://supabase.com/docs/guides/auth/auth-smtp), [Resend with Supabase SMTP](https://resend.com/docs/send-with-supabase-smtp). Analytics activation and the deferred message test are recorded in `observability/README.md`.
 
 ## Deliberate first-release limits
 
@@ -64,7 +73,7 @@ The existing static shop's Shopify/Payment Link paths and `fi_account_payments` 
 
 ## Review and validation
 
-- All 123 JavaScript, FI Verify and catalogue integration tests passed on the current main-based worktree.
+- All 126 JavaScript, FI Verify and catalogue integration tests passed after the 8 October policy and analytics changes. The additional checks cover opt-in analytics, private-page exclusion, withdrawal and event data boundaries. The policy pages were also reviewed at desktop and phone widths. The commerce backend validation below was completed on 7 October; this update changes configuration and public pages, not the payment or database logic.
 - All 32 existing Python importer/image-tool tests passed. Used the bundled Python runtime with missing test dependencies installed into a temporary directory; no global Python setup or product images were changed.
 - Both Edge Functions pass Deno type checking with pinned Stripe 23.0.0 and Supabase JS 2.117.2; lockfiles are committed.
 - `tests/commerce-rls.sql` passed against hosted Supabase, including request idempotency, inclusive totals, immutable quote approval, owner isolation, private supplier data, unauthorized RPC denial, unpaid/test payment blocks, payment replay, late failure handling, procurement duplication prevention, warehouse receipt, failed/missing inspection blocks, refund hold, correct destination and delivery. All fixtures were rolled back. Confirmed zero leftover QA users, zero real orders/payments and one unverified Alibaba draft.

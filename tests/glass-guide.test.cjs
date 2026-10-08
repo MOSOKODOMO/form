@@ -54,10 +54,11 @@ test('glass guide is a static accessible responsive page with working local entr
   assert.match(css, /@media \(max-width: 650px\)/)
   assert.match(css, /\.glass-guide__grid \{ grid-template-columns: 1fr; \}/)
   const scripts = [...guide.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)]
-  assert.equal(scripts.length, 2, 'guide loads the shared motion enhancement and optional telemetry')
+  assert.equal(scripts.length, 3, 'guide loads the shared motion enhancement and optional telemetry configuration')
   assert.match(scripts[0][1], /src="site-motion\.js"/)
   assert.match(scripts[0][1], /\bdefer\b/)
-  assert.match(scripts[1][1], /src="telemetry\.js"/)
+  assert.match(scripts[1][1], /src="telemetry-config\.js"/)
+  assert.match(scripts[2][1], /src="telemetry\.js"/)
   for (const script of scripts) assert.equal(script[2].trim(), '', 'the guide has no inline script')
   assert.doesNotMatch(guide, /<canvas|<iframe/)
   assert.doesNotMatch(css, /animation:|transition:/)

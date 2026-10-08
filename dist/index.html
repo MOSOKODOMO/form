@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="contact-form.css">
     <link rel="stylesheet" href="site-motion.css">
     <script src="site-motion.js" defer></script>
+    <script src="telemetry-config.js" defer></script>
     <script src="telemetry.js" defer></script>
     <script src="testimonials.js" defer></script>
     <script src="contact-form.js" defer></script>
@@ -35,13 +36,13 @@
 
     <main id="main">
       <section id="overview" class="hero home-hero" data-motion-section="Overview" aria-labelledby="hero-title">
-        <div class="home-hero-copy">
+        <div class="home-hero-copy" data-message-test>
           <p class="eyebrow"><span></span> FABRICATION INTELLIGENCE</p>
-          <h1 id="hero-title">Design products from makers we’ve verified</h1>
-          <p class="home-pain">Overseas makers offer factory prices, but there’s no easy way to know which ones you can trust.</p>
+          <h1 id="hero-title" data-message-headline>Design products from makers we’ve verified</h1>
+          <p class="home-pain" data-message-description>Overseas makers offer factory prices, but there’s no easy way to know which ones you can trust.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="shop.html">Shop verified products <span aria-hidden="true">↗</span></a>
-            <a class="text-link" href="#how-it-works">How it works <span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="shop.html" data-message-cta="shop">Shop verified products <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#how-it-works" data-message-cta="how_it_works">How it works <span aria-hidden="true">↓</span></a>
           </div>
           <p class="home-proof">Every product shows its <strong>FI Score out of 100</strong> and the checks behind it.</p>
         </div>
@@ -156,7 +157,7 @@
     <footer class="site-footer">
       <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a>
       <p>Design products from makers we’ve verified.</p>
-      <div class="site-footer-links"><a href="shop.html">Shop</a><a href="verified-makers.html">Verified makers</a><a href="partner.html">Partner with us</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="windows.html">Windows (coming later)</a><a href="glass-guide.html">Glass guide</a><a href="pricing.html">Pricing</a><a href="feedback.html">Feedback</a><a href="privacy.html">Privacy</a></div>
+      <div class="site-footer-links"><a href="shop.html">Shop</a><a href="verified-makers.html">Verified makers</a><a href="partner.html">Partner with us</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="windows.html">Windows (coming later)</a><a href="glass-guide.html">Glass guide</a><a href="pricing.html">Pricing</a><a href="feedback.html">Feedback</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; policies</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a></div>
     </footer>
   </body>
 </html>

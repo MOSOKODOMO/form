@@ -68,5 +68,5 @@ test('the privacy notice covers contact messages sent through FormSubmit', () =>
   const privacy = text(read('privacy.html'))
   assert.match(privacy, /When you use the contact form, we collect your name, email, message and any product you mention/)
   assert.match(privacy, /send a message through the contact form/)
-  assert.match(privacy, /Last updated 7 October 2026/)
+  assert.match(privacy, /Last updated 8 October 2026/)
 })
