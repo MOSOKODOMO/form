@@ -43,12 +43,33 @@
           <p class="eyebrow">01 / Catalogue</p>
           <h2>Save a supplier link. Build a reviewed product.</h2>
           <p class="muted">
-            Sources and costs stay private. Each entry represents one exact
-            supplier variant. Load a JSON draft from the existing supplier-link
-            importer, or enter details here. Review prices, evidence and image
-            permission before saving. Supplier API purchasing is not connected
-            yet.
+            Paste an Alibaba product link to prepare a private draft. Review the
+            description, specifications, supplier photos and price references,
+            then choose the exact variant before saving. Sources and costs stay
+            private. Supplier purchasing is still manual.
           </p>
+          <form id="link-import-form" class="card import-panel">
+            <h3>Import from link</h3>
+            <label for="import-source-url">Alibaba product link</label>
+            <div class="import-link-row">
+              <input id="import-source-url" name="source_url" type="url" required
+                maxlength="4000" placeholder="https://www.alibaba.com/product-detail/…" />
+              <button type="submit">Import from link</button>
+            </div>
+            <p class="muted">Creates a draft for your review. It will not publish or buy anything.</p>
+            <details id="link-import-fallback">
+              <summary>Cannot read the listing? Paste page text</summary>
+              <p>Open the supplier page and copy its product title and key attributes.
+                Include a line starting with “Product title:” followed by the name.
+                Use this when the supplier requires sign-in or blocks automatic access.</p>
+              <label for="import-page-text">Product text from the supplier page</label>
+              <textarea id="import-page-text" name="pasted_text" maxlength="100000" rows="8"
+                placeholder="Product title: Brass door lever&#10;Supplier: Company name&#10;Material: Brass&#10;Model Number: …"></textarea>
+              <button name="use_pasted" type="submit" class="secondary">Create draft from pasted text</button>
+            </details>
+          </form>
+          <p id="link-import-status" class="status" role="status" aria-live="polite"></p>
+          <div id="link-import-result" class="card import-result" hidden></div>
           <label class="notice"
             >Load an importer draft (JSON)<input
               id="draft-file"
@@ -138,7 +159,7 @@
               >Variant options (JSON)<textarea name="variant_options">
 {}</textarea></label
             ><label
-              >Confirmed specifications (JSON)<textarea name="specifications">
+              >Specifications to review (JSON)<textarea name="specifications">
 {}</textarea></label
             ><label class="wide"
               >Permitted product image URL<input

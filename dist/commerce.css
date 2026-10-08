@@ -69,6 +69,21 @@ p {
 small {
   color: var(--muted);
 }
+.import-panel h3 { margin-top: 0; }
+.import-link-row { display: flex; gap: 12px; align-items: stretch; margin-top: 8px; }
+.import-link-row input { flex: 1; min-width: 0; }
+.import-link-row button { white-space: nowrap; }
+.import-panel details { margin-top: 20px; }
+.import-panel textarea { margin: 8px 0 12px; }
+.import-result { margin-bottom: 28px; }
+.import-description { white-space: pre-line; }
+.import-warnings { padding-left: 22px; max-width: 850px; }
+.import-warnings li { margin-bottom: 8px; }
+.import-images { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; margin: 16px 0 24px; }
+.import-image { padding: 8px; color: var(--ink); background: var(--bg); border: 2px solid var(--line); }
+.import-image[aria-pressed="true"] { border-color: var(--accent); }
+.import-images .import-image img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: white; margin-bottom: 8px; }
+@media (max-width: 650px) { .import-link-row { flex-direction: column; } .import-link-row button { min-height: 48px; } }
 .notice {
   background: #343d2d;
   border-left: 3px solid var(--accent);

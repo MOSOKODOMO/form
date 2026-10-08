@@ -9,7 +9,8 @@ The user's model is retail procurement through FI: customer payment, supplier pu
 - `commerce-admin.html`: FI-team-only source/product editor, importer draft upload, supporting references, warehouse address/contact editor, pricing policy, quotes, purchase references, inbound tracking, receipt, full inspection with private evidence uploads, outbound tracking and return/issue intake.
 - `order-catalogue.html`: published commerce products grouped by category and authenticated delivery-address/quantity requests. The current static `shop.html`, rankings and existing extraction/image tools remain intact. A link from the shop opens the new order catalogue.
 - `orders.html`: customer-owned orders, inclusive AUD total, payment state, refund totals and outbound tracking. Account links expose this flow; team accounts also get the warehouse/admin link.
-- The existing `tools/add-product.py` output can be loaded into the admin product form. This is a review step, not automatic publication. Exact variants, prices, currency, evidence and image rights must be checked. The new browser workspace does not execute the local Python importer or automatically generate images.
+- **Import from link** in Products & sources now calls the private `fi-product-import` Edge Function. It reads the listing into a staged review: title, a description assembled from stated facts, supplier, specifications, variants, MOQ, price references, supplier photos and source/profile references. **Use draft in editor** fills the form; **Save product** persists through the existing commerce endpoint. Re-importing a saved source targets the existing entry and resets review/publication/photo permission. Nothing is automatically published or purchased.
+- The local Python importer's JSON upload remains available. The web importer adapts its evidence-first approach to Alibaba's structured page data; it does not execute Python on the website. A blocked listing has a **Paste page text** fallback. Unknown facts remain blank, source statements are not independent verification, and photo import does not establish permission. This release imports supplier photos; it does not generate AI imagery or call a paid AI provider.
 - The supplied Alibaba URL, including the original URL and a tracking-free canonical URL, is stored as an unverified private draft. No price, stock, material certification or product photo was invented.
 
 ## Applied Supabase changes
@@ -42,6 +43,16 @@ The owner selected **Include all costs in the displayed price**. On 8 October, `
 The receiving address was also saved privately in `fi_warehouses` as an **inactive draft**. Its contact name and phone are still missing, so it cannot be used for supplier purchasing. Keep the street address out of public source files and policy pages. The owner can finish it in **Warehouse & commerce → Warehouse**, then activate it.
 
 These are not automatic freight, tax or currency quotations. FI enters and approves current amounts, including explicit zero amounts, tax treatment and delivery scope. Destination-specific cost uncertainty is why the first version requests an inclusive quote before payment. A source price alone is not advertised as a final delivered price. No automatic tax registration or universal GST rate is assumed.
+
+## Supplier-link importer
+
+The deployed `fi-product-import` function requires JWT verification plus a confirmed, non-anonymous Auth user and a role in `fi_team_members`. It makes no product writes: only a private audit entry per import attempt. The existing audit records provide an eight-attempts-per-minute per-user throttle (best effort for concurrent requests). No new tables, Auth settings or payment function changes were needed.
+
+Network fetches are restricted to HTTPS Alibaba product-detail links. Tracking parameters are removed for fetching while the supplied source link is retained in the draft. Robots rules are checked, each redirect must stay on an allowed Alibaba product URL for the same product ID, and timeout/body-size limits apply. Supplier JavaScript is parsed only when it contains JSON; it is never evaluated. Only Alibaba CDN photo URLs are offered. CAPTCHA, login, refusal, changed product IDs and empty responses surface a useful error and the manual paste alternative.
+
+Price ranges and multiple-variant listings never become an exact source unit price automatically. Currency conversion, supplier quote validity, variant selection and photo permission require review. Imported source references are supplier statements, not a claim that an independent register or certificate was checked. The supplied Dooroom page was used to validate title, supplier, model, material, MOQ, variants, six photo links and its USD range; the raw page is kept out of Git.
+
+Code is in `supabase/functions/_shared/product-import*.mjs`, `supabase/functions/fi-product-import/` and `dist/product-import.js`. The frontend uses text nodes/form values for supplier data. A late response cannot overwrite another edit, and applying a preview requires an explicit click. Existing native `append()` chaining errors in product and payable-order card rendering were also fixed and covered by regression tests.
 
 ## Activation steps
 

@@ -13,12 +13,39 @@ import {
   busy,
   safeLink,
 } from "./commerce-client.js";
+import { setupProductImport } from "./product-import.js";
 let warehouses = [],
   products = [],
   sources = [],
   context;
 const productForm = $("#product-form"),
   warehouseForm = $("#warehouse-form");
+const linkImporter = setupProductImport({
+  request: async (body) => {
+    const {data,error} = await supabase.functions.invoke('fi-product-import', {body});
+    if (error) {
+      let message = error.message;
+      try { message = (await error.context.json()).error || message; } catch {}
+      throw new Error(message);
+    }
+    if (data?.error) throw new Error(data.error);
+    return data;
+  },
+  findExisting: (draft) => {
+    const source = sources.find(item => item.supplier_product_id === draft.supplier_product_id || item.canonical_url === draft.canonical_url);
+    return source ? products.find(item => item.id === source.product_id) : null;
+  },
+  apply: (values, existingId) => {
+    productForm.reset();
+    productForm.elements.id.value = existingId;
+    fill(productForm, values);
+    productForm.scrollIntoView({behavior:'smooth',block:'start'});
+  },
+  chooseImage: (url) => {
+    productForm.elements.image_url.value = url;
+    productForm.elements.image_permission_confirmed.checked = false;
+  },
+});
 $("#draft-file").onchange = async (event) => {
   try {
     const file = event.target.files[0];
@@ -28,6 +55,7 @@ $("#draft-file").onchange = async (event) => {
     const draft = JSON.parse(await file.text());
     if (!draft || Array.isArray(draft) || draft.sample)
       throw new Error("Choose a real supplier research draft.");
+    linkImporter.clear();
     const stated = (value) =>
       typeof value === "string" && value.trim().toLowerCase() !== "not stated"
         ? value
@@ -105,6 +133,7 @@ function details(card, title, value) {
   card.append(block);
 }
 function editProduct(product) {
+  linkImporter.clear();
   const source = sources.find((s) => s.product_id === product.id) || {};
   productForm.reset();
   fill(productForm, {
@@ -156,7 +185,9 @@ async function loadProducts() {
     }
     const edit = node("button", "Edit", "secondary");
     edit.onclick = () => editProduct(product);
-    card.append(node("div", null, "toolbar")).append(edit);
+    const toolbar = node("div", null, "toolbar");
+    toolbar.append(edit);
+    card.append(toolbar);
     $("#product-list").append(card);
     const option = node("option", product.title);
     option.value = product.id;
@@ -189,6 +220,7 @@ productForm.addEventListener(
   }),
 );
 $("#new-product").onclick = () => {
+  linkImporter.clear();
   productForm.reset();
   productForm.elements.id.value = "";
 };

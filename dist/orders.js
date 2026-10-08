@@ -106,7 +106,9 @@ async function load() {
           pay.disabled = false;
         }
       };
-      card.append(node("div", null, "toolbar")).append(pay);
+      const toolbar = node("div", null, "toolbar");
+      toolbar.append(pay);
+      card.append(toolbar);
     }
     for (const shipment of order.fi_order_shipments) {
       card.append(
