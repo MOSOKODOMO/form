@@ -294,9 +294,9 @@
     "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
-    "photo_url": "assets/products/xinjun-solid-brass-bamboo-t-bar-render.webp",
-    "photo_is_render": true,
-    "photo_alt": "AI render, not a photo: solid brass cabinet handle in gold, made by Chengdu Xinjun Decorative Material in China."
+    "photo_url": "assets/products/xinjun-solid-brass-bamboo-t-bar-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this solid brass cabinet handle in gold, made by Chengdu Xinjun Decorative Material in China."
   },
   {
     "handle": "nuode-solid-h59-brass-t-bar-black",
@@ -442,9 +442,9 @@
     "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
-    "photo_url": "assets/products/xinjun-solid-brass-edge-pull-render.webp",
-    "photo_is_render": true,
-    "photo_alt": "AI render, not a photo: solid brass cabinet knob in gold, made by Chengdu Xinjun Decorative Material in China."
+    "photo_url": "assets/products/xinjun-solid-brass-edge-pull-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this solid brass cabinet knob in gold, made by Chengdu Xinjun Decorative Material in China."
   },
   {
     "handle": "xinjun-hammered-brass-knob",
@@ -516,9 +516,9 @@
     "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
-    "photo_url": "assets/products/xinjun-hammered-brass-knob-render.webp",
-    "photo_is_render": true,
-    "photo_alt": "AI render, not a photo: brass cabinet knob in gold, hammered, made by Chengdu Xinjun Decorative Material in China."
+    "photo_url": "assets/products/xinjun-hammered-brass-knob-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass cabinet knob in gold, hammered, made by Chengdu Xinjun Decorative Material in China."
   },
   {
     "handle": "xinjun-vertical-knurled-brass-knob",
@@ -1123,9 +1123,9 @@
     "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
-    "photo_url": "assets/products/jiangshuntong-matte-black-bathroom-set-render.webp",
-    "photo_is_render": true,
-    "photo_alt": "AI render, not a photo: stainless steel and zinc alloy bathroom accessory in matte black, made by Jiangmen Jiangshuntong Hardware in China."
+    "photo_url": "assets/products/jiangshuntong-matte-black-bathroom-set-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this stainless steel and zinc alloy bathroom accessory in matte black, made by Jiangmen Jiangshuntong Hardware in China."
   },
   {
     "handle": "allwin-solid-brass-dome-door-stop",
@@ -1416,9 +1416,9 @@
     "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
-    "photo_url": "assets/products/contop-brass-hook-rail-render.webp",
-    "photo_is_render": true,
-    "photo_alt": "AI render, not a photo: brass door and wall fitting in chrome, made by Foshan Contop Bathroom in China."
+    "photo_url": "assets/products/contop-brass-hook-rail-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass door and wall fitting in chrome, made by Foshan Contop Bathroom in China."
   },
   {
     "handle": "chengrui-stainless-wall-hooks",
@@ -1493,9 +1493,9 @@
     "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
-    "photo_url": "assets/products/chengrui-stainless-wall-hooks-render.webp",
-    "photo_is_render": true,
-    "photo_alt": "AI render, not a photo: stainless steel door and wall fitting in chrome, made by Zhaoqing Chengrui Hardware in China."
+    "photo_url": "assets/products/chengrui-stainless-wall-hooks-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this stainless steel door and wall fitting in chrome, made by Zhaoqing Chengrui Hardware in China."
   },
   {
     "handle": "benme-brass-robe-hooks",
@@ -1567,8 +1567,8 @@
     "score_checked": "2026-10-08",
     "reviews": [],
     "approved_on": "2026-10-07",
-    "photo_url": "assets/products/benme-brass-robe-hooks-render.webp",
-    "photo_is_render": true,
-    "photo_alt": "AI render, not a photo: brass (as listed) door and wall fitting in chrome, made by Foshan Benme Building Material in China."
+    "photo_url": "assets/products/benme-brass-robe-hooks-card.svg",
+    "photo_is_render": false,
+    "photo_alt": "Photo coming soon for this brass (as listed) door and wall fitting in chrome, made by Foshan Benme Building Material in China."
   }
 ]
