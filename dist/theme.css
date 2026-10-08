@@ -1,33 +1,42 @@
-/* Shared olive-and-lime palette for every FI page and workspace. */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Work+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Shared pale-green palette and typography for every FI page and workspace. */
 :root {
-  color-scheme: dark;
-  --paper: #252b23;
-  --surface: #2c3329;
-  --soft: #34412c;
-  --deep: #252b23;
-  --dark: #20261e;
-  --ink: #f7f8f2;
-  --muted: #bec7b5;
-  --line: #48513f;
-  --field-border: #78866d;
+  color-scheme: light;
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Work Sans', system-ui, sans-serif;
+  --mono: var(--body);
+  --paper: #f5f8f0;
+  --surface: #edf3e6;
+  --soft: #e5eeda;
+  --deep: #f0f5e9;
+  --dark: #eef4e7;
+  --ink: #273524;
+  --muted: #52614c;
+  --line: #c9d5bf;
+  --field-border: #829475;
   --accent: #dce970;
   --accent-hover: #e8f397;
   --lime: #dce970;
+  --accent-ink: #45623b;
   --on-accent: #252b23;
-  --header: rgba(37, 43, 35, .96);
-  --focus: rgba(220, 233, 112, .35);
-  --green: #cee6a6;
-  --success-bg: #34412c;
-  --error: #ffb5a5;
-  --error-bg: #452f29;
+  --header: rgba(245, 248, 240, .96);
+  --focus: rgba(69, 98, 59, .35);
+  --green: #3d6134;
+  --success-bg: #e5eeda;
+  --error: #983c2b;
+  --error-bg: #fff0ea;
   --error-border: #a16b5e;
-  --amber: #eed496;
-  --warning-bg: #403b28;
+  --amber: #765915;
+  --warning-bg: #faf3df;
   --shadow: 0 18px 50px rgba(9, 15, 7, .15);
 }
 
+body { font-family: var(--body); }
+h1, h2, h3, h4, h5, h6, [role="heading"] { font-family: var(--display); font-optical-sizing: auto; }
+
 ::selection { color: var(--on-accent); background: var(--accent); }
-button, input, select, textarea { color: inherit; accent-color: var(--accent); }
+button, input, select, textarea { color: inherit; accent-color: var(--accent-ink); }
 input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
 select option { color: var(--ink); background: var(--surface); }
 .brand-logo { display: block; width: 260px; max-width: 100%; height: auto; flex-shrink: 0; }

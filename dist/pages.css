@@ -6,9 +6,9 @@ button.button:disabled { cursor: not-allowed; opacity: .6; }
 .price-table { width: 100%; margin-top: 26px; border-collapse: collapse; border-top: 1px solid var(--line); }
 .price-table th, .price-table td { padding: 24px 22px 24px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 .price-table thead th { padding-top: 14px; padding-bottom: 14px; color: var(--muted); font: 500 10px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
-.price-table tbody th { width: 24%; font: 600 19px/1.3 var(--display); letter-spacing: -.03em; }
+.price-table tbody th { width: 24%; font: 600 19px/1.3 var(--display); letter-spacing: -.025em; }
 .price-table td:nth-child(2) { width: 27%; }
-.price-table td strong { display: block; color: var(--accent); font: 600 21px/1.25 var(--display); letter-spacing: -.03em; }
+.price-table td strong { display: block; color: var(--accent-ink); font: 600 21px/1.25 var(--display); letter-spacing: -.025em; }
 .price-table td small { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; }
 .price-table ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
 .price-table li + li { margin-top: 5px; }
@@ -22,12 +22,12 @@ button.button:disabled { cursor: not-allowed; opacity: .6; }
 .choice { position: relative; }
 .choice input { position: absolute; width: 1px; height: 1px; opacity: 0; }
 .choice span { display: inline-block; padding: 10px 15px; border: 1px solid var(--field-border); color: var(--ink); font-size: 13px; cursor: pointer; }
-.choice span:hover { border-color: var(--accent); }
-.choice input:checked + span { border-color: var(--accent); color: var(--on-accent); background: var(--accent); font-weight: 700; }
+.choice span:hover { border-color: var(--accent-ink); }
+.choice input:checked + span { border-color: var(--accent-ink); color: var(--on-accent); background: var(--accent); font-weight: 700; }
 .choice input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
 .feedback-form textarea, .feedback-form input[type="text"], .feedback-form input[type="email"] { width: 100%; padding: 11px 12px; border: 1px solid var(--field-border); border-radius: 2px; color: var(--ink); background: var(--surface); }
 .feedback-form textarea { min-height: 92px; resize: vertical; }
-.feedback-form textarea:focus, .feedback-form input:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px var(--focus); }
+.feedback-form textarea:focus, .feedback-form input:focus { border-color: var(--accent-ink); outline: none; box-shadow: 0 0 0 3px var(--focus); }
 .feedback-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .feedback-contact label { display: flex; flex-direction: column; gap: 7px; color: var(--muted); font-size: 13px; }
 .feedback-honeypot { position: absolute; left: -9999px; }

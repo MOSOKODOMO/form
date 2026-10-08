@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
   <!-- Shown until a maker gives written permission to use their photos. Drawn for FABINT. -->
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f362c"/><stop offset="1" stop-color="#20261e"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf3e6"/><stop offset="1" stop-color="#f5f8f0"/></linearGradient>
   </defs>
   <rect width="800" height="1000" fill="url(#bg)"/>
-  <rect x="40" y="40" width="720" height="920" fill="none" stroke="#48513f" stroke-width="2" stroke-dasharray="10 10"/>
-  <g fill="none" stroke="#dce970" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" transform="translate(300 380)">
+  <rect x="40" y="40" width="720" height="920" fill="none" stroke="#c9d5bf" stroke-width="2" stroke-dasharray="10 10"/>
+  <g fill="none" stroke="#45623b" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" transform="translate(300 380)">
     <path d="M30 40h40l18-26h64l18 26h40a20 20 0 0 1 20 20v100a20 20 0 0 1-20 20H30a20 20 0 0 1-20-20V60a20 20 0 0 1 20-20z"/>
     <circle cx="120" cy="108" r="42"/>
   </g>
-  <text x="400" y="650" text-anchor="middle" fill="#f7f8f2" font-family="Manrope, Arial, sans-serif" font-size="40" font-weight="700">Photo coming soon</text>
-  <text x="400" y="700" text-anchor="middle" fill="#bec7b5" font-family="Manrope, Arial, sans-serif" font-size="24">We only show photos the maker has allowed us to use.</text>
+  <text x="400" y="650" text-anchor="middle" fill="#273524" font-family="Work Sans, Arial, sans-serif" font-size="40" font-weight="700">Photo coming soon</text>
+  <text x="400" y="700" text-anchor="middle" fill="#52614c" font-family="Work Sans, Arial, sans-serif" font-size="24">We only show photos the maker has allowed us to use.</text>
 </svg>

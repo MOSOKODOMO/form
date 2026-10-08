@@ -1,11 +1,7 @@
+@import url('theme.css');
 :root {
-  color-scheme: dark;
-  --bg: #20261f;
-  --panel: #2c342b;
-  --line: #505e49;
-  --ink: #f2f1e9;
-  --muted: #bfc8b7;
-  --accent: #def0ad;
+  --bg: var(--paper);
+  --panel: var(--surface);
 }
 * {
   box-sizing: border-box;
@@ -14,12 +10,10 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font:
-    16px/1.6 system-ui,
-    sans-serif;
+  font: 16px/1.6 var(--body);
 }
 a {
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 .commerce-header {
   display: flex;
@@ -47,7 +41,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.75rem;
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 h1 {
   font-size: clamp(2.4rem, 6vw, 4.5rem);
@@ -81,11 +75,11 @@ small {
 .import-warnings li { margin-bottom: 8px; }
 .import-images { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; margin: 16px 0 24px; }
 .import-image { padding: 8px; color: var(--ink); background: var(--bg); border: 2px solid var(--line); }
-.import-image[aria-pressed="true"] { border-color: var(--accent); }
+.import-image[aria-pressed="true"] { border-color: var(--accent-ink); }
 .import-images .import-image img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: white; margin-bottom: 8px; }
 @media (max-width: 650px) { .import-link-row { flex-direction: column; } .import-link-row button { min-height: 48px; } }
 .notice {
-  background: #343d2d;
+  background: var(--soft);
   border-left: 3px solid var(--accent);
   padding: 16px 20px;
   margin: 24px 0;
@@ -113,7 +107,7 @@ small {
   height: 180px;
   display: grid;
   place-items: center;
-  background: #3a4436;
+  background: var(--soft);
   color: var(--muted);
   border-radius: 8px;
 }
@@ -161,7 +155,7 @@ textarea,
 select {
   width: 100%;
   padding: 11px 12px;
-  background: #20271f;
+  background: var(--surface);
   color: var(--ink);
   border: 1px solid #718164;
   border-radius: 6px;
@@ -203,11 +197,11 @@ button:disabled {
 }
 .status {
   white-space: pre-wrap;
-  color: var(--accent);
+  color: var(--accent-ink);
   min-height: 26px;
 }
 .status.error {
-  color: #ffb7a3;
+  color: var(--error);
 }
 .badge {
   display: inline-block;
@@ -215,7 +209,7 @@ button:disabled {
   border-radius: 99px;
   padding: 2px 10px;
   font-size: 0.8rem;
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 section[id] {
   scroll-margin-top: 90px;
@@ -246,7 +240,7 @@ dialog::backdrop {
 }
 details summary {
   cursor: pointer;
-  color: var(--accent);
+  color: var(--accent-ink);
   padding: 12px 0;
 }
 pre {
@@ -270,7 +264,7 @@ th {
   flex-wrap: wrap;
 }
 .steps span {
-  background: #394432;
+  background: var(--soft);
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 0.85rem;

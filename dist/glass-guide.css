@@ -1,9 +1,9 @@
 .glass-guide__hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr); gap: clamp(36px, 7vw, 110px); padding: clamp(65px, 8vw, 115px) 5%; }
-.glass-guide h1 { margin-top: 28px; font-size: clamp(46px, 6.5vw, 94px); line-height: 1.02; font-weight: 600; letter-spacing: -.065em; }
+.glass-guide h1 { margin-top: 28px; font-size: clamp(46px, 6.5vw, 94px); line-height: 1.02; font-weight: 600; letter-spacing: -.025em; }
 .glass-guide__lead { max-width: 660px; margin: 28px 0; color: var(--muted); font-size: clamp(16px, 1.6vw, 21px); }
-.glass-guide__label { color: var(--accent); font: 500 11px/1.5 var(--mono); letter-spacing: .09em; }
+.glass-guide__label { color: var(--accent-ink); font: 500 11px/1.5 var(--mono); letter-spacing: .09em; }
 .glass-guide__principle { position: relative; padding: 27px; border: 1px solid var(--line); background: var(--surface); }
-.glass-guide__principle h2 { margin-top: 13px; font-size: clamp(26px, 2.6vw, 36px); letter-spacing: -.05em; }
+.glass-guide__principle h2 { margin-top: 13px; font-size: clamp(26px, 2.6vw, 36px); letter-spacing: -.025em; }
 .glass-guide__principle p { margin-top: 15px; color: var(--muted); font-size: 13px; }
 .glass-guide__principle .glass-guide__illustration-note { margin-top: 17px; font: 11px/1.6 var(--mono); }
 .glass-guide__stack { position: relative; width: 185px; height: 135px; margin: 27px auto 32px; }
@@ -14,7 +14,7 @@
 .glass-guide__layers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0 5%; border-block: 1px solid var(--line); background: var(--dark); }
 .glass-guide__layers > div { padding: 29px 25px; border-left: 1px solid var(--line); }
 .glass-guide__layers > div:last-child { border-right: 1px solid var(--line); }
-.glass-guide__layers span { display: block; color: var(--accent); font: 11px/1.5 var(--mono); letter-spacing: .07em; }
+.glass-guide__layers span { display: block; color: var(--accent-ink); font: 11px/1.5 var(--mono); letter-spacing: .07em; }
 .glass-guide__layers strong { display: block; margin-top: 11px; font-size: 18px; font-weight: 600; letter-spacing: -.02em; }
 .glass-guide__layers p { margin-top: 5px; color: var(--muted); font-size: 12px; }
 .glass-guide__types { padding: clamp(65px, 7vw, 100px) 5%; }
@@ -24,14 +24,14 @@
 .glass-guide__group-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 60px; border: 1px solid var(--line); }
 .glass-guide__group-nav a { display: flex; align-items: center; gap: 12px; padding: 20px; color: var(--ink); font-size: 14px; text-decoration: none; }
 .glass-guide__group-nav a + a { border-left: 1px solid var(--line); }
-.glass-guide__group-nav a > span { color: var(--accent); font: 11px/1.5 var(--mono); }
+.glass-guide__group-nav a > span { color: var(--accent-ink); font: 11px/1.5 var(--mono); }
 .glass-guide__group-nav a > span:last-child { margin-left: auto; }
 .glass-guide__group-nav a:hover { background: var(--surface); }
 .glass-guide__group-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
 .glass-guide__group { scroll-margin-top: 100px; }
 .glass-guide__group + .glass-guide__group { margin-top: 60px; }
 .glass-guide__group-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; gap: 35px; margin-bottom: 25px; }
-.glass-guide__group-heading h3 { margin-top: 10px; font-size: clamp(28px, 3.3vw, 46px); line-height: 1.12; font-weight: 600; letter-spacing: -.045em; }
+.glass-guide__group-heading h3 { margin-top: 10px; font-size: clamp(28px, 3.3vw, 46px); line-height: 1.12; font-weight: 600; letter-spacing: -.025em; }
 .glass-guide__group-heading > p { max-width: 560px; color: var(--muted); font-size: 13px; }
 .glass-guide__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .glass-guide__grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -41,26 +41,26 @@
 .glass-guide__grid--three .glass-type dl > div { grid-template-columns: 1fr; gap: 7px; }
 .glass-type, .glass-guide__checklist { min-width: 0; padding: clamp(22px, 3vw, 40px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
 .glass-type { display: flex; flex-direction: column; scroll-margin-top: 100px; }
-.glass-type--highlight { background: #303a2b; }
+.glass-type--highlight { background: var(--soft); }
 .glass-type header { display: grid; grid-template-columns: 23px minmax(0, 1fr) 96px; gap: 18px; align-items: center; min-height: 105px; }
 .glass-type__number { align-self: start; padding-top: 8px; color: var(--muted); font: 11px/1.5 var(--mono); }
-.glass-type h4 { margin: 8px 0 0; font-size: clamp(24px, 2.5vw, 35px); font-weight: 600; letter-spacing: -.05em; line-height: 1.12; }
+.glass-type h4 { margin: 8px 0 0; font-size: clamp(24px, 2.5vw, 35px); font-weight: 600; letter-spacing: -.025em; line-height: 1.12; }
 .glass-type h4 small { display: inline-block; color: var(--muted); font-size: .57em; font-weight: 500; letter-spacing: -.01em; }
 .glass-type__description { margin-top: 26px; color: var(--ink); font-size: 15px; line-height: 1.65; }
 .glass-type dl { margin: 23px 0 28px; }
 .glass-type dl > div { display: grid; grid-template-columns: 94px minmax(0, 1fr); gap: 17px; padding-block: 15px; border-top: 1px solid var(--line); }
-.glass-type dt { color: var(--accent); font: 11px/1.7 var(--mono); }
+.glass-type dt { color: var(--accent-ink); font: 11px/1.7 var(--mono); }
 .glass-type dd { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .glass-type footer { display: grid; gap: 8px; margin-top: auto; }
 .glass-type footer a { width: fit-content; max-width: 100%; color: var(--muted); font: 11px/1.6 var(--mono); text-decoration-color: var(--line); text-underline-offset: 4px; }
-.glass-type footer a:hover { color: var(--accent); }
-.glass-type footer a span { color: var(--accent); }
+.glass-type footer a:hover { color: var(--accent-ink); }
+.glass-type footer a span { color: var(--accent-ink); }
 .glass-swatch { position: relative; width: 96px; height: 96px; overflow: hidden; background-image: linear-gradient(#ffffff05 1px, transparent 1px), linear-gradient(90deg, #ffffff05 1px, transparent 1px); background-size: 12px 12px; }
 .glass-swatch i { position: absolute; left: 23px; top: 12px; width: 54px; height: 69px; transform: skewY(-12deg); border: 1px solid #c8debd99; background: linear-gradient(120deg, #f1ffea08 35%, #f1ffea3b 36%, #f1ffea05 53%); }
 .glass-swatch--toughened i { border-width: 2px; box-shadow: 4px 4px #cee6a615; }
 .glass-swatch--toughened i::after { content: ''; position: absolute; inset: 9px; border: 1px solid #e0f4d53b; }
 .glass-swatch--laminated i:nth-child(1) { left: 14px; }
-.glass-swatch--laminated i:nth-child(2) { left: 22px; width: 51px; border-color: var(--accent); background: #dce97015; }
+.glass-swatch--laminated i:nth-child(2) { left: 22px; width: 51px; border-color: var(--accent-ink); background: #dce97015; }
 .glass-swatch--laminated i:nth-child(3) { left: 29px; }
 .glass-swatch--low-e i { border-left: 4px solid var(--accent); box-shadow: -5px 0 13px #dce97015; }
 .glass-swatch--low-e::after { content: ''; position: absolute; left: 5px; top: 24px; width: 11px; height: 47px; border-block: 1px solid var(--accent); }
@@ -70,20 +70,20 @@
 .glass-swatch--obscure i { background: repeating-linear-gradient(90deg, #d4e4c958 0 3px, #d4e4c91f 3px 6px); }
 .glass-guide__decision { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 60px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .glass-guide__custom { min-width: 0; padding: clamp(22px, 3vw, 40px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--soft); }
-.glass-guide__custom h3, .glass-guide__checklist h3 { margin-top: 28px; font-size: clamp(29px, 3vw, 43px); line-height: 1.1; font-weight: 600; letter-spacing: -.055em; }
+.glass-guide__custom h3, .glass-guide__checklist h3 { margin-top: 28px; font-size: clamp(29px, 3vw, 43px); line-height: 1.1; font-weight: 600; letter-spacing: -.025em; }
 .glass-guide__custom > p:not(.eyebrow) { max-width: 580px; margin-top: 24px; color: var(--muted); font-size: 13px; }
 .glass-guide__checklist { display: flex; flex-direction: column; justify-content: center; background: var(--dark); }
 .glass-guide__checklist ul { padding: 0; margin: 25px 0; list-style: none; }
 .glass-guide__checklist li { position: relative; padding: 12px 0 12px 23px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-.glass-guide__checklist li::before { content: '+'; position: absolute; left: 0; color: var(--accent); }
+.glass-guide__checklist li::before { content: '+'; position: absolute; left: 0; color: var(--accent-ink); }
 .glass-guide__checklist .text-link { width: fit-content; }
 .glass-guide__next { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 8%; padding: 70px 5% 85px; border-top: 1px solid var(--line); background: var(--soft); }
 .glass-guide__next h2 { margin-top: 24px; font-size: clamp(36px, 4.5vw, 60px); }
 .glass-guide__next > div > p:last-of-type { max-width: 520px; margin-top: 22px; color: var(--muted); }
 .glass-guide__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 30px; }
 .glass-guide__actions .text-link { font-size: 12px; }
-.glass-guide__next aside { align-self: end; padding: 24px; border: 1px solid var(--line); background: #252b2366; }
-.glass-guide__next aside strong { color: var(--accent); font: 11px/1.5 var(--mono); letter-spacing: .07em; }
+.glass-guide__next aside { align-self: end; padding: 24px; border: 1px solid var(--line); background: #e8f0df99; }
+.glass-guide__next aside strong { color: var(--accent-ink); font: 11px/1.5 var(--mono); letter-spacing: .07em; }
 .glass-guide__next aside p { margin-top: 12px; color: var(--muted); font-size: 12px; }
 .glass-guide__next aside small { display: block; margin-top: 16px; color: var(--muted); font: 11px/1.6 var(--mono); }
 

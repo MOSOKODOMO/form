@@ -10,22 +10,22 @@
 .ranking-example .ranking-list { padding-bottom: 88px; }
 
 .rank-item { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; grid-template-areas: "place body score"; gap: 24px; align-items: start; padding: 26px 28px; border: 1px solid var(--line); background: var(--surface); }
-.rank-number { grid-area: place; color: var(--accent); font: 700 clamp(28px, 3vw, 40px)/1 var(--display); letter-spacing: -.05em; }
+.rank-number { grid-area: place; color: var(--accent-ink); font: 700 clamp(28px, 3vw, 40px)/1 var(--display); letter-spacing: -.025em; }
 .rank-body { grid-area: body; display: grid; gap: 12px; min-width: 0; }
 .rank-item > .fi-score, .rank-item > .maker-score { grid-area: score; }
-.rank-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--accent); font: 500 10px/1.5 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.rank-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--accent-ink); font: 500 10px/1.5 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
 .rank-sample { padding: 0 7px; color: var(--on-accent); background: var(--amber); }
-.rank-title { font-size: clamp(20px, 2vw, 26px); font-weight: 600; line-height: 1.2; letter-spacing: -.04em; }
+.rank-title { font-size: clamp(20px, 2vw, 26px); font-weight: 600; line-height: 1.2; letter-spacing: -.025em; }
 .rank-title a { color: inherit; text-decoration: none; }
-.rank-title a:hover { color: var(--accent); }
+.rank-title a:hover { color: var(--accent-ink); }
 .rank-title a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .rank-maker { margin-top: -6px; color: var(--muted); font-size: 14px; }
 .rank-products, .rank-notes { color: var(--muted); font-size: 13px; line-height: 1.6; }
 .rank-products a { color: var(--ink); text-underline-offset: 3px; }
-.rank-products a:hover { color: var(--accent); }
+.rank-products a:hover { color: var(--accent-ink); }
 
 .maker-score { display: grid; justify-items: center; gap: 4px; min-width: 76px; padding: 12px 10px; border: 1px solid var(--line); background: var(--dark); }
-.maker-score b { font: 700 30px/1 var(--display); letter-spacing: -.04em; }
+.maker-score b { font: 700 30px/1 var(--display); letter-spacing: -.025em; }
 .maker-score span { color: var(--muted); font: 500 9px/1.3 var(--mono); letter-spacing: .12em; }
 
 /* The breakdown bar: zones sized 40 / 30 / 15 / 15, each filled by the points earned. */
@@ -54,12 +54,12 @@
 
 .how-we-score { padding: clamp(56px, 7vw, 96px) 5%; border-top: 1px solid var(--line); background: var(--dark); }
 .how-we-score-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px 40px; }
-.how-we-score-head h2 { margin-top: 18px; font-size: clamp(34px, 4.5vw, 60px); font-weight: 600; line-height: 1; letter-spacing: -.06em; }
+.how-we-score-head h2 { margin-top: 18px; font-size: clamp(34px, 4.5vw, 60px); font-weight: 600; line-height: 1; letter-spacing: -.025em; }
 .how-we-score-head > p { max-width: 420px; color: var(--muted); font-size: 15px; }
 .score-rules { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 36px 0 0; padding: 0; list-style: none; }
 .score-rule { display: grid; align-content: start; gap: 10px; padding: 24px; border: 1px solid var(--line); background: var(--surface); }
-.score-rule-max { color: var(--accent); font: 500 10px/1.4 var(--mono); letter-spacing: .14em; }
-.score-rule h3 { font-size: 22px; letter-spacing: -.04em; }
+.score-rule-max { color: var(--accent-ink); font: 500 10px/1.4 var(--mono); letter-spacing: .14em; }
+.score-rule h3 { font-size: 22px; letter-spacing: -.025em; }
 .score-rule p { color: var(--muted); font-size: 14px; line-height: 1.6; }
 .chip-legend { display: grid; gap: 14px; margin-top: 32px; }
 .chip-legend h3 { font-size: 16px; }

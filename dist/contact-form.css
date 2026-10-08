@@ -7,7 +7,7 @@
 .contact-form label small { color: var(--muted); font-size: 12px; }
 .contact-form input, .contact-form textarea { width: 100%; padding: 13px 14px; border: 1px solid var(--field-border); border-radius: 2px; color: var(--ink); background: var(--dark); font: 15px/1.5 var(--body); }
 .contact-form textarea { min-height: 140px; resize: vertical; }
-.contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px var(--focus); }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent-ink); outline: none; box-shadow: 0 0 0 3px var(--focus); }
 .contact-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .contact-form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 4px; }
 .contact-form button.button { border: 0; cursor: pointer; }
@@ -15,9 +15,9 @@
 .contact-form-status { color: var(--muted); font-size: 13px; }
 .contact-form-status.is-error { color: var(--error); }
 .contact-form-privacy { color: var(--muted); font-size: 12px; }
-.contact-form-privacy a { color: var(--accent); }
+.contact-form-privacy a { color: var(--accent-ink); }
 .contact-thanks { padding: 30px; border: 1px solid var(--accent); background: var(--soft); }
-.contact-thanks h3 { font-size: 24px; letter-spacing: -.04em; }
+.contact-thanks h3 { font-size: 24px; letter-spacing: -.025em; }
 .contact-thanks p { margin-top: 10px; color: var(--muted); }
 
 @media (max-width: 650px) {

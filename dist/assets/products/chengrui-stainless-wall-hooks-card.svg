@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
   <!-- Placeholder card made by tools/make-images.py. No supplier photo is used. -->
-  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f362c"/><stop offset="1" stop-color="#20261e"/></linearGradient></defs>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf3e6"/><stop offset="1" stop-color="#f5f8f0"/></linearGradient></defs>
   <rect width="800" height="1000" fill="url(#bg)"/>
-  <rect x="40" y="40" width="720" height="920" fill="none" stroke="#48513f" stroke-width="2" stroke-dasharray="10 10"/>
-  <g color="#dce970" transform="translate(304 170) scale(3)"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="40" y="40" width="720" height="920" fill="none" stroke="#c9d5bf" stroke-width="2" stroke-dasharray="10 10"/>
+  <g color="#45623b" transform="translate(304 170) scale(3)"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M14 56V10h26v46"/>
       <circle cx="35" cy="34" r="1.6"/>
       <path d="M48 56v-8M44 48h8c0-3-1.8-5-4-5s-4 2-4 5z"/>
       <path d="M8 56h48" stroke-opacity=".4"/>
     </g></g>
-  <text x="400" y="470" text-anchor="middle" fill="#dce970" font-family="DM Mono, Consolas, monospace" font-size="20" letter-spacing="4">PHOTO COMING SOON</text>
-  <text x="400" y="540" text-anchor="middle" fill="#f7f8f2" font-family="Manrope, Arial, sans-serif" font-size="36" font-weight="700">Stainless steel wall hooks</text>
-  <text x="400" y="606" text-anchor="middle" fill="#bec7b5" font-family="Manrope, Arial, sans-serif" font-size="22">Zhaoqing Chengrui Hardware, China</text>
-  <text x="400" y="890" text-anchor="middle" fill="#bec7b5" font-family="Manrope, Arial, sans-serif" font-size="22">We only show photos the maker has allowed us to use.</text>
+  <text x="400" y="470" text-anchor="middle" fill="#45623b" font-family="Work Sans, Arial, sans-serif" font-size="20" letter-spacing="4">PHOTO COMING SOON</text>
+  <text x="400" y="540" text-anchor="middle" fill="#273524" font-family="Work Sans, Arial, sans-serif" font-size="36" font-weight="700">Stainless steel wall hooks</text>
+  <text x="400" y="606" text-anchor="middle" fill="#52614c" font-family="Work Sans, Arial, sans-serif" font-size="22">Zhaoqing Chengrui Hardware, China</text>
+  <text x="400" y="890" text-anchor="middle" fill="#52614c" font-family="Work Sans, Arial, sans-serif" font-size="22">We only show photos the maker has allowed us to use.</text>
 </svg>
