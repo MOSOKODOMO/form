@@ -3,7 +3,7 @@
 /* Shared warm-ivory palette and typography for every FI page and workspace. */
 :root {
   color-scheme: light;
-  --brand: 'Eurostile Extended Light', 'DM Sans', sans-serif;
+  --brand: 'Michroma', 'DM Sans', sans-serif;
   --display: 'DM Sans', system-ui, sans-serif;
   --body: 'DM Sans', system-ui, sans-serif;
   --mono: var(--body);

@@ -1,8 +1,8 @@
 # Ivory design update, 9 October 2026
 
-DM Sans (Google Fonts) is used for body copy, navigation, buttons, product names and longer headings. Paragraphs use 17–18px and 1.6 line height. The logo and selected short headings use the brand font stack at weight 300.
+DM Sans (Google Fonts) is used for body copy, navigation, buttons, product names and longer headings. Paragraphs use 17–18px and 1.6 line height. The logo and selected short headings use Michroma Regular at weight 400.
 
-Eurostile Extended Light is not bundled. The owner approved DM Sans as a temporary fallback until they provide a licensed webfont. `dist/editorial-ivory.css` currently recognizes locally installed Eurostile; add the supplied WOFF2 URL to its `@font-face` source when available. Do not represent the fallback as the actual Eurostile font.
+On 10 October 2026 the owner supplied `Michroma-Regular.ttf` and requested it for the logo and occasional short headings, replacing the previous Eurostile fallback plan. The original font is self-hosted at `dist/assets/fonts/Michroma-Regular.ttf`, with its SIL Open Font License at `dist/assets/fonts/Michroma-OFL.txt`. The font face is declared in `dist/editorial-michroma.css`.
 
 ## Photography
 

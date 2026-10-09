@@ -1,11 +1,10 @@
-@import url('theme.css?v=ivory-20261010');
+@import url('theme.css?v=michroma-20261010');
 
-/* Final shared type layer. Eurostile uses a local licensed copy when available;
-   DM Sans is the approved temporary fallback until a licensed webfont is supplied. */
+/* Michroma Regular for the logo and selected short headings. */
 @font-face {
-  font-family: 'Eurostile Extended Light';
-  src: local('Eurostile Next Extended Light'), local('EurostileNextLTPro-LightExt'), local('Eurostile Extended Light');
-  font-weight: 300;
+  font-family: 'Michroma';
+  src: url('assets/fonts/Michroma-Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -13,7 +12,7 @@ html body { font-family: var(--body); font-size: 18px; line-height: 1.6; font-we
 body :is(h1,h2,h3,h4,h5,h6,[role="heading"]) {
   font-family: var(--body); font-weight: 500; letter-spacing: -.025em; line-height: 1.15; text-transform: none; text-wrap: balance;
 }
-body :is(h1,h2)[data-heading-style="brand"] { font-family: var(--brand); font-weight: 300; letter-spacing: .015em; }
+body :is(h1,h2)[data-heading-style="brand"] { font-family: var(--brand); font-weight: 400; letter-spacing: 0; }
 body main p:not(.eyebrow):not([class$="-label"]):not([class$="-number"]):not(.home-categories-label):not(.home-score-label):not(.terms-date) {
   font-family: var(--body); font-size: clamp(17px, 1.25vw, 18px); font-weight: 400; line-height: 1.6;
 }
@@ -27,7 +26,7 @@ body :is(input,select,textarea) { font-family: var(--body); font-size: 17px; }
 body .brand-lockup { display:flex; align-items:center; gap:12px; }
 body .brand-symbol { width:44px; height:44px; flex:none; }
 body .brand-type { display:flex; flex-direction:column; gap:7px; }
-body .brand-wordmark { color:var(--ink); font:300 32px/1 var(--brand); letter-spacing:.13em; }
+body .brand-wordmark { color:var(--ink); font:400 27px/1.2 var(--brand); letter-spacing:.08em; }
 body .brand-caption { color:var(--muted); font:500 8px/1.4 var(--body); letter-spacing:.14em; text-transform:uppercase; }
 body .site-header--public > .brand { flex-basis:250px; }
 body .home-hero { grid-template-columns:1.05fr 1fr; gap:clamp(40px,6vw,96px); padding-block:clamp(72px,8vw,128px); }
@@ -69,7 +68,8 @@ body .site-footer-links a { font-weight:500; font-size:14px; }
   body .home-category:nth-child(n+3) { border-top:1px solid var(--line); }
 }
 @media(max-width:650px) {
-  body .brand-wordmark { font-size:29px; }
+  body .brand-wordmark { font-size:27px; }
+  body :is(h1,h2)[data-heading-style="brand"] { font-size:clamp(26px,7vw,36px); overflow-wrap:anywhere; }
   body .site-header--public .site-nav { font-size:13px; }
   body .home-hero { padding-block:56px; gap:40px; }
   body .home-hero h1 { font-size:40px; }
