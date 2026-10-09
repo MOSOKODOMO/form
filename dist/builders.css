@@ -2,9 +2,9 @@
 @import url('site-navigation.css');
 
 :root {
-  --display: 'Fraunces', Georgia, serif;
-  --body: 'Work Sans', system-ui, sans-serif;
-  --mono: 'Work Sans', system-ui, sans-serif;
+  --display: 'DM Sans', system-ui, sans-serif;
+  --body: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Sans', system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }

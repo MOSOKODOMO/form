@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"><meta name="theme-color" content="#f5f8f0"><meta name="color-scheme" content="light">
+    <meta charset="utf-8"><meta name="theme-color" content="#f7f4ed"><meta name="color-scheme" content="light">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Private supplier onboarding and catalogue submission for Fabrication Intelligence.">
     <title>Supplier workspace | Fabrication Intelligence</title>
@@ -9,10 +9,11 @@
     <script type="module" src="supplier-portal.js"></script>
   <link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg">  <link rel="stylesheet" href="site-motion.css">
     <script src="site-motion.js" defer></script>
+  <link rel="stylesheet" href="editorial.css">
   </head>
   <body data-motion-page="functional">
     <header class="portal-header">
-      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a>
+      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-lockup" aria-hidden="true"><img class="brand-symbol" src="assets/fabint-symbol.svg" alt="" width="48" height="48"><span class="brand-type"><span class="brand-wordmark">FABINT</span><span class="brand-caption">Fabrication Intelligence</span></span></span></a>
       <nav><a href="./" data-en="Public site" data-zh="公开网站">Public site</a><a href="stage2.html" data-en="Team requests" data-zh="团队需求">Team requests</a><a href="commerce-admin.html" data-en="FI commerce" data-zh="FI 商务管理">FI commerce</a></nav>
       <div class="language-switch" aria-label="Language / 语言"><button data-language="en" aria-pressed="true">EN</button><button data-language="zh" aria-pressed="false">中文</button></div>
     </header>
@@ -36,7 +37,7 @@
       </section>
 
       <section id="supplier-workspace" hidden>
-        <div class="workspace-heading"><div><p class="eyebrow" data-en="PRIVATE SUPPLIER PROFILE" data-zh="私密供应商资料">PRIVATE SUPPLIER PROFILE</p><h2 id="supplier-name"></h2><p id="supplier-review-summary"></p></div><button class="button quiet" data-action="sign-out" type="button" data-en="Sign out" data-zh="退出登录">Sign out</button></div>
+        <div class="workspace-heading"><div><p class="eyebrow" data-en="PRIVATE SUPPLIER PROFILE" data-zh="私密供应商资料">PRIVATE SUPPLIER PROFILE</p><h2 id="supplier-name" data-heading-style="brand"></h2><p id="supplier-review-summary"></p></div><button class="button quiet" data-action="sign-out" type="button" data-en="Sign out" data-zh="退出登录">Sign out</button></div>
 
         <div class="workspace-grid">
           <section class="card profile-card" aria-labelledby="profile-title">
@@ -94,10 +95,10 @@
       </section>
 
       <section id="team-workspace" hidden>
-        <div class="workspace-heading"><div><p class="eyebrow" data-en="FI INTERNAL WORKSPACE" data-zh="FI 内部工作区">FI INTERNAL WORKSPACE</p><h2 data-en="Supplier review queue" data-zh="供应商审核队列">Supplier review queue</h2><p data-en="Approve supplier submissions before they can be used for sourcing or any future public listing." data-zh="在供应商资料用于采购或未来公开展示前，请先完成审核。">Approve supplier submissions before they can be used for sourcing or any future public listing.</p></div><button class="button quiet" data-action="sign-out" type="button" data-en="Sign out" data-zh="退出登录">Sign out</button></div>
+        <div class="workspace-heading"><div><p class="eyebrow" data-en="FI INTERNAL WORKSPACE" data-zh="FI 内部工作区">FI INTERNAL WORKSPACE</p><h2 data-en="Supplier review queue" data-zh="供应商审核队列" data-heading-style="brand">Supplier review queue</h2><p data-en="Approve supplier submissions before they can be used for sourcing or any future public listing." data-zh="在供应商资料用于采购或未来公开展示前，请先完成审核。">Approve supplier submissions before they can be used for sourcing or any future public listing.</p></div><button class="button quiet" data-action="sign-out" type="button" data-en="Sign out" data-zh="退出登录">Sign out</button></div>
         <section class="card invite-card"><div><p class="eyebrow" data-en="NEW SUPPLIER" data-zh="新供应商">NEW SUPPLIER</p><h3 data-en="Create a supplier record" data-zh="创建供应商记录">Create a supplier record</h3><p data-en="This reserves the portal relationship. Send the Auth invitation separately from the Supabase Dashboard, then the supplier can request a magic link here." data-zh="此操作会建立供应商门户关系。请在 Supabase Dashboard 中另行发送 Auth 邀请；之后供应商即可在此申请魔法链接登录。">This reserves the portal relationship. Send the Auth invitation separately from the Supabase Dashboard, then the supplier can request a magic link here.</p></div><form id="team-supplier-form"><label><span data-en="Legal company name" data-zh="公司法定名称">Legal company name</span><input name="legal_name" maxlength="200" required></label><label><span data-en="Invited email" data-zh="受邀邮箱">Invited email</span><input name="email" type="email" maxlength="320" required></label><label><span data-en="Country" data-zh="国家">Country</span><input name="country" value="China" maxlength="100" required></label><button class="button primary" type="submit" data-en="Create supplier record" data-zh="创建供应商记录">Create supplier record</button><p id="team-supplier-status" class="status" role="status" aria-live="polite"></p></form></section>
-        <section class="review-section"><div class="section-heading"><div><p class="eyebrow" data-en="PROFILE REVIEWS" data-zh="公司资料审核">PROFILE REVIEWS</p><h2 data-en="Supplier companies" data-zh="供应商公司">Supplier companies</h2></div></div><div id="team-profile-list" class="review-grid"></div></section>
-        <section class="review-section"><div class="section-heading"><div><p class="eyebrow" data-en="CATALOGUE REVIEWS" data-zh="产品目录审核">CATALOGUE REVIEWS</p><h2 data-en="Submitted products" data-zh="已提交产品">Submitted products</h2></div></div><div id="team-product-list" class="review-grid"></div></section>
+        <section class="review-section"><div class="section-heading"><div><p class="eyebrow" data-en="PROFILE REVIEWS" data-zh="公司资料审核">PROFILE REVIEWS</p><h2 data-en="Supplier companies" data-zh="供应商公司" data-heading-style="brand">Supplier companies</h2></div></div><div id="team-profile-list" class="review-grid"></div></section>
+        <section class="review-section"><div class="section-heading"><div><p class="eyebrow" data-en="CATALOGUE REVIEWS" data-zh="产品目录审核">CATALOGUE REVIEWS</p><h2 data-en="Submitted products" data-zh="已提交产品" data-heading-style="brand">Submitted products</h2></div></div><div id="team-product-list" class="review-grid"></div></section>
       </section>
     </main>
 

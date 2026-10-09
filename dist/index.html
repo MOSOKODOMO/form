@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"><meta name="theme-color" content="#f5f8f0"><meta name="color-scheme" content="light">
+    <meta charset="utf-8"><meta name="theme-color" content="#f7f4ed"><meta name="color-scheme" content="light">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Design products from makers we’ve verified. Handles, knobs, tiles and taps from overseas makers, each with an FI Score out of 100 and the checks behind it."><meta property="og:type" content="website"><meta property="og:site_name" content="FABINT"><meta property="og:title" content="FABINT | Design products from makers we’ve verified"><meta property="og:description" content="Handles, knobs, tiles and taps from overseas makers, each with an FI Score out of 100 and the checks behind it."><meta property="og:url" content="https://fabricationintelligence.com/"><meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
     <title>FABINT | Design products from makers we’ve verified</title>
@@ -15,11 +15,12 @@
     <script src="telemetry.js" defer></script>
     <script src="testimonials.js" defer></script>
     <script src="contact-form.js" defer></script>
+  <link rel="stylesheet" href="editorial.css">
   </head>
   <body data-motion-page="editorial">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header site-header--public">
-      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a>
+      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-lockup" aria-hidden="true"><img class="brand-symbol" src="assets/fabint-symbol.svg" alt="" width="48" height="48"><span class="brand-type"><span class="brand-wordmark">FABINT</span><span class="brand-caption">Fabrication Intelligence</span></span></span></a>
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="./" aria-current="page">Home</a>
         <a href="shop.html">Shop</a>
@@ -46,6 +47,11 @@
           </div>
           <p class="home-proof">Every product shows its <strong>FI Score out of 100</strong> and the checks behind it.</p>
         </div>
+        <figure class="home-material-photo">
+          <img src="assets/materials-home.jpg" alt="Timber ceiling, natural stone fireplace and a kitchen opening into a comfortable living room" width="1800" height="1200" fetchpriority="high">
+          <figcaption>Interior inspiration · Photo by <a href="https://unsplash.com/photos/q6OZdkVVCPA">Clay Banks / Unsplash</a></figcaption>
+        </figure>
+      </section>
         <nav class="home-categories" aria-label="Shop by category">
           <p class="home-categories-label"><span>STARTING WITH</span><span>04 CATEGORIES</span></p>
           <div class="home-category-grid">
@@ -56,7 +62,6 @@
           </div>
           <p class="home-categories-note">More categories as makers pass FI Verify.</p>
         </nav>
-      </section>
 
       <section id="how-it-works" class="home-steps-section" data-motion-section="How it works" aria-labelledby="steps-title">
         <div class="home-section-heading">
@@ -75,7 +80,7 @@
       <aside class="home-coming-later" aria-labelledby="coming-later-title">
         <p class="eyebrow"><span></span> COMING LATER</p>
         <div class="home-coming-later-copy">
-          <h2 id="coming-later-title">Windows and glass</h2>
+          <h2 id="coming-later-title" data-heading-style="brand">Windows and glass</h2>
           <p>We started with windows. They’ll join the shop once their makers pass FI Verify.</p>
         </div>
         <div class="home-coming-later-links">
@@ -83,6 +88,14 @@
           <a class="text-link" href="glass-guide.html">Glass guide <span aria-hidden="true">↗</span></a>
         </div>
       </aside>
+
+      <section class="materials-story" aria-labelledby="materials-title">
+        <figure>
+          <img src="assets/materials-kitchen.jpg" alt="Cookware on a pale stone kitchen island above timber cabinets, with hexagonal tiles behind" width="1600" height="2400" loading="lazy">
+          <figcaption>Interior inspiration · Photo by <a href="https://unsplash.com/photos/zzMb7jacyBc">roam in color / Unsplash</a></figcaption>
+        </figure>
+        <div><p class="eyebrow">MATERIALS, EVERY DAY</p><h2 id="materials-title">Small details.<br>A home that feels like you.</h2><p>The grain of timber. The texture of stone. A handle that feels right in your hand. Explore the details that make everyday spaces feel considered.</p><a class="text-link" href="shop.html">Explore the shop <span aria-hidden="true">↗</span></a></div>
+      </section>
 
       <section id="founders" class="team-section home-founders" data-motion-section="Founders" aria-labelledby="team-title">
         <div class="home-section-heading">
@@ -115,7 +128,7 @@
         <div class="home-testimonials-box">
           <div>
             <p class="eyebrow"><span></span> WHAT BUYERS SAY</p>
-            <h2 id="testimonials-title">Real reviews only.</h2>
+            <h2 id="testimonials-title" data-heading-style="brand">Real reviews only.</h2>
             <p class="home-testimonials-note">We’ll share quotes from real buyers here, with their permission. We never write or edit them.</p>
           </div>
           <div id="testimonial-list" class="testimonial-list">
@@ -127,7 +140,7 @@
       <section id="contact" class="home-contact" data-motion-section="Contact" aria-labelledby="contact-title">
         <div class="home-contact-copy">
           <p class="eyebrow"><span></span> CONTACT</p>
-          <h2 id="contact-title">Ask us<br>anything.</h2>
+          <h2 id="contact-title" data-heading-style="brand">Ask us<br>anything.</h2>
           <p>Questions about a product, a maker or how the shop works? Send a message and one of the founders will reply, usually within 48 hours.</p>
           <p class="home-contact-email">Or email <a href="mailto:fabricationintelligence@gmail.com">fabricationintelligence@gmail.com</a></p>
         </div>
@@ -155,7 +168,7 @@
     </main>
 
     <footer class="site-footer">
-      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a>
+      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-lockup" aria-hidden="true"><img class="brand-symbol" src="assets/fabint-symbol.svg" alt="" width="48" height="48"><span class="brand-type"><span class="brand-wordmark">FABINT</span><span class="brand-caption">Fabrication Intelligence</span></span></span></a>
       <p>Design products from makers we’ve verified.</p>
       <div class="site-footer-links"><a href="shop.html">Shop</a><a href="verified-makers.html">Verified makers</a><a href="partner.html">Partner with us</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="windows.html">Windows (coming later)</a><a href="glass-guide.html">Glass guide</a><a href="pricing.html">Pricing</a><a href="feedback.html">Feedback</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; policies</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a></div>
     </footer>

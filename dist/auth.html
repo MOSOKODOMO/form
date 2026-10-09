@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"><meta name="theme-color" content="#f5f8f0"><meta name="color-scheme" content="light">
+    <meta charset="utf-8"><meta name="theme-color" content="#f7f4ed"><meta name="color-scheme" content="light">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Sign in or create a Fabrication Intelligence client or manufacturer account."><meta property="og:type" content="website"><meta property="og:site_name" content="FABINT"><meta property="og:title" content="Sign in or create an account | Fabrication Intelligence"><meta property="og:description" content="Sign in or create a Fabrication Intelligence client or manufacturer account."><meta property="og:url" content="https://fabricationintelligence.com/auth.html"><meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
     <title>Sign in or create an account | Fabrication Intelligence</title>
@@ -13,11 +13,12 @@
     <script src="site-motion.js" defer></script>
     <script src="telemetry-config.js" defer></script>
     <script src="telemetry.js" defer></script>
+  <link rel="stylesheet" href="editorial.css">
   </head>
   <body data-motion-page="functional">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header site-header--public">
-      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a>
+      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-lockup" aria-hidden="true"><img class="brand-symbol" src="assets/fabint-symbol.svg" alt="" width="48" height="48"><span class="brand-type"><span class="brand-wordmark">FABINT</span><span class="brand-caption">Fabrication Intelligence</span></span></span></a>
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="./">Home</a>
         <a href="shop.html">Shop</a>
@@ -44,7 +45,7 @@
           <button type="button" role="tab" data-auth-mode="login" aria-selected="true">Sign in</button>
           <button type="button" role="tab" data-auth-mode="signup" aria-selected="false">Create account</button>
         </div>
-        <h2 id="auth-title">Welcome back</h2>
+        <h2 id="auth-title" data-heading-style="brand">Welcome back</h2>
         <p id="auth-copy" class="auth-copy">Sign in to open your account.</p>
         <form id="auth-form" novalidate>
           <div id="signup-fields" hidden>
@@ -69,6 +70,6 @@
         <p class="auth-privacy">By creating an account, you acknowledge our <a href="privacy.html">privacy notice</a>. Read our <a href="terms.html">terms and policies</a> before using the service.</p>
       </section>
     </main>
-    <footer class="site-footer"><a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a><p>Personally managed sourcing for difficult building elements.</p><div class="site-footer-links"><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; policies</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a></div></footer>
+    <footer class="site-footer"><a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-lockup" aria-hidden="true"><img class="brand-symbol" src="assets/fabint-symbol.svg" alt="" width="48" height="48"><span class="brand-type"><span class="brand-wordmark">FABINT</span><span class="brand-caption">Fabrication Intelligence</span></span></span></a><p>Personally managed sourcing for difficult building elements.</p><div class="site-footer-links"><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; policies</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a></div></footer>
   </body>
 </html>

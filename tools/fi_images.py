@@ -14,7 +14,7 @@ from pathlib import Path
 from fi_products import ROOT, is_stated
 
 BACKGROUND = (246, 242, 234)  # #F6F2EA
-OLIVE, LIME, INK, MUTED = (37, 43, 35), (220, 233, 112), '#273524', '#52614c'
+OLIVE, LIME, INK, MUTED = (37, 43, 35), (220, 233, 112), '#183d32', '#4d6358'
 MASTER_SIZE, WEB_SIZE, WEB_LIMIT = 2000, 1200, 300_000
 GENERIC_PLACEHOLDER = 'assets/products/photo-coming-soon.svg'
 # U2-Net (Apache-2.0, about 176 MB, downloaded once). rembg's own default model is about 1 GB and licensed for
@@ -218,20 +218,20 @@ def placeholder_card(product: dict) -> str:
     lines = [
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">',
         '  <!-- Placeholder card made by tools/make-images.py. No supplier photo is used. -->',
-        '  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf3e6"/><stop offset="1" stop-color="#f5f8f0"/></linearGradient></defs>',
+        '  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0ece2"/><stop offset="1" stop-color="#f7f4ed"/></linearGradient></defs>',
         '  <rect width="800" height="1000" fill="url(#bg)"/>',
-        '  <rect x="40" y="40" width="720" height="920" fill="none" stroke="#c9d5bf" stroke-width="2" stroke-dasharray="10 10"/>',
+        '  <rect x="40" y="40" width="720" height="920" fill="none" stroke="#d7d2c5" stroke-width="2" stroke-dasharray="10 10"/>',
     ]
     if icon:
-        lines.append(f'  <g color="#45623b" transform="translate(304 170) scale(3)">{icon}</g>')
-    lines.append('  <text x="400" y="470" text-anchor="middle" fill="#45623b" font-family="Work Sans, Arial, sans-serif" font-size="20" letter-spacing="4">PHOTO COMING SOON</text>')
+        lines.append(f'  <g color="#285444" transform="translate(304 170) scale(3)">{icon}</g>')
+    lines.append('  <text x="400" y="470" text-anchor="middle" fill="#285444" font-family="DM Sans, Arial, sans-serif" font-size="20" letter-spacing="4">PHOTO COMING SOON</text>')
     for index, row in enumerate(name_rows):
-        lines.append(f'  <text x="400" y="{540 + index * 46}" text-anchor="middle" fill="{INK}" font-family="Work Sans, Arial, sans-serif" '
+        lines.append(f'  <text x="400" y="{540 + index * 46}" text-anchor="middle" fill="{INK}" font-family="DM Sans, Arial, sans-serif" '
                      f'font-size="36" font-weight="700">{escape(row)}</text>')
     if origin:
-        lines.append(f'  <text x="400" y="{560 + len(name_rows) * 46}" text-anchor="middle" fill="{MUTED}" font-family="Work Sans, Arial, sans-serif" '
+        lines.append(f'  <text x="400" y="{560 + len(name_rows) * 46}" text-anchor="middle" fill="{MUTED}" font-family="DM Sans, Arial, sans-serif" '
                      f'font-size="22">{escape(origin[:60])}</text>')
-    lines += ['  <text x="400" y="890" text-anchor="middle" fill="#52614c" font-family="Work Sans, Arial, sans-serif" font-size="22">'
+    lines += ['  <text x="400" y="890" text-anchor="middle" fill="#4d6358" font-family="DM Sans, Arial, sans-serif" font-size="22">'
               'We only show photos the maker has allowed us to use.</text>', '</svg>', '']
     return '\n'.join(lines)
 

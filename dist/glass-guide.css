@@ -7,7 +7,7 @@
 .glass-guide__principle p { margin-top: 15px; color: var(--muted); font-size: 13px; }
 .glass-guide__principle .glass-guide__illustration-note { margin-top: 17px; font: 11px/1.6 var(--mono); }
 .glass-guide__stack { position: relative; width: 185px; height: 135px; margin: 27px auto 32px; }
-.glass-guide__stack i { position: absolute; top: 7px; width: 98px; height: 120px; transform: skewY(-13deg); border: 1px solid #e8f6b395; background: linear-gradient(115deg, #dce97005 30%, #e0f4d530 32%, #e0f4d50a 67%); box-shadow: inset 4px 0 #ffffff0a; }
+.glass-guide__stack i { position: absolute; top: 7px; width: 98px; height: 120px; transform: skewY(-13deg); border: 1px solid #e8f6b395; background: linear-gradient(115deg, #d9dfcc05 30%, #e0f4d530 32%, #e0f4d50a 67%); box-shadow: inset 4px 0 #ffffff0a; }
 .glass-guide__stack i:nth-child(1) { left: 5px; }
 .glass-guide__stack i:nth-child(2) { left: 40px; top: 0; border-left: 3px solid var(--accent); }
 .glass-guide__stack i:nth-child(3) { left: 75px; top: -7px; }
@@ -60,9 +60,9 @@
 .glass-swatch--toughened i { border-width: 2px; box-shadow: 4px 4px #cee6a615; }
 .glass-swatch--toughened i::after { content: ''; position: absolute; inset: 9px; border: 1px solid #e0f4d53b; }
 .glass-swatch--laminated i:nth-child(1) { left: 14px; }
-.glass-swatch--laminated i:nth-child(2) { left: 22px; width: 51px; border-color: var(--accent-ink); background: #dce97015; }
+.glass-swatch--laminated i:nth-child(2) { left: 22px; width: 51px; border-color: var(--accent-ink); background: #d9dfcc15; }
 .glass-swatch--laminated i:nth-child(3) { left: 29px; }
-.glass-swatch--low-e i { border-left: 4px solid var(--accent); box-shadow: -5px 0 13px #dce97015; }
+.glass-swatch--low-e i { border-left: 4px solid var(--accent); box-shadow: -5px 0 13px #d9dfcc15; }
 .glass-swatch--low-e::after { content: ''; position: absolute; left: 5px; top: 24px; width: 11px; height: 47px; border-block: 1px solid var(--accent); }
 .glass-swatch--double i:first-child { left: 9px; top: 20px; }
 .glass-swatch--double i:last-child { left: 32px; top: 8px; }

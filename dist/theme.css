@@ -1,29 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Work+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
-/* Shared pale-green palette and typography for every FI page and workspace. */
+/* Shared warm-ivory palette and typography for every FI page and workspace. */
 :root {
   color-scheme: light;
-  --display: 'Fraunces', Georgia, serif;
-  --body: 'Work Sans', system-ui, sans-serif;
+  --brand: 'Eurostile Extended Light', 'DM Sans', sans-serif;
+  --display: 'DM Sans', system-ui, sans-serif;
+  --body: 'DM Sans', system-ui, sans-serif;
   --mono: var(--body);
-  --paper: #f5f8f0;
-  --surface: #edf3e6;
-  --soft: #e5eeda;
-  --deep: #f0f5e9;
-  --dark: #eef4e7;
-  --ink: #273524;
-  --muted: #52614c;
-  --line: #c9d5bf;
-  --field-border: #829475;
-  --accent: #dce970;
-  --accent-hover: #e8f397;
-  --lime: #dce970;
-  --accent-ink: #45623b;
-  --on-accent: #252b23;
-  --header: rgba(245, 248, 240, .96);
+  --paper: #f7f4ed;
+  --surface: #f0ece2;
+  --soft: #e8e2d5;
+  --deep: #f2eee5;
+  --dark: #f2eee5;
+  --ink: #183d32;
+  --muted: #4d6358;
+  --line: #d7d2c5;
+  --field-border: #839185;
+  --accent: #d9dfcc;
+  --accent-hover: #c9d3b9;
+  --lime: #d9dfcc;
+  --accent-ink: #285444;
+  --on-accent: #183d32;
+  --header: rgba(247, 244, 237, .97);
   --focus: rgba(69, 98, 59, .35);
   --green: #3d6134;
-  --success-bg: #e5eeda;
+  --success-bg: #e8e2d5;
   --error: #983c2b;
   --error-bg: #fff0ea;
   --error-border: #a16b5e;

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"><meta name="theme-color" content="#f5f8f0"><meta name="color-scheme" content="light">
+    <meta charset="utf-8"><meta name="theme-color" content="#f7f4ed"><meta name="color-scheme" content="light">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Tell Fabrication Intelligence what you cannot source and submit a detailed quote request with an optional private drawing."><meta property="og:type" content="website"><meta property="og:site_name" content="FABINT"><meta property="og:title" content="Request a quote | Fabrication Intelligence"><meta property="og:description" content="Tell Fabrication Intelligence what you cannot source and submit a detailed quote request with an optional private drawing."><meta property="og:url" content="https://fabricationintelligence.com/stage2.html"><meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
     <title>Request a quote | Fabrication Intelligence</title>
@@ -14,10 +14,11 @@
     <script src="site-motion.js" defer></script>
     <script src="telemetry-config.js" defer></script>
     <script src="telemetry.js" defer></script>
+  <link rel="stylesheet" href="editorial.css">
   </head>
   <body data-motion-page="functional">
     <header class="site-header site-header--public">
-      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a>
+      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-lockup" aria-hidden="true"><img class="brand-symbol" src="assets/fabint-symbol.svg" alt="" width="48" height="48"><span class="brand-type"><span class="brand-wordmark">FABINT</span><span class="brand-caption">Fabrication Intelligence</span></span></span></a>
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="./" data-en="Home" data-zh="首页">Home</a>
         <a href="shop.html" data-en="Shop" data-zh="商店">Shop</a>
@@ -63,7 +64,7 @@
       <section id="request" class="stage2-section" aria-labelledby="request-title">
         <div class="section-heading">
           <span class="section-number">01</span>
-          <div><h2 id="request-title" data-en="Detailed quote request" data-zh="详细询价需求">Detailed quote request</h2><p data-en="The more you know, the better we can compare options. Fields marked * are required." data-zh="信息越完整，我们越能准确比较方案。标有 * 的字段为必填。">The more you know, the better we can compare options. Fields marked * are required.</p></div>
+          <div><h2 id="request-title" data-en="Detailed quote request" data-zh="详细询价需求" data-heading-style="brand">Detailed quote request</h2><p data-en="The more you know, the better we can compare options. Fields marked * are required." data-zh="信息越完整，我们越能准确比较方案。标有 * 的字段为必填。">The more you know, the better we can compare options. Fields marked * are required.</p></div>
         </div>
         <div class="request-layout">
           <form id="quote-form" class="quote-form" novalidate>
@@ -110,7 +111,7 @@
 
       <section id="confirmation" class="stage2-section confirmation-section" hidden aria-labelledby="confirmation-title">
         <div class="success-mark">✓</div>
-        <h2 id="confirmation-title" data-en="Request received." data-zh="需求已收到。">Request received.</h2>
+        <h2 id="confirmation-title" data-en="Request received." data-zh="需求已收到。" data-heading-style="brand">Request received.</h2>
         <p data-en="Keep this reference for any follow-up. The FI team will review the brief before approaching suppliers." data-zh="请保存此编号以便后续联系。FI 团队会先审核需求，再联系供应商。">Keep this reference for any follow-up. The FI team will review the brief before approaching suppliers.</p>
         <div class="reference-display"><span data-en="YOUR REFERENCE" data-zh="你的编号">YOUR REFERENCE</span><strong id="confirmation-reference"></strong></div>
         <a class="button secondary" href="#request" id="new-request-link" data-en="Submit another request" data-zh="提交另一份需求">Submit another request</a>
@@ -120,7 +121,7 @@
       <section id="admin" class="stage2-section admin-section" aria-labelledby="admin-title">
         <div class="section-heading">
           <span class="section-number">02</span>
-          <div><h2 id="admin-title" data-en="Team admin" data-zh="团队后台">Team admin</h2><p data-en="A private view for the FI team to triage requests and keep the next action visible." data-zh="供 FI 团队私密查看需求并跟进下一步。">A private view for the FI team to triage requests and keep the next action visible.</p></div>
+          <div><h2 id="admin-title" data-en="Team admin" data-zh="团队后台" data-heading-style="brand">Team admin</h2><p data-en="A private view for the FI team to triage requests and keep the next action visible." data-zh="供 FI 团队私密查看需求并跟进下一步。">A private view for the FI team to triage requests and keep the next action visible.</p></div>
         </div>
         <div id="admin-status" class="admin-status" role="status" aria-live="polite"></div>
         <div id="admin-auth" class="admin-auth">

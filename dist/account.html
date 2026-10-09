@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"><meta name="theme-color" content="#f5f8f0"><meta name="color-scheme" content="light">
+    <meta charset="utf-8"><meta name="theme-color" content="#f7f4ed"><meta name="color-scheme" content="light">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Your Fabrication Intelligence client or manufacturer account.">
     <title>My account | Fabrication Intelligence</title>
@@ -13,17 +13,18 @@
     <script src="site-motion.js" defer></script>
     <script src="telemetry-config.js" defer></script>
     <script src="telemetry.js" defer></script>
+  <link rel="stylesheet" href="editorial.css">
   </head>
   <body data-motion-page="functional">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a>
+      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-lockup" aria-hidden="true"><img class="brand-symbol" src="assets/fabint-symbol.svg" alt="" width="48" height="48"><span class="brand-type"><span class="brand-wordmark">FABINT</span><span class="brand-caption">Fabrication Intelligence</span></span></span></a>
       <nav aria-label="Account navigation"><a href="./">Home</a><a href="stage2.html#request">Request a quote</a><button id="sign-out" class="nav-button" type="button">Sign out</button></nav>
     </header>
     <main id="main" class="account-page">
       <header class="account-heading">
         <p class="eyebrow"><span></span> ACCOUNT</p>
-        <h1 id="account-title">Loading your account…</h1>
+        <h1 id="account-title" data-heading-style="brand">Loading your account…</h1>
         <p id="account-email"></p>
       </header>
       <p id="account-status" class="account-status" role="status" aria-live="polite"></p>
@@ -40,13 +41,13 @@
       </section>
 
       <section id="client-dashboard" class="account-dashboard" hidden aria-labelledby="client-title">
-        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> CLIENT</p><h2 id="client-title">Your sourcing requests</h2></div><a class="button button-primary" href="stage2.html#request">New request <span aria-hidden="true">↗</span></a></div>
+        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> CLIENT</p><h2 id="client-title" data-heading-style="brand">Your sourcing requests</h2></div><a class="button button-primary" href="stage2.html#request">New request <span aria-hidden="true">↗</span></a></div>
         <div id="client-requests" class="request-account-list"></div>
         <p class="account-footnote">Requests sent while signed out cannot be attached automatically. New signed-in requests will appear here. Payments are shown separately after FI confirms your quote.</p>
       </section>
 
       <section id="manufacturer-dashboard" class="account-dashboard" hidden aria-labelledby="manufacturer-title">
-        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> MANUFACTURER</p><h2 id="manufacturer-title">Company application</h2></div><span id="application-badge" class="account-badge">Draft</span></div>
+        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> MANUFACTURER</p><h2 id="manufacturer-title" data-heading-style="brand">Company application</h2></div><span id="application-badge" class="account-badge">Draft</span></div>
         <div id="approved-supplier" class="approved-panel" hidden><strong>Your company is connected to an FI supplier workspace.</strong><a href="supplier-portal.html">Open supplier portal ↗</a></div>
         <form id="manufacturer-form" class="manufacturer-form" novalidate>
           <div class="account-form-grid">
@@ -65,12 +66,12 @@
       </section>
 
       <section id="payments-dashboard" class="account-dashboard" hidden aria-labelledby="payments-title">
-        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> PAYMENTS</p><h2 id="payments-title">Your payments</h2></div></div>
+        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> PAYMENTS</p><h2 id="payments-title" data-heading-style="brand">Your payments</h2></div></div>
         <p class="account-footnote">Payment requests are separate from sourcing requests and appear only after FI confirms a quote. Checkout is not available from this account page yet.</p>
         <p id="payments-status" class="account-status" role="status" aria-live="polite"></p>
         <div id="account-payments" class="account-payment-list"></div>
       </section>
     </main>
-    <footer class="site-footer"><a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><img class="brand-logo" src="assets/fabint-logo.svg" alt="FABINT Fabrication Intelligence" width="328" height="104"></a><p>Personally managed sourcing for difficult building elements.</p><div class="site-footer-links"><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; policies</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a></div></footer>
+    <footer class="site-footer"><a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-lockup" aria-hidden="true"><img class="brand-symbol" src="assets/fabint-symbol.svg" alt="" width="48" height="48"><span class="brand-type"><span class="brand-wordmark">FABINT</span><span class="brand-caption">Fabrication Intelligence</span></span></span></a><p>Personally managed sourcing for difficult building elements.</p><div class="site-footer-links"><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; policies</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a></div></footer>
   </body>
 </html>

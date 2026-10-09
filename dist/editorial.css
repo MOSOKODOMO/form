@@ -1,0 +1,79 @@
+/* Final shared type layer. Eurostile uses a local licensed copy when available;
+   DM Sans is the approved temporary fallback until a licensed webfont is supplied. */
+@font-face {
+  font-family: 'Eurostile Extended Light';
+  src: local('Eurostile Next Extended Light'), local('EurostileNextLTPro-LightExt'), local('Eurostile Extended Light');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+html body { font-family: var(--body); font-size: 18px; line-height: 1.6; font-weight: 400; }
+body :is(h1,h2,h3,h4,h5,h6,[role="heading"]) {
+  font-family: var(--body); font-weight: 500; letter-spacing: -.025em; line-height: 1.15; text-transform: none; text-wrap: balance;
+}
+body :is(h1,h2)[data-heading-style="brand"] { font-family: var(--brand); font-weight: 300; letter-spacing: .015em; }
+body main p:not(.eyebrow):not([class$="-label"]):not([class$="-number"]):not(.home-categories-label):not(.home-score-label):not(.terms-date) {
+  font-family: var(--body); font-size: clamp(17px, 1.25vw, 18px); font-weight: 400; line-height: 1.6;
+}
+body main :is(.product-description,.product-lead,.product-facts dd,.content-lead,.team-card small,.home-category small) { font: 400 17px/1.6 var(--body); }
+body :is(button,.button,.nav-cta,.text-link,.quiet-link,nav a) { font-family: var(--body); font-weight: 600; }
+body :is(.product-card h2,.product-card h3,.product-title,.home-category strong) { font-family: var(--body); font-weight: 500; letter-spacing: -.015em; }
+body :is(.button,.nav-cta) { font-size: 15px; }
+body .site-header--public .site-nav { font-size: 14px; }
+body .eyebrow { font-size: 12px; font-weight: 500; line-height: 1.5; letter-spacing: .12em; }
+body :is(input,select,textarea) { font-family: var(--body); font-size: 17px; }
+body .brand-lockup { display:flex; align-items:center; gap:12px; }
+body .brand-symbol { width:44px; height:44px; flex:none; }
+body .brand-type { display:flex; flex-direction:column; gap:7px; }
+body .brand-wordmark { color:var(--ink); font:300 32px/1 var(--brand); letter-spacing:.13em; }
+body .brand-caption { color:var(--muted); font:500 8px/1.4 var(--body); letter-spacing:.14em; text-transform:uppercase; }
+body .site-header--public > .brand { flex-basis:250px; }
+body .home-hero { grid-template-columns:1.05fr 1fr; gap:clamp(40px,6vw,96px); padding-block:clamp(72px,8vw,128px); }
+body .home-hero h1 { font-size:clamp(40px,4.8vw,74px); line-height:1.12; max-width:13ch; }
+body .home-pain { max-width:48ch; }
+.home-material-photo { margin:0; min-width:0; }
+.home-material-photo img { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:40% center; }
+.home-material-photo figcaption { margin-top:14px; color:var(--muted); font:400 12px/1.6 var(--body); }
+.home-material-photo figcaption a { text-underline-offset:3px; }
+body .home-categories { margin:0 5% 112px; background:transparent; }
+body .home-category-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+body .home-category { padding:36px 28px; border:0; }
+body .home-category + .home-category { border-left:1px solid var(--line); }
+body .home-category strong { font-size:24px; }
+body .home-category-icon { width:42px; height:42px; }
+body .home-section-heading > p { max-width:42ch; }
+body .home-steps { margin-top:64px; }
+body .home-step { padding-block:36px; }
+body .home-step h3 { font-size:24px; line-height:1.25; }
+.materials-story { margin:0 5% 112px; display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,7vw,112px); align-items:center; }
+.materials-story figure { margin:0; }
+.materials-story img { width:100%; height:auto; display:block; aspect-ratio:4/3; object-fit:cover; }
+.materials-story figcaption { color:var(--muted); margin-top:12px; font-size:12px; }
+.materials-story h2 { margin:20px 0 24px; font-size:clamp(32px,3.6vw,52px); }
+.materials-story p { max-width:42ch; }
+.materials-story .text-link { display:inline-block; margin-top:28px; }
+body .home-contact-copy > p:not(.eyebrow) { max-width:46ch; }
+body .home-contact-email a { overflow-wrap:anywhere; }
+body .site-footer { flex-wrap:wrap; padding-block:44px; gap:32px; }
+body .site-footer-links { gap:18px 24px; }
+body .site-footer-links a { font-weight:500; font-size:14px; }
+@media(max-width:1360px) { body .site-header--public > .brand { flex-basis:auto; } }
+@media(max-width:1000px) {
+  body .home-hero { grid-template-columns:1fr; }
+  body .home-hero h1 { max-width:17ch; }
+  .home-material-photo img { aspect-ratio:3/2; }
+  body .home-category-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  body .home-category:nth-child(3) { border-left:0; }
+  body .home-category:nth-child(n+3) { border-top:1px solid var(--line); }
+}
+@media(max-width:650px) {
+  body .brand-wordmark { font-size:29px; }
+  body .site-header--public .site-nav { font-size:13px; }
+  body .home-hero { padding-block:56px; gap:40px; }
+  body .home-hero h1 { font-size:40px; }
+  body .home-category { padding:26px 18px; }
+  body .home-category strong { font-size:21px; }
+  body .home-categories { margin-bottom:72px; }
+  .materials-story { grid-template-columns:1fr; margin-bottom:72px; }
+  body .home-steps-section, body .home-founders, body .home-contact { padding-block:72px; }
+}
