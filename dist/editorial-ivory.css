@@ -1,3 +1,5 @@
+@import url('theme.css?v=ivory-20261010');
+
 /* Final shared type layer. Eurostile uses a local licensed copy when available;
    DM Sans is the approved temporary fallback until a licensed webfont is supplied. */
 @font-face {

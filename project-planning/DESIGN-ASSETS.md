@@ -2,7 +2,7 @@
 
 DM Sans (Google Fonts) is used for body copy, navigation, buttons, product names and longer headings. Paragraphs use 17–18px and 1.6 line height. The logo and selected short headings use the brand font stack at weight 300.
 
-Eurostile Extended Light is not bundled. The owner approved DM Sans as a temporary fallback until they provide a licensed webfont. `dist/editorial.css` currently recognizes locally installed Eurostile; add the supplied WOFF2 URL to its `@font-face` source when available. Do not represent the fallback as the actual Eurostile font.
+Eurostile Extended Light is not bundled. The owner approved DM Sans as a temporary fallback until they provide a licensed webfont. `dist/editorial-ivory.css` currently recognizes locally installed Eurostile; add the supplied WOFF2 URL to its `@font-face` source when available. Do not represent the fallback as the actual Eurostile font.
 
 ## Photography
 
