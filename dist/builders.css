@@ -2,9 +2,9 @@
 @import url('site-navigation.css');
 
 :root {
-  --display: 'DM Sans', system-ui, sans-serif;
-  --body: 'DM Sans', system-ui, sans-serif;
-  --mono: 'DM Sans', system-ui, sans-serif;
+  --display: 'Michroma', sans-serif;
+  --body: 'Michroma', sans-serif;
+  --mono: 'Michroma', sans-serif;
 }
 
 * { box-sizing: border-box; }

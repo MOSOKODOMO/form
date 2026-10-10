@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 /* Shared warm-ivory palette and typography for every FI page and workspace. */
 :root {
   color-scheme: light;
-  --brand: 'Michroma', 'DM Sans', sans-serif;
-  --display: 'DM Sans', system-ui, sans-serif;
-  --body: 'DM Sans', system-ui, sans-serif;
+  --brand: 'Michroma', sans-serif;
+  --display: 'Michroma', sans-serif;
+  --body: 'Michroma', sans-serif;
   --mono: var(--body);
   --paper: #f7f4ed;
   --surface: #f0ece2;

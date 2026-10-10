@@ -9,7 +9,7 @@ html { scrollbar-gutter: stable; }
   padding: 16px 5%;
   border-bottom: 1px solid var(--line);
   background: var(--header);
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: 'Michroma', sans-serif;
 }
 .site-header--public > .brand { display: inline-flex; flex: 0 0 220px; text-decoration: none; }
 .site-header--public .brand-logo { width: 220px; height: auto; }
@@ -48,7 +48,7 @@ html { scrollbar-gutter: stable; }
 .site-header--public .site-nav > .nav-cta > [data-en] { translate: none; }
 .site-header--public .site-nav > .nav-cta[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--on-accent); }
 .site-header--public a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
-.legacy-notice { padding: 15px 5%; border-bottom: 1px solid var(--line); background: var(--surface); color: var(--muted); font: 400 12px/1.6 'DM Sans', system-ui, sans-serif; }
+.legacy-notice { padding: 15px 5%; border-bottom: 1px solid var(--line); background: var(--surface); color: var(--muted); font: 400 12px/1.6 'Michroma', sans-serif; }
 .legacy-notice strong { color: var(--ink); }
 .legacy-notice a { color: var(--accent-ink); text-underline-offset: 3px; }
 

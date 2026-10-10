@@ -1,6 +1,6 @@
-@import url('theme.css?v=michroma-20261010');
+@import url('theme.css?v=all-michroma-20261011');
 
-/* Michroma Regular for the logo and selected short headings. */
+/* One self-hosted regular face across every page, including forms and workspaces. */
 @font-face {
   font-family: 'Michroma';
   src: url('assets/fonts/Michroma-Regular.ttf') format('truetype');
@@ -8,6 +8,9 @@
   font-style: normal;
   font-display: swap;
 }
+html body { --body: 'Michroma', sans-serif; --display: var(--body); --mono: var(--body); --brand: var(--body); font-synthesis: none; }
+/* Keep page-specific font shorthands from introducing other faces or synthetic bold. */
+body, body *, body ::before, body ::after { font-family: 'Michroma', sans-serif !important; font-weight: 400 !important; }
 html body { font-family: var(--body); font-size: 18px; line-height: 1.6; font-weight: 400; }
 body :is(h1,h2,h3,h4,h5,h6,[role="heading"]) {
   font-family: var(--body); font-weight: 500; letter-spacing: -.025em; line-height: 1.15; text-transform: none; text-wrap: balance;
@@ -78,4 +81,16 @@ body .site-footer-links a { font-weight:500; font-size:14px; }
   body .home-categories { margin-bottom:72px; }
   .materials-story { grid-template-columns:1fr; margin-bottom:72px; }
   body .home-steps-section, body .home-founders, body .home-contact { padding-block:72px; }
+}
+
+/* Michroma's wide letterforms need room in menus, cards and long headings. */
+body .site-header--public .site-nav { flex-wrap: wrap; gap: 8px 20px; }
+body main :is(h1,h2,h3,h4), body .home-category strong { overflow-wrap: anywhere; }
+body .home-category { min-width: 0; }
+body .home-category strong { font-size: clamp(17px, 1.7vw, 24px); }
+body .home-step h3 { font-size: 21px; line-height: 1.45; }
+@media(max-width:650px) {
+  body .site-header--public .site-nav { gap: 4px 12px; font-size: 11px; }
+  body .site-header--public .site-nav > a { white-space: normal; overflow-wrap: anywhere; }
+  body .home-category { padding: 24px 14px; }
 }

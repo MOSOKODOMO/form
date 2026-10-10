@@ -1,6 +1,6 @@
 # Ivory design update, 9 October 2026
 
-DM Sans (Google Fonts) is used for body copy, navigation, buttons, product names and longer headings. Paragraphs use 17–18px and 1.6 line height. Selected short headings use Michroma Regular at weight 400; the logo uses the supplied artwork described below.
+On 11 October 2026 the owner requested Michroma Regular for all website text, superseding the DM Sans pairing. The supplied self-hosted font now covers headings, body copy, navigation, buttons, forms and workspaces at weight 400, with synthetic bold disabled. Paragraphs retain 17–18px sizing and 1.6 line height. Navigation wraps as needed and hero headings are sized for Michroma's wider letterforms. The logo remains the supplied artwork described below.
 
 On 10 October 2026 the owner supplied `Michroma-Regular.ttf` and requested it for the logo and occasional short headings, replacing the previous Eurostile fallback plan. The original font is self-hosted at `dist/assets/fonts/Michroma-Regular.ttf`, with its SIL Open Font License at `dist/assets/fonts/Michroma-OFL.txt`. The font face is declared in `dist/editorial-michroma.css`.
 
@@ -9,6 +9,16 @@ On 10 October 2026 the owner supplied `Michroma-Regular.ttf` and requested it fo
 On 10 October 2026 the owner supplied `fabint-wordmark-3-stacked-lockup.png` and requested it as the website logo. The original image is copied without alteration to `dist/assets/fabint-stacked-lockup.png` and used in header and footer brand links. `dist/brand-lockup.css` crops its outer whitespace in the layout and uses multiply blending to integrate its white background with the ivory page. The image is decorative inside each already-labelled home link. Michroma remains the font for selected short headings.
 
 ## Photography
+
+### Team portraits, 11 October 2026
+
+The three newly supplied 1254 × 1254 PNGs are copied unchanged to `dist/assets/team/`, in the supplied order for the existing Prem, Lincy and Mos cards on both the homepage and About page:
+
+- `ChatGPT Image 11 Oct 2026, 00_22_49.png` → `prem-20261011.png`
+- `ChatGPT Image 11 Oct 2026, 00_22_02.png` → `lincy-20261011.png`
+- `ChatGPT Image 11 Oct 2026, 00_23_06.png` → `mos-20261011.png`
+
+Their square frames are preserved using `object-fit: contain`. Previous portrait assets remain available but are no longer displayed.
 
 The original inspiration photographs were retrieved on 9 October 2026 under the [Unsplash License](https://unsplash.com/license). They are retained as unused assets after the owner selected replacement concepts.
 

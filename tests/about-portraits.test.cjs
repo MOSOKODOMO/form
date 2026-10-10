@@ -13,16 +13,16 @@ test('About profiles show the approved portraits in founder order', () => {
   assert.equal(profiles.length, 3);
 
   for (const [index, [name, filename]] of [
-    ['Prem', 'prem-portrait.jpg'],
-    ['Lincy', 'lincy.jpg'],
-    ['Mos', 'mos-portrait.jpg'],
+    ['Prem', 'prem-20261011.png'],
+    ['Lincy', 'lincy-20261011.png'],
+    ['Mos', 'mos-20261011.png'],
   ].entries()) {
     const profile = profiles[index][1];
     const image = profile.match(/<img\b[^>]*>/)?.[0];
     assert.ok(image, `${name} should have a portrait`);
     assert.ok(image.includes(`src="assets/team/${filename}"`));
     assert.ok(image.includes(`alt="Portrait of ${name}"`));
-    assert.ok(image.includes('width="720" height="720"'));
+    assert.ok(image.includes('width="1254" height="1254"'));
     assert.ok(image.includes('loading="lazy" decoding="async"'));
     assert.ok(profile.includes(`${name.toUpperCase()} ·`));
     assert.ok(fs.existsSync(path.join(dist, 'assets', 'team', filename)));

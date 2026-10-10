@@ -64,7 +64,7 @@ test('glass guide is a static accessible responsive page with working local entr
   assert.doesNotMatch(css, /animation:|transition:/)
   for (const [, ref] of guide.matchAll(/(?:href|src)="([^"#]+)(?:#[^"]*)?"/g)) {
     if (ref.startsWith('https://')) continue
-    const asset = ref.split('#')[0]
+    const asset = ref.split(/[?#]/)[0]
     assert.ok(fs.existsSync(path.join('dist', asset)), `Local reference exists: ${ref}`)
   }
 })
