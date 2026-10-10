@@ -10,9 +10,13 @@ On 10 October 2026 the owner supplied `fabint-wordmark-3-stacked-lockup.png` and
 
 ## Photography
 
-The following real photographs are editorial interior inspiration, not photos of products sold by FI or claimed FI projects. Both are published under the [Unsplash License](https://unsplash.com/license), which allows commercial use. Retrieved 9 October 2026; photographer credits and source links appear alongside each image.
+The homepage hero photograph is editorial interior inspiration, not a photo of products sold by FI or a claimed FI project. It is published under the [Unsplash License](https://unsplash.com/license), which allows commercial use. Retrieved 9 October 2026; its photographer credit and source link appear alongside the image.
 
 - `dist/assets/materials-home.jpg`: [Clay Banks, cabin interior in Swan Lake](https://unsplash.com/photos/q6OZdkVVCPA), published 4 September 2025. Source: `https://images.unsplash.com/photo-1757023177496-131ded651c01`.
-- `dist/assets/materials-kitchen.jpg`: [roam in color, two cooking pots on a kitchen island](https://unsplash.com/photos/zzMb7jacyBc), published 3 May 2019. Source: `https://images.unsplash.com/photo-1556912173-46c336c7fd55`.
+- `dist/assets/materials-kitchen.jpg`: former kitchen inspiration image by [roam in color](https://unsplash.com/photos/zzMb7jacyBc), retained but no longer displayed. Replaced at the owner's request on 10 October 2026.
+
+## AI kitchen concept
+
+`dist/assets/kitchen-concept-camera.png` is the owner's selected second kitchen concept, generated with the built-in image generation tool using their reference screenshots of checkerboard tiles, black cabinet pulls and a brushed-metal tap. The second edit requested more realistic camera lighting, texture and subtle imperfections while preserving the layout and product-inspired fixtures. It is displayed at its original 3:2 aspect ratio, with a visible AI-generated caption and descriptive alt text. It is not presented as a real completed project or an exact product photograph. Original generated file: `exec-f484c145-2cff-4b4c-bd2d-b36a8376a3ab.png`.
 
 The product catalogue keeps its existing permission-based photo policy and placeholder cards.
