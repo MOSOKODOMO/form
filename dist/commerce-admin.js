@@ -137,6 +137,8 @@ function details(card, title, value) {
 function editProduct(product) {
   linkImporter.clear();
   const source = sources.find((s) => s.product_id === product.id) || {};
+  const importField = $('#link-import-form').elements.namedItem('source_url');
+  if (importField) importField.value = source.original_url || '';
   productForm.reset();
   fill(productForm, {
     ...product,
@@ -593,6 +595,8 @@ try {
     const research = (await response.json()).find(product => product.handle === params.get('import_handle') && !product.sample);
     if (!research) throw new Error('Website product not found.');
     fill(productForm,{title:research.product,source_url:research.source_url || '',supplier_name:research.maker || '',catalogue_handle:research.handle,description:research.story_en || '',status:'draft'});
+    const importField = $('#link-import-form').elements.namedItem('source_url');
+    if (importField) importField.value = research.source_url || '';
     productForm.scrollIntoView({behavior:'smooth',block:'start'});
     status('Website product opened as a draft. Import its supplier link or confirm its current source price and delivery costs before publishing.');
   }
