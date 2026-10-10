@@ -1,0 +1,29 @@
+/* Display the supplied artwork unchanged, cropping its outer whitespace in layout.
+   The artwork occupies a 1424 x 248 window at (288, 376) in the 2000 x 1000 PNG. */
+body .brand-artwork {
+  position: relative;
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  aspect-ratio: 1424 / 248;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+}
+body .brand-artwork-image {
+  position: absolute;
+  display: block;
+  width: 140.449438%;
+  max-width: none;
+  height: auto;
+  left: -20.224719%;
+  top: -151.612903%;
+}
+body .site-header--public > .brand { flex-basis: 300px; max-width: 100%; }
+@media (max-width: 1500px) {
+  body .site-header.site-header--public { flex-direction: column; align-items: flex-start; gap: 12px; }
+  body .site-header--public > .brand { flex-basis: auto; }
+  body .site-header--public .site-nav { width: 100%; justify-content: space-between; }
+}
+@media (max-width: 650px) {
+  body .brand-artwork { width: min(300px, 85vw); }
+}
