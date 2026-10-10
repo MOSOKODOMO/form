@@ -6,7 +6,7 @@ const path = require('node:path');
 const pages = ['index.html', 'shop.html', 'product.html', 'rankings.html', 'partner.html', 'verified-makers.html', 'windows.html', 'how-it-works.html', 'services.html', 'reviews.html', 'about.html', 'contact.html', 'auth.html', 'stage2.html', 'builders.html', 'glass-guide.html', 'feedback.html', 'privacy.html', 'terms.html', 'shipping.html', 'returns.html'];
 const expected = [
   ['./', 'Home'], ['shop.html', 'Shop'], ['rankings.html', 'Rankings'], ['how-it-works.html', 'How it works'], ['services.html', 'Services'],
-  ['reviews.html', 'Product reviews'], ['about.html', 'About'], ['contact.html', 'Contact'],
+  ['reviews.html', 'Product reviews'], ['about.html', 'About'], ['contact.html', 'Work with us'],
   ['auth.html', 'Log in'], ['shop.html', 'Shop collection ↗'],
 ];
 const read = name => fs.readFileSync(path.join(__dirname, '..', 'dist', name), 'utf8');

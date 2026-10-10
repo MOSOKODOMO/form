@@ -3,6 +3,12 @@
 (() => {
   const ENDPOINT = 'https://formsubmit.co/ajax/fabricationintelligence@gmail.com';
   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const POSITIONS = {
+    'warehouse-inspector': 'Warehouse quality inspector',
+    'marketing-content': 'Marketing & content coordinator',
+    'supplier-sourcing': 'Supplier sourcing coordinator',
+    'customer-support': 'Customer & order support',
+  };
 
   for (const block of document.querySelectorAll('[data-contact-block]')) {
     const form = block.querySelector('form');
@@ -10,8 +16,26 @@
     const thanks = block.querySelector('.contact-thanks');
     const button = form.querySelector('button[type="submit"]');
     // "Request a quote" links arrive as contact.html?product=<name>; fill in the product for them.
-    const wanted = new URLSearchParams(window.location.search).get('product');
+    const params = new URLSearchParams(window.location.search);
+    const wanted = params.get('product');
     if (wanted && form.elements.product && !form.elements.product.value) form.elements.product.value = wanted.trim().slice(0, 200);
+    const relationshipField = form.elements.namedItem('relationship');
+    const applicationFields = form.querySelector('[data-application-fields]');
+    const positionField = form.elements.namedItem('position');
+    const portfolioField = form.elements.namedItem('portfolio');
+    const syncApplication = () => {
+      const applying = relationshipField?.value === 'applicant';
+      if (applicationFields) applicationFields.hidden = !applying;
+      if (positionField) { positionField.disabled = !applying; positionField.required = applying; }
+      if (portfolioField) portfolioField.disabled = !applying;
+    };
+    const requestedRole = params.get('role');
+    if (relationshipField && positionField && Object.hasOwn(POSITIONS, requestedRole)) {
+      relationshipField.value = 'applicant';
+      positionField.value = requestedRole;
+    } else if (wanted && relationshipField) relationshipField.value = 'buyer';
+    form.addEventListener('change', syncApplication);
+    syncApplication();
     const value = (name) => String(new FormData(form).get(name) || '').trim();
     const say = (message, isError = false) => {
       status.textContent = message;
@@ -20,13 +44,25 @@
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
+      if (button.disabled) return;
       if (value('website')) return; // Only bots fill the hidden field.
       const name = value('name');
       const email = value('email');
       const product = value('product');
+      const relationship = value('relationship');
       const message = value('message');
+      const applying = relationship === 'applicant';
+      const position = applying ? value('position') : '';
+      const portfolio = applying ? value('portfolio') : '';
+      if (relationshipField && !['buyer', 'supplier', 'applicant'].includes(relationship)) { say('Please choose buyer, supplier or join the team.', true); return; }
       if (!name || !email || !message) { say('Please add your name, email and a message.', true); return; }
       if (!EMAIL.test(email)) { say('Please check your email address.', true); return; }
+      if (applying && !Object.hasOwn(POSITIONS, position)) { say('Please choose a position for your application.', true); return; }
+      if (portfolio) {
+        let link;
+        try { link = new URL(portfolio); } catch {}
+        if (!link || !['https:', 'http:'].includes(link.protocol)) { say('Please use a full https:// or http:// CV or portfolio link.', true); return; }
+      }
 
       button.disabled = true;
       say('Sending…');
@@ -35,11 +71,13 @@
           method: 'POST',
           headers: {'Content-Type': 'application/json', Accept: 'application/json'},
           body: JSON.stringify({
-            _subject: `FI contact: ${name}${product ? ` about ${product}` : ''}`,
+            _subject: `FI ${applying ? `application for ${POSITIONS[position]}` : relationship === 'supplier' ? 'supplier introduction' : relationship === 'buyer' ? 'buyer enquiry' : 'contact'}: ${name}${product ? ` about ${product}` : ''}`.replace(/[\r\n]+/g, ' ').slice(0, 240),
             _template: 'box',
             _captcha: 'false',
             name,
             email,
+            relationship: applying ? 'Team applicant' : relationship === 'supplier' ? 'Supplier' : relationship === 'buyer' ? 'Buyer' : 'General enquiry',
+            ...(applying ? {position: POSITIONS[position], portfolio: portfolio || 'Not provided'} : {}),
             product: product || 'none',
             message,
           }),

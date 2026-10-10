@@ -45,8 +45,8 @@ test('the contact form is on the homepage and contact page and posts to the team
     assert.match(form, /class="contact-honeypot" aria-hidden="true"/)
     assert.match(form, /role="status" aria-live="polite"/)
     assert.match(html, /class="contact-thanks" tabindex="-1" hidden/)
-    assert.match(html, /<link rel="stylesheet" href="contact-form\.css">/)
-    assert.match(html, /<script src="contact-form\.js" defer><\/script>/)
+    assert.match(html, /<link rel="stylesheet" href="contact-form\.css(?:\?v=[^"]+)?">/)
+    assert.match(html, /<script src="contact-form\.js(?:\?v=[^"]+)?" defer><\/script>/)
   }
   const script = read('contact-form.js')
   assert.match(script, /https:\/\/formsubmit\.co\/ajax\/fabricationintelligence@gmail\.com/)
@@ -60,5 +60,5 @@ test('the privacy notice covers contact messages sent through FormSubmit', () =>
   const privacy = text(read('privacy.html'))
   assert.match(privacy, /When you use the contact form, we collect your name, email, message and any product you mention/)
   assert.match(privacy, /send a message through the contact form/)
-  assert.match(privacy, /Last updated 8 October 2026/)
+  assert.match(privacy, /Last updated 10 October 2026/)
 })
