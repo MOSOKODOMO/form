@@ -14,7 +14,7 @@ const block = (pattern, label) => {
 
 test('hero names verified makers, the trust problem and one shop call to action', () => {
   const hero = block(/<section\b[^>]*id="overview"[^>]*>([\s\S]*?)<\/section>/, 'a hero')
-  assert.equal(text(hero.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1] || ''), "Design products from makers we've verified")
+  assert.equal(text(hero.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1] || ''), "Cheaper products from makers we've verified")
   const pain = text(hero.match(/<p class="home-pain"[^>]*>([\s\S]*?)<\/p>/)?.[1] || '')
   assert.match(pain, /factory prices/i)
   assert.match(pain, /trust/i)

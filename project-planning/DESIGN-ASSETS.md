@@ -10,10 +10,14 @@ On 10 October 2026 the owner supplied `fabint-wordmark-3-stacked-lockup.png` and
 
 ## Photography
 
-The homepage hero photograph is editorial interior inspiration, not a photo of products sold by FI or a claimed FI project. It is published under the [Unsplash License](https://unsplash.com/license), which allows commercial use. Retrieved 9 October 2026; its photographer credit and source link appear alongside the image.
+The original inspiration photographs were retrieved on 9 October 2026 under the [Unsplash License](https://unsplash.com/license). They are retained as unused assets after the owner selected replacement concepts.
 
-- `dist/assets/materials-home.jpg`: [Clay Banks, cabin interior in Swan Lake](https://unsplash.com/photos/q6OZdkVVCPA), published 4 September 2025. Source: `https://images.unsplash.com/photo-1757023177496-131ded651c01`.
+- `dist/assets/materials-home.jpg`: former hero image by [Clay Banks, cabin interior in Swan Lake](https://unsplash.com/photos/q6OZdkVVCPA), published 4 September 2025. Source: `https://images.unsplash.com/photo-1757023177496-131ded651c01`. No longer displayed.
 - `dist/assets/materials-kitchen.jpg`: former kitchen inspiration image by [roam in color](https://unsplash.com/photos/zzMb7jacyBc), retained but no longer displayed. Replaced at the owner's request on 10 October 2026.
+
+## AI bathroom hero
+
+`dist/assets/bathroom-hero-concept.png` is the owner's supplied `ChatGPT Image 10 Oct 2026, 22_10_07.png`. It fills the opening hero behind the approved headline, “Cheaper products from makers we've verified.” The visible credit identifies it as an AI-generated bathroom concept. Native scrolling moves the copy upwards while the sticky image fades into warm ivory; reduced-motion and the site motion toggle provide a static alternative. `home-immersive.css` and `home-immersive.js` implement this homepage-only treatment.
 
 ## AI kitchen concept
 

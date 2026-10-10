@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8"><meta name="theme-color" content="#f7f4ed"><meta name="color-scheme" content="light">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Design products from makers we’ve verified. Handles, knobs, tiles and taps from overseas makers, each with an FI Score out of 100 and the checks behind it."><meta property="og:type" content="website"><meta property="og:site_name" content="FABINT"><meta property="og:title" content="FABINT | Design products from makers we’ve verified"><meta property="og:description" content="Handles, knobs, tiles and taps from overseas makers, each with an FI Score out of 100 and the checks behind it."><meta property="og:url" content="https://fabricationintelligence.com/"><meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-    <title>FABINT | Design products from makers we’ve verified</title>
+    <meta name="description" content="Cheaper products from makers we've verified. Handles, knobs, tiles and taps from overseas makers, each with an FI Score out of 100 and the checks behind it."><meta property="og:type" content="website"><meta property="og:site_name" content="FABINT"><meta property="og:title" content="FABINT | Cheaper products from makers we've verified"><meta property="og:description" content="Handles, knobs, tiles and taps from overseas makers, each with an FI Score out of 100 and the checks behind it."><meta property="og:url" content="https://fabricationintelligence.com/"><meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+    <title>FABINT | Cheaper products from makers we've verified</title>
     <link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg">
     <link rel="stylesheet" href="builders.css">
     <link rel="stylesheet" href="home.css">
@@ -16,8 +16,10 @@
     <script src="testimonials.js" defer></script>
     <script src="contact-form.js" defer></script>
   <link rel="stylesheet" href="editorial-michroma.css"><link rel="stylesheet" href="brand-lockup.css">
+    <link rel="stylesheet" href="home-immersive.css">
+    <script src="home-immersive.js" defer></script>
   </head>
-  <body data-motion-page="editorial">
+  <body class="immersive-home" data-motion-page="editorial">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header site-header--public">
       <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-artwork" aria-hidden="true"><img class="brand-artwork-image" src="assets/fabint-stacked-lockup.png" alt="" width="2000" height="1000"></span></a>
@@ -36,10 +38,13 @@
     </header>
 
     <main id="main">
-      <section id="overview" class="hero home-hero" data-motion-section="Overview" aria-labelledby="hero-title">
+      <section id="overview" class="hero home-hero immersive-hero" data-motion-section="Overview" aria-labelledby="hero-title">
+        <figure class="hero-scene">
+          <img src="assets/bathroom-hero-concept.png" alt="AI-generated bathroom concept with an oak vanity, marble countertop, white basin and chrome tap" width="1536" height="1024" fetchpriority="high">
+        </figure>
         <div class="home-hero-copy" data-message-test>
           <p class="eyebrow"><span></span> FABRICATION INTELLIGENCE</p>
-          <h1 id="hero-title" data-message-headline>Design products from makers we’ve verified</h1>
+          <h1 id="hero-title" data-message-headline>Cheaper products from makers we've verified</h1>
           <p class="home-pain" data-message-description>Overseas makers offer factory prices, but there’s no easy way to know which ones you can trust.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="shop.html" data-message-cta="shop">Shop verified products <span aria-hidden="true">↗</span></a>
@@ -47,10 +52,7 @@
           </div>
           <p class="home-proof">Every product shows its <strong>FI Score out of 100</strong> and the checks behind it.</p>
         </div>
-        <figure class="home-material-photo">
-          <img src="assets/materials-home.jpg" alt="Timber ceiling, natural stone fireplace and a kitchen opening into a comfortable living room" width="1800" height="1200" fetchpriority="high">
-          <figcaption>Interior inspiration · Photo by <a href="https://unsplash.com/photos/q6OZdkVVCPA">Clay Banks / Unsplash</a></figcaption>
-        </figure>
+        <small class="hero-image-credit">AI-generated bathroom concept</small>
       </section>
         <nav class="home-categories" aria-label="Shop by category">
           <p class="home-categories-label"><span>STARTING WITH</span><span>04 CATEGORIES</span></p>
@@ -169,7 +171,7 @@
 
     <footer class="site-footer">
       <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-artwork" aria-hidden="true"><img class="brand-artwork-image" src="assets/fabint-stacked-lockup.png" alt="" width="2000" height="1000"></span></a>
-      <p>Design products from makers we’ve verified.</p>
+      <p>Cheaper products from makers we've verified.</p>
       <div class="site-footer-links"><a href="shop.html">Shop</a><a href="verified-makers.html">Verified makers</a><a href="partner.html">Partner with us</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="windows.html">Windows (coming later)</a><a href="glass-guide.html">Glass guide</a><a href="pricing.html">Pricing</a><a href="feedback.html">Feedback</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; policies</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a></div>
     </footer>
   </body>
