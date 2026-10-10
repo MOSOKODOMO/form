@@ -1,65 +1,15 @@
-const {test} = require('node:test')
-const assert = require('node:assert/strict')
-const fs = require('node:fs')
-const home = fs.readFileSync('dist/windows.html', 'utf8')
-const text = (html) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
-const cards = [...home.matchAll(/<article class="quote-card(?: quote-card-featured)?">([\s\S]*?)<\/article>/g)].map((match) => match[1])
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const read=name=>fs.readFileSync(path.join(__dirname,'../dist',name),'utf8');
 
-test('window comparison distinguishes the Thai delivered estimate from the Australian retail benchmark in AUD', () => {
-  assert.equal(cards.length, 2)
-  assert.deepEqual(cards.map((card) => card.match(/<h3>(.*?)<\/h3>/)[1]), ['Thai window estimate', 'Stegbar'])
-  assert.match(cards[0], /THAILAND/)
-  assert.match(cards[1], /AUSTRALIA/)
-  assert.match(home, /window-comparison--pair/)
-  assert.match(home, /Complete aluminium sliding windows · single glazing · qty 1/)
-  assert.match(cards[0], /ESTIMATED DELIVERED PRICE · AUD<\/span><strong>A\$356\.55<\/strong>/)
-  assert.match(cards[1], /<strong>A\$742\.50<\/strong>/)
-  assert.match(cards[0], /href="https:\/\/windowasia\.com\/en\/product\/aluminum-sliding-window-white-s-s-120x110-en\/"/)
-  assert.match(cards[1], /href="https:\/\/www\.stegbar\.com\.au\/products\/sliding-window-2-0\?variant=51662968160487"/)
-  assert.match(cards[1], /href="https:\/\/www\.stegbar\.com\.au\/pages\/shop-online-support-centre"/)
-  assert.match(cards[0], /Thai product specification reference/)
-  assert.match(cards[0], /This listing is not the source of our delivered estimate/)
-  assert.doesNotMatch(text(home), /Superhouse|SMG Glass|Window Asia|uPVC\.com\.au|A\$1,126\.44|A\$212–403|A\$156\.55|23\.57 THB per AUD/)
-  assert.doesNotMatch(cards.join(''), /(?:US\$|USD\s*\d|THB\s*\d|฿)/)
-})
-
-test('comparison aligns cost categories and marks the Thai inclusions as estimates while retaining specification differences', () => {
-  const labels = cards.map((card) => [...card.matchAll(/<dt>(.*?)<\/dt>/g)].map((match) => text(match[1])))
-  assert.deepEqual(labels[0], labels[1], 'both cards use the same scope and cost categories')
-  assert.deepEqual(labels[0], [
-    'Window / frame', 'Size (W × H)', 'Glass', 'Finish', 'Australian GST',
-    'Import / clearance', 'Australian door delivery', 'Installation', 'FABINT service fee',
-  ])
-  assert.match(cards[0], /1200 × 1100 mm/)
-  assert.match(cards[0], /5 mm green-tinted · single/)
-  assert.match(cards[1], /1210 × 1200 mm/)
-  assert.match(cards[1], /Clear · single<br>Thickness not published/)
-  for (const label of ['Australian GST', 'Import / clearance', 'FABINT service fee']) {
-    assert.ok(cards[0].includes(`<dt>${label}</dt><dd>Included in estimate</dd>`), `Thai ${label} is explicitly included in the estimate`)
-  }
-  assert.match(cards[0], /<dt>Australian door delivery<\/dt><dd>Australia-wide · included in estimate<\/dd>/)
-  assert.match(cards[0], /<dt>Installation<\/dt><dd>Excluded · arrange separately<\/dd>/)
-  assert.match(cards[0], /<dt>Finish<\/dt><dd>White · assumed specification<\/dd>/)
-  assert.match(cards[0], /Confirm your quote/)
-  assert.match(cards[0], /Includes estimated GST, import\/clearance, Australia-wide door delivery and FABINT’s service fee/)
-  assert.match(cards[1], /<dt>Australian GST<\/dt><dd>Included<\/dd>/)
-  assert.match(cards[1], /<dt>Australian door delivery<\/dt><dd>Included · eligible areas only<\/dd>/)
-  assert.match(cards[1], /<dt>Installation<\/dt><dd>Excluded · arrange separately<\/dd>/)
-  assert.match(cards[1], /Check your postcode/)
-})
-
-test('the Thai figure remains a team-supplied planning estimate without double-counting fees or claiming verified savings', () => {
-  const copy = text(home)
-  assert.match(copy, /Planning estimate, not a confirmed quote/)
-  assert.match(copy, /The price gap is not a verified saving/)
-  assert.match(copy, /equal quality or Australian suitability has not been established/)
-  assert.match(copy, /10% of the delivered cost when an order proceeds, waived for our first 10 projects/)
-  assert.match(copy, /service fee is already included in the A\$356\.55 estimate. Do not add another fee/)
-  assert.match(copy, /Estimate supplied by the FABINT team on 24 Sep 2026 for budgeting only/)
-  assert.match(copy, /individual freight, tax, clearance and fee amounts have not been independently verified/)
-  assert.match(copy, /listed inclusions describe the intended estimate scope, not confirmed supplier terms/)
-  assert.match(cards[0], /FABINT planning estimate, not a supplier-confirmed quote or a guaranteed Australia-wide rate/)
-  assert.match(cards[0], /Final costs, postcode\/access arrangements, white finish, warranty support and Australian suitability need confirmation/)
-  assert.doesNotMatch(cards[0], /PRODUCT PRICE ONLY|Unconfirmed · not priced|service fee are not included/)
-  assert.doesNotMatch(copy, /save\s+(?:\d+(?:\.\d+)?%|A\$[\d,]+)|\d+(?:\.\d+)?%\s+(?:cheaper|saving|less)/i)
-})
+test('retired comparison amounts and benchmark tables are absent from public windows and pricing routes',()=>{
+ for(const page of ['windows.html','pricing.html','services.html']) assert.doesNotMatch(read(page),/A\$356\.55|A\$742\.50|Stegbar|price-table|quote-card|first 10 projects/i);
+ assert.match(read('pricing.html'),/url=reviews.html/);
+});
+test('fee uses the manufacturer product price and keeps other agreed costs in one AUD total',()=>{
+ assert.match(read('services.html'),/10% of the initial product price/);
+ assert.match(read('services.html'),/not calculated on freight, duties or tax/);
+ assert.match(read('shipping.html'),/One inclusive AUD total/);
+});

@@ -185,7 +185,9 @@
     }
     if (product.status !== 'live') return quote;
     const shopifyLink = isHttps(product.shopify_url) ? {kind: 'link', label: 'Buy', href: product.shopify_url, note: 'Secure checkout with Shopify.'} : null;
-    const stripeLink = isStripeLink(product.stripe_link) ? {kind: 'link', label: 'Buy', href: product.stripe_link, note: 'Secure checkout with Stripe.'} : null;
+    const testStripe = isStripeLink(product.stripe_link) && new URL(product.stripe_link).pathname.startsWith('/test_');
+    const stripeLink = isStripeLink(product.stripe_link) ? {kind: 'link', label: testStripe ? 'Test checkout' : 'Buy', href: product.stripe_link,
+      note: testStripe ? 'Demonstration only. This does not place a real order. Contact FI for an inclusive AUD quote.' : 'Secure checkout with Stripe.'} : null;
     const embed = parseShopifyBuyButton(product.shopify_buy_button);
     if (embed) return {kind: 'embed', embed, sdk: SHOPIFY_SDK, fallback: shopifyLink || stripeLink || quote, note: 'Secure checkout with Shopify.'};
     return shopifyLink || stripeLink || quote;

@@ -26,7 +26,8 @@ test('live products buy through the Shopify embed, then a Shopify link, then Str
   assert.deepEqual([shopify.kind, shopify.label, shopify.href], ['link', 'Buy', byHandle['test-shopify-link'].shopify_url])
 
   const stripe = catalogue.buyAction(byHandle['test-stripe-link'])
-  assert.deepEqual([stripe.kind, stripe.label, stripe.href], ['link', 'Buy', 'https://buy.stripe.com/test_fixture123'])
+  assert.deepEqual([stripe.kind, stripe.label, stripe.href], ['link', 'Test checkout', 'https://buy.stripe.com/test_fixture123'])
+  assert.match(stripe.note, /does not place a real order/)
 
   const quote = catalogue.buyAction(byHandle['test-no-links'])
   assert.equal(quote.kind, 'quote')

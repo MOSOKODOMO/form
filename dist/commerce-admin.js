@@ -38,7 +38,8 @@ const linkImporter = setupProductImport({
   apply: (values, existingId) => {
     productForm.reset();
     productForm.elements.id.value = existingId;
-    fill(productForm, values);
+    const existing = products.find(product => product.id === existingId);
+    fill(productForm, { ...values, catalogue_handle: existing?.specifications?.catalogue_handle || '' });
     productForm.scrollIntoView({behavior:'smooth',block:'start'});
   },
   chooseImage: (url) => {
@@ -77,6 +78,7 @@ $("#draft-file").onchange = async (event) => {
         2,
       ),
       status: "draft",
+      catalogue_handle: stated(draft.handle),
       reviewed: false,
       image_permission_confirmed: false,
     });
@@ -147,6 +149,7 @@ function editProduct(product) {
     reviewed: source.verification_status === "fi_reviewed",
     variant_options: JSON.stringify(product.variant_options, null, 2),
     specifications: JSON.stringify(product.specifications, null, 2),
+    catalogue_handle: product.specifications?.catalogue_handle || '',
   });
   if (source.valid_until) {
     const date = new Date(source.valid_until);
@@ -199,6 +202,14 @@ productForm.addEventListener(
   busy(productForm, async () => {
     productForm.elements.id.value ||= crypto.randomUUID();
     const values = fields(productForm);
+    const specifications = JSON.parse(values.specifications);
+    if (!specifications || Array.isArray(specifications) || typeof specifications !== 'object')
+      throw new Error('Specifications must be a JSON object.');
+    const handle = String(values.catalogue_handle || '').trim();
+    if (handle && !/^[a-z0-9][a-z0-9-]{0,119}$/.test(handle))
+      throw new Error('Use the product page handle: lowercase letters, numbers and hyphens.');
+    if (handle) specifications.catalogue_handle = handle;
+    else delete specifications.catalogue_handle;
     await invoke("save_product", {
       ...values,
       id: values.id || undefined,
@@ -209,7 +220,7 @@ productForm.addEventListener(
       source_currency: values.source_currency || null,
       min_quantity: Number(values.min_quantity),
       variant_options: JSON.parse(values.variant_options),
-      specifications: JSON.parse(values.specifications),
+      specifications,
       valid_until: values.valid_until
         ? new Date(values.valid_until).toISOString()
         : null,

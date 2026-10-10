@@ -30,11 +30,11 @@
     if (action.kind === 'none') return null;
     const link = el('a', action.kind === 'quote' ? 'product-card-action product-card-action--quote' : 'product-card-action');
     link.href = action.kind === 'embed' ? FI.productUrl(product) : action.href;
-    link.append(document.createTextNode(action.kind === 'quote' ? action.label : 'Buy'));
+    link.append(document.createTextNode(action.kind === 'embed' ? 'Buy' : action.label));
     const arrow = el('span', '', '↗');
     arrow.setAttribute('aria-hidden', 'true');
     link.append(arrow);
-    link.setAttribute('aria-label', `${action.kind === 'quote' ? action.label + ' for' : 'Buy'} ${product.product}`);
+    link.setAttribute('aria-label', `${action.kind === 'embed' ? 'Buy' : action.label + ' for'} ${product.product}`);
     return link;
   }
 

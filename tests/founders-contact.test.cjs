@@ -26,21 +26,13 @@ test('founders section shows the three founders with their approved photos and b
   assert.ok(order[0] < order[1] && order[1] < order[2], 'founders, then testimonials, then contact')
 })
 
-test('testimonials are real quotes only and start honestly empty', () => {
-  const entries = JSON.parse(read('data/testimonials.json'))
-  assert.ok(Array.isArray(entries))
-  const {isReal} = require('../dist/testimonials.js')
-  for (const entry of entries) assert.ok(isReal(entry), `each testimonial needs a quote, a name, context and permission: ${JSON.stringify(entry)}`)
-  assert.equal(isReal({quote: 'Great', name: 'Sam', context: 'Bought tiles'}), false, 'no permission, not shown')
-  assert.equal(isReal({quote: 'Great', name: 'Sam', context: 'Bought tiles', permission: true}), true)
-  const block = section('testimonials')
-  assert.match(block, /id="testimonial-list"/)
-  assert.match(text(block), /No reviews yet/)
-  assert.match(text(block), /real buyers/i)
-  assert.match(text(block), /permission/)
-  assert.match(home, /<script src="testimonials\.js" defer><\/script>/)
-  assert.doesNotMatch(read('testimonials.js'), /innerHTML/)
-  assert.ok(!read('data/testimonials.json').includes('—'))
+test('homepage links to genuine purchase reviews without invented testimonials', () => {
+  const block = section('testimonials');
+  assert.match(block, /href="reviews.html"/);
+  assert.match(text(block), /paid, delivered FI orders/);
+  assert.match(text(block), /Positive and negative/);
+  assert.doesNotMatch(home, /<script src="testimonials\.js"/);
+  assert.equal(JSON.parse(read('data/testimonials.json')).length, 0);
 })
 
 test('the contact form is on the homepage and contact page and posts to the team inbox', () => {

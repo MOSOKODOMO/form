@@ -8,7 +8,7 @@
   const pageNames = {
     '/': 'Home', '/index.html': 'Home', '/shop.html': 'Shop', '/product.html': 'Product',
     '/rankings.html': 'Rankings', '/partner.html': 'Partner', '/verified-makers.html': 'Makers',
-    '/how-it-works.html': 'How it works', '/services.html': 'Services', '/pricing.html': 'Pricing',
+    '/how-it-works.html': 'How it works', '/services.html': 'Services', '/reviews.html': 'Product reviews', '/pricing.html': 'Product reviews',
     '/about.html': 'About', '/contact.html': 'Contact', '/feedback.html': 'Feedback',
     '/windows.html': 'Windows', '/glass-guide.html': 'Glass guide', '/builders.html': 'Builders',
     '/privacy.html': 'Privacy', '/terms.html': 'Terms', '/shipping.html': 'Shipping', '/returns.html': 'Returns',

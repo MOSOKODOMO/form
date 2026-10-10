@@ -6,83 +6,28 @@ const path = require('node:path')
 const dist = path.resolve('dist')
 const read = (name) => fs.readFileSync(path.join(dist, name), 'utf8')
 
-test('the windows page presents an anonymous Thai window estimate alongside one named Australian benchmark', () => {
-  const home = read('windows.html')
-  assert.match(home.replace(/<[^>]*>/g, ' '), /Creating\s+more affordable\s+homes for\s+Australians/i)
-  assert.equal((home.match(/class="quote-card(?: quote-card-featured)?"/g) || []).length, 2)
-  assert.match(home, /WINDOW PRICE COMPARISON/)
-  for (const value of ['Thai window estimate', 'A$356.55', 'Stegbar', 'A$742.50']) {
-    assert.ok(home.includes(value), `missing window comparison value: ${value}`)
-  }
-  assert.match(home, /Planning estimate, not a confirmed quote/i)
-  assert.ok(home.indexOf('<h3>Thai window estimate</h3>') < home.indexOf('<h3>Stegbar</h3>'), 'the Thai window appears before the Australian benchmark')
-  assert.doesNotMatch(home, /Superhouse|SMG Glass|uPVC\.com\.au|up to three quotes/i)
-})
+test('windows no longer advertises the old price-comparison service',()=>{ assert.match(read('windows.html'),/Under consideration/); assert.doesNotMatch(read('windows.html'),/quote-card|Stegbar|A\$356/); })
 
-test('team portraits and biographies follow the confirmed left-to-right identities', () => {
-  for (const page of ['index.html', 'builders.html']) {
-    const cards = [...read(page).matchAll(/<article class="team-card">([\s\S]*?)<\/article>/g)].map((match) => match[1])
-    assert.equal(cards.length, 3, `${page} has three team members`)
-    for (const [index, name, image, role] of [
-      [0, 'Prem', 'prem-portrait.jpg', 'CEO'],
-      [1, 'Lincy', 'lincy.jpg', 'CPO'],
-      [2, 'Mos', 'mos-portrait.jpg', 'CTO'],
-    ]) {
-      assert.ok(cards[index].includes(`src="assets/team/${image}"`), `${page}: correct portrait for ${name}`)
-      assert.ok(cards[index].includes(`alt="Portrait of ${name}"`), `${page}: correct accessible name for ${name}`)
-      assert.ok(cards[index].includes(`${name.toUpperCase()} · ${role}`), `${page}: correct role for ${name}`)
-      assert.ok(cards[index].includes(`<small>${name} `), `${page}: correct biography for ${name}`)
-    }
-  }
-})
+test('founder identities remain available on the homepage',()=>{ const html=read('index.html'); for(const name of ['Prem','Lincy','Mos']) assert.ok(html.includes('Portrait of '+name)); })
 
-test('the request form offers windows and glazing and emails the team a copy', () => {
-  const form = read('stage2.html')
-  const script = read('stage2.js')
-  assert.match(form, /<option value="windows" data-en="Windows &amp; glazing"/)
-  assert.match(form, /reply within 48 hours/)
-  assert.match(script, /https:\/\/formsubmit\.co\/ajax\//)
-  assert.match(script, /payload\.category = 'other'/, 'windows requests still save before the database allows the category')
-  const migration = fs.readFileSync(path.resolve('supabase/migrations/20260924050000_fi_windows_category.sql'), 'utf8')
-  assert.match(migration, /'windows', 'stairs'/)
-})
+test('retired sourcing routes direct customers to products and their orders',()=>{ const html=read('stage2.html'); assert.match(html,/href="shop.html"/); assert.match(html,/href="orders.html"/); assert.doesNotMatch(html,/<form|stage2\.js/); })
 
-test('the pricing page shows the 10% fee as a table and Services links to it', () => {
-  const pricing = read('pricing.html')
-  assert.match(pricing, /10% only if you order/)
-  assert.equal((pricing.match(/<th scope="row">/g) || []).length, 4)
-  for (const value of ['<strong>Free</strong>', '10% of the delivered cost', 'At cost, itemised', 'Not included']) {
-    assert.ok(pricing.includes(value), `missing price: ${value}`)
-  }
-  const services = read('services.html')
-  assert.match(services, /our fee is 10% of the delivered cost/)
-  assert.doesNotMatch(services, /still being tested/)
-})
+test('product reviews replace pricing comparisons and services state the correct fee',()=>{ assert.match(read('pricing.html'),/url=reviews.html/); assert.match(read('reviews.html'),/PRODUCT REVIEWS/); assert.match(read('services.html'),/10% of the initial product price/); })
 
-test('the feedback form sends answers to the team inbox and is linked after a request', () => {
-  assert.match(read('feedback.js'), /formsubmit\.co\/ajax\/fabricationintelligence@gmail\.com/)
-  const page = read('feedback.html')
-  for (const name of ['role', 'would_use', 'proof', 'concern', 'email']) assert.match(page, new RegExp(`name="${name}"`))
-  assert.match(read('stage2.html'), /href="feedback\.html"/)
-  assert.match(read('privacy.html'), /quote request or the feedback form/)
-})
+test('general feedback and purchase reviews have separate entry points',()=>{ assert.match(read('feedback.js'),/formsubmit\.co\/ajax\/fabricationintelligence@gmail\.com/); assert.match(read('feedback.html'),/href="reviews.html#write-review"/); })
 
 test('public pages use no em dashes and share a preview card', () => {
   for (const name of fs.readdirSync(dist).filter((file) => /\.(html|js)$/.test(file))) {
     assert.ok(!read(name).includes('—'), `${name} contains an em dash`)
   }
-  for (const page of ['index.html', 'pricing.html', 'feedback.html', 'stage2.html', 'how-it-works.html']) {
+  for (const page of ['index.html', 'reviews.html', 'feedback.html', 'stage2.html', 'how-it-works.html']) {
     assert.match(read(page), /property="og:image" content="https:\/\/fabricationintelligence\.com\/assets\/share-card\.jpg"/, `${page} has a share preview`)
   }
   assert.ok(fs.existsSync(path.join(dist, 'assets', 'share-card.jpg')))
   assert.ok(!fs.existsSync(path.join(dist, 'concept.html')), 'the old staircase concept page stays removed')
 })
 
-test('the old public request entry redirects to the single canonical request form', () => {
-  const oldRequest = read('request.html')
-  assert.match(oldRequest, /location\.replace\('stage2\.html#request'\)/)
-  assert.match(read('stage2.html'), /Detailed quote request/)
-})
+test('the old public request entry redirects to the collection',()=>{ assert.match(read('request.html'),/url=shop.html/); })
 
 test('client and manufacturer account entry points are present', () => {
   const auth = read('auth.js')

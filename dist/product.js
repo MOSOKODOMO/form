@@ -297,7 +297,10 @@
       document.querySelector('#crumb-product').textContent = product.product;
       const layout = el('div', 'product-layout');
       layout.append(gallery(product), details(product));
-      root.replaceChildren(layout, trustPanel(product));
+      const reviews = el('section', 'product-reviews');
+      reviews.dataset.reviewHandle = product.handle;
+      reviews.setAttribute('aria-label', 'Customer product reviews');
+      root.replaceChildren(layout, trustPanel(product), reviews);
       root.removeAttribute('aria-busy');
     })
     .catch((error) => {

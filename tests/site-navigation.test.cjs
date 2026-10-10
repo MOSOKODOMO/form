@@ -3,11 +3,11 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const pages = ['index.html', 'shop.html', 'product.html', 'rankings.html', 'partner.html', 'verified-makers.html', 'windows.html', 'how-it-works.html', 'services.html', 'pricing.html', 'about.html', 'contact.html', 'auth.html', 'stage2.html', 'builders.html', 'glass-guide.html', 'feedback.html', 'privacy.html', 'terms.html', 'shipping.html', 'returns.html'];
+const pages = ['index.html', 'shop.html', 'product.html', 'rankings.html', 'partner.html', 'verified-makers.html', 'windows.html', 'how-it-works.html', 'services.html', 'reviews.html', 'about.html', 'contact.html', 'auth.html', 'stage2.html', 'builders.html', 'glass-guide.html', 'feedback.html', 'privacy.html', 'terms.html', 'shipping.html', 'returns.html'];
 const expected = [
   ['./', 'Home'], ['shop.html', 'Shop'], ['rankings.html', 'Rankings'], ['how-it-works.html', 'How it works'], ['services.html', 'Services'],
-  ['pricing.html', 'Pricing'], ['about.html', 'About'], ['contact.html', 'Contact'],
-  ['auth.html', 'Log in'], ['stage2.html#request', 'Send a request ↗'],
+  ['reviews.html', 'Product reviews'], ['about.html', 'About'], ['contact.html', 'Contact'],
+  ['auth.html', 'Log in'], ['shop.html', 'Shop collection ↗'],
 ];
 const read = name => fs.readFileSync(path.join(__dirname, '..', 'dist', name), 'utf8');
 
@@ -19,9 +19,10 @@ test('every public page retains the same complete primary navigation in the same
     const links = [...nav[1].matchAll(/<a\b([^>]*)href="([^"]+)"([^>]*)>([\s\S]*?)<\/a>/g)];
     assert.deepEqual(links.map(link => [link[2], link[4].replace(/<[^>]+>/g, '').trim()]), expected, page);
     // Product pages belong to the shop; windows.html is a coming-later page outside the menu.
-    const current = {'index.html': './', 'stage2.html': 'stage2.html#request', 'product.html': 'shop.html', 'windows.html': null}[page] ?? page;
+    const currents = {'index.html': './', 'stage2.html': null, 'builders.html': null, 'reviews.html': 'reviews.html', 'product.html': 'shop.html', 'windows.html': null};
+    const current = Object.hasOwn(currents, page) ? currents[page] : page;
     for (const link of links) {
-      assert.equal(`${link[1]}${link[3]}`.includes('aria-current="page"'), link[2] === current, `${page}: ${link[2]} active state`);
+      assert.equal(`${link[1]}${link[3]}`.includes('aria-current="page"'), link[2] === current && !link[1].includes('nav-cta'), `${page}: ${link[2]} active state`);
     }
     assert.match(html, /class="site-header site-header--public"/);
     assert.ok(html.includes('href="builders.css"') || html.includes('href="site-navigation.css"'), `${page} loads navigation styling`);
@@ -37,8 +38,9 @@ test('navigation remains visible without JavaScript and uses fixed mobile column
   assert.doesNotMatch(css, /display:\s*none|visibility:\s*hidden/);
 });
 
-test('request utilities and authentication hooks remain available', () => {
-  const request = read('stage2.html');
-  for (const hook of ['id="account-link"', 'href="#admin"', 'data-lang="en"', 'data-lang="zh"']) assert.ok(request.includes(hook), hook);
+test('legacy request URLs lead to the store and account controls remain available', () => {
+  assert.match(read('stage2.html'), /href="orders.html"/);
+  assert.match(read('stage2.html'), /href="shop.html"/);
+  assert.doesNotMatch(read('stage2.html'), /<form|stage2\.js/);
   assert.match(read('account.html'), /id="sign-out"/);
-});
+})

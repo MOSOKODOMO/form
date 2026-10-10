@@ -1,16 +1,30 @@
 # Fabrication Intelligence
 
-A shop for design products from overseas makers we've checked: handles, knobs, tiles and taps first. Every product shows its FI Score out of 100 and the checks behind it. Live at https://fabricationintelligence.com/.
+A curated store for mid-range to luxury design products from global manufacturers, with warehouse inspection before onward delivery. Live at https://fabricationintelligence.com/.
+
+## Curated store and customer reviews: 10 October 2026
+
+The homepage, shop, how-it-works, inspection service, About, contact and policies now describe the curated retail model. The fee is 10% of the manufacturer's initial product price converted to AUD; the agreed freight, inspection, duties and tax form one inclusive AUD total. The existing quote calculation already follows that rule. The database setting remains `costs_included`. China, Thailand and India describe the sourcing focus; each actual listing retains its source evidence.
+
+[Product reviews](dist/reviews.html) replaces Pricing in navigation. The old pricing URL redirects to it. Historic sourcing-request URLs lead to the collection, and the window price comparison has been retired. Approved portraits, product renders and source disclosures remain intact. An order must pass the agreed inspection before dispatch; the public condition promise explains applicable remedies for defects or damage after delivery rather than promising that every hidden defect or transit incident is impossible.
+
+The deployed `20261010120736_fi_verified_product_reviews.sql` migration stores public review content separately from its private purchase association. Authenticated RPCs check the customer's own order, a real payment (`livemode=true`) and a completed outbound delivery. Reviews publish regardless of rating; the owner can edit the same record, with one review per order item. Anonymous visitors can read display name, rating, title, text, product and dates, without account, order, payment or delivery identifiers. Customers explicitly consent before publication. A review does not automatically change the separate research FI Score.
+
+Customers review from **My orders** or **Product reviews → Review your purchase**. In FI operations, the optional **Product page handle** connects a commerce product to its existing research product page; it is stored in product specifications as `catalogue_handle`. Confirm that both records describe the same product. The public order catalogue omits that internal linking field from its specification display.
+
+Validation: all 126 JavaScript tests pass, including safe review rendering and filtered pagination. `supabase/tests/product_reviews.sql` passed on the hosted database and rolled back every fixture, including simulated payments. It verifies eligibility, cross-account denial, anonymous denial of submissions, direct-write denial, updates, genuine negative publication, summary counts and private purchase isolation. Desktop and mobile pages were visually reviewed. Supabase's authenticated SECURITY DEFINER warnings are intentional for these two constrained RPCs: public execution is revoked, callers are authenticated, `auth.uid()` is checked against the delivered purchase, and `search_path` is empty. The private purchase table deliberately has RLS with no client policies or grants. The pre-existing leaked-password-protection warning remains outside this change.
+
+There are currently no real completed orders or reviews. The review page starts empty. Live checkout, supplier auto-purchasing and email-delivery activation remain separate launch gates; this update does not activate them or publish unconfirmed commerce drafts.
 
 ## Warehouse commerce: 7 October 2026
 
 The new [FI commerce workspace](dist/commerce-admin.html) stores supplier links, reviewed products and evidence, receiving warehouses, inclusive AUD quotes, customer-owned orders, payment references, supplier purchases, inspections and both shipping legs in Supabase. [My orders](dist/orders.html) shows this flow; [the order catalogue](dist/order-catalogue.html) accepts requests for published commerce entries. The existing shop, rankings and local product/image tools are preserved, and importer JSON drafts can be loaded into the workspace for review.
 
-The database and authenticated backend are deployed; live checkout and supplier auto-buy remain disabled. The owner still needs to enter the warehouse, choose whether costs are added within the inclusive price or absorbed, and configure/test Stripe. The supplied Alibaba link is saved as a private draft. See [the implementation and review handoff](project-planning/COMMERCE.md) for activation steps, exact boundaries and test results. This warehouse procurement model supersedes the earlier immediate supplier-split plan for these orders.
+The database and authenticated backend are deployed; live checkout and supplier auto-buy remain disabled. The warehouse address is recorded as 32 Velvet Road, Port Melbourne VIC 3207, and inclusive pricing is selected. Receiving still needs a confirmed warehouse contact and phone; Stripe also needs live configuration and verification. The supplied Alibaba link is saved as a private draft. See [the implementation and review handoff](project-planning/COMMERCE.md) for activation steps, exact boundaries and test results. This warehouse procurement model supersedes the earlier immediate supplier-split plan for these orders.
 
 ## What's on the site
 
-- **Homepage, [Shop](dist/shop.html) and product pages.** Until the first real product is approved, the shop shows three products labelled SAMPLE. Their makers, scores and checks are made up, and they're not for sale.
+- **Homepage, [Shop](dist/shop.html) and product pages.** The shop shows 21 supplier-research listings with source findings, outstanding checks and labelled AI catalogue renders. Three entries retain test checkout links; this is not live payment activation. The separate commerce catalogue contains only products approved for warehouse ordering.
 - **[Rankings](dist/rankings.html)** lists live products by FI Score, or their makers by maker check. Each entry shows:
   - the score in four parts (maker check 40, product proof 30, value 15, buyers 15);
   - each check as Verified, Claimed, Failed or Not stated;
@@ -20,7 +34,7 @@ The database and authenticated backend are deployed; live checkout and supplier 
   It reads only `dist/data/products.json`. Until a product is live, it shows the samples as a labelled example.
 - **Buying.** Only a product set to `live` can be bought. Its product page uses, in order: a Shopify Buy Button, a Shopify product link, a Stripe Payment Link, or else "Request a quote" (the contact form, with the product filled in).
 - **[How it works](dist/how-it-works.html), [Verified makers](dist/verified-makers.html) and [Partner with us](dist/partner.html)** came from the October marketplace preparation. The Verified makers directory reads `dist/data/makers.json` and `reports.json`, which stay empty until an FI Verify report is approved.
-- **The earlier windows sourcing pilot** (Services, Pricing, the request form, the glass guide and [windows.html](dist/windows.html)) stays online, labelled as earlier work.
+- **[Inspection service](dist/services.html) and [Product reviews](dist/reviews.html)** explain the current model. Historic request pages lead to the collection. [Windows](dist/windows.html) is a future-category note and the [glass guide](dist/glass-guide.html) remains educational.
 
 ## Preview and tests
 

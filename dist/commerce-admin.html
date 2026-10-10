@@ -11,7 +11,7 @@
     <title>FI commerce operations</title>
     <link rel="icon" href="assets/fabint-icon.svg" />
     <link rel="stylesheet" href="commerce.css?v=20261008-import" />
-    <script type="module" src="commerce-admin.js?v=20261008-import"></script>
+    <script type="module" src="commerce-admin.js?v=20261010-reviews"></script>
     <link rel="stylesheet" href="site-motion.css" />
     <script src="site-motion.js" defer></script>
   <link rel="stylesheet" href="editorial-michroma.css"><link rel="stylesheet" href="brand-lockup.css">
@@ -107,7 +107,7 @@
                 name="supplier_variant"
                 maxlength="300"
                 placeholder="Model, size, finish and lock type" /></label
-            ><label>SKU / model<input name="sku" maxlength="120" /></label
+            ><label>Product page handle (optional)<input name="catalogue_handle" maxlength="120" pattern="[a-z0-9][a-z0-9-]{0,119}" placeholder="Handle after ?handle= on the product page" /><small>Connects delivered-order reviews to that product page. Leave blank for products without a research page.</small></label><label>SKU / model<input name="sku" maxlength="120" /></label
             ><label
               >Minimum order quantity<input
                 name="min_quantity"

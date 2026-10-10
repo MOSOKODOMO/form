@@ -13,13 +13,13 @@ test('About page presents five one-sentence purpose statements', () => {
   for (const statement of statements) {
     assert.match(statement, /^[^.!?]+\.$/, 'Each statement is exactly one sentence');
   }
-  assert.match(statements[3], /We plan to reduce material, construction and supply-chain costs through an online store connecting Australian customers with Chinese suppliers, starting with windows/);
-  assert.match(statements[4], /giving Chinese suppliers access to the Australian market/);
-  assert.match(statements[4], /could help/);
+  assert.match(statements[3], /global manufacturers/);
+  assert.match(statements[4], /genuine customer reviews/);
 });
 
-test('About page distinguishes the planned store from the manual pilot', () => {
-  assert.match(about, /The online store is our plan, not the current service\./);
-  assert.match(about, /Today, our team handles each sourcing request personally/);
+test('About page explains the current store and global sourcing focus', () => {
+  assert.match(about, /mid-range to luxury/);
+  assert.match(about, /China, Thailand, India/);
+  assert.match(about, /10% fee on the initial product price/);
   assert.match(about, /<section\b(?=[^>]*\bid="our-purpose")(?=[^>]*\baria-labelledby="purpose-title")[^>]*>/);
 });

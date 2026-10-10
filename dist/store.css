@@ -1,0 +1,49 @@
+/* Curated store and real customer reviews. */
+.store-main { max-width: 1600px; margin: auto; }
+.store-hero { padding: clamp(60px,8vw,120px) 6%; border-bottom: 1px solid var(--line); }
+.store-hero h1 { max-width: 1150px; margin: 25px 0; font-size: clamp(34px,4.8vw,70px); line-height: 1.18; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.store-hero > p:last-child { max-width: 760px; color: var(--muted); font-size: clamp(16px,1.6vw,21px); line-height: 1.65; }
+.store-section { padding: clamp(40px,6vw,88px) 6%; border-bottom: 1px solid var(--line); }
+.store-section h2 { margin: 0 0 24px; font-size: clamp(25px,3vw,44px); line-height: 1.3; letter-spacing: -.025em; }
+.store-section h3 { margin: 16px 0; font-size: 20px; line-height: 1.4; }
+.store-section p { line-height: 1.75; max-width: 840px; }
+.store-section p + p { margin-top: 16px; }
+.store-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; margin-top: 36px; }
+.store-card { padding: 28px; border: 1px solid var(--line); background: var(--surface); }
+.store-card p, .review-policy p { color: var(--muted); }
+.store-number { color: var(--accent-ink); font: 500 12px var(--mono); }
+.store-split { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(30px,7vw,100px); }
+.store-fee { border-left: 1px solid var(--line); padding-left: 35px; }
+.store-fee strong { font-size: clamp(65px,8vw,120px); font-weight: 500; color: var(--accent-ink); }
+.store-band { padding: 60px 6%; display: flex; align-items: center; justify-content: space-between; gap: 28px; background: var(--soft); }
+.store-band h2 { margin: 16px 0; font-size: clamp(25px,3vw,40px); }
+.store-band .button { flex-shrink: 0; }
+.review-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(240px,.4fr); gap: 40px; }
+.review-heading { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+.review-summary { color: var(--accent-ink); font-size: 18px; }
+.review-filters, .review-form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; margin: 28px 0; }
+.review-form { max-width: 850px; }
+.review-form .wide { grid-column: 1 / -1; }
+.review-form label, .review-filters label { display: flex; flex-direction: column; gap: 9px; font-size: 14px; }
+.review-form input:not([type=checkbox]), .review-form textarea, .review-form select, .review-filters select { width: 100%; padding: 13px; border: 1px solid var(--field-border); border-radius: 0; background: var(--surface); color: var(--ink); font: inherit; }
+.review-form textarea { resize: vertical; }
+.review-form input:focus-visible, .review-form select:focus-visible, .review-form textarea:focus-visible, .review-filters select:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }
+.review-form .review-consent { flex-direction: row; align-items: start; line-height: 1.6; }
+.review-consent input { min-width: 20px; min-height: 20px; margin-top: 3px; }
+.review-policy { padding: 28px; align-self: start; background: var(--soft); border: 1px solid var(--line); }
+.review-policy a { display: block; margin: 20px 0; }
+.review-list { margin-top: 24px; }
+.review-card { border-bottom: 1px solid var(--line); padding: 24px 0; overflow-wrap: anywhere; }
+.review-card h3 { margin: 14px 0; }
+.review-card .review-body { white-space: pre-wrap; }
+.review-meta { color: var(--muted); font-size: 12px; }
+.review-stars { color: var(--accent-ink); letter-spacing: .1em; }
+.review-badge { display: inline-block; margin-left: 16px; padding: 4px 8px; border: 1px solid var(--line); font-size: 11px; }
+.review-empty { padding: 35px; border: 1px solid var(--line); background: var(--surface); }
+.review-empty strong { display: block; margin-bottom: 12px; }
+.product-reviews { margin-top: 60px; padding-top: 32px; border-top: 1px solid var(--line); }
+.product-reviews h2 { margin-bottom: 20px; }
+.review-form[hidden], #review-more[hidden] { display: none; }
+.review-error { color: var(--error); }
+@media(max-width:900px) { .store-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .review-layout { grid-template-columns: 1fr; } }
+@media(max-width:600px) { .store-grid,.store-split,.review-form,.review-filters { grid-template-columns: 1fr; } .store-band { align-items: start; flex-direction: column; } .store-fee { padding: 25px 0 0; border-left: 0; border-top: 1px solid var(--line); } .review-badge { margin: 8px 0; display: block; width: fit-content; } .store-card { padding: 22px; } }

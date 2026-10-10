@@ -10,7 +10,7 @@ test('founder biographies are consistent across public team pages', () => {
     'Mos is a final-year architecture student with a deep passion for coding and technology.',
   ];
 
-  for (const page of ['index.html', 'builders.html', 'about.html']) {
+  for (const page of ['index.html', 'about.html']) {
     const html = fs.readFileSync(path.join(__dirname, '..', 'dist', page), 'utf8');
     for (const biography of biographies) {
       assert.ok(html.includes(biography), `${page} should include ${biography}`);

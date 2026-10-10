@@ -54,6 +54,7 @@ function render() {
       );
     const specs = node("dl");
     for (const [key, value] of Object.entries(p.specifications)) {
+      if (key === "catalogue_handle") continue;
       specs.append(node("dt", key), node("dd", String(value)));
     }
     card.append(specs);

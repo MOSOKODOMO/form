@@ -8,7 +8,7 @@ const about = fs.readFileSync(path.join(dist, 'about.html'), 'utf8');
 const styles = fs.readFileSync(path.join(dist, 'about.css'), 'utf8');
 
 test('About profiles show the approved portraits in founder order', () => {
-  const pilot = fs.readFileSync(path.join(dist, 'builders.html'), 'utf8');
+  const pilot = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
   const profiles = [...about.matchAll(/<article class="bio-card"[^>]*>([\s\S]*?)<\/article>/g)];
   assert.equal(profiles.length, 3);
 
@@ -26,7 +26,7 @@ test('About profiles show the approved portraits in founder order', () => {
     assert.ok(image.includes('loading="lazy" decoding="async"'));
     assert.ok(profile.includes(`${name.toUpperCase()} ·`));
     assert.ok(fs.existsSync(path.join(dist, 'assets', 'team', filename)));
-    assert.ok(pilot.includes(image), `${name}'s portrait should match the earlier sourcing-pilot page`);
+    assert.ok(pilot.includes(`src="assets/team/${filename}"`), `${name}'s portrait should match the homepage`);
   }
 
   assert.ok(!about.includes('class="bio-mark"'), 'Initials no longer replace the available photos');

@@ -12,15 +12,13 @@ const block = (pattern, label) => {
   return match[1]
 }
 
-test('hero names verified makers, the trust problem and one shop call to action', () => {
-  const hero = block(/<section\b[^>]*id="overview"[^>]*>([\s\S]*?)<\/section>/, 'a hero')
-  assert.equal(text(hero.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1] || ''), "Cheaper products from makers we've verified")
-  const pain = text(hero.match(/<p class="home-pain"[^>]*>([\s\S]*?)<\/p>/)?.[1] || '')
-  assert.match(pain, /factory prices/i)
-  assert.match(pain, /trust/i)
-  assert.match(hero, /<a class="button button-primary" href="shop\.html"[^>]*>Shop verified products <span aria-hidden="true">↗<\/span><\/a>/)
-  assert.match(hero, /href="#how-it-works"/)
-  assert.match(text(hero), /FI Score out of 100/)
+test('hero explains curated design, inspection and inclusive source-price fee', () => {
+  const hero = block(/<section\b[^>]*id="overview"[^>]*>([\s\S]*?)<\/section>/, 'a hero');
+  assert.match(text(hero), /Considered design. Inspected before dispatch./);
+  assert.match(text(hero), /mid-range to luxury products from global manufacturers/);
+  assert.match(hero, /href="shop.html"/);
+  assert.match(text(hero), /10% service fee on the initial product price/);
+  assert.match(text(hero), /inclusive AUD total/);
 })
 
 test('hero offers the four starting categories, each linked to its shop filter', () => {
@@ -35,12 +33,12 @@ test('hero offers the four starting categories, each linked to its shop filter',
   }
 })
 
-test('how it works explains the four steps in order', () => {
-  const steps = block(/<section\b[^>]*id="how-it-works"[^>]*>([\s\S]*?)<\/section>/, 'how it works')
-  const titles = [...steps.matchAll(/<li class="home-step">[\s\S]*?<h3>([\s\S]*?)<\/h3>/g)].map((match) => text(match[1]))
-  assert.deepEqual(titles, ['AI finds makers', 'FI Verify checks them', 'We list only what passed', 'You buy and review'])
-  assert.match(text(steps), /FI Score out of 100/)
-  assert.match(text(steps), /reviews? add/i)
+test('homepage orders the customer journey around warehouse inspection', () => {
+  const steps = block(/<section\b[^>]*id="how-it-works"[^>]*>([\s\S]*?)<\/section>/, 'how it works');
+  const titles = [...steps.matchAll(/<li class="home-step">[\s\S]*?<h3>([\s\S]*?)<\/h3>/g)].map(match => text(match[1]));
+  assert.deepEqual(titles, ['Choose your product','Confirm your total','We inspect your order','Receive and review']);
+  assert.match(text(steps), /dispatch only after a pass/);
+  assert.match(steps, /href="returns.html"/);
 })
 
 test('windows and glass are a small coming-later note that links to the moved research', () => {
@@ -50,8 +48,8 @@ test('windows and glass are a small coming-later note that links to the moved re
   assert.match(note, /href="windows\.html"/)
   assert.match(note, /href="glass-guide\.html"/)
   const windows = read('windows.html')
-  assert.match(windows, /<aside class="coming-later-banner"[\s\S]*?href="shop\.html"/)
-  assert.match(windows, /id="comparison"/)
+  assert.match(windows, /Under consideration/)
+  assert.doesNotMatch(windows, /id="comparison"/)
 })
 
 test('the homepage no longer loads window content, scripts or the large window image', () => {

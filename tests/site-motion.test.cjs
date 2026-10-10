@@ -137,7 +137,7 @@ test('motion math is bounded and device reduced-motion always takes precedence',
 
 test('every full page wires one deferred shared script and stylesheet with a declared page mode', () => {
   const functional = new Set(['auth.html', 'account.html', 'stage2.html', 'supplier-portal.html', 'feedback.html', 'contact.html']);
-  for (const page of fs.readdirSync(path.join(__dirname, '../dist')).filter((file) => file.endsWith('.html') && file !== 'request.html')) {
+  for (const page of fs.readdirSync(path.join(__dirname, '../dist')).filter((file) => file.endsWith('.html') && !['request.html','pricing.html'].includes(file))) {
     const html = read(page);
     assert.equal((html.match(/<script\b[^>]*src="site-motion\.js"[^>]*>/g) || []).length, 1, `${page} loads the shared script once`);
     assert.match(html, /<script\b(?=[^>]*src="site-motion\.js")(?=[^>]*\bdefer\b)[^>]*>/, `${page} defers enhancement until static content exists`);
@@ -145,7 +145,7 @@ test('every full page wires one deferred shared script and stylesheet with a dec
     assert.match(html, /<body\b[^>]*data-motion-page="(?:editorial|functional)"/, `${page} declares its mode`);
     if (functional.has(page)) assert.match(html, /<body\b[^>]*data-motion-page="functional"/, `${page} protects its working forms`);
   }
-  assert.ok(read('windows.html').indexOf('site-motion.js') < read('windows.html').indexOf('window-showcase.js'), 'saved preference is applied before the glass assembly starts');
+  assert.doesNotMatch(read('windows.html'), /window-showcase\.js/, 'the retired window comparison assembly is no longer loaded');
 });
 
 test('reveal enhancement affects only offscreen editorial content and runs once', () => {

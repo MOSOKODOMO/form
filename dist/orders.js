@@ -36,8 +36,16 @@ async function load() {
       node("span", order.status.replaceAll("_", " "), "badge"),
       node("h2", order.reference),
     );
-    for (const item of order.fi_shop_order_items)
+    const realDelivered = order.status === 'delivered' && order.fi_shop_payments?.livemode === true &&
+      order.fi_order_shipments.some((shipment) => shipment.leg === 'warehouse_to_customer' && shipment.status === 'delivered' && shipment.delivered_at);
+    for (const item of order.fi_shop_order_items) {
       card.append(node("p", `${item.quantity} × ${item.title}`));
+      if (realDelivered) {
+        const review = node('a', `Review ${item.title} ↗`, 'text-link');
+        review.href = `reviews.html?item=${encodeURIComponent(item.id)}#write-review`;
+        card.append(review);
+      }
+    }
     card.append(
       node(
         "p",
