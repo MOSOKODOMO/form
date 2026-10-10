@@ -17,7 +17,7 @@ The original inspiration photographs were retrieved on 9 October 2026 under the 
 
 ## AI bathroom hero
 
-`dist/assets/bathroom-hero-concept.png` is the owner's supplied `ChatGPT Image 10 Oct 2026, 22_10_07.png`. It fills the opening hero behind the approved headline, “Cheaper products from makers we've verified.” The visible credit identifies it as an AI-generated bathroom concept. Native scrolling moves the copy upwards while the sticky image fades into warm ivory; reduced-motion and the site motion toggle provide a static alternative. `home-immersive.css` and `home-immersive.js` implement this homepage-only treatment.
+`dist/assets/bathroom-hero-concept.png` is the owner's supplied `ChatGPT Image 10 Oct 2026, 22_10_07.png`. The visible credit identifies it as an AI-generated bathroom concept. The 10 October framing refinement fits the entire image below the desktop header, including the floor tiles, with a narrower ivory gradient behind the copy. The hero no longer reserves an additional 85% of its height for scrolling, bringing the categories directly after it. On mobile, the full 3:2 image appears above the copy without an overlay or fade. Desktop native scrolling fades the image into ivory; reduced-motion and the site motion toggle provide a static alternative. `home-immersive.css` and `home-immersive.js` implement this homepage-only treatment.
 
 ## AI kitchen concept
 

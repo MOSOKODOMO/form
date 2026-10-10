@@ -5,7 +5,7 @@ const vm = require('node:vm');
 const { imageOpacity } = require('../dist/home-immersive.js');
 const source = fs.readFileSync(require.resolve('../dist/home-immersive.js'), 'utf8');
 
-test('hero fades completely before following content enters, and reverses on upward scroll', () => {
+test('hero fades during its exit and reverses on upward scroll', () => {
   assert.equal(imageOpacity(-20, 800), 1);
   assert.equal(imageOpacity(288, 800), .5);
   assert.equal(imageOpacity(576, 800), 0);
