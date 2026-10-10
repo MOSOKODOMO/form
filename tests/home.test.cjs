@@ -12,19 +12,19 @@ const block = (pattern, label) => {
   return match[1]
 }
 
-test('hero explains curated design, inspection and inclusive source-price fee', () => {
+test('hero sells renovation hardware to every buyer, delivered direct', () => {
   const hero = block(/<section\b[^>]*id="overview"[^>]*>([\s\S]*?)<\/section>/, 'a hero');
-  assert.match(text(hero), /Considered design. Inspected before dispatch./);
-  assert.match(text(hero), /mid-range to luxury products from global manufacturers/);
+  assert.match(text(hero), /Renovation hardware. Delivered direct./);
+  assert.match(text(hero), /plumbers, builders, renovators and homeowners/);
   assert.match(hero, /href="shop.html"/);
-  assert.match(text(hero), /10% service fee on the initial product price/);
-  assert.match(text(hero), /inclusive AUD total/);
+  assert.match(text(hero), /Prices in AUD, GST included/);
+  assert.doesNotMatch(text(home), /Inspected before dispatch|FI Score/, 'shop orders are not inspected and the rating is off');
 })
 
-test('hero offers the four starting categories, each linked to its shop filter', () => {
+test('hero offers the four stocked categories, each linked to its shop filter', () => {
   const sprite = read('assets/category-icons.svg')
   const links = [...home.matchAll(/<a class="home-category" href="shop\.html\?category=([a-z]+)">([\s\S]*?)<\/a>/g)]
-  assert.deepEqual(links.map((link) => link[1]), ['handles', 'knobs', 'tiles', 'taps'])
+  assert.deepEqual(links.map((link) => link[1]), ['handles', 'knobs', 'bathroom', 'doors'])
   for (const [, category, body] of links) {
     const icon = body.match(/<use href="assets\/category-icons\.svg#([a-z]+)">/)?.[1]
     assert.ok(icon, `${category} has an icon`)
@@ -33,12 +33,19 @@ test('hero offers the four starting categories, each linked to its shop filter',
   }
 })
 
-test('homepage orders the customer journey around warehouse inspection', () => {
+test('homepage names the four kinds of buyer', () => {
+  const who = block(/<section\b[^>]*id="who-orders"[^>]*>([\s\S]*?)<\/section>/, 'who orders here');
+  const titles = [...who.matchAll(/<li class="home-step">[\s\S]*?<h3>([\s\S]*?)<\/h3>/g)].map(match => text(match[1]));
+  assert.deepEqual(titles, ['Plumbers', 'Builders', 'Renovators', 'Homeowners']);
+})
+
+test('homepage explains the automated order and direct delivery', () => {
   const steps = block(/<section\b[^>]*id="how-it-works"[^>]*>([\s\S]*?)<\/section>/, 'how it works');
   const titles = [...steps.matchAll(/<li class="home-step">[\s\S]*?<h3>([\s\S]*?)<\/h3>/g)].map(match => text(match[1]));
-  assert.deepEqual(titles, ['Choose your product','Confirm your total','We inspect your order','Receive and review']);
-  assert.match(text(steps), /dispatch only after a pass/);
+  assert.deepEqual(titles, ['Choose and pay', 'We place the order', 'Shipped direct', 'We sort any problem']);
+  assert.match(text(steps), /supplier's estimate/, 'the delivery time is labelled as an estimate');
   assert.match(steps, /href="returns.html"/);
+  assert.match(steps, /href="contact.html#contact-form"/, 'trade buyers can ask for a quote');
 })
 
 test('windows and glass are a small coming-later note that links to the moved research', () => {
