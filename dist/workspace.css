@@ -20,6 +20,7 @@
 .workspace-table table {width:100%;border-collapse:collapse;min-width:580px;}
 .workspace-table th,.workspace-table td {padding:16px;text-align:left;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top;line-height:1.65;}
 .workspace-table th {background:var(--soft);font-weight:600;}
+.workspace-table a {display:inline-block;min-height:44px;padding:8px 0;}
 .workspace-filter,.workspace-card label {display:grid;gap:8px;max-width:320px;font-size:14px;margin:20px 0;}
 .workspace-main select {padding:12px;border:1px solid var(--field-border);font:inherit;color:var(--ink);background:var(--surface);}
 .workspace-main select:focus-visible {outline:2px solid var(--accent-ink);outline-offset:3px;}
