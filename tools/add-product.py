@@ -84,7 +84,7 @@ def main(argv=None) -> int:
     parser.add_argument('--from-file', type=Path, help='a page saved in inbox/ (.html, .mhtml) or pasted page text (.txt)')
     parser.add_argument('--source-url', default='', help='where a saved page came from, if the file does not say')
     parser.add_argument('--handle', default='', help='the handle to use (default: made from the product name, or the .txt file name)')
-    parser.add_argument('--no-llm', action='store_true', help="don't use the optional LLM even if OPENROUTER_API_KEY is set")
+    parser.add_argument('--no-llm', action='store_true', help="don't use the optional LLM even if ANTHROPIC_API_KEY or OPENROUTER_API_KEY is set")
     parser.add_argument('--no-render', action='store_true', help="don't open JavaScript-only pages in a browser")
     parser.add_argument('--drafts', type=Path, default=DRAFTS, help=argparse.SUPPRESS)
     parser.add_argument('--products', type=Path, default=PRODUCTS, help=argparse.SUPPRESS)
@@ -110,10 +110,14 @@ def main(argv=None) -> int:
     draft = extract(page)
     llm_note = 'not used'
     env = load_env()
-    if env.get('OPENROUTER_API_KEY') and not args.no_llm:
-        from fi_llm import ask, fill_gaps
+    if (env.get('ANTHROPIC_API_KEY') or env.get('OPENROUTER_API_KEY')) and not args.no_llm:
+        from fi_llm import ask, ask_claude, fill_gaps
         try:
-            filled = fill_gaps(draft, ask(page.source_text, env['OPENROUTER_API_KEY'], env.get('OPENROUTER_MODEL', '')), page.source_text)
+            if env.get('ANTHROPIC_API_KEY'):  # the Claude API directly; preferred over OpenRouter
+                answer = ask_claude(page.source_text, env['ANTHROPIC_API_KEY'], env.get('ANTHROPIC_MODEL', ''))
+            else:
+                answer = ask(page.source_text, env['OPENROUTER_API_KEY'], env.get('OPENROUTER_MODEL', ''))
+            filled = fill_gaps(draft, answer, page.source_text)
             llm_note = f"filled {', '.join(filled)}" if filled else 'found nothing new on the page'
         except Exception as error:  # noqa: BLE001 - the rules-based draft still stands
             llm_note = f'skipped ({error.__class__.__name__}: {str(error)[:120]})'

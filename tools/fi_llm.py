@@ -1,6 +1,7 @@
-"""Optional: asks an LLM through OpenRouter to read page text into draft fields.
+"""Optional: asks an LLM to read page text into draft fields.
 
-Used only when OPENROUTER_API_KEY is set in .env. It only fills fields the rules left as "not stated",
+Uses the Claude API directly when ANTHROPIC_API_KEY is set in .env (preferred), or OpenRouter when only
+OPENROUTER_API_KEY is set. It only fills fields the rules left as "not stated",
 and every value it returns must appear in the page text, or it is thrown away.
 """
 from __future__ import annotations
@@ -28,6 +29,23 @@ def ask(text: str, api_key: str, model: str = '', timeout: int = 90) -> dict:
                                    'messages': [{'role': 'system', 'content': SYSTEM}, {'role': 'user', 'content': 'PAGE TEXT:\n' + text[:15000]}]})
     response.raise_for_status()
     content = response.json()['choices'][0]['message']['content'] or ''
+    match = re.search(r'\{[\s\S]*\}', content)
+    return json.loads(match.group(0)) if match else {}
+
+
+CLAUDE_ENDPOINT = 'https://api.anthropic.com/v1/messages'
+CLAUDE_MODEL = 'claude-haiku-5-5'
+
+
+def ask_claude(text: str, api_key: str, model: str = '', timeout: int = 90) -> dict:
+    """Same job as ask(), through the Claude API (first-party, so Claude Startups credits apply)."""
+    import requests
+    response = requests.post(CLAUDE_ENDPOINT, timeout=timeout,
+                             headers={'x-api-key': api_key, 'anthropic-version': '2023-06-01', 'content-type': 'application/json'},
+                             json={'model': model or CLAUDE_MODEL, 'max_tokens': 2000, 'temperature': 0, 'system': SYSTEM,
+                                   'messages': [{'role': 'user', 'content': 'PAGE TEXT:\n' + text[:15000]}]})
+    response.raise_for_status()
+    content = ''.join(block.get('text', '') for block in response.json().get('content', []) if block.get('type') == 'text')
     match = re.search(r'\{[\s\S]*\}', content)
     return json.loads(match.group(0)) if match else {}
 
