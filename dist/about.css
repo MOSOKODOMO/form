@@ -2,6 +2,10 @@
 .about-team .bio-grid { max-width: 1200px; margin-inline: auto; }
 .about-team .bio-card { min-width: 0; }
 .about-team .team-portrait { aspect-ratio: 1; object-fit: contain; }
+.about-care { background: var(--surface); }
+.about-service { padding: 30px; border: 1px solid var(--line); align-self: start; }
+.about-service .text-link { display: block; margin-top: 22px; }
+.about-team-intro { max-width: 780px; margin-top: 24px; color: var(--muted); font-size: 17px; line-height: 1.75; }
 
 @media (max-width: 900px) {
   .about-team .bio-grid { max-width: 440px; }
