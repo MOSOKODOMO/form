@@ -107,7 +107,7 @@
     const scoreLine = el('p', 'product-score-title');
     scoreLine.append(el('b', '', `FI Score ${product.fi_score}`), document.createTextNode(' out of 100'));
     const explain = el('p', 'product-score-note', 'Our research score for this maker and product, not a physical quality test. Supplier ratings are separate from FI buyer reviews. ');
-    explain.append(link('./#how-it-works', 'How we score'));
+    explain.append(link('rankings.html#how-we-score', 'How we score'));
     scoreText.append(scoreLine, explain);
     score.append(scoreBadge(product.fi_score, true), scoreText);
 
