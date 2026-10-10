@@ -82,6 +82,14 @@
 .gallery-track:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .gallery-slide { position: relative; margin: 0; aspect-ratio: 4 / 5; scroll-snap-align: start; }
 .gallery-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.product-card-media img[src$="-catalogue-render.webp"], .gallery-slide img[src$="-catalogue-render.webp"] { object-fit: contain; background: #f6f2ea; }
+.render-badge { position: absolute; top: 14px; left: 14px; padding: 6px 9px; color: #343d33; background: #f6f2eaeb; border: 1px solid #d7d1c7; font: 600 10px/1.3 var(--mono); letter-spacing: .08em; }
+body main p.gallery-caption { margin-top: 14px; color: var(--muted); font: 400 13px/1.65 var(--body); }
+.product-source { padding: 18px; border: 1px solid var(--line); background: var(--surface); }
+body main p.product-source-label { font-size: 15px; font-weight: 600; }
+body main p.product-source-date, body main p.product-source-note { margin-top: 6px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.product-source a { display: inline-block; margin-top: 10px; color: var(--accent-ink); font-size: 13px; text-underline-offset: 3px; }
+body main p.product-card-source-note { margin-top: 12px; color: var(--amber); font-size: 13px; }
 .story-card { display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; min-height: 100%; padding: clamp(28px, 5vw, 56px); background: radial-gradient(120% 90% at 85% 0%, var(--soft) 0%, var(--dark) 62%); }
 .story-card { position: relative; overflow: hidden; }
 .story-backdrop { position: absolute; top: clamp(24px, 4vw, 48px); right: 20px; left: clamp(28px, 5vw, 56px); display: -webkit-box; overflow: hidden; color: transparent; font: 700 clamp(64px, 9vw, 136px)/.92 var(--display); letter-spacing: -.025em; -webkit-text-stroke: 1.5px var(--line); -webkit-line-clamp: 2; -webkit-box-orient: vertical; }

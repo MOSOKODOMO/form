@@ -73,6 +73,9 @@
     if (product.price_aud !== NOT_STATED && (typeof product.price_aud !== 'number' || !(product.price_aud > 0))) problems.push('price_aud must be a positive number or "not stated"');
     if (!Number.isInteger(product.fi_score) || product.fi_score < 0 || product.fi_score > 100) problems.push('fi_score must be a whole number from 0 to 100');
     if (product.maker_url !== '' && !isHttps(product.maker_url)) problems.push('maker_url must be an https link or empty');
+    if (product.source_url !== undefined && product.source_url !== '' && !isHttps(product.source_url)) problems.push('source_url must be an https link or empty');
+    if (product.source_check_status !== undefined && !['listing_found', 'details_unclear', 'unavailable'].includes(product.source_check_status)) problems.push('source_check_status must describe a found, unclear or unavailable listing');
+    if (product.photo_is_render !== undefined && typeof product.photo_is_render !== 'boolean') problems.push('photo_is_render must be true or false');
     if (!Array.isArray(product.certificates) || !product.certificates.length) {
       problems.push('certificates must list at least one check');
     } else {
@@ -148,8 +151,18 @@
   const shownValue = (value) => (isStated(value) ? value : 'Not stated');
   const imageAlt = (product) => {
     if (product.sample) return `Sample illustration of a ${product.product.toLowerCase()}`;
-    return isStated(product.photo_alt) ? product.photo_alt : product.product;  // written by tools/make-images.py from the product facts
+    const alt = isStated(product.photo_alt) ? product.photo_alt : product.product;
+    return product.photo_is_render === true && !/^AI render/i.test(alt) ? `AI render of ${alt}` : alt;
   };
+  const SOURCE_CHECK_LABELS = {listing_found: 'Supplier listing found', details_unclear: 'Supplier details need confirmation', unavailable: 'Source listing unavailable'};
+  function sourceEvidence(product) {
+    return {
+      href: isHttps(product.source_url) ? product.source_url : null,
+      label: SOURCE_CHECK_LABELS[product.source_check_status] || 'Source not checked',
+      checked: formatDate(product.source_checked_on),
+      note: isStated(product.source_check_note) ? product.source_check_note : 'Confirm the exact product and variant with the supplier before ordering.',
+    };
+  }
   const productUrl = (product) => `product.html?handle=${encodeURIComponent(product.handle)}`;
   const quoteHref = (product) => `contact.html?product=${encodeURIComponent(product.product)}#contact-form`;
 
@@ -167,6 +180,9 @@
     if (product.status === 'draft') return {kind: 'none', label: 'Draft: not for sale', note: 'This product hasn’t been approved yet.'};
     if (product.status === 'rejected') return {kind: 'none', label: 'Not available', note: 'This product is no longer listed.'};
     const quote = {kind: 'quote', label: 'Request a quote', href: quoteHref(product), note: 'Ask us for a price and delivery time. We reply within 48 hours.'};
+    if (product.source_check_status === 'unavailable' || product.source_check_status === 'details_unclear') {
+      return {...quote, label: 'Confirm product details', note: 'We need to confirm the source, variant and availability before accepting an order.'};
+    }
     if (product.status !== 'live') return quote;
     const shopifyLink = isHttps(product.shopify_url) ? {kind: 'link', label: 'Buy', href: product.shopify_url, note: 'Secure checkout with Shopify.'} : null;
     const stripeLink = isStripeLink(product.stripe_link) ? {kind: 'link', label: 'Buy', href: product.stripe_link, note: 'Secure checkout with Stripe.'} : null;
@@ -271,7 +287,7 @@
     return validProducts(await response.json(), (message) => console.warn(message));
   }
 
-  const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, CHECK_LABELS, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts, SCORE_PARTS, CHIP_LABELS, isLive, parseView, scoreBreakdown, certificateChips, rankMakers, formatDate, scoreNotes};
+  const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, CHECK_LABELS, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, sourceEvidence, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts, SCORE_PARTS, CHIP_LABELS, isLive, parseView, scoreBreakdown, certificateChips, rankMakers, formatDate, scoreNotes};
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (typeof window !== 'undefined') window.FICatalogue = api;
 })();

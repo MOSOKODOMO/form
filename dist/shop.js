@@ -30,11 +30,11 @@
     if (action.kind === 'none') return null;
     const link = el('a', action.kind === 'quote' ? 'product-card-action product-card-action--quote' : 'product-card-action');
     link.href = action.kind === 'embed' ? FI.productUrl(product) : action.href;
-    link.append(document.createTextNode(action.kind === 'quote' ? 'Request a quote' : 'Buy'));
+    link.append(document.createTextNode(action.kind === 'quote' ? action.label : 'Buy'));
     const arrow = el('span', '', '↗');
     arrow.setAttribute('aria-hidden', 'true');
     link.append(arrow);
-    link.setAttribute('aria-label', `${action.kind === 'quote' ? 'Request a quote for' : 'Buy'} ${product.product}`);
+    link.setAttribute('aria-label', `${action.kind === 'quote' ? action.label + ' for' : 'Buy'} ${product.product}`);
     return link;
   }
 
@@ -51,6 +51,7 @@
     image.decoding = 'async';
     image.loading = index < 3 ? 'eager' : 'lazy';
     media.append(image);
+    if (product.photo_is_render) media.append(el('span', 'render-badge', 'AI RENDER'));
     if (product.sample) media.append(el('span', 'sample-badge', 'SAMPLE'));
 
     const body = el('div', 'product-card-body');
@@ -66,6 +67,9 @@
     const foot = el('div', 'product-card-foot');
     foot.append(price, scoreBadge(product.fi_score));
     body.append(meta, title, el('p', 'product-card-maker', `by ${product.maker}`), foot);
+    if (product.source_check_status === 'unavailable' || product.source_check_status === 'details_unclear') {
+      body.append(el('p', 'product-card-source-note', FI.sourceEvidence(product).label));
+    }
     const action = cardAction(product);
     if (action) body.append(action);
 
@@ -79,7 +83,7 @@
     if (category === 'taps') {
       item.append(el('h2', '', 'No taps yet'), el('p', '', 'Taps sold in Australia need WaterMark certification and WELS registration, so we’ll list them once a maker passes both.'));
     } else {
-      item.append(el('h2', '', `No ${FI.categoryName(category).toLowerCase()} yet`), el('p', '', 'We list products only after their maker passes FI Verify.'));
+      item.append(el('h2', '', `No ${FI.categoryName(category).toLowerCase()} yet`), el('p', '', 'We are still researching suppliers for this category.'));
     }
     return item;
   }

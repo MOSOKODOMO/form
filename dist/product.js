@@ -51,6 +51,7 @@
         image.decoding = 'async';
         if (index === 0) image.setAttribute('fetchpriority', 'high');
         slide.append(image);
+        if (product.photo_is_render) slide.append(el('span', 'render-badge', 'AI RENDER'));
         if (product.sample) slide.append(el('span', 'sample-badge', 'SAMPLE'));
         const small = el('img');
         small.src = item.src;
@@ -59,7 +60,7 @@
         small.height = 100;
         small.loading = 'lazy';
         thumb.append(small);
-        thumb.setAttribute('aria-label', 'Show the photo');
+        thumb.setAttribute('aria-label', product.photo_is_render ? 'Show the AI catalogue render' : 'Show the photo');
       } else {
         const card = el('div', 'story-card');
         const backdrop = el('p', 'story-backdrop', item.place);
@@ -83,6 +84,9 @@
     track.addEventListener('scroll', () => window.requestAnimationFrame(markActive), {passive: true});
     markActive();
     section.append(track, thumbs);
+    if (product.photo_is_render) {
+      section.append(el('p', 'gallery-caption', product.photo_caption || 'AI render based on supplier imagery. Illustration only; confirm the selected variant before ordering.'));
+    }
     return section;
   }
 
@@ -102,7 +106,7 @@
     const scoreText = el('div');
     const scoreLine = el('p', 'product-score-title');
     scoreLine.append(el('b', '', `FI Score ${product.fi_score}`), document.createTextNode(' out of 100'));
-    const explain = el('p', 'product-score-note', 'Our research score for this maker and product. Checked certificates raise it, missing ones lower it, and buyer reviews add to it over time. ');
+    const explain = el('p', 'product-score-note', 'Our research score for this maker and product, not a physical quality test. Supplier ratings are separate from FI buyer reviews. ');
     explain.append(link('./#how-it-works', 'How we score'));
     scoreText.append(scoreLine, explain);
     score.append(scoreBadge(product.fi_score, true), scoreText);
@@ -120,8 +124,18 @@
       const note = product.status === 'draft' ? 'Draft preview: this product hasn’t been approved yet, so it isn’t in the shop.' : 'This product was rejected and isn’t in the shop.';
       section.append(el('p', 'product-status-note', note));
     }
-    section.append(eyebrow, title, maker, score, buy, specs);
+    section.append(eyebrow, title, maker, sourcePanel(product), score, buy, specs);
     return section;
+  }
+
+  function sourcePanel(product) {
+    const evidence = FI.sourceEvidence(product);
+    const panel = el('div', 'product-source');
+    panel.append(el('p', 'product-source-label', evidence.label));
+    if (evidence.checked) panel.append(el('p', 'product-source-date', `Checked ${evidence.checked}`));
+    panel.append(el('p', 'product-source-note', evidence.note));
+    if (evidence.href) panel.append(link(evidence.href, 'View supplier product listing ↗', true));
+    return panel;
   }
 
   function actionLink(action) {
@@ -230,7 +244,7 @@
     const titleBlock = el('div');
     const eyebrow = el('p', 'eyebrow');
     eyebrow.append(el('span'), document.createTextNode(' FI VERIFY'));
-    const title = el('h2', '', 'Why we trust this maker');
+    const title = el('h2', '', 'Maker evidence and outstanding checks');
     title.id = 'trust-title';
     titleBlock.append(eyebrow, title);
     heading.append(titleBlock, el('p', 'trust-summary', FI.checkSummary(product)));

@@ -74,7 +74,7 @@ test('product page loads the catalogue first and builds everything without raw H
   assert.match(page, /<noscript>/)
   const script = read('product.js')
   assert.doesNotMatch(script, /innerHTML/)
-  assert.match(script, /'Why we trust this maker'/)
+  assert.match(script, /'Maker evidence and outstanding checks'/)
   assert.match(script, /rel = 'noopener noreferrer'/, 'outside links open safely')
   assert.match(script, /const action = FI\.buyAction\(product\)/, 'the buy area follows the shared buy rules')
   assert.match(script, /FI\.purchaseFacts\(product\)/, 'price, ships from and delivery come from the stated facts')
