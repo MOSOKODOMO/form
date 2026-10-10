@@ -27,7 +27,7 @@ test('saved product cards render with native append behavior and keep team acces
   await vm.runInNewContext(`(async()=>{${code}})()`,{
     $:ui.get,node:ui.node,supabase:{from:()=>query},setupProductImport:()=>({clear(){}}),session:async()=>({}),invoke:async()=>({team:true}),
     read:async table=>({'fi_shop_categories':[{name:'Hardware',slug:'door-hardware'}],'fi_shop_products':products,'fi_product_sources':sources,'fi_warehouses':[]})[table],
-    busy:()=>()=>{},safeLink:(_url,label)=>ui.node('a',label),status:(message,error)=>{if(error)errors.push(message);},
+    busy:()=>()=>{},safeLink:(_url,label)=>ui.node('a',label),status:(message,error)=>{if(error)errors.push(message);},URLSearchParams,location:{search:''},
   });
   assert.deepEqual(errors,[]);assert.equal(ui.get('#product-list').children.length,1);
   assert.equal(ui.get('#product-list').querySelectorAll('button')[0].textContent,'Edit');

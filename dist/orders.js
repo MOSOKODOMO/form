@@ -36,7 +36,7 @@ async function load() {
       node("span", order.status.replaceAll("_", " "), "badge"),
       node("h2", order.reference),
     );
-    const realDelivered = order.status === 'delivered' && order.fi_shop_payments?.livemode === true &&
+    const realDelivered = order.status === 'delivered' && order.fi_shop_payments?.livemode === true && ['paid','partially_refunded'].includes(order.fi_shop_payments.status) &&
       order.fi_order_shipments.some((shipment) => shipment.leg === 'warehouse_to_customer' && shipment.status === 'delivered' && shipment.delivered_at);
     for (const item of order.fi_shop_order_items) {
       card.append(node("p", `${item.quantity} × ${item.title}`));

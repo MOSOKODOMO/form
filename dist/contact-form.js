@@ -2,6 +2,7 @@
 // Contact forms on the homepage and contact.html send to the team inbox through FormSubmit, like feedback.js.
 (() => {
   const ENDPOINT = 'https://formsubmit.co/ajax/fabricationintelligence@gmail.com';
+  const INTAKE = 'https://dszagdjnymxalpwamjyh.supabase.co/functions/v1/fi-enquiry';
   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const POSITIONS = {
     'warehouse-inspector': 'Warehouse quality inspector',
@@ -15,6 +16,7 @@
     const status = block.querySelector('.contact-form-status');
     const thanks = block.querySelector('.contact-thanks');
     const button = form.querySelector('button[type="submit"]');
+    let submissionKey, submittedContents;
     // "Request a quote" links arrive as contact.html?product=<name>; fill in the product for them.
     const params = new URLSearchParams(window.location.search);
     const wanted = params.get('product');
@@ -67,7 +69,18 @@
       button.disabled = true;
       say('Sending…');
       try {
-        const response = await fetch(ENDPOINT, {
+        const contents={name,email,relationship,product,message,...(applying?{position,portfolio}:{} )};
+        const fingerprint=JSON.stringify(contents);
+        if(fingerprint!==submittedContents) {submissionKey=crypto.randomUUID(); submittedContents=fingerprint;}
+        const saved = await fetch(INTAKE, {
+          method:'POST',headers:{'Content-Type':'application/json',apikey:'sb_publishable_Dm6trfXjIO0C1r9A71PbNw_Q_PF4OM5'},
+          body:JSON.stringify({submission_key:submissionKey,...contents}),
+        });
+        let receipt={}; try{receipt=await saved.json();}catch{}
+        if(!saved.ok || receipt.saved!==true) throw new Error(receipt.error || 'Your note could not be saved.');
+        let notified=false;
+        try {
+          const response = await fetch(ENDPOINT, {
           method: 'POST',
           headers: {'Content-Type': 'application/json', Accept: 'application/json'},
           body: JSON.stringify({
@@ -85,6 +98,10 @@
         let data = {};
         try { data = await response.json(); } catch {}
         if (!response.ok || String(data.success) !== 'true') throw new Error(data.message || `HTTP ${response.status}`);
+          notified=true;
+        } catch(error) { console.error('FI email notification was not confirmed.'); }
+        const delivery=thanks.querySelector('[data-enquiry-delivery]');
+        if(delivery) delivery.textContent=notified ? 'Your note is saved and the team has been notified by email.' : 'Your note is saved in the FI team inbox. The email notification could not be confirmed; you do not need to send the note again.';
         window.fiTrackEvent?.('generate_lead', {form_name: window.location.pathname === '/' || window.location.pathname === '/index.html' ? 'contact_home' : 'contact_page'});
         form.hidden = true;
         thanks.hidden = false;

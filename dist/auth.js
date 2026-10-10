@@ -19,9 +19,9 @@ let mode = 'login'
 let recoveryLinkVerified = false
 
 function safeNextPath() {
-  const next = new URLSearchParams(location.search).get('next') || 'account.html'
-  if (next.startsWith('/') || next.includes('://') || next.split('/').includes('..')) return 'account.html'
-  return /^[a-zA-Z0-9._/-]+(?:#[a-zA-Z0-9._-]+)?$/.test(next) ? next : 'account.html'
+  const next = new URLSearchParams(location.search).get('next') || 'dashboard.html'
+  if (next.startsWith('/') || next.includes('://') || next.split('/').includes('..')) return 'dashboard.html'
+  return /^[a-zA-Z0-9._/-]+(?:#[a-zA-Z0-9._-]+)?$/.test(next) ? next : 'dashboard.html'
 }
 
 function setStatus(message, tone = '') {

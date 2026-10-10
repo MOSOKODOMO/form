@@ -56,7 +56,7 @@ export async function handleProductImport(
     if (membership.error) {
       throw new InputError("Team access could not be checked. Try again.", 503);
     }
-    if (!["admin", "team"].includes(membership.data?.role)) {
+    if (membership.data?.role !== 'admin') {
       return reply({ error: "FI team access required." }, 403);
     }
     let input;

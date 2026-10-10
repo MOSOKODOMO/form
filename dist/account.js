@@ -75,7 +75,7 @@ function renderClientRequests(rows) {
   if (!rows.length) {
     const empty = document.createElement('div')
     empty.className = 'account-empty'
-    empty.innerHTML = '<strong>No signed-in requests yet.</strong><p>Start with the item you cannot source. Your next request will be saved to this account.</p>'
+    empty.innerHTML = '<strong>No signed-in requests yet.</strong><p>Browse the collection for your next product. New orders appear in your customer dashboard.</p>'
     list.append(empty)
     return
   }

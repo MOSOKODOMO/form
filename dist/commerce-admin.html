@@ -11,7 +11,7 @@
     <title>FI commerce operations</title>
     <link rel="icon" href="assets/fabint-icon.svg" />
     <link rel="stylesheet" href="commerce.css?v=20261008-import" />
-    <script type="module" src="commerce-admin.js?v=20261010-reviews"></script>
+    <script type="module" src="commerce-admin.js?v=20261010-dashboards"></script>
     <link rel="stylesheet" href="site-motion.css" />
     <script src="site-motion.js" defer></script>
   <link rel="stylesheet" href="editorial-michroma.css"><link rel="stylesheet" href="brand-lockup.css">
@@ -20,7 +20,7 @@
     <header class="commerce-header">
       <a href="./" aria-label="Fabrication Intelligence home"><span class="brand-artwork" aria-hidden="true"><img class="brand-artwork-image" src="assets/fabint-stacked-lockup.png" alt="" width="2000" height="1000"></span></a>
       <nav>
-        <a href="order-catalogue.html">Catalogue</a
+        <a href="admin.html">Admin dashboard</a><a href="order-catalogue.html">Catalogue</a
         ><a href="orders.html">My orders</a
         ><a href="supplier-portal.html">Supplier workspace</a
         ><a href="account.html">Account</a>
@@ -102,6 +102,8 @@
               >Supplier name<input
                 name="supplier_name"
                 maxlength="200" /></label
+            ><label>Approved supplier company<select name="supplier_id"><option value="">Not connected</option></select><small>Only this company’s approved members will see assigned warehouse deliveries.</small></label
+            ><label>Supplier catalogue item ID (optional)<input name="supplier_catalogue_item_id" placeholder="UUID of the supplier’s submitted item"><small>Connect a reviewed supplier submission. It must belong to the selected company.</small></label
             ><label
               >Exact supplier variant<input
                 name="supplier_variant"

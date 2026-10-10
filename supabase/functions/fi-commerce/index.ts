@@ -105,7 +105,7 @@ Deno.serve(async (req) => {
       "add_evidence",
       "record_return",
     ];
-    if (adminActions.includes(action) && !team)
+    if (adminActions.includes(action) && team?.role !== 'admin')
       return reply({ error: "FI team access required." }, 403);
 
     if (action === "context") {
@@ -117,7 +117,7 @@ Deno.serve(async (req) => {
           .single(),
       );
       return reply({
-        team: !!team,
+        team: team?.role === 'admin',
         checkout_enabled: Deno.env.get("FI_CHECKOUT_ENABLED") === "true",
         payment_mode: Deno.env.get("FI_PAYMENT_MODE") || "test",
         pricing_mode: settings.pricing_mode,
@@ -222,6 +222,8 @@ Deno.serve(async (req) => {
           image_url: httpsUrl(input.image_url),
           image_permission_confirmed: input.image_permission_confirmed === true,
           status,
+          supplier_id: input.supplier_id ? uuid(input.supplier_id) : null,
+          supplier_catalogue_item_id: input.supplier_catalogue_item_id ? uuid(input.supplier_catalogue_item_id) : null,
         },
         p_source: {
           ...link,
@@ -475,10 +477,11 @@ Deno.serve(async (req) => {
       return reply({ ok: true });
     }
     if (action === "record_return") {
-      await rpc(client, "fi_commerce_record_return", {
+      await rpc(client, input.order_item_id ? "fi_commerce_record_item_return" : "fi_commerce_record_return", {
         p_order: uuid(input.order_id),
         p_actor: user.id,
         p_reason: text(input.reason, "return reason", 2000),
+        ...(input.order_item_id ? {p_item: uuid(input.order_item_id)} : {}),
       });
       return reply({ ok: true });
     }

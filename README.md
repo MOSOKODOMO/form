@@ -65,6 +65,20 @@ Nothing goes live automatically. Every product starts as a draft, and only a per
 6. When it's ready to sell, set `"status": "live"` in `dist/data/products.json`. Run `py tools/check-products.py` before publishing. It also stops a supplier's photo going up without permission.
 7. Push to `main`. The product appears in the shop with its Buy button, and in [Rankings](https://fabricationintelligence.com/rankings.html) by its FI Score.
 
+## Account dashboards — 10 October 2026
+
+`auth.html` now opens `dashboard.html`, which checks a validated Auth user and database-owned permissions before routing to `customer.html`, `supplier.html` or `admin.html`. Admin access stays with the two existing approved accounts; no new employee accounts or permissions were granted. Suppliers need an FI-created company membership. Choosing a supplier signup type or editing user metadata grants no admin or company access.
+
+Customers see their own orders, purchased items, outbound tracking, return summaries and genuine delivered-purchase review links. Supplier dashboards expose only assigned products, purchase orders, inspection outcomes and item-specific return/refund cases. Customer addresses, payment-provider IDs, internal source snapshots and return notes are excluded. Link a product to its approved supplier company in the product editor; link a return to its affected order item so it appears in that supplier’s dashboard.
+
+Admins can review the website research catalogue, order-catalogue records and supplier submissions; open product/source pricing tools; manage the enquiry queue; and view live paid-order sales, recorded refunds, net sales, service fees, monthly sales and category demand. Test payments are excluded. Website research prices/test checkout links remain separate from approved live order quotes; importing a website listing prepares a draft for review. Analytics and the deferred message experiment remain inactive.
+
+New Work with us notes are saved through the bounded `fi-enquiry` endpoint before FormSubmit email notification. Intake allows only buyer, supplier or applicant fields, validates CV-link protocols, rate-limits daily request hashes and keeps public database inserts closed. A saved note remains available to admins if email notification fails. Existing email-only messages remain in the inbox. Signup/recovery SMTP and live checkout retain their existing launch gates.
+
+Applied migration: `supabase/migrations/20261010125223_fi_role_dashboards.sql`. SQL verification in `supabase/tests/role_dashboards.sql` uses transaction-only fixtures and rolls back; it checks customer/supplier isolation, forged role/email claims, anonymous denial, test-payment exclusion, private-field filtering and enquiry idempotency. Frontend/intake checks are in `tests/workspace-dashboards.test.cjs` and `tests/enquiry-intake.test.cjs`.
+
+Supabase advisors report the new private rate-limit table as [RLS enabled without a policy](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy). This is intentional: only the service role can access it and no public row access is permitted. Cross-scope dashboard functions live in the unexposed private schema, check `auth.uid()` and current verified membership, use an empty search path and return filtered fields through invoker wrappers. Existing review-function warnings and [disabled leaked-password protection](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection) are unchanged. Performance notices concern unused/new indexes and existing legacy policy overlaps.
+
 ## Ground rules
 
 - No secret keys in the repo or in any file the browser loads. That means no Shopify Admin API token and no Stripe secret key. Tokens go in `.env`, which git ignores (see `.env.example`), and only the tools on your own computer use them.

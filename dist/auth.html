@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg">
     <link rel="stylesheet" href="builders.css">
     <link rel="stylesheet" href="account.css">
-    <script type="module" src="auth.js" defer></script>
+    <script type="module" src="auth.js?v=20261010-dashboards" defer></script>
     <link rel="stylesheet" href="site-motion.css">
     <script src="site-motion.js" defer></script>
     <script src="telemetry-config.js" defer></script>
@@ -36,7 +36,7 @@
       <section class="auth-intro">
         <p class="eyebrow"><span></span> YOUR ACCOUNT</p>
         <h1>One login.<br>Your side of the work.</h1>
-        <p>Customer accounts keep product orders, delivery tracking and reviews together. Sign in to request an inclusive quote from the order catalogue and track it in My orders. Manufacturers can introduce their company and apply for FI review.</p>
+        <p>Customer dashboards show purchases, order status and delivery tracking. Supplier dashboards show posted products, warehouse deliveries, inspection progress and return cases. Sign in once and FI opens the workspace connected to your account.</p>
         <div class="auth-guardrail"><strong>Manufacturer accounts are not automatic approval.</strong><br>FI checks every applicant before connecting it to the supplier workspace. Creating a client account does not place an order.</div>
         <div class="auth-guardrail"><strong>Email setup is in progress.</strong><br>New-account confirmation and password-reset emails are not available to customers yet. Existing users can still sign in.</div>
       </section>
@@ -52,7 +52,7 @@
             <fieldset class="role-picker">
               <legend>I’m joining as</legend>
               <label><input type="radio" name="role" value="client" checked><span><strong>Customer</strong><small>Track orders and review delivered products</small></span></label>
-              <label><input type="radio" name="role" value="manufacturer"><span><strong>Manufacturer</strong><small>Apply to join the supplier network</small></span></label>
+              <label><input type="radio" name="role" value="manufacturer"><span><strong>Supplier</strong><small>Apply to join the supplier network</small></span></label>
             </fieldset>
             <label class="account-field"><span>Full name</span><input name="full_name" autocomplete="name" maxlength="160"></label>
             <label id="company-field" class="account-field" hidden><span>Company name</span><input name="company_name" autocomplete="organization" maxlength="200"></label>

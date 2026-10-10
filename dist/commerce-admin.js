@@ -542,6 +542,11 @@ async function loadOrders() {
     }
     if (order.paid_at) {
       const form = disclosure(card, "Record a return / issue");
+      const productLabel = node('label', 'Affected product (choose to make the case visible to its supplier)');
+      const productSelect = node('select'); productSelect.name = 'order_item_id';
+      const all = node('option', 'Order-wide issue'); all.value = ''; productSelect.append(all);
+      for (const item of order.fi_shop_order_items) { const option = node('option', item.title); option.value = item.id; productSelect.append(option); }
+      productLabel.append(productSelect); form.append(productLabel);
       input(form, "Reason", "reason", "textarea");
       submit(form, "Record issue and hold fulfilment", "record_return", {
         order_id: order.id,
@@ -575,6 +580,22 @@ try {
     $("#categories").append(option);
   }
   await Promise.all([loadProducts(), loadWarehouses()]);
+  if (productForm.elements.namedItem('supplier_id')) {
+    const suppliers = await read('fi_supplier_profiles');
+    for (const supplier of suppliers) { const option = node('option', supplier.legal_name); option.value = supplier.id; productForm.elements.namedItem('supplier_id').append(option); }
+  }
+  const params = new URLSearchParams(location.search);
+  const existing = products.find(product => product.id === params.get('product') || (params.get('import_handle') && product.specifications?.catalogue_handle === params.get('import_handle')));
+  if (existing) editProduct(existing);
+  else if (params.get('import_handle')) {
+    const response = await fetch('data/products.json');
+    if (!response.ok) throw new Error('The website product could not be loaded.');
+    const research = (await response.json()).find(product => product.handle === params.get('import_handle') && !product.sample);
+    if (!research) throw new Error('Website product not found.');
+    fill(productForm,{title:research.product,source_url:research.source_url || '',supplier_name:research.maker || '',catalogue_handle:research.handle,description:research.story_en || '',status:'draft'});
+    productForm.scrollIntoView({behavior:'smooth',block:'start'});
+    status('Website product opened as a draft. Import its supplier link or confirm its current source price and delivery costs before publishing.');
+  }
   await loadOrders();
 } catch (error) {
   status(error.message, true);

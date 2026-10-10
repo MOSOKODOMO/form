@@ -8,12 +8,13 @@ const read = name => fs.readFileSync(path.join(__dirname, '..', 'dist', name), '
 const source = read('contact-form.js');
 const roles = ['warehouse-inspector', 'marketing-content', 'supplier-sourcing', 'customer-support'];
 
-function browser({search = '', pathname = '/contact.html', relationship = 'buyer', fetchImpl} = {}) {
-  const listeners = {}, calls = [], events = [];
+function browser({search = '', pathname = '/contact.html', relationship = 'buyer', fetchImpl, intakeImpl} = {}) {
+  const listeners = {}, calls = [], events = [], intakeCalls = [];
   const fields = Object.fromEntries(Object.entries({name: 'Test Applicant', email: 'applicant@example.test', product: '', message: 'An introduction with relevant experience.', website: '', relationship, position: '', portfolio: ''}).map(([name, value]) => [name, {value, disabled: false}]));
   const button = {disabled: false}, application = {hidden: true};
   const status = {textContent: '', classList: {toggle(_class, value) { status.isError = value; }}};
-  const thanks = {hidden: true, focus() { this.focused = true; }};
+  const delivery={textContent:''};
+  const thanks = {hidden: true, focus() { this.focused = true; }, querySelector(){return delivery;}};
   const form = {
     hidden: false,
     elements: {...fields, namedItem: name => fields[name] || null},
@@ -23,15 +24,16 @@ function browser({search = '', pathname = '/contact.html', relationship = 'buyer
   const block = {querySelector: selector => ({form, '.contact-form-status': status, '.contact-thanks': thanks})[selector]};
   const window = {location: {search, pathname}, fiTrackEvent(name, params) { events.push({name, params: JSON.parse(JSON.stringify(params))}); }};
   vm.runInNewContext(source, {
-    window, document: {querySelectorAll: () => [block]}, URLSearchParams, URL,
+    crypto:require('node:crypto').webcrypto, window, document: {querySelectorAll: () => [block]}, URLSearchParams, URL,
     console: {error() {}},
     FormData: class { constructor(form) { this.form = form; } get(name) { const field = this.form.elements.namedItem(name); return field?.disabled ? null : field?.value ?? null; } },
     fetch: async (url, options) => {
+      if(url.includes('/fi-enquiry')) {intakeCalls.push(JSON.parse(options.body));return intakeImpl ? intakeImpl() : {ok:true,json:async()=>({saved:true})};}
       calls.push({url, method: options.method, body: JSON.parse(options.body)});
       return fetchImpl ? fetchImpl(url, options) : {ok: true, json: async () => ({success: true})};
     },
   });
-  return {fields, button, application, status, thanks, form, calls, events,
+  return {fields, button, application, status, thanks, form, calls, events, intakeCalls, delivery,
     choose(value) { fields.relationship.value = value; listeners.change(); },
     submit() { return listeners.submit({preventDefault() {}}); },
   };
@@ -134,7 +136,7 @@ test('invalid email, missing note, unsafe portfolio links and the honeypot do no
   assert.equal(app.fields.position.value, '');
 });
 
-test('delivery failures keep the form and entered details available for retry', async () => {
+test('email notification failures do not lose a successfully saved enquiry', async () => {
   for (const fetchImpl of [
     async () => ({ok: false, status: 500, json: async () => ({success: true})}),
     async () => ({ok: true, json: async () => ({success: false})}),
@@ -143,14 +145,21 @@ test('delivery failures keep the form and entered details available for retry', 
   ]) {
     const app = browser({fetchImpl, search: '?role=customer-support'});
     await app.submit();
-    assert.equal(app.form.hidden, false);
-    assert.equal(app.thanks.hidden, true);
+    assert.equal(app.form.hidden, true);
+    assert.equal(app.thanks.hidden, false);
     assert.equal(app.fields.position.value, 'customer-support');
     assert.equal(app.button.disabled, false);
-    assert.equal(app.status.isError, true);
-    assert.match(app.status.textContent, /try again, or email fabricationintelligence@gmail\.com/);
-    assert.equal(app.events.length, 0);
+    assert.equal(app.events.length, 1);
+    assert.match(app.delivery.textContent,/saved in the FI team inbox/);
   }
+});
+
+test('storage failure preserves the note for retry and reuses the submission reference',async()=>{
+  const app=browser({intakeImpl:async()=>({ok:false,json:async()=>({error:'Storage temporarily unavailable'})})});
+  await app.submit();await app.submit();
+  assert.equal(app.form.hidden,false);assert.equal(app.thanks.hidden,true);assert.equal(app.button.disabled,false);assert.equal(app.calls.length,0);
+  assert.equal(app.intakeCalls.length,2);assert.equal(app.intakeCalls[0].submission_key,app.intakeCalls[1].submission_key);
+  assert.equal(app.fields.message.value,'An introduction with relevant experience.');
 });
 
 test('a pending submission cannot send twice and the email subject strips line breaks', async () => {
@@ -160,6 +169,7 @@ test('a pending submission cannot send twice and the email subject strips line b
   app.fields.name.value = 'Test\r\nApplicant';
   const first = app.submit();
   assert.equal(app.button.disabled, true);
+  await new Promise(resolve=>setImmediate(resolve));
   await app.submit();
   assert.equal(app.calls.length, 1);
   assert.doesNotMatch(app.calls[0].body._subject, /[\r\n]/);

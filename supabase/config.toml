@@ -4,3 +4,8 @@ verify_jwt = true
 [functions.fi-stripe-webhook]
 # Authenticated by Stripe's raw-body signature, never by a browser session.
 verify_jwt = false
+
+[functions.fi-enquiry]
+# Public enquiry intake validates its website API key, origin and bounded payload.
+# A service-only database RPC applies a daily rate limit; no public table inserts.
+verify_jwt = false
