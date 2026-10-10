@@ -1,5 +1,6 @@
 'use strict';
-// Shop grid: loads data/products.json, lists approved and live products by FI Score and filters by category (kept in the URL).
+// Shop grid: loads data/products.json, lists approved and live products and filters by category (kept in the URL).
+// With the FI rating off (catalogue.js SHOW_FI_RATING), ready-to-buy products come first and no score badge shows.
 (() => {
   const FI = window.FICatalogue;
   const grid = document.querySelector('#product-grid');
@@ -65,7 +66,8 @@
     const price = el('p', 'product-card-price', value);
     if (unit) price.append(el('small', '', unit));
     const foot = el('div', 'product-card-foot');
-    foot.append(price, scoreBadge(product.fi_score));
+    foot.append(price);
+    if (FI.SHOW_FI_RATING) foot.append(scoreBadge(product.fi_score));
     body.append(meta, title, el('p', 'product-card-maker', `by ${product.maker}`), foot);
     if (product.source_check_status === 'unavailable' || product.source_check_status === 'details_unclear') {
       body.append(el('p', 'product-card-source-note', FI.sourceEvidence(product).label));
@@ -91,7 +93,7 @@
   function summary(count, category) {
     const where = category === 'all' ? '' : ` in ${FI.categoryName(category)}`;
     if (!count) return `No products${where} yet.`;
-    return `Showing ${count} product${count === 1 ? '' : 's'}${where}, highest FI Score first.`;
+    return `Showing ${count} product${count === 1 ? '' : 's'}${where}, ${FI.SHOW_FI_RATING ? 'highest FI Score first' : 'ready to buy first'}.`;
   }
 
   function render(category) {
@@ -100,8 +102,10 @@
       const id = button.dataset.category;
       button.setAttribute('aria-pressed', String(id === category));
       button.querySelector('.shop-filter-count').textContent = counts[id];
+      // Empty categories stay out of the way until they have products (the chosen one always shows).
+      button.hidden = id !== 'all' && id !== category && counts[id] === 0;
     }
-    const list = FI.sortByScore(FI.filterByCategory(products, category));
+    const list = FI.sortProducts(FI.filterByCategory(products, category));
     grid.replaceChildren(...(list.length ? list.map(card) : [emptyState(category)]));
     sampleBanner.hidden = !list.some((product) => product.sample);
     status.textContent = summary(list.length, category);

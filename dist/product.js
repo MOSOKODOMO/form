@@ -124,7 +124,9 @@
       const note = product.status === 'draft' ? 'Draft preview: this product hasn’t been approved yet, so it isn’t in the shop.' : 'This product was rejected and isn’t in the shop.';
       section.append(el('p', 'product-status-note', note));
     }
-    section.append(eyebrow, title, maker, sourcePanel(product), score, buy, specs);
+    // With the FI rating off, the score and the supplier research panel stay hidden (see catalogue.js).
+    if (FI.SHOW_FI_RATING) section.append(eyebrow, title, maker, sourcePanel(product), score, buy, specs);
+    else section.append(eyebrow, title, maker, buy, specs);
     return section;
   }
 
@@ -300,7 +302,8 @@
       const reviews = el('section', 'product-reviews');
       reviews.dataset.reviewHandle = product.handle;
       reviews.setAttribute('aria-label', 'Customer product reviews');
-      root.replaceChildren(layout, trustPanel(product), reviews);
+      if (FI.SHOW_FI_RATING) root.replaceChildren(layout, trustPanel(product), reviews);
+      else root.replaceChildren(layout, reviews);
       root.removeAttribute('aria-busy');
     })
     .catch((error) => {
