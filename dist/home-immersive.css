@@ -33,7 +33,7 @@ body .immersive-hero .button-primary { background: var(--ink); color: var(--pape
 body .immersive-hero .button-primary:hover { background: #285444; }
 body .immersive-hero .home-proof { max-width: 44ch; color: var(--ink); margin-top: 24px; padding-top: 16px; }
 body main .hero-image-credit {
-  position: absolute; top: calc(var(--hero-scene-size) - 46px); right: 5%; z-index: 2;
+  position: absolute; top: calc(var(--hero-scene-size) - 46px); left: 5%; z-index: 2;
   font: 400 11px/1.6 var(--body); color: var(--ink); padding: 5px 10px;
   background: #f7f4edeb;
 }
