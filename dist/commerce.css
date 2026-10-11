@@ -1,4 +1,4 @@
-@import url('theme.css');
+@import url('theme.css?v=20261011-premium2');
 :root {
   --bg: var(--paper);
   --panel: var(--surface);

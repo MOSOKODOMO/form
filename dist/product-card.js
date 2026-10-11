@@ -11,7 +11,7 @@
   function card(product, index = 0) {
     const item = el('li', 'product-card');
     const inner = el('article', 'product-card-inner');
-    const media = el('div', 'product-card-media');
+    const media = el('div', `product-card-media${product.photo_is_render ? '' : ' product-card-media--source'}`);
     const image = el('img');
     image.src = product.photo_url;
     image.alt = FI.imageAlt(product);
@@ -39,7 +39,7 @@
     const foot = el('div', 'product-card-foot');
     foot.append(priceNode);
     body.append(meta, title, el('p', 'product-card-maker', product.maker), foot);
-    body.append(el('p', 'product-card-research', `FI research score ${product.fi_score}/100`));
+    if (FI.SHOW_FI_RATING) body.append(el('p', 'product-card-research', `FI research score ${product.fi_score}/100`));
     if (product.source_check_status === 'unavailable' || product.source_check_status === 'details_unclear') {
       body.append(el('p', 'product-card-source-note', FI.sourceEvidence(product).label));
     }

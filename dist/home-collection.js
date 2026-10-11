@@ -3,9 +3,9 @@
   const grid = document.querySelector('#home-products');
   const status = document.querySelector('#home-products-status');
   if (!grid || !status) return;
-  const chosen = ['yila-matte-black-brass-t-bar', 'xinjun-vertical-knurled-brass-knob', 'mugu-brass-marble-t-bar', 'aqua-gallery-brass-towel-ring'];
+  const chosen = ['american-style-matte-black-cabinet-handles-solid-aluminum-alloy-kitchen-cupboard', 'retro-brass-cabinet-knobs-elegant-ribbed-handles-for-drawers-dressing-tables-mod', 'naierdi-luxury-brushed-gold-cabinet-handle-drawer-aluminum-alloy-long-furniture', 'brushed-brass-kitchen-cabinet-knobs-decorative-drawer-dresser-pulls-cupboard-war'];
   window.FICatalogue.loadProducts().then(list => {
-    const products = window.FICatalogue.listedProducts(list);
+    const products = window.FICatalogue.sortProducts(window.FICatalogue.listedProducts(list));
     const selections = chosen.map(handle => products.find(p => p.handle === handle)).filter(Boolean);
     for (const product of products) if (selections.length < 4 && !selections.includes(product)) selections.push(product);
     grid.replaceChildren(...selections.map(window.FIProductCard.card));

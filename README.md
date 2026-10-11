@@ -6,7 +6,7 @@ A curated store for mid-range to luxury design products from global manufacturer
 
 The new visual system uses an original architectural logo, Manrope headings, DM Sans reading text, panoramic interior imagery and an open product gallery. Shared navigation and mobile menus connect the shop, product pages, company information and existing workspaces. The shop adds local search, sorting, category counts and shareable filter URLs. Motion is progressive, respects device preferences and can be switched off in the footer. See [the design handoff](project-planning/PREMIUM-REDESIGN.md).
 
-The 21 published research listings, source evidence, prices and checkout states remain as they were. Lifestyle imagery is labelled as AI inspiration. Both fonts are self-hosted with their licences.
+This release integrates the current main through ec11a5c: 79 listings, the direct-delivery flow, Shopify pricing, finish filters, founding offer and new support, docs and policy pages. Their product data and service behaviour are preserved. Lifestyle imagery is labelled as AI inspiration. Both fonts are self-hosted with their licences. The older warehouse-only notes below describe previous releases; the current delivery terms are on the website.
 
 ## Curated store and customer reviews: 10 October 2026
 

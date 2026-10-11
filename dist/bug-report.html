@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fafbf8">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Tell the Fabrication Intelligence team about a website problem so we can fix it.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fabrication Intelligence">
+    <meta property="og:title" content="Report a bug | Fabrication Intelligence">
+    <meta property="og:description" content="Tell the Fabrication Intelligence team about a website problem so we can fix it.">
+    <meta property="og:url" content="https://fabricationintelligence.com/bug-report.html">
+    <meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Report a bug | Fabrication Intelligence</title>
+    <link rel="canonical" href="https://fabricationintelligence.com/bug-report.html">
+    <link rel="icon" type="image/svg+xml" href="assets/fi-mark.svg">
+    <link rel="stylesheet" href="builders.css?v=20261011-premium2">
+    <link rel="stylesheet" href="terms.css">
+    <link rel="stylesheet" href="docs.css">
+    <link rel="stylesheet" href="editorial-motion.css?v=20261011-premium2">
+    <script src="editorial-motion.js?v=20261011-premium2" defer></script>
+    <script src="telemetry-config.js" defer></script>
+    <script src="telemetry.js" defer></script>
+    <script src="log-config.js" defer></script>
+    <script src="fi-log.js" defer></script>
+    <script src="bug-report.js" defer></script>
+  <link rel="stylesheet" href="editorial.css?v=20261011-premium2"><link rel="stylesheet" href="brand-lockup.css?v=20261011-premium2">
+  <script src="site-shell.js?v=20261011-premium2" defer></script></head>
+  <body data-motion-page="functional">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header site-header--public">
+      <a class="brand" href="./" aria-label="Fabrication Intelligence home"><span class="identity"><img class="identity-mark" src="assets/fi-mark.svg" alt="" width="48" height="48"><span class="identity-name">Fabrication<span>Intelligence</span></span></span></a>
+      <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a class="mobile-search" href="shop.html#shop-search">Search the collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="about.html">About</a>
+        <details class="nav-more"><summary>Explore <span aria-hidden="true">+</span></summary><div class="nav-more-links">
+          <a href="./">Home</a>
+          <a href="./#pricing">Pricing &amp; trade</a>
+          <a href="reviews.html">Product reviews</a>
+          <a href="contact.html">Work with us</a>
+          <a href="support.html">Support</a><a href="docs.html">Guides &amp; FAQs</a>
+          <a href="orders.html">Track my orders</a>
+        </div></details>
+      </nav>
+      <div class="header-utilities"><a class="header-search" href="shop.html#shop-search">Search <span aria-hidden="true">↗</span></a><a href="auth.html">Log in</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu <span aria-hidden="true">+</span></button></div>
+    </header>
+    <main id="main">
+      <section class="page-hero terms-hero" aria-labelledby="page-title">
+        <p class="eyebrow"><span></span> BUG REPORT</p>
+        <h1 id="page-title" data-heading-style="brand">Tell us what<br>broke.</h1>
+        <p class="terms-date">Last updated <time datetime="2026-10-11">11 October 2026</time></p>
+        <p>A short form for website problems. It goes straight to the team.</p>
+      </section>
+      <div class="terms-layout">
+        <aside class="terms-index">
+          <nav aria-label="On this page">
+            <p class="eyebrow">ON THIS PAGE</p>
+            <ol>
+              <li><a href="#report">Send a report</a></li>
+              <li><a href="#what">What helps</a></li>
+              <li><a href="#privacy">What we collect</a></li>
+            </ol>
+          </nav>
+        </aside>
+        <article class="legal-copy terms-copy docs-copy" aria-label="Report a bug">
+
+          <section id="report">
+            <h2>1. Send a report</h2>
+            <p>Found something broken, slow or confusing? Tell us. We read every report and fix the real problems first.</p>
+            <form id="bug-form" class="docs-form" novalidate>
+              <label>What went wrong? *
+                <textarea id="bug-what" name="what" maxlength="2000" required aria-describedby="bug-status"></textarea>
+              </label>
+              <label>What did you expect to happen?
+                <textarea id="bug-expected" name="expected" maxlength="1000"></textarea>
+              </label>
+              <label>Which page? *
+                <input id="bug-page" type="text" name="page" maxlength="200" placeholder="For example /shop.html" required>
+              </label>
+              <fieldset><legend>How bad is it?</legend>
+                <div class="docs-choices">
+                  <label class="docs-choice"><input type="radio" name="severity" value="Cannot buy or log in"><span>I cannot buy or log in</span></label>
+                  <label class="docs-choice"><input type="radio" name="severity" value="Something is broken" checked><span>Something is broken</span></label>
+                  <label class="docs-choice"><input type="radio" name="severity" value="Looks wrong or confusing"><span>Looks wrong or confusing</span></label>
+                </div>
+              </fieldset>
+              <label class="docs-choice"><input type="checkbox" name="device" value="yes" checked><span>Include my browser and screen size so you can reproduce it</span></label>
+              <label>Email, if you want a reply (optional)
+                <input id="bug-email" type="email" name="email" maxlength="320" autocomplete="email">
+              </label>
+              <label class="docs-honeypot" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+              <div class="docs-actions">
+                <button class="button button-primary" type="submit">Send report <span aria-hidden="true">→</span></button>
+                <span id="bug-status" class="docs-status-text" role="status" aria-live="polite"></span>
+              </div>
+            </form>
+            <div id="bug-thanks" class="docs-thanks" tabindex="-1" hidden>
+              <h2 data-heading-style="brand">Thank you.</h2>
+              <p>Your report went to the team. If you left an email, we may reply with a question or when it is fixed.</p>
+              <p><a class="button button-primary" href="shop.html">Back to the shop <span aria-hidden="true">↗</span></a></p>
+            </div>
+          </section>
+          <section id="what">
+            <h2>2. What helps</h2>
+            <ul>
+              <li>The steps you took, in order.</li>
+              <li>What you saw instead of what you expected.</li>
+              <li>The product name if it is about one product.</li>
+              <li>Whether it happens every time.</li>
+            </ul>
+            <p>Problem with an order that has already been placed? Use <a href="support.html">Support</a> instead, so we can find your order.</p>
+          </section>
+          <section id="privacy">
+            <h2>3. What we collect</h2>
+            <p>Only what you type, plus your browser and screen size if you leave the box ticked. Do not include passwords, card numbers or other private details. The report is emailed to the team through FormSubmit, the same way as our feedback form. See the <a href="privacy.html">privacy notice</a>.</p>
+            <p class="terms-related"><a href="support.html">Support</a><a href="docs.html">Docs</a><a href="#main">Back to top ↑</a></p>
+          </section>
+
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-top"><div class="footer-intro"><a class="brand" href="./" aria-label="Fabrication Intelligence home"><span class="identity"><img class="identity-mark" src="assets/fi-mark.svg" alt="" width="48" height="48"><span class="identity-name">Fabrication<span>Intelligence</span></span></span></a><p>Considered pieces from global makers, for the places we call home.</p></div>
+        <div class="footer-column"><h2>The collection</h2><a href="shop.html">Shop all</a><a href="shop.html?category=handles">Handles</a><a href="shop.html?category=knobs">Knobs</a><a href="shop.html?category=bathroom">Bathroom</a><a href="shop.html?category=doors">Doors and walls</a><a href="./#pricing">Pricing &amp; trade</a></div>
+        <div class="footer-column"><h2>Fabrication Intelligence</h2><a href="about.html">About us</a><a href="how-it-works.html">How it works</a><a href="ai.html">AI at FI</a><a href="reviews.html">Product reviews</a><a href="contact.html">Work with us</a><a href="partner.html">Partner with us</a></div>
+        <div class="footer-column"><h2>Here to help</h2><a href="orders.html">Track my orders</a><a href="support.html">Support</a><a href="docs.html">Guides &amp; FAQs</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a><a href="bug-report.html">Report a problem</a><a href="auth.html">My account</a></div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 Fabrication Intelligence. Based in Melbourne, Australia.</p><p><a href="privacy.html">Privacy</a> &nbsp; <a href="legal.html">Legal &amp; policies</a> &nbsp; <a href="mailto:fabricationintelligence@gmail.com">Email us ↗</a> &nbsp; <button type="button" class="footer-motion" data-motion-toggle aria-pressed="true">Motion on</button></p></div>
+    </footer>
+  </body>
+</html>

@@ -29,7 +29,7 @@
   }
 
   function gallery(product) {
-    const section = el('section', 'product-gallery');
+    const section = el('section', `product-gallery${product.photo_is_render ? '' : ' product-gallery--source'}`);
     section.setAttribute('aria-label', 'Photos and origin story');
     const track = el('div', 'gallery-track');
     track.tabIndex = 0;
@@ -71,7 +71,7 @@
         thumb.setAttribute('aria-label', 'Show the origin story');
       }
       // Scroll only the gallery, never the page.
-      thumb.addEventListener('click', () => track.scrollTo({left: index * track.clientWidth, behavior: reducedMotion ? 'auto' : 'smooth'}));
+      thumb.addEventListener('click', () => track.scrollTo({left: index * track.clientWidth, behavior: reducedMotion || document.documentElement.dataset.editorialMotion === 'off' ? 'auto' : 'smooth'}));
       slides.push(slide);
       track.append(slide);
       thumbs.append(thumb);
@@ -124,7 +124,8 @@
       const note = product.status === 'draft' ? 'Draft preview: this product hasn’t been approved yet, so it isn’t in the shop.' : 'This product was rejected and isn’t in the shop.';
       section.append(el('p', 'product-status-note', note));
     }
-    section.append(eyebrow, title, maker, buy, specs, sourcePanel(product), score);
+    section.append(eyebrow, title, maker, buy, specs);
+    if (FI.SHOW_FI_RATING) section.append(sourcePanel(product), score);
     return section;
   }
 
@@ -300,7 +301,8 @@
       const reviews = el('section', 'product-reviews');
       reviews.dataset.reviewHandle = product.handle;
       reviews.setAttribute('aria-label', 'Customer product reviews');
-      root.replaceChildren(layout, trustPanel(product), reviews);
+      if (FI.SHOW_FI_RATING) root.replaceChildren(layout, trustPanel(product), reviews);
+      else root.replaceChildren(layout, reviews);
       root.removeAttribute('aria-busy');
     })
     .catch((error) => {

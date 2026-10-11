@@ -9,14 +9,15 @@
   const sort = document.querySelector('#shop-sort');
   const reset = document.querySelector('#shop-reset');
   const filters = [...document.querySelectorAll('.shop-filter[data-category]')];
-  const allowedSorts = ['featured', 'name', 'score', 'price-asc', 'price-desc'];
+  const finishButtons = [...document.querySelectorAll('.shop-filter[data-finish]')];
+  const allowedSorts = ['featured', 'name', 'price-asc', 'price-desc'];
   let products = [];
   let ready = false;
   let state = readState();
 
   function readState() {
     const params = new URLSearchParams(window.location.search);
-    return {category: FI.parseCategory(window.location.search), query: (params.get('q') || '').slice(0,160), sort: allowedSorts.includes(params.get('sort')) ? params.get('sort') : 'featured'};
+    return {category: FI.parseCategory(window.location.search), finish: FI.parseFinish(window.location.search), query: (params.get('q') || '').slice(0,160), sort: allowedSorts.includes(params.get('sort')) ? params.get('sort') : 'featured'};
   }
   const clean = text => String(text || '').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   function matching(list, query) {
@@ -27,7 +28,6 @@
     });
   }
   function sorted(list) {
-    if (state.sort === 'score') return FI.sortByScore(list);
     if (state.sort === 'name') return [...list].sort((a,b) => a.product.localeCompare(b.product));
     if (state.sort.startsWith('price-')) return [...list].sort((a,b) => {
       const ap = typeof a.price_aud === 'number' ? a.price_aud : null;
@@ -37,7 +37,7 @@
       if (bp === null) return -1;
       return state.sort === 'price-asc' ? ap-bp : bp-ap;
     });
-    return [...list];
+    return FI.sortProducts(list);
   }
   function empty() {
     const item = document.createElement('li');
@@ -56,33 +56,41 @@
     sort.value = state.sort;
     if (!ready) return;
     const matches = matching(products,state.query);
-    const counts = FI.categoryCounts(matches);
+    const counts = FI.categoryCounts(FI.filterByFinish(matches,state.finish));
+    const inCategory = FI.filterByCategory(matches,state.category);
+    for (const button of finishButtons) {
+      button.setAttribute('aria-pressed',String(button.dataset.finish === state.finish));
+      button.querySelector('.shop-filter-count').textContent = FI.filterByFinish(inCategory,button.dataset.finish).length;
+    }
     for (const button of filters) {
       button.setAttribute('aria-pressed', String(button.dataset.category === state.category));
       button.querySelector('.shop-filter-count').textContent = counts[button.dataset.category];
+      button.hidden = button.dataset.category !== 'all' && button.dataset.category !== state.category && counts[button.dataset.category] === 0;
     }
-    const list = sorted(FI.filterByCategory(matches,state.category));
+    const list = sorted(FI.filterByFinish(inCategory,state.finish));
     grid.replaceChildren(...(list.length ? list.map(window.FIProductCard.card) : [empty()]));
     document.dispatchEvent(new Event('fi:collection-rendered'));
     sampleBanner.hidden = !list.some(p => p.sample);
-    const where = state.category === 'all' ? '' : ` in ${FI.categoryName(state.category)}`;
+    const parts = [state.category === 'all' ? '' : FI.categoryName(state.category),state.finish === 'all' ? '' : FI.finishName(state.finish)].filter(Boolean);
+    const where = parts.length ? ` in ${parts.join(', ')}` : '';
     const query = state.query ? ` matching “${state.query}”` : '';
     status.textContent = `${list.length} product${list.length === 1 ? '' : 's'}${where}${query}`;
     if (state.sort.startsWith('price-')) status.textContent += '. Listed prices may cover different pack sizes; compare units on each product.';
-    reset.hidden = state.category === 'all' && !state.query && state.sort === 'featured';
+    reset.hidden = state.category === 'all' && state.finish === 'all' && !state.query && state.sort === 'featured';
   }
   function updateUrl(replace = false) {
     const url = new URL(window.location.href);
-    for (const [key, value, fallback] of [['category',state.category,'all'],['q',state.query,''],['sort',state.sort,'featured']]) {
+    for (const [key, value, fallback] of [['category',state.category,'all'],['finish',state.finish,'all'],['q',state.query,''],['sort',state.sort,'featured']]) {
       if (value === fallback) url.searchParams.delete(key); else url.searchParams.set(key,value);
     }
     window.history[replace ? 'replaceState' : 'pushState'](null, '', url);
     render();
   }
   for (const button of filters) button.addEventListener('click', () => { state.category = button.dataset.category; updateUrl(); });
+  for (const button of finishButtons) button.addEventListener('click', () => { state.finish = button.dataset.finish; updateUrl(); });
   search.addEventListener('input', () => { state.query = search.value.slice(0,160); updateUrl(true); });
   sort.addEventListener('change', () => { state.sort = sort.value; updateUrl(); });
-  reset.addEventListener('click', () => { state = {category:'all',query:'',sort:'featured'}; updateUrl(); search.focus(); });
+  reset.addEventListener('click', () => { state = {category:'all',finish:'all',query:'',sort:'featured'}; updateUrl(); search.focus(); });
   window.addEventListener('popstate', () => { state = readState(); render(); });
   render();
   if (window.location.hash === '#shop-search') search.focus();

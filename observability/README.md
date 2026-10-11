@@ -29,3 +29,19 @@ Once the owner is ready:
 Consent is local to the browser. Analytics cookie lifetime is 90 days. Withdrawal disables analytics, clears `_ga` cookies and the optional session cohort, but does not delete events already received by Google. No consent-mode pings are sent before consent because the tag itself is not loaded.
 
 Tests in `tests/telemetry.test.cjs` exercise the production/private-page boundaries, default opt-out, withdrawal, duplicate-event protection and removal of arbitrary data. Account setup and real GA delivery are separate activation checks, not proven by unit tests.
+
+## Website service logs (Axiom): 11 October 2026
+
+Public pages send a few fixed events to Axiom through the `fi-log` Supabase edge function (`supabase/functions/fi-log`). The browser never holds the Axiom token. This is separate from Google Analytics and needs no cookies.
+
+**What is sent:** `page_view`, `js_error`, `checkout_click`, `bug_report_submit`, each with the page path only. Error text is cut to 120 characters with web addresses and email addresses replaced. **What is never sent:** IP address, browser string, query strings, form contents, account, order or payment details. Private pages (sign-in, account, orders, admin) and visitors with Global Privacy Control or Do Not Track on are skipped. Nothing is sent until the endpoint is set.
+
+Switch it on (the owner does these steps; they involve accounts and secrets):
+
+1. Create an Axiom account and a dataset, for example `fi_site`. Create an API token that can **only ingest** into that dataset.
+2. In Supabase run: `supabase secrets set AXIOM_API_TOKEN=... AXIOM_DATASET=fi_site FI_LOG_PUBLISHABLE_KEY=<the project's publishable key>`. Add `AXIOM_DOMAIN` only if Axiom gave you a regional domain.
+3. Deploy: `supabase functions deploy fi-log --no-verify-jwt`.
+4. Put the function URL and the same publishable key in `dist/log-config.js`. The publishable key is public by design; the Axiom token is not.
+5. Open the live site, then check the dataset in Axiom for a `page_view` row.
+
+Useful Axiom queries: `['fi_site'] | summarize count() by event, path` for visits and clicks, and `['fi_site'] | where event == 'js_error'` for site errors. The tests in `tests/service-log.test.cjs` cover the function and the browser script, not the live Axiom account.

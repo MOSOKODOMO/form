@@ -13,6 +13,8 @@
 .collection-nav a:first-child { color: var(--ink); font-weight: 500; }
 .collection-nav a:hover { text-decoration: underline; color: var(--ink); }
 .collection-nav span { padding-left: 12px; }
+.home-shopping-note { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 32px; margin: 20px var(--gutter) 0; color: var(--muted); font-size: 12px; }
+.editorial-home #who-orders, .editorial-home #pricing { background: transparent; border-bottom: 1px solid var(--line); }
 .home-collection { padding: 90px 0 50px; }
 .collection-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin: 0 var(--gutter); }
 .collection-heading h2 { font-size: clamp(38px,4.4vw,68px); margin-top: 18px; letter-spacing: -.04em; }

@@ -81,7 +81,7 @@ test('shop page loads the catalogue first and offers every category with a sampl
   assert.match(shop, /id="shop-status"[^>]*role="status"/)
   assert.match(shop, /id="sample-banner"[\s\S]*?not for sale/)
   assert.match(shop, /<noscript>/)
-  assert.match(shop, /SORTED BY FI SCORE/)
+  assert.match(shop, catalogue.SHOW_FI_RATING ? /SORTED BY FI SCORE/ : /READY TO BUY FIRST/)
   const script = read('shop.js')
   assert.match(script, /WaterMark/, 'empty taps explain what taps need')
   assert.doesNotMatch(script, /innerHTML/, 'product text is never inserted as HTML')
@@ -96,4 +96,42 @@ test('photos use the alt text written from the product facts, and samples say th
   assert.equal(catalogue.imageAlt({...product, photo_alt: 'not stated'}), 'Example Knurled Brass Pull')
   assert.equal(catalogue.imageAlt({...product, photo_alt: undefined}), 'Example Knurled Brass Pull')
   assert.match(catalogue.imageAlt(samples[0]), /^Sample illustration of a /)
+})
+
+test('shop mode: the FI rating is off, so no score shows and ready-to-buy products come first', () => {
+  assert.equal(catalogue.SHOW_FI_RATING, false)
+  const shopify = 'https://84incd-vv.myshopify.com/products/x'
+  const list = [
+    variant({handle: 'quote-handle', product: 'Quote handle', sample: false, status: 'approved', category: 'handles', price_aud: 10, fi_score: 90}),
+    variant({handle: 'dear-knob', product: 'Dear knob', sample: false, status: 'live', category: 'knobs', price_aud: 50, fi_score: 0, shopify_url: shopify}),
+    variant({handle: 'cheap-knob', product: 'Cheap knob', sample: false, status: 'live', category: 'knobs', price_aud: 5, fi_score: 0, shopify_url: shopify}),
+    variant({handle: 'live-handle', product: 'Live handle', sample: false, status: 'live', category: 'handles', price_aud: 80, fi_score: 0, shopify_url: shopify}),
+  ]
+  assert.deepEqual(catalogue.sortProducts(list).map((product) => product.handle), ['live-handle', 'cheap-knob', 'dear-knob', 'quote-handle'])
+  assert.equal(catalogue.canBuyNow(list[1]), true)
+  assert.equal(catalogue.canBuyNow(list[0]), false)
+  const script = read('shop.js')
+  assert.match(script, /if \(FI\.SHOW_FI_RATING\) foot\.append\(scoreBadge/)
+  assert.match(script, /button\.hidden = id !== 'all' && id !== category && counts\[id\] === 0/, 'empty categories are hidden')
+  const product = read('product.js')
+  assert.match(product, /if \(FI\.SHOW_FI_RATING\) root\.replaceChildren\(layout, trustPanel\(product\), reviews\)/)
+  for (const page of ['index.html', 'shop.html', 'product.html', 'how-it-works.html']) {
+    assert.doesNotMatch(read(page), /href="rankings\.html"/, `${page} no longer links to the rankings`)
+  }
+  const shipping = read('shipping.html')
+  assert.match(shipping, /id="shop-orders"[\s\S]*?FI does not inspect them before delivery/, 'the shipping policy says shop orders ship direct')
+})
+
+test('shop by finish: products are grouped into matte black, brass and gold, and silver', () => {
+  assert.deepEqual(catalogue.FINISH_IDS, ['black', 'brass', 'silver'])
+  const item = (product, finishes, material = 'not stated') => variant({handle: product.toLowerCase().replace(/\W+/g, '-'), product, finishes, material, sample: false})
+  const list = [item('Matte Black Pull', ['Black']), item('Knurled Knob', ['Brushed Gold']), item('Towel Rail', ['Chrome'], '304 stainless steel'), item('Hinge', ['2pcs'])]
+  assert.deepEqual(list.map((product) => catalogue.finishesOf(product)), [['black'], ['brass'], ['silver'], []])
+  assert.deepEqual(catalogue.filterByFinish(list, 'brass').map((product) => product.product), ['Knurled Knob'])
+  assert.equal(catalogue.filterByFinish(list, 'all').length, 4)
+  assert.equal(catalogue.parseFinish('?finish=silver&category=doors'), 'silver')
+  assert.equal(catalogue.parseFinish('?finish=purple'), 'all')
+  const buttons = [...read('shop.html').matchAll(/data-finish="([a-z]+)"/g)].map((match) => match[1])
+  assert.deepEqual(buttons, ['all', ...catalogue.FINISH_IDS])
+  assert.match(read('shop.js'), /FI\.filterByFinish\(FI\.filterByCategory\(products, category\), finish\)/)
 })

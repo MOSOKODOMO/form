@@ -11,6 +11,13 @@
     {id: 'doors', name: 'Doors and walls'},
   ];
   const CATEGORY_IDS = CATEGORIES.map((category) => category.id);
+  // Shop by finish: one finish across the whole home. Read from the product name, finish options and material.
+  const FINISHES = [
+    {id: 'black', name: 'Matte black', pattern: /black/i},
+    {id: 'brass', name: 'Brass and gold', pattern: /brass|gold|bronze|copper/i},
+    {id: 'silver', name: 'Silver and stainless', pattern: /stainless|chrome|silver|nickel|polished|\b304\b/i},
+  ];
+  const FINISH_IDS = FINISHES.map((finish) => finish.id);
   // Verified: a person confirmed it on the issuer's own database. Claimed: on the maker's page only. Failed: checked and it didn't hold up.
   const CHECK_STATUSES = ['verified', 'claimed', 'failed', 'not stated'];
   const CHECK_LABELS = {verified: 'Verified', claimed: 'Claimed, not yet checked', failed: 'Failed our check', 'not stated': 'Not stated'};
@@ -31,6 +38,10 @@
   // Keys that must never reach the browser: Stripe secret, restricted and webhook keys, Shopify Admin tokens, private keys.
   const SECRET_PATTERNS = [/\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{6,}/, /\bwhsec_[A-Za-z0-9]{6,}/, /\bshp(?:at|ca|pa|ss)_[A-Za-z0-9]{6,}/, /-----BEGIN [A-Z ]*PRIVATE KEY-----/];
   const SHOPIFY_SDK = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  // Shop mode (Prem, 11 Oct 2026): the FI rating is off for now. While false, the shop and product pages hide the
+  // FI Score, the maker checks and the supplier research panel, and list ready-to-buy products first.
+  // The scores stay in products.json and rankings.html still works; set this to true to bring them back.
+  const SHOW_FI_RATING = false;
 
   const isHttps = (value) => typeof value === 'string' && /^https:\/\/[^\s"'<>]+$/.test(value);
   const isStripeLink = (value) => typeof value === 'string' && /^https:\/\/buy\.stripe\.com\/[A-Za-z0-9_-]+$/.test(value);
@@ -122,7 +133,30 @@
 
   const byScore = (a, b) => b.fi_score - a.fi_score || a.product.localeCompare(b.product);
   const sortByScore = (list) => [...list].sort(byScore);
+
+  // Shop mode order: products with a working Buy button first, then by category, then cheapest first.
+  const canBuyNow = (product) => {
+    const action = buyAction(product);
+    return action.kind === 'embed' || (action.kind === 'link' && action.label === 'Buy');
+  };
+  const priceOf = (product) => (typeof product.price_aud === 'number' ? product.price_aud : Infinity);
+  const byShop = (a, b) => Number(canBuyNow(b)) - Number(canBuyNow(a))
+    || CATEGORY_IDS.indexOf(a.category) - CATEGORY_IDS.indexOf(b.category)
+    || priceOf(a) - priceOf(b) || a.product.localeCompare(b.product);
+  const sortForShop = (list) => [...list].sort(byShop);
+  const sortProducts = (list) => (SHOW_FI_RATING ? sortByScore(list) : sortForShop(list));
   const filterByCategory = (list, category) => (CATEGORY_IDS.includes(category) ? list.filter((product) => product.category === category) : list);
+
+  function finishesOf(product) {
+    const text = [product.product, ...(Array.isArray(product.finishes) ? product.finishes : []), product.material].join(' ');
+    return FINISHES.filter((finish) => finish.pattern.test(text)).map((finish) => finish.id);
+  }
+  const filterByFinish = (list, finish) => (FINISH_IDS.includes(finish) ? list.filter((product) => finishesOf(product).includes(finish)) : list);
+  function parseFinish(search) {
+    const value = new URLSearchParams(search || '').get('finish');
+    return FINISH_IDS.includes(value) ? value : 'all';
+  }
+  const finishName = (id) => (FINISHES.find((finish) => finish.id === id) || {name: 'Any finish'}).name;
 
   function categoryCounts(list) {
     const counts = {all: list.length};
@@ -289,7 +323,7 @@
     return validProducts(await response.json(), (message) => console.warn(message));
   }
 
-  const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, CHECK_LABELS, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, filterByCategory, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, sourceEvidence, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts, SCORE_PARTS, CHIP_LABELS, isLive, parseView, scoreBreakdown, certificateChips, rankMakers, formatDate, scoreNotes};
+  const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, CHECK_LABELS, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, SHOW_FI_RATING, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, canBuyNow, sortForShop, sortProducts, filterByCategory, FINISHES, FINISH_IDS, finishesOf, filterByFinish, parseFinish, finishName, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, sourceEvidence, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts, SCORE_PARTS, CHIP_LABELS, isLive, parseView, scoreBreakdown, certificateChips, rankMakers, formatDate, scoreNotes};
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (typeof window !== 'undefined') window.FICatalogue = api;
 })();

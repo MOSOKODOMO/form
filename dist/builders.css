@@ -1,5 +1,5 @@
-@import url('theme.css');
-@import url('site-navigation.css');
+@import url('theme.css?v=20261011-premium2');
+@import url('site-navigation.css?v=20261011-premium2');
 
 :root {
   --display: 'Michroma', sans-serif;
