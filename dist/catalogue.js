@@ -6,7 +6,7 @@
     {id: 'handles', name: 'Handles'},
     {id: 'knobs', name: 'Knobs'},
     {id: 'tiles', name: 'Tiles'},
-    {id: 'taps', name: 'Taps'},
+    {id: 'taps', name: 'Taps and sinks'},
     {id: 'bathroom', name: 'Bathroom'},
     {id: 'doors', name: 'Doors and walls'},
     {id: 'decoration', name: 'Decoration'},
@@ -233,6 +233,7 @@
     if (product.status === 'draft') return {kind: 'none', label: 'Draft: not for sale', note: 'This product hasn’t been approved yet.'};
     if (product.status === 'rejected') return {kind: 'none', label: 'Not available', note: 'This product is no longer listed.'};
     const quote = {kind: 'quote', label: 'Request a quote', href: quoteHref(product), note: 'Ask us for a price and delivery time. We reply within 48 hours.'};
+    if (product.concept_only) return {...quote, note: 'Tell us your measurements and preferred finish. We will confirm the supplier, specifications, availability and delivered price before you order.'};
     if (product.sourcing_only) return {...quote, note: 'A similar piece selected from a source listing. We will confirm the exact variant, availability and delivered AUD price before you order.'};
     if (product.source_check_status === 'unavailable' || product.source_check_status === 'details_unclear') {
       return {...quote, label: 'Confirm product details', note: 'We need to confirm the source, variant and availability before accepting an order.'};
@@ -262,7 +263,7 @@
   function galleryItems(product) {
     return [
       {type: 'photo', src: product.photo_url, alt: imageAlt(product)},
-      {type: 'story', title: `Made by ${product.maker}`, place: shownValue(product.country), text: isStated(product.story_en) ? product.story_en : 'We haven’t recorded this maker’s story yet.'},
+      {type: 'story', title: product.concept_only ? 'About this design' : `Made by ${product.maker}`, place: product.concept_only ? 'Project enquiry' : shownValue(product.country), text: isStated(product.story_en) ? product.story_en : 'We haven’t recorded this maker’s story yet.'},
     ];
   }
 

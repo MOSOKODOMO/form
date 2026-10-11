@@ -56,10 +56,10 @@
         const card = el('div', 'story-card');
         const backdrop = el('p', 'story-backdrop', item.place);
         backdrop.setAttribute('aria-hidden', 'true');
-        card.append(backdrop, el('p', 'story-label', 'ORIGIN STORY'), el('h2', 'story-title', item.title), el('p', 'story-place', item.place), el('p', 'story-text', item.text));
+        card.append(backdrop, el('p', 'story-label', product.concept_only ? 'DESIGN REFERENCE' : 'ORIGIN STORY'), el('h2', 'story-title', item.title), el('p', 'story-place', item.place), el('p', 'story-text', item.text));
         slide.append(card);
         thumb.append(el('span', '', 'Story'));
-        thumb.setAttribute('aria-label', 'Show the origin story');
+        thumb.setAttribute('aria-label', product.concept_only ? 'Show the design reference' : 'Show the origin story');
       }
       // Scroll only the gallery, never the page.
       thumb.addEventListener('click', () => track.scrollTo({left: index * track.clientWidth, behavior: reducedMotion || document.documentElement.dataset.editorialMotion === 'off' ? 'auto' : 'smooth'}));
@@ -87,11 +87,11 @@
 
     const eyebrow = el('p', 'product-eyebrow');
     if (product.sample) eyebrow.append(el('span', 'sample-badge sample-badge--inline', 'SAMPLE'));
-    eyebrow.append(el('span', '', `${FI.categoryName(product.category)} · ${product.country}`));
+    eyebrow.append(el('span', '', FI.categoryName(product.category) + (product.concept_only ? '' : ` · ${product.country}`)));
     const title = el('h1', 'product-title', product.product);
     title.id = 'product-title';
-    const maker = el('p', 'product-maker', 'by ');
-    maker.append(product.maker_url ? link(product.maker_url, product.maker, true) : document.createTextNode(product.maker));
+    const maker = el('p', 'product-maker', product.concept_only ? 'Custom project enquiry' : 'by ');
+    if (!product.concept_only) maker.append(product.maker_url ? link(product.maker_url, product.maker, true) : document.createTextNode(product.maker));
 
     const score = el('div', 'product-score');
     const scoreText = el('div');
@@ -106,6 +106,7 @@
 
     const specs = el('dl', 'product-specs');
     for (const [name, value] of FI.specRows(product)) {
+      if (product.concept_only && !FI.isStated(value)) continue;
       const row = el('div');
       row.append(el('dt', '', name), el('dd', '', value));
       specs.append(row);
@@ -116,7 +117,8 @@
       section.append(el('p', 'product-status-note', note));
     }
     section.append(eyebrow, title, maker, buy, specs);
-    if (product.sourcing_only) section.append(el('p', 'product-status-note', 'Similar to the look in our kitchen concept. This image is inspiration; use the source listing to see the actual product. Pricing and supply will be confirmed before an order is accepted.'), sourcePanel(product));
+    if (product.concept_only) section.append(el('p', 'product-status-note', 'A design reference from our kitchen concept. The image shows the intended look; an exact product and supplier have not been selected. Send your dimensions and requirements to discuss suitable options.'));
+    else if (product.sourcing_only) section.append(el('p', 'product-status-note', 'Similar to the look in our kitchen concept. This image is inspiration; use the source listing to see the actual product. Pricing and supply will be confirmed before an order is accepted.'), sourcePanel(product));
     if (FI.SHOW_FI_RATING) { if (!product.sourcing_only) section.append(sourcePanel(product)); section.append(score); }
     return section;
   }

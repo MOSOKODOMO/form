@@ -34,8 +34,13 @@ test('the gallery shows the photo first and the origin story last', () => {
     const story = items.at(-1)
     assert.equal(story.type, 'story')
     assert.equal(story.text, product.story_en)
-    assert.match(story.title, new RegExp(product.maker))
-    assert.equal(story.place, product.country === 'not stated' ? 'Not stated' : product.country)
+    if (product.concept_only) {
+      assert.equal(story.title, 'About this design')
+      assert.equal(story.place, 'Project enquiry')
+    } else {
+      assert.match(story.title, new RegExp(product.maker))
+      assert.equal(story.place, product.country === 'not stated' ? 'Not stated' : product.country)
+    }
   }
 })
 

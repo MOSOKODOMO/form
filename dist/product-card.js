@@ -21,7 +21,8 @@
     if (product.sample) media.append(el('span', 'sample-badge', 'SAMPLE'));
     const body = el('div', 'product-card-body');
     const meta = el('p', 'product-card-meta');
-    meta.append(el('span', '', FI.categoryName(product.category)), el('span', '', product.country));
+    meta.append(el('span', '', FI.categoryName(product.category)));
+    if (!product.concept_only) meta.append(el('span', '', product.country));
     const title = el('h2', 'product-card-title');
     const link = el('a', 'product-card-link', product.product);
     link.href = FI.productUrl(product);
@@ -31,10 +32,10 @@
     if (price.unit) priceNode.append(document.createTextNode(' '), el('small', '', price.unit));
     const foot = el('div', 'product-card-foot');
     foot.append(priceNode);
-    body.append(meta, title, el('p', 'product-card-maker', product.maker), foot);
-    if (product.sourcing_only) body.append(el('p', 'product-card-source-note', 'Similar piece · Available to enquire'));
+    body.append(meta, title, el('p', 'product-card-maker', product.concept_only ? 'Custom project enquiry' : product.maker), foot);
+    if (product.sourcing_only) body.append(el('p', 'product-card-source-note', product.concept_only ? 'Design reference · Available to enquire' : 'Similar piece · Available to enquire'));
     if (FI.SHOW_FI_RATING) body.append(el('p', 'product-card-research', `FI research score ${product.fi_score}/100`));
-    if (product.source_check_status === 'unavailable' || product.source_check_status === 'details_unclear') {
+    if (!product.concept_only && (product.source_check_status === 'unavailable' || product.source_check_status === 'details_unclear')) {
       body.append(el('p', 'product-card-source-note', FI.sourceEvidence(product).label));
     }
     const action = FI.buyAction(product);

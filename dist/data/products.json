@@ -5740,5 +5740,217 @@
     "source_url": "https://www.abiinteriors.com.au/product/elysian-kitchen-mixer-brushed-nickel/",
     "story_en": "A curved bench-mounted mixer selected as a similar silhouette to the kitchen concept. ABI lists model 10258LF with a swivel spout and brushed nickel finish. This is a sourcing reference; FI has no confirmed resale or fulfilment arrangement.",
     "source_check_note": "The source lists a solid brass body and a swivel spout, without a pull-out nozzle. Confirm the selected model, current WaterMark and WELS records, availability and supply terms before including it in an FI order."
+  },
+  {
+    "handle": "dark-aluminium-window-frame",
+    "product": "Dark aluminium window frame",
+    "category": "doors",
+    "material": "Aluminium frame proposed; profile and glazing to confirm",
+    "finishes": [
+      "Dark charcoal (concept finish)"
+    ],
+    "sizes": [
+      "Made-to-measure enquiry; opening dimensions required"
+    ],
+    "story_en": "A slim dark frame inspired by the full-height glazing in our kitchen concept. Share your opening dimensions, preferred configuration and project location so suitable framing and glazing options can be discussed.",
+    "sample": false,
+    "status": "approved",
+    "sourcing_only": true,
+    "concept_only": true,
+    "maker": "not stated",
+    "maker_url": "",
+    "country": "not stated",
+    "ships_from": "not stated",
+    "price_aud": "not stated",
+    "price_unit": "not stated",
+    "delivery_estimate": "not stated",
+    "fi_score": 0,
+    "score_parts": {
+      "maker_check": 0,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "certificates": [
+      {
+        "name": "Product suitability and specifications",
+        "status": "not stated",
+        "link": ""
+      }
+    ],
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "photo_url": "assets/products/scene-window-frame-studio.webp",
+    "photo_alt": "AI studio concept of Dark aluminium window frame on white; not a supplier product photograph",
+    "photo_permission": "no",
+    "photo_is_render": false,
+    "photo_is_reference": true,
+    "photo_caption": "AI studio render of the intended look, not a product photograph. Final design, dimensions, materials and fittings will depend on the agreed specification.",
+    "source_url": "",
+    "source_check_status": "details_unclear",
+    "source_checked_on": "2026-10-12",
+    "source_check_note": "Design reference from the FI kitchen concept. No supplier or exact model has been selected. Dimensions, materials, finish, suitability, supply and delivered pricing need confirmation.",
+    "reviews": []
+  },
+  {
+    "handle": "oak-look-cabinet-door",
+    "product": "Oak-look cabinet door",
+    "category": "doors",
+    "material": "Oak-look finish; panel construction to confirm",
+    "finishes": [
+      "Warm oak-look vertical grain"
+    ],
+    "sizes": [
+      "Width, height and thickness to confirm"
+    ],
+    "story_en": "A simple flat cabinet front inspired by the warm timber cabinetry in our kitchen concept. This enquiry is for the door panel; handles, hinges and cabinet carcasses are separate. Share panel sizes and your preferred finish.",
+    "sample": false,
+    "status": "approved",
+    "sourcing_only": true,
+    "concept_only": true,
+    "maker": "not stated",
+    "maker_url": "",
+    "country": "not stated",
+    "ships_from": "not stated",
+    "price_aud": "not stated",
+    "price_unit": "not stated",
+    "delivery_estimate": "not stated",
+    "fi_score": 0,
+    "score_parts": {
+      "maker_check": 0,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "certificates": [
+      {
+        "name": "Product suitability and specifications",
+        "status": "not stated",
+        "link": ""
+      }
+    ],
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "photo_url": "assets/products/scene-cabinet-door-studio.webp",
+    "photo_alt": "AI studio concept of Oak-look cabinet door on white; not a supplier product photograph",
+    "photo_permission": "no",
+    "photo_is_render": false,
+    "photo_is_reference": true,
+    "photo_caption": "AI studio render of the intended look, not a product photograph. Final design, dimensions, materials and fittings will depend on the agreed specification.",
+    "source_url": "",
+    "source_check_status": "details_unclear",
+    "source_checked_on": "2026-10-12",
+    "source_check_note": "Design reference from the FI kitchen concept. No supplier or exact model has been selected. Dimensions, materials, finish, suitability, supply and delivered pricing need confirmation.",
+    "reviews": []
+  },
+  {
+    "handle": "stone-look-kitchen-island",
+    "product": "Stone-look kitchen island",
+    "category": "furniture",
+    "material": "Stone-look worktop; surface, substrate and base to confirm",
+    "finishes": [
+      "Warm beige stone look with timber base"
+    ],
+    "sizes": [
+      "Custom layout; length, width and height required"
+    ],
+    "story_en": "An island concept with a thick stone-look worktop, waterfall end and a recessed base. Share your floor plan and dimensions to discuss a suitable design. Sink, tap, seating, appliances and installation are separate requirements.",
+    "sample": false,
+    "status": "approved",
+    "sourcing_only": true,
+    "concept_only": true,
+    "maker": "not stated",
+    "maker_url": "",
+    "country": "not stated",
+    "ships_from": "not stated",
+    "price_aud": "not stated",
+    "price_unit": "not stated",
+    "delivery_estimate": "not stated",
+    "fi_score": 0,
+    "score_parts": {
+      "maker_check": 0,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "certificates": [
+      {
+        "name": "Product suitability and specifications",
+        "status": "not stated",
+        "link": ""
+      }
+    ],
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "photo_url": "assets/products/scene-kitchen-island-studio.webp",
+    "photo_alt": "AI studio concept of Stone-look kitchen island on white; not a supplier product photograph",
+    "photo_permission": "no",
+    "photo_is_render": false,
+    "photo_is_reference": true,
+    "photo_caption": "AI studio render of the intended look, not a product photograph. Final design, dimensions, materials and fittings will depend on the agreed specification.",
+    "source_url": "",
+    "source_check_status": "details_unclear",
+    "source_checked_on": "2026-10-12",
+    "source_check_note": "Design reference from the FI kitchen concept. No supplier or exact model has been selected. Dimensions, materials, finish, suitability, supply and delivered pricing need confirmation.",
+    "reviews": []
+  },
+  {
+    "handle": "undermount-kitchen-sink",
+    "product": "Undermount kitchen sink",
+    "category": "taps",
+    "material": "Brushed stainless steel proposed; grade and thickness to confirm",
+    "finishes": [
+      "Brushed stainless steel"
+    ],
+    "sizes": [
+      "Bowl dimensions and cabinet clearance to confirm"
+    ],
+    "story_en": "A clean undermount basin inspired by the sink in our kitchen concept. Share your cabinet width, worktop type and preferred bowl size. The actual bowl layout, mounting details, waste fittings and price will be confirmed before an order.",
+    "sample": false,
+    "status": "approved",
+    "sourcing_only": true,
+    "concept_only": true,
+    "maker": "not stated",
+    "maker_url": "",
+    "country": "not stated",
+    "ships_from": "not stated",
+    "price_aud": "not stated",
+    "price_unit": "not stated",
+    "delivery_estimate": "not stated",
+    "fi_score": 0,
+    "score_parts": {
+      "maker_check": 0,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "certificates": [
+      {
+        "name": "Product suitability and specifications",
+        "status": "not stated",
+        "link": ""
+      }
+    ],
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "photo_url": "assets/products/scene-kitchen-sink-studio.webp",
+    "photo_alt": "AI studio concept of Undermount kitchen sink on white; not a supplier product photograph",
+    "photo_permission": "no",
+    "photo_is_render": false,
+    "photo_is_reference": true,
+    "photo_caption": "AI studio render of the intended look, not a product photograph. Final design, dimensions, materials and fittings will depend on the agreed specification.",
+    "source_url": "",
+    "source_check_status": "details_unclear",
+    "source_checked_on": "2026-10-12",
+    "source_check_note": "Design reference from the FI kitchen concept. No supplier or exact model has been selected. Dimensions, materials, finish, suitability, supply and delivered pricing need confirmation.",
+    "reviews": []
   }
 ]

@@ -994,5 +994,57 @@
     "render_published": false,
     "style_reference_published": true,
     "physical_inspection_recorded": false
+  },
+  {
+    "handle": "dark-aluminium-window-frame",
+    "product": "Dark aluminium window frame",
+    "source_url": "",
+    "source_title": "FI kitchen design concept; no supplier selected",
+    "status": "details_unclear",
+    "checked_on": "2026-10-12",
+    "finding": "Design reference from the FI kitchen concept. No supplier or exact model has been selected. Dimensions, materials, finish, suitability, supply and delivered pricing need confirmation.",
+    "render_published": false,
+    "style_reference_published": true,
+    "concept_only": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "oak-look-cabinet-door",
+    "product": "Oak-look cabinet door",
+    "source_url": "",
+    "source_title": "FI kitchen design concept; no supplier selected",
+    "status": "details_unclear",
+    "checked_on": "2026-10-12",
+    "finding": "Design reference from the FI kitchen concept. No supplier or exact model has been selected. Dimensions, materials, finish, suitability, supply and delivered pricing need confirmation.",
+    "render_published": false,
+    "style_reference_published": true,
+    "concept_only": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "stone-look-kitchen-island",
+    "product": "Stone-look kitchen island",
+    "source_url": "",
+    "source_title": "FI kitchen design concept; no supplier selected",
+    "status": "details_unclear",
+    "checked_on": "2026-10-12",
+    "finding": "Design reference from the FI kitchen concept. No supplier or exact model has been selected. Dimensions, materials, finish, suitability, supply and delivered pricing need confirmation.",
+    "render_published": false,
+    "style_reference_published": true,
+    "concept_only": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "undermount-kitchen-sink",
+    "product": "Undermount kitchen sink",
+    "source_url": "",
+    "source_title": "FI kitchen design concept; no supplier selected",
+    "status": "details_unclear",
+    "checked_on": "2026-10-12",
+    "finding": "Design reference from the FI kitchen concept. No supplier or exact model has been selected. Dimensions, materials, finish, suitability, supply and delivered pricing need confirmation.",
+    "render_published": false,
+    "style_reference_published": true,
+    "concept_only": true,
+    "physical_inspection_recorded": false
   }
 ]

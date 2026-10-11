@@ -28,6 +28,26 @@
       "key": "cabinet-pull",
       "asset": "dist/assets/products/scene-cabinet-pull-studio.webp",
       "prompt": "Use case: product-mockup. Create one professional photorealistic ecommerce studio render for Fabrication Intelligence, portrait 4:5 composition. Input image is our AI kitchen concept, used only as a visual product reference. Show exactly ONE product, fully visible and centered, on a seamless pure white (#ffffff) background with a very soft contact shadow. Premium clean architectural catalogue lighting, realistic material detail, generous white margin. No room, countertop, hands, plants, accessories, packaging, branding, watermark, text, collage, repeated objects, or other products. Subject: one long straight slender cabinet pull inspired by the horizontal handles in the reference, but use a brushed brass finish to match the linked brass product. Single smooth cylindrical bar with two short integrated cylindrical mounting posts, minimalist proportions. One assembled pull only, no screws or cabinet, no variations. Positioned diagonally from lower left to upper right so its full length fits comfortably, three-quarter studio view."
+    },
+    {
+      "key": "window-frame",
+      "prompt": "Use case: product-mockup. Create one professional photorealistic ecommerce studio render for Fabrication Intelligence, portrait 4:5 composition. The supplied AI kitchen is a visual style reference only. Exactly ONE complete product, isolated and centered on seamless pure white #ffffff, soft contact shadow, realistic premium materials, generous margins. No text, branding, packaging, people, room, landscape, plants or other products. Subject: one wide rectangular dark charcoal aluminium fixed window frame assembly inspired by the narrow black window mullions on the left of the kitchen reference. Two large clear panes divided by one slender vertical mullion. Complete perimeter frame visible, subtle transparent glass reflections against white, slight three-quarter view showing slim frame depth. No wall, scenery or handle. This is a conceptual style illustration, not a particular supplier model.",
+      "asset": "dist/assets/products/scene-window-frame-studio.webp"
+    },
+    {
+      "key": "cabinet-door",
+      "prompt": "Use case: product-mockup. Create one professional photorealistic ecommerce studio render for Fabrication Intelligence, portrait 4:5 composition. The supplied AI kitchen is a visual style reference only. Exactly ONE complete product, isolated and centered on seamless pure white #ffffff, soft contact shadow, realistic premium materials, generous margins. No text, branding, packaging, people, room, landscape, plants or other products. Subject: exactly one flat slab cabinet door panel with warm natural oak-look vertical grain matching the kitchen cabinetry. Tall rectangular proportions, clean square corners, realistic subtle timber grain, slight three-quarter view showing panel thickness. No handle, hinges, cabinet carcass or additional panels. Complete panel visible.",
+      "asset": "dist/assets/products/scene-cabinet-door-studio.webp"
+    },
+    {
+      "key": "kitchen-island",
+      "prompt": "Use case: product-mockup. Create one professional photorealistic ecommerce studio render for Fabrication Intelligence, portrait 4:5 composition. The supplied AI kitchen is a visual style reference only. Exactly ONE complete product, isolated and centered on seamless pure white #ffffff, soft contact shadow, realistic premium materials, generous margins. No text, branding, packaging, people, room, landscape, plants or other products. Subject: one complete freestanding kitchen island inspired by the foreground island in the reference. Thick warm beige stone-look rectangular worktop with a solid waterfall end panel on the right and recessed warm timber base. An open seating overhang along the front. Show the entire island including its base, three-quarter front view. The worktop is clear and uninterrupted: no sink, faucet, stool, vase, handles, accessories, kitchen or surroundings.",
+      "asset": "dist/assets/products/scene-kitchen-island-studio.webp"
+    },
+    {
+      "key": "kitchen-sink",
+      "prompt": "Use case: product-mockup. Create one professional photorealistic ecommerce studio render for Fabrication Intelligence, portrait 4:5 composition. The supplied AI kitchen is a visual style reference only. Exactly ONE complete product, isolated and centered on seamless pure white #ffffff, soft contact shadow, realistic premium materials, generous margins. No text, branding, packaging, people, room, landscape, plants or other products. Subject: one brushed stainless steel undermount kitchen sink with a single deep rectangular bowl, gently rounded internal corners, a narrow mounting rim and one integrated round drain opening. A three-quarter view from above showing the clean empty basin and exterior edge. No tap, countertop, plumbing, drain accessories, extra bowls or other products. Complete sink visible.",
+      "asset": "dist/assets/products/scene-kitchen-sink-studio.webp"
     }
   ]
 }
