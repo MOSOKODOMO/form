@@ -9,6 +9,8 @@
     {id: 'taps', name: 'Taps'},
     {id: 'bathroom', name: 'Bathroom'},
     {id: 'doors', name: 'Doors and walls'},
+    {id: 'decoration', name: 'Decoration'},
+    {id: 'furniture', name: 'Furniture'},
   ];
   const CATEGORY_IDS = CATEGORIES.map((category) => category.id);
   // Shop by finish: one finish across the whole home. Read from the product name, finish options and material.
@@ -20,7 +22,7 @@
   const FINISH_IDS = FINISHES.map((finish) => finish.id);
   // Shop by room: a renovator shops a whole room, so rooms group the existing categories.
   const ROOMS = [
-    {id: 'kitchen', name: 'Kitchen', categories: ['handles', 'knobs']},
+    {id: 'kitchen', name: 'Kitchen', categories: ['handles', 'knobs', 'taps', 'tiles', 'decoration', 'furniture']},
     {id: 'bathroom', name: 'Bathroom', categories: ['bathroom']},
     {id: 'entry', name: 'Entry and doors', categories: ['doors']},
   ];
@@ -200,6 +202,7 @@
 
   const shownValue = (value) => (isStated(value) ? value : 'Not stated');
   const imageAlt = (product) => {
+    if (product.photo_is_reference) return `AI studio concept of ${product.product}; not a photograph of the supplier product`;
     if (product.sample) return `Sample illustration of a ${product.product.toLowerCase()}`;
     const alt = isStated(product.photo_alt) ? product.photo_alt : product.product;
     return product.photo_is_render === true && !/^AI render/i.test(alt) ? `AI render of ${alt}` : alt;
@@ -230,6 +233,7 @@
     if (product.status === 'draft') return {kind: 'none', label: 'Draft: not for sale', note: 'This product hasn’t been approved yet.'};
     if (product.status === 'rejected') return {kind: 'none', label: 'Not available', note: 'This product is no longer listed.'};
     const quote = {kind: 'quote', label: 'Request a quote', href: quoteHref(product), note: 'Ask us for a price and delivery time. We reply within 48 hours.'};
+    if (product.sourcing_only) return {...quote, note: 'A similar piece selected from a source listing. We will confirm the exact variant, availability and delivered AUD price before you order.'};
     if (product.source_check_status === 'unavailable' || product.source_check_status === 'details_unclear') {
       return {...quote, label: 'Confirm product details', note: 'We need to confirm the source, variant and availability before accepting an order.'};
     }

@@ -11,19 +11,12 @@
   function card(product, index = 0) {
     const item = el('li', 'product-card');
     const inner = el('article', 'product-card-inner');
-    const media = el('div', `product-card-media${product.photo_is_render ? '' : ' product-card-media--source'}`);
-    const image = el('img');
-    image.src = product.photo_url;
-    image.alt = FI.imageAlt(product);
-    image.width = 800;
-    image.height = 1000;
-    image.decoding = 'async';
-    image.loading = index < 4 ? 'eager' : 'lazy';
-    image.addEventListener('error', () => {
-      image.src = 'assets/products/photo-coming-soon.svg';
-      image.alt = `Image unavailable for ${product.product}`;
-    }, {once: true});
+    const media = el('a', `product-card-media${product.photo_is_reference ? ' product-card-media--reference' : product.photo_is_render ? '' : ' product-card-media--source'}`);
+    media.href = FI.productUrl(product);
+    media.setAttribute('aria-label', `View ${product.product}`);
+    const image = window.FIProductImage(product, {eager: index < 4, decorative: true});
     media.append(image);
+    if (product.photo_is_reference) media.append(el('span', 'render-badge', 'AI studio render'));
     if (product.photo_is_render) media.append(el('span', 'render-badge', 'AI catalogue render'));
     if (product.sample) media.append(el('span', 'sample-badge', 'SAMPLE'));
     const body = el('div', 'product-card-body');
@@ -39,6 +32,7 @@
     const foot = el('div', 'product-card-foot');
     foot.append(priceNode);
     body.append(meta, title, el('p', 'product-card-maker', product.maker), foot);
+    if (product.sourcing_only) body.append(el('p', 'product-card-source-note', 'Similar piece · Available to enquire'));
     if (FI.SHOW_FI_RATING) body.append(el('p', 'product-card-research', `FI research score ${product.fi_score}/100`));
     if (product.source_check_status === 'unavailable' || product.source_check_status === 'details_unclear') {
       body.append(el('p', 'product-card-source-note', FI.sourceEvidence(product).label));

@@ -946,5 +946,53 @@
     "render_published": false,
     "render_variant": "",
     "physical_inspection_recorded": false
+  },
+  {
+    "handle": "yamazon-solid-wood-saddle-stool",
+    "product": "Solid wood saddle stool",
+    "source_url": "https://yamazonhome.en.made-in-china.com/product/VdlQDuKrgPhG/China-Solid-Wood-High-and-Low-Bar-Stool-Cafe-Saddle-Stool.html",
+    "source_title": "Solid wood saddle stool",
+    "status": "listing_found",
+    "checked_on": "2026-10-12",
+    "finding": "The listing describes a solid wood saddle stool. It mentions both white oak and rubber wood, so timber species, finish and dimensions need confirmation. Freight, stock and an inclusive FI price have not been confirmed.",
+    "render_published": false,
+    "style_reference_published": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "balance-round-ceramic-vase",
+    "product": "Round ceramic vase, matte black",
+    "source_url": "https://xiamen-balance-co.en.made-in-china.com/product/udnAGwHvgVYU/China-Home-Decoration-Japanese-Ikebana-Vase-Flower-Modern-Matte-Black-Round-Ceramic-Vases.html",
+    "source_title": "Round ceramic vase, matte black",
+    "status": "listing_found",
+    "checked_on": "2026-10-12",
+    "finding": "The source lists a small black ceramic vase, with dimensions shown only in its imagery and a 20-piece minimum on the listing. Confirm the exact shape, size, watertightness, order quantity and delivery before ordering.",
+    "render_published": false,
+    "style_reference_published": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "imark-green-crackle-wall-tile",
+    "product": "Green crackle-glazed wall tile",
+    "source_url": "https://imarkmosaic.en.made-in-china.com/product/LwTJkCcSfpWs/China-Handmade-Decorative-Green-Ice-Crackle-Glazed-Basalt-Kitchen-Wall-Tile.html",
+    "source_title": "Green crackle-glazed wall tile",
+    "status": "listing_found",
+    "checked_on": "2026-10-12",
+    "finding": "The title describes green tiles but some specification fields say white. Confirm the green variant, material, finish and installation suitability using a physical sample. The listing gives a pallet minimum; FI pricing and freight are unconfirmed.",
+    "render_published": false,
+    "style_reference_published": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "abi-elysian-brushed-nickel-kitchen-mixer",
+    "product": "Elysian kitchen mixer, brushed nickel",
+    "source_url": "https://www.abiinteriors.com.au/product/elysian-kitchen-mixer-brushed-nickel/",
+    "source_title": "Elysian kitchen mixer, brushed nickel",
+    "status": "listing_found",
+    "checked_on": "2026-10-12",
+    "finding": "The source lists a solid brass body and a swivel spout, without a pull-out nozzle. Confirm the selected model, current WaterMark and WELS records, availability and supply terms before including it in an FI order.",
+    "render_published": false,
+    "style_reference_published": true,
+    "physical_inspection_recorded": false
   }
 ]

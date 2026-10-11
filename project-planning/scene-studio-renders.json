@@ -1,0 +1,33 @@
+{
+  "created_on": "2026-10-12",
+  "generation_mode": "Built-in image generation",
+  "reference": "dist/assets/considered-kitchen.webp",
+  "disclosure": "AI studio concepts inspired by the kitchen image. These are not supplier product photographs; actual dimensions, finish, and details may differ.",
+  "images": [
+    {
+      "key": "saddle-stool",
+      "asset": "dist/assets/products/scene-saddle-stool-studio.webp",
+      "prompt": "Use case: product-mockup. Create one professional photorealistic ecommerce studio render for Fabrication Intelligence, portrait 4:5 composition. Input image is our AI kitchen concept, used only as a visual product reference. Show exactly ONE product, fully visible and centered, on a seamless pure white (#ffffff) background with a very soft contact shadow. Premium clean architectural catalogue lighting, realistic material detail, generous white margin. No room, countertop, hands, plants, accessories, packaging, branding, watermark, text, collage, repeated objects, or other products. Subject: the front-most wooden saddle stool in the lower-left of the reference. Recreate its warm medium-brown wood, curved thick rectangular saddle seat with rounded corners, four tapered splayed timber legs and simple low stretchers. Show the entire stool including feet (complete the hidden lower portion naturally). Three-quarter front view. Only ONE stool."
+    },
+    {
+      "key": "round-vase",
+      "asset": "dist/assets/products/scene-round-vase-studio.webp",
+      "prompt": "Use case: product-mockup. Create one professional photorealistic ecommerce studio render for Fabrication Intelligence, portrait 4:5 composition. Input image is our AI kitchen concept, used only as a visual product reference. Show exactly ONE product, fully visible and centered, on a seamless pure white (#ffffff) background with a very soft contact shadow. Premium clean architectural catalogue lighting, realistic material detail, generous white margin. No room, countertop, hands, plants, accessories, packaging, branding, watermark, text, collage, repeated objects, or other products. Subject: the small round dark earthenware vase on the island in the reference. Recreate the squat rounded bulbous body, short slightly flared narrow neck, dark olive-brown charcoal mottled ceramic surface. Remove all branches and leaves. One EMPTY vase alone; no flowers or foliage. Three-quarter front studio view."
+    },
+    {
+      "key": "kitchen-mixer",
+      "asset": "dist/assets/products/scene-kitchen-mixer-studio.webp",
+      "prompt": "Use case: product-mockup. Create one professional photorealistic ecommerce studio render for Fabrication Intelligence, portrait 4:5 composition. Input image is our AI kitchen concept, used only as a visual product reference. Show exactly ONE product, fully visible and centered, on a seamless pure white (#ffffff) background with a very soft contact shadow. Premium clean architectural catalogue lighting, realistic material detail, generous white margin. No room, countertop, hands, plants, accessories, packaging, branding, watermark, text, collage, repeated objects, or other products. Subject: the curved brushed-silver kitchen mixer on the island in the reference. One assembled gooseneck kitchen faucet, tall smooth inverted U-shaped spout with downward-facing nozzle, cylindrical base, small integrated side lever. Satin brushed nickel metal, no gold. Full isolated faucet body and base, no sink, no hoses or detached parts. Three-quarter view."
+    },
+    {
+      "key": "green-tile",
+      "asset": "dist/assets/products/scene-green-tile-studio.webp",
+      "prompt": "Use case: product-mockup. Create one professional photorealistic ecommerce studio render for Fabrication Intelligence, portrait 4:5 composition. Input image is our AI kitchen concept, used only as a visual product reference. Show exactly ONE product, fully visible and centered, on a seamless pure white (#ffffff) background with a very soft contact shadow. Premium clean architectural catalogue lighting, realistic material detail, generous white margin. No room, countertop, hands, plants, accessories, packaging, branding, watermark, text, collage, repeated objects, or other products. Subject: one single square glossy dark forest-green wall tile inspired by the backsplash in the reference. A subtle handmade uneven glaze and fine crackle texture. One tile only, no grout or tile grid. Nearly straight-on frontal view with a slight angle showing its thin ceramic/stone edge, floated very slightly above the white sweep with a soft contact shadow."
+    },
+    {
+      "key": "cabinet-pull",
+      "asset": "dist/assets/products/scene-cabinet-pull-studio.webp",
+      "prompt": "Use case: product-mockup. Create one professional photorealistic ecommerce studio render for Fabrication Intelligence, portrait 4:5 composition. Input image is our AI kitchen concept, used only as a visual product reference. Show exactly ONE product, fully visible and centered, on a seamless pure white (#ffffff) background with a very soft contact shadow. Premium clean architectural catalogue lighting, realistic material detail, generous white margin. No room, countertop, hands, plants, accessories, packaging, branding, watermark, text, collage, repeated objects, or other products. Subject: one long straight slender cabinet pull inspired by the horizontal handles in the reference, but use a brushed brass finish to match the linked brass product. Single smooth cylindrical bar with two short integrated cylindrical mounting posts, minimalist proportions. One assembled pull only, no screws or cabinet, no variations. Positioned diagonally from lower left to upper right so its full length fits comfortably, three-quarter studio view."
+    }
+  ]
+}

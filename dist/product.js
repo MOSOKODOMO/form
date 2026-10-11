@@ -29,7 +29,7 @@
   }
 
   function gallery(product) {
-    const section = el('section', `product-gallery${product.photo_is_render ? '' : ' product-gallery--source'}`);
+    const section = el('section', `product-gallery${product.photo_is_reference ? ' product-gallery--reference' : product.photo_is_render ? '' : ' product-gallery--source'}`);
     section.setAttribute('aria-label', 'Photos and origin story');
     const track = el('div', 'gallery-track');
     track.tabIndex = 0;
@@ -43,24 +43,15 @@
       const thumb = el('button', `gallery-thumb gallery-thumb--${item.type}`);
       thumb.type = 'button';
       if (item.type === 'photo') {
-        const image = el('img');
-        image.src = item.src;
-        image.alt = item.alt;
-        image.width = 800;
-        image.height = 1000;
-        image.decoding = 'async';
+        const image = window.FIProductImage(product, {eager: index === 0});
         if (index === 0) image.setAttribute('fetchpriority', 'high');
         slide.append(image);
+        if (product.photo_is_reference) slide.append(el('span', 'render-badge', 'AI STUDIO RENDER'));
         if (product.photo_is_render) slide.append(el('span', 'render-badge', 'AI RENDER'));
         if (product.sample) slide.append(el('span', 'sample-badge', 'SAMPLE'));
-        const small = el('img');
-        small.src = item.src;
-        small.alt = '';
-        small.width = 80;
-        small.height = 100;
-        small.loading = 'lazy';
+        const small = window.FIProductImage(product, {width: 80, height: 100, decorative: true});
         thumb.append(small);
-        thumb.setAttribute('aria-label', product.photo_is_render ? 'Show the AI catalogue render' : 'Show the photo');
+        thumb.setAttribute('aria-label', product.photo_is_reference ? 'Show the AI studio render' : product.photo_is_render ? 'Show the AI catalogue render' : 'Show the photo');
       } else {
         const card = el('div', 'story-card');
         const backdrop = el('p', 'story-backdrop', item.place);
@@ -84,7 +75,7 @@
     track.addEventListener('scroll', () => window.requestAnimationFrame(markActive), {passive: true});
     markActive();
     section.append(track, thumbs);
-    if (product.photo_is_render) {
+    if (product.photo_is_render || product.photo_is_reference) {
       section.append(el('p', 'gallery-caption', product.photo_caption || 'AI render based on supplier imagery. Illustration only; confirm the selected variant before ordering.'));
     }
     return section;
@@ -125,7 +116,8 @@
       section.append(el('p', 'product-status-note', note));
     }
     section.append(eyebrow, title, maker, buy, specs);
-    if (FI.SHOW_FI_RATING) section.append(sourcePanel(product), score);
+    if (product.sourcing_only) section.append(el('p', 'product-status-note', 'Similar to the look in our kitchen concept. This image is inspiration; use the source listing to see the actual product. Pricing and supply will be confirmed before an order is accepted.'), sourcePanel(product));
+    if (FI.SHOW_FI_RATING) { if (!product.sourcing_only) section.append(sourcePanel(product)); section.append(score); }
     return section;
   }
 

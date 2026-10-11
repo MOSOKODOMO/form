@@ -35,7 +35,7 @@ test('the gallery shows the photo first and the origin story last', () => {
     assert.equal(story.type, 'story')
     assert.equal(story.text, product.story_en)
     assert.match(story.title, new RegExp(product.maker))
-    assert.equal(story.place, product.country)
+    assert.equal(story.place, product.country === 'not stated' ? 'Not stated' : product.country)
   }
 })
 

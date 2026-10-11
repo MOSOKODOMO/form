@@ -14,7 +14,8 @@ test('every catalogue product retains its audited supplier source and finding', 
     assert.ok(finding, product.handle)
     assert.equal(finding.source_url, product.source_url)
     assert.equal(finding.status, product.source_check_status)
-    assert.equal(product.source_checked_on, '2026-10-10')
+    assert.match(product.source_checked_on, /^\d{4}-\d{2}-\d{2}$/)
+    assert.equal(product.source_checked_on, finding.checked_on)
     assert.ok(product.source_check_note.length > 40)
     assert.doesNotMatch(FI.sourceEvidence(product).label, /verified/i)
   }

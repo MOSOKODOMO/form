@@ -5532,5 +5532,213 @@
     "source_check_status": "listing_found",
     "source_checked_on": "2026-10-10",
     "source_check_note": "AliExpress listing linked to this product in DSers, which places the order with the seller. Material, sizes and finishes are as the seller lists them; seller ratings are not reviews of this FI product. Not inspected yet."
+  },
+  {
+    "sample": false,
+    "status": "approved",
+    "sourcing_only": true,
+    "ships_from": "not stated",
+    "price_aud": "not stated",
+    "price_unit": "not stated",
+    "delivery_estimate": "not stated",
+    "fi_score": 0,
+    "score_parts": {
+      "maker_check": 0,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "certificates": [
+      {
+        "name": "Independent product verification",
+        "status": "not stated",
+        "link": ""
+      }
+    ],
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "photo_url": "assets/products/scene-saddle-stool-studio.webp",
+    "photo_alt": "AI studio concept of a single timber saddle stool on white; not a supplier product photograph",
+    "photo_permission": "no",
+    "photo_is_render": false,
+    "photo_is_reference": true,
+    "photo_caption": "AI studio render inspired by the kitchen concept, not a product photograph. The linked source is a similar piece; shape, finish and dimensions may differ. Open the source listing for actual product photographs.",
+    "source_check_status": "listing_found",
+    "source_checked_on": "2026-10-12",
+    "reviews": [],
+    "handle": "yamazon-solid-wood-saddle-stool",
+    "product": "Solid wood saddle stool",
+    "category": "furniture",
+    "maker": "Shouguang Yamazon Home Materials",
+    "maker_url": "https://yamazonhome.en.made-in-china.com",
+    "country": "China",
+    "material": "Solid wood; species to confirm",
+    "finishes": [
+      "Timber finish; confirm colour"
+    ],
+    "sizes": [
+      "High and low options; dimensions to confirm"
+    ],
+    "source_url": "https://yamazonhome.en.made-in-china.com/product/VdlQDuKrgPhG/China-Solid-Wood-High-and-Low-Bar-Stool-Cafe-Saddle-Stool.html",
+    "story_en": "A backless stool with a curved wooden seat, selected for its similarity to the kitchen concept. The source identifies model Amac-0081. FI has not inspected a sample or confirmed a supply arrangement.",
+    "source_check_note": "The listing describes a solid wood saddle stool. It mentions both white oak and rubber wood, so timber species, finish and dimensions need confirmation. Freight, stock and an inclusive FI price have not been confirmed."
+  },
+  {
+    "sample": false,
+    "status": "approved",
+    "sourcing_only": true,
+    "ships_from": "not stated",
+    "price_aud": "not stated",
+    "price_unit": "not stated",
+    "delivery_estimate": "not stated",
+    "fi_score": 0,
+    "score_parts": {
+      "maker_check": 0,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "certificates": [
+      {
+        "name": "Independent product verification",
+        "status": "not stated",
+        "link": ""
+      }
+    ],
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "photo_url": "assets/products/scene-round-vase-studio.webp",
+    "photo_alt": "AI studio concept of a single round dark ceramic vase on white; not a supplier product photograph",
+    "photo_permission": "no",
+    "photo_is_render": false,
+    "photo_is_reference": true,
+    "photo_caption": "AI studio render inspired by the kitchen concept, not a product photograph. The linked source is a similar piece; shape, finish and dimensions may differ. Open the source listing for actual product photographs.",
+    "source_check_status": "listing_found",
+    "source_checked_on": "2026-10-12",
+    "reviews": [],
+    "handle": "balance-round-ceramic-vase",
+    "product": "Round ceramic vase, matte black",
+    "category": "decoration",
+    "maker": "Xiamen Balance Art and Craft",
+    "maker_url": "https://xiamen-balance-co.en.made-in-china.com",
+    "country": "China",
+    "material": "Ceramic",
+    "finishes": [
+      "Matte black"
+    ],
+    "sizes": [
+      "Small; exact dimensions to confirm"
+    ],
+    "source_url": "https://xiamen-balance-co.en.made-in-china.com/product/udnAGwHvgVYU/China-Home-Decoration-Japanese-Ikebana-Vase-Flower-Modern-Matte-Black-Round-Ceramic-Vases.html",
+    "story_en": "A dark round tabletop vase selected as an alternative to the vase in our kitchen concept. The supplier describes ceramic construction and a black finish. Branches in the concept image are styling only.",
+    "source_check_note": "The source lists a small black ceramic vase, with dimensions shown only in its imagery and a 20-piece minimum on the listing. Confirm the exact shape, size, watertightness, order quantity and delivery before ordering."
+  },
+  {
+    "sample": false,
+    "status": "approved",
+    "sourcing_only": true,
+    "ships_from": "not stated",
+    "price_aud": "not stated",
+    "price_unit": "not stated",
+    "delivery_estimate": "not stated",
+    "fi_score": 0,
+    "score_parts": {
+      "maker_check": 0,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "certificates": [
+      {
+        "name": "Independent product verification",
+        "status": "not stated",
+        "link": ""
+      }
+    ],
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "photo_url": "assets/products/scene-green-tile-studio.webp",
+    "photo_alt": "AI studio concept of a single green glazed square tile on white; not a supplier product photograph",
+    "photo_permission": "no",
+    "photo_is_render": false,
+    "photo_is_reference": true,
+    "photo_caption": "AI studio render inspired by the kitchen concept, not a product photograph. The linked source is a similar piece; shape, finish and dimensions may differ. Open the source listing for actual product photographs.",
+    "source_check_status": "listing_found",
+    "source_checked_on": "2026-10-12",
+    "reviews": [],
+    "handle": "imark-green-crackle-wall-tile",
+    "product": "Green crackle-glazed wall tile",
+    "category": "tiles",
+    "maker": "Foshan Imark Building Materials",
+    "maker_url": "https://imarkmosaic.en.made-in-china.com",
+    "country": "China",
+    "material": "Glazed lava stone (supplier description)",
+    "finishes": [
+      "Green; colour sample required"
+    ],
+    "sizes": [
+      "100 × 100 mm; listed thickness 8 mm"
+    ],
+    "source_url": "https://imarkmosaic.en.made-in-china.com/product/LwTJkCcSfpWs/China-Handmade-Decorative-Green-Ice-Crackle-Glazed-Basalt-Kitchen-Wall-Tile.html",
+    "story_en": "A glazed square tile selected for the textured splashback look. The supplier identifies model AMK-LAVA-G03. A physical sample is needed to match the intended colour and surface.",
+    "source_check_note": "The title describes green tiles but some specification fields say white. Confirm the green variant, material, finish and installation suitability using a physical sample. The listing gives a pallet minimum; FI pricing and freight are unconfirmed."
+  },
+  {
+    "sample": false,
+    "status": "approved",
+    "sourcing_only": true,
+    "ships_from": "not stated",
+    "price_aud": "not stated",
+    "price_unit": "not stated",
+    "delivery_estimate": "not stated",
+    "fi_score": 0,
+    "score_parts": {
+      "maker_check": 0,
+      "product_proof": 0,
+      "value": 0,
+      "buyers": 0
+    },
+    "certificates": [
+      {
+        "name": "Independent product verification",
+        "status": "not stated",
+        "link": ""
+      }
+    ],
+    "shopify_url": "",
+    "shopify_buy_button": "",
+    "stripe_link": "",
+    "stripe_price_aud": "",
+    "photo_url": "assets/products/scene-kitchen-mixer-studio.webp",
+    "photo_alt": "AI studio concept of a single brushed nickel kitchen mixer on white; not a supplier product photograph",
+    "photo_permission": "no",
+    "photo_is_render": false,
+    "photo_is_reference": true,
+    "photo_caption": "AI studio render inspired by the kitchen concept, not a product photograph. The linked source is a similar piece; shape, finish and dimensions may differ. Open the source listing for actual product photographs.",
+    "source_check_status": "listing_found",
+    "source_checked_on": "2026-10-12",
+    "reviews": [],
+    "handle": "abi-elysian-brushed-nickel-kitchen-mixer",
+    "product": "Elysian kitchen mixer, brushed nickel",
+    "category": "taps",
+    "maker": "ABI Interiors",
+    "maker_url": "https://www.abiinteriors.com.au",
+    "country": "not stated",
+    "material": "Solid brass",
+    "finishes": [
+      "Brushed nickel"
+    ],
+    "sizes": [
+      "Height 372 mm; projection 188 mm"
+    ],
+    "source_url": "https://www.abiinteriors.com.au/product/elysian-kitchen-mixer-brushed-nickel/",
+    "story_en": "A curved bench-mounted mixer selected as a similar silhouette to the kitchen concept. ABI lists model 10258LF with a swivel spout and brushed nickel finish. This is a sourcing reference; FI has no confirmed resale or fulfilment arrangement.",
+    "source_check_note": "The source lists a solid brass body and a swivel spout, without a pull-out nozzle. Confirm the selected model, current WaterMark and WELS records, availability and supply terms before including it in an FI order."
   }
 ]
