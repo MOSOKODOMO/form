@@ -12,7 +12,7 @@ test('founder identities remain available on the homepage',()=>{ const html=read
 
 test('retired sourcing routes direct customers to products and their orders',()=>{ const html=read('stage2.html'); assert.match(html,/href="shop.html"/); assert.match(html,/href="orders.html"/); assert.doesNotMatch(html,/<form|stage2\.js/); })
 
-test('product reviews replace pricing comparisons and services state the correct fee',()=>{ assert.match(read('pricing.html'),/url=reviews.html/); assert.match(read('reviews.html'),/PRODUCT REVIEWS/); assert.match(read('services.html'),/10% of the initial product price/); })
+test('product reviews replace pricing comparisons and services state the correct fee',()=>{ assert.match(read('pricing.html'),/url=reviews.html/); assert.match(read('reviews.html'),/PRODUCT REVIEWS/); assert.match(read('how-it-works.html'),/10% of the initial product price/); })
 
 test('general feedback and purchase reviews have separate entry points',()=>{ assert.match(read('feedback.js'),/formsubmit\.co\/ajax\/fabricationintelligence@gmail\.com/); assert.match(read('feedback.html'),/href="reviews.html#write-review"/); })
 

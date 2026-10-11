@@ -34,7 +34,7 @@ The database and authenticated backend are deployed; live checkout and supplier 
   It reads only `dist/data/products.json`. Until a product is live, it shows the samples as a labelled example.
 - **Buying.** Only a product set to `live` can be bought. Its product page uses, in order: a Shopify Buy Button, a Shopify product link, a Stripe Payment Link, or else "Request a quote" (the contact form, with the product filled in).
 - **[How it works](dist/how-it-works.html), [Verified makers](dist/verified-makers.html) and [Partner with us](dist/partner.html)** came from the October marketplace preparation. The Verified makers directory reads `dist/data/makers.json` and `reports.json`, which stay empty until an FI Verify report is approved.
-- **[Inspection service](dist/services.html) and [Product reviews](dist/reviews.html)** explain the current model. Historic request pages lead to the collection. [Windows](dist/windows.html) is a future-category note and the [glass guide](dist/glass-guide.html) remains educational.
+- **[How it works](dist/how-it-works.html) and [Product reviews](dist/reviews.html)** explain the current model. How it works combines the order journey, service fee and inspection details; the former Services address redirects to its service-fee section. Historic request pages lead to the collection. [Windows](dist/windows.html) is a future-category note and the [glass guide](dist/glass-guide.html) remains educational.
 
 ## Preview and tests
 

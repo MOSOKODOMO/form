@@ -137,7 +137,7 @@ test('motion math is bounded and device reduced-motion always takes precedence',
 
 test('every full page wires one deferred shared script and stylesheet with a declared page mode', () => {
   const functional = new Set(['auth.html', 'account.html', 'stage2.html', 'supplier-portal.html', 'feedback.html', 'contact.html']);
-  for (const page of fs.readdirSync(path.join(__dirname, '../dist')).filter((file) => file.endsWith('.html') && !['request.html','pricing.html'].includes(file))) {
+  for (const page of fs.readdirSync(path.join(__dirname, '../dist')).filter((file) => file.endsWith('.html') && !['request.html','pricing.html','services.html'].includes(file))) {
     const html = read(page);
     assert.equal((html.match(/<script\b[^>]*src="site-motion\.js"[^>]*>/g) || []).length, 1, `${page} loads the shared script once`);
     assert.match(html, /<script\b(?=[^>]*src="site-motion\.js")(?=[^>]*\bdefer\b)[^>]*>/, `${page} defers enhancement until static content exists`);

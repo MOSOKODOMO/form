@@ -3,13 +3,26 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const pages = ['index.html', 'shop.html', 'product.html', 'rankings.html', 'partner.html', 'verified-makers.html', 'windows.html', 'how-it-works.html', 'services.html', 'reviews.html', 'about.html', 'contact.html', 'auth.html', 'stage2.html', 'builders.html', 'glass-guide.html', 'feedback.html', 'privacy.html', 'terms.html', 'shipping.html', 'returns.html'];
+const pages = ['index.html', 'shop.html', 'product.html', 'rankings.html', 'partner.html', 'verified-makers.html', 'windows.html', 'how-it-works.html', 'reviews.html', 'about.html', 'contact.html', 'auth.html', 'stage2.html', 'builders.html', 'glass-guide.html', 'feedback.html', 'privacy.html', 'terms.html', 'shipping.html', 'returns.html'];
 const expected = [
-  ['./', 'Home'], ['shop.html', 'Shop'], ['rankings.html', 'Rankings'], ['how-it-works.html', 'How it works'], ['services.html', 'Services'],
+  ['./', 'Home'], ['shop.html', 'Shop'], ['rankings.html', 'Rankings'], ['how-it-works.html', 'How it works'],
   ['reviews.html', 'Product reviews'], ['about.html', 'About'], ['contact.html', 'Work with us'],
   ['auth.html', 'Log in'], ['shop.html', 'Shop collection ↗'],
 ];
 const read = name => fs.readFileSync(path.join(__dirname, '..', 'dist', name), 'utf8');
+
+test('old service links lead to the combined process, fees and inspection page', () => {
+  const combined = read('how-it-works.html');
+  assert.match(read('services.html'), /content="0;url=how-it-works\.html#service-fee"/);
+  for (const anchor of ['order-journey', 'service-fee', 'fi-verify']) {
+    assert.equal((combined.match(new RegExp(`id="${anchor}"`, 'g')) || []).length, 1);
+  }
+  assert.match(combined, /If a check fails, shipping waits/);
+  assert.match(combined, /do not substitute another product without your agreement/);
+  assert.match(combined, /10% of the initial product price/);
+  assert.match(combined, /Our condition promise/);
+  assert.match(read('shop.html'), /href="how-it-works\.html#service-fee">Our inspection service/);
+});
 
 test('every public page retains the same complete primary navigation in the same order', () => {
   for (const page of pages) {

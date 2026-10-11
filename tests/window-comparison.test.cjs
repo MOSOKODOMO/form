@@ -9,7 +9,7 @@ test('retired comparison amounts and benchmark tables are absent from public win
  assert.match(read('pricing.html'),/url=reviews.html/);
 });
 test('fee uses the manufacturer product price and keeps other agreed costs in one AUD total',()=>{
- assert.match(read('services.html'),/10% of the initial product price/);
- assert.match(read('services.html'),/not calculated on freight, duties or tax/);
+ assert.match(read('how-it-works.html'),/10% of the initial product price/);
+ assert.match(read('how-it-works.html'),/not calculated on freight, duties or tax/);
  assert.match(read('shipping.html'),/One inclusive AUD total/);
 });
