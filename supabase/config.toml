@@ -9,3 +9,8 @@ verify_jwt = false
 # Public enquiry intake validates its website API key, origin and bounded payload.
 # A service-only database RPC applies a daily rate limit; no public table inserts.
 verify_jwt = false
+
+[functions.fi-log]
+# Public service-log intake validates its origin, key, event allowlist and 1 KB size limit.
+# It forwards only fixed events to Axiom and never the caller's IP address or browser.
+verify_jwt = false

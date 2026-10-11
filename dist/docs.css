@@ -1,0 +1,69 @@
+/* Shared by Docs, Support, Bug report, Legal and AI at FI. Builds on terms.css. */
+.docs-copy code { padding: 1px 6px; border: 1px solid var(--line); background: var(--soft); font: 12px/1.6 var(--mono); }
+.docs-copy ul { margin-top: 14px; }
+.docs-steps { display: grid; gap: 14px; margin: 18px 0 0; padding-left: 24px; color: var(--muted); }
+.docs-steps li::marker { color: var(--accent-ink); font: 600 12px var(--mono); }
+.docs-steps strong { color: var(--ink); }
+.docs-tip { margin-top: 18px; padding: 16px 20px; border-left: 3px solid var(--accent); background: var(--soft); font-size: 14px; }
+.docs-tip strong { color: var(--ink); }
+.docs-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 18px 0 0; }
+.docs-grid > div { padding: 16px 18px; border: 1px solid var(--line); background: var(--surface); }
+.docs-grid dt { color: var(--ink); font: 600 11px/1.6 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.docs-grid dd { margin: 6px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.docs-grid--tight > div { padding: 12px 16px; }
+.docs-table { width: 100%; margin-top: 18px; border-collapse: collapse; font-size: 14px; line-height: 1.7; }
+.docs-table th, .docs-table td { padding: 12px 14px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.docs-table thead th { background: var(--soft); color: var(--ink); font: 600 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.docs-table tbody th { width: 30%; color: var(--ink); font-weight: 600; }
+.docs-table td { color: var(--muted); }
+.docs-faq { margin-top: 10px; border: 1px solid var(--line); background: var(--surface); }
+.docs-faq summary { padding: 14px 18px; min-height: 44px; color: var(--ink); font-weight: 600; cursor: pointer; }
+.docs-faq summary:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 2px; }
+.docs-faq p { margin: 0; padding: 0 18px 16px; }
+.docs-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+.docs-card { display: grid; gap: 6px; align-content: start; padding: 20px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; }
+.docs-card:hover, .docs-card:focus-visible { border-color: var(--accent-ink); background: var(--soft); }
+.docs-card strong { font-size: 17px; }
+.docs-card span { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.docs-card small { color: var(--muted); font: 11px var(--mono); }
+.docs-status { display: inline-block; padding: 2px 8px; border: 1px solid var(--line); font: 600 10px/1.8 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.docs-status--live { border-color: var(--accent-ink); color: var(--accent-ink); }
+.docs-status--planned { color: var(--muted); }
+.docs-form { display: grid; gap: 16px; margin-top: 18px; }
+.docs-form[hidden], .docs-thanks[hidden] { display: none; }
+.docs-form label, .docs-form legend { display: grid; gap: 8px; color: var(--muted); font-size: 13px; }
+.docs-form fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+.docs-form legend { margin-bottom: 8px; padding: 0; }
+.docs-form input[type="text"], .docs-form input[type="email"], .docs-form input[type="url"], .docs-form textarea, .docs-form select { width: 100%; padding: 13px 14px; border: 1px solid var(--field-border); border-radius: 2px; color: var(--ink); background: var(--dark); font: 15px/1.5 var(--body); }
+.docs-form textarea { min-height: 130px; resize: vertical; }
+.docs-form input:focus, .docs-form textarea:focus, .docs-form select:focus { border-color: var(--accent-ink); outline: none; box-shadow: 0 0 0 3px var(--focus); }
+.docs-form .docs-choices { display: flex; flex-wrap: wrap; gap: 10px; }
+.docs-form .docs-choice { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--field-border); background: var(--surface); color: var(--ink); cursor: pointer; }
+.docs-form .docs-choice:has(input:checked) { border-color: var(--accent-ink); background: var(--soft); }
+.docs-form .docs-choice input { accent-color: var(--accent-ink); }
+.docs-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.docs-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.docs-actions button.button { border: 0; cursor: pointer; }
+.docs-actions button.button:disabled { opacity: .6; cursor: progress; }
+.docs-status-text { color: var(--muted); font-size: 13px; }
+.docs-status-text.error-text { color: var(--error); }
+.docs-thanks { padding: 28px; border: 1px solid var(--accent); background: var(--soft); }
+.docs-thanks:focus { outline: none; }
+.docs-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+.docs-flow li { padding: 16px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); font-size: 13px; line-height: 1.6; }
+.docs-flow li strong { display: block; margin-bottom: 4px; color: var(--ink); font: 600 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+@media (max-width: 850px) {
+  .docs-cards, .docs-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .docs-grid, .docs-cards, .docs-flow { grid-template-columns: minmax(0, 1fr); }
+  .docs-table, .docs-table tbody, .docs-table tr, .docs-table th, .docs-table td { display: block; width: 100%; }
+  .docs-table thead { position: absolute; left: -9999px; }
+  .docs-table tr { margin-top: 10px; border: 1px solid var(--line); }
+  .docs-table th, .docs-table td { border: 0; }
+  .docs-table tbody th { width: 100%; padding-bottom: 0; }
+}
+@media print {
+  .docs-faq:not([open]) p { display: block; }
+  .docs-form, .docs-actions { display: none; }
+}
