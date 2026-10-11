@@ -2,6 +2,12 @@
 
 A curated store for mid-range to luxury design products from global manufacturers, with warehouse inspection before onward delivery. Live at https://fabricationintelligence.com/.
 
+## Premium storefront: 11 October 2026
+
+The new visual system uses an original architectural logo, Manrope headings, DM Sans reading text, panoramic interior imagery and an open product gallery. Shared navigation and mobile menus connect the shop, product pages, company information and existing workspaces. The shop adds local search, sorting, category counts and shareable filter URLs. Motion is progressive, respects device preferences and can be switched off in the footer. See [the design handoff](project-planning/PREMIUM-REDESIGN.md).
+
+The 21 published research listings, source evidence, prices and checkout states remain as they were. Lifestyle imagery is labelled as AI inspiration. Both fonts are self-hosted with their licences.
+
 ## Curated store and customer reviews: 10 October 2026
 
 The homepage, shop, how-it-works, inspection service, About, contact and policies now describe the curated retail model. The fee is 10% of the manufacturer's initial product price converted to AUD; the agreed freight, inspection, duties and tax form one inclusive AUD total. The existing quote calculation already follows that rule. The database setting remains `costs_included`. China, Thailand and India describe the sourcing focus; each actual listing retains its source evidence.

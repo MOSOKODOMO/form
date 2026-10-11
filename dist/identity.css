@@ -1,0 +1,10 @@
+.identity { display: inline-flex; align-items: center; gap: 13px; color: var(--ink); }
+.identity-mark { display: block; flex: none; width: 43px; height: 43px; }
+.identity-name { display: block; font: 600 17px/1.16 var(--display); letter-spacing: -.035em; white-space: nowrap; }
+.identity-name > span { display: block; font-weight: 400; }
+body .brand { display: inline-flex; text-decoration: none; color: inherit; }
+body .site-header--public > .brand { flex: 0 0 auto; }
+.site-footer .identity { color: #f8faf6; }
+.site-footer .identity-mark { filter: brightness(0) invert(1); }
+.commerce-header .identity-name { font-size: 16px; }
+@media(max-width:520px) { .identity { gap: 9px; } .identity-mark { width: 36px; height: 36px; } .identity-name { font-size: 14px; } }

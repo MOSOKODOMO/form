@@ -1,26 +1,27 @@
 
-/* Shared warm-ivory palette and typography for every FI page and workspace. */
+/* Shared editorial palette for the storefront and workspaces. */
 :root {
   color-scheme: light;
-  --brand: 'Michroma', sans-serif;
-  --display: 'Michroma', sans-serif;
-  --body: 'Michroma', sans-serif;
+  --brand: 'Manrope', Arial, sans-serif;
+  --display: 'Manrope', Arial, sans-serif;
+  --body: 'DM Sans', Arial, sans-serif;
   --mono: var(--body);
-  --paper: #f7f4ed;
-  --surface: #f0ece2;
-  --soft: #e8e2d5;
-  --deep: #f2eee5;
-  --dark: #f2eee5;
-  --ink: #183d32;
-  --muted: #4d6358;
-  --line: #d7d2c5;
-  --field-border: #839185;
-  --accent: #d9dfcc;
-  --accent-hover: #c9d3b9;
-  --lime: #d9dfcc;
-  --accent-ink: #285444;
-  --on-accent: #183d32;
-  --header: rgba(247, 244, 237, .97);
+  --paper: #fafbf8;
+  --surface: #f0f2ed;
+  --soft: #e4e9e0;
+  --deep: #f0f2ed;
+  --dark: #edf0e9;
+  --ink: #172019;
+  --muted: #626a62;
+  --line: #d7ddd4;
+  --field-border: #9aa597;
+  --accent: #213d2b;
+  --accent-hover: #345540;
+  --lime: #d6e2cb;
+  --accent-ink: #294e36;
+  --on-accent: #fafbf8;
+  --header: #fafbf8;
+  --gutter: clamp(20px, 3.3vw, 64px);
   --focus: rgba(69, 98, 59, .35);
   --green: #3d6134;
   --success-bg: #e8e2d5;

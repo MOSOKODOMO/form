@@ -124,7 +124,7 @@
       const note = product.status === 'draft' ? 'Draft preview: this product hasn’t been approved yet, so it isn’t in the shop.' : 'This product was rejected and isn’t in the shop.';
       section.append(el('p', 'product-status-note', note));
     }
-    section.append(eyebrow, title, maker, sourcePanel(product), score, buy, specs);
+    section.append(eyebrow, title, maker, buy, specs, sourcePanel(product), score);
     return section;
   }
 
@@ -152,10 +152,10 @@
     product: {
       contents: {img: false, title: false, price: false},
       text: {button: 'Buy'},
-      styles: {button: {'font-family': 'Manrope, sans-serif', 'font-weight': '800', 'font-size': '13px', 'padding-top': '16px', 'padding-bottom': '16px', color: '#252b23', 'background-color': '#dce970', 'border-radius': '0px', ':hover': {color: '#252b23', 'background-color': '#e8f397'}, ':focus': {'background-color': '#e8f397'}}},
+      styles: {button: {'font-family': 'DM Sans, sans-serif', 'font-weight': '500', 'font-size': '13px', 'padding-top': '16px', 'padding-bottom': '16px', color: '#fafbf8', 'background-color': '#213d2b', 'border-radius': '0px', ':hover': {color: '#fafbf8', 'background-color': '#345540'}, ':focus': {'background-color': '#345540'}}},
     },
-    cart: {text: {total: 'Subtotal', button: 'Checkout'}, styles: {button: {color: '#252b23', 'background-color': '#dce970', 'border-radius': '0px', ':hover': {'background-color': '#e8f397'}}}},
-    toggle: {styles: {toggle: {'background-color': '#dce970', ':hover': {'background-color': '#e8f397'}}, count: {color: '#252b23'}, iconPath: {fill: '#252b23'}}},
+    cart: {text: {total: 'Subtotal', button: 'Checkout'}, styles: {button: {color: '#fafbf8', 'background-color': '#213d2b', 'border-radius': '0px', ':hover': {'background-color': '#345540'}}}},
+    toggle: {styles: {toggle: {'background-color': '#213d2b', ':hover': {'background-color': '#345540'}}, count: {color: '#fafbf8'}, iconPath: {fill: '#fafbf8'}}},
   };
   let shopifyLoading = null;
 
@@ -290,7 +290,7 @@
     .then((products) => {
       const product = handle && FI.findProduct(products, handle);
       if (!product) { notFound('It may have been removed, or the link is incomplete.'); return; }
-      document.title = `${product.product} | FABINT Shop`;
+      document.title = `${product.product} | Fabrication Intelligence`;
       const crumb = document.querySelector('#crumb-category');
       crumb.textContent = FI.categoryName(product.category);
       crumb.href = `shop.html?category=${product.category}`;

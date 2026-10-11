@@ -1,47 +1,51 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"><meta name="theme-color" content="#f7f4ed"><meta name="color-scheme" content="light">
+    <meta charset="utf-8"><meta name="theme-color" content="#fafbf8"><meta name="color-scheme" content="light">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Browse design products with supplier links, labelled AI catalogue renders and research notes."><meta property="og:type" content="website"><meta property="og:site_name" content="FABINT"><meta property="og:title" content="Shop | FABINT"><meta property="og:description" content="Browse design products with supplier links, labelled AI catalogue renders and research notes."><meta property="og:url" content="https://fabricationintelligence.com/shop.html"><meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-    <title>Shop | FABINT</title>
-    <link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg">
+    <meta name="description" content="Browse design products with supplier links, labelled AI catalogue renders and research notes."><meta property="og:type" content="website"><meta property="og:site_name" content="Fabrication Intelligence"><meta property="og:title" content="Shop | Fabrication Intelligence"><meta property="og:description" content="Browse design products with supplier links, labelled AI catalogue renders and research notes."><meta property="og:url" content="https://fabricationintelligence.com/shop.html"><meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+    <title>Shop | Fabrication Intelligence</title>
+    <link rel="icon" type="image/svg+xml" href="assets/fi-mark.svg">
     <link rel="stylesheet" href="builders.css">
     <link rel="stylesheet" href="shop.css">
-    <link rel="stylesheet" href="site-motion.css">
-    <script src="site-motion.js" defer></script>
+    <link rel="stylesheet" href="editorial-motion.css">
+    <script src="editorial-motion.js" defer></script>
     <script src="telemetry-config.js" defer></script>
     <script src="telemetry.js" defer></script>
     <script src="catalogue.js" defer></script>
-    <script src="shop.js" defer></script>
-  <link rel="stylesheet" href="editorial-michroma.css?v=didact-body-20261011"><link rel="stylesheet" href="brand-lockup.css">
-  </head>
+    <script src="product-card.js" defer></script><script src="shop.js" defer></script>
+  <link rel="stylesheet" href="editorial.css?v=20261011-premium"><link rel="stylesheet" href="brand-lockup.css?v=20261011-premium">
+  <script src="site-shell.js" defer></script><link rel="stylesheet" href="shop-editorial.css?v=20261011"></head>
   <body data-motion-page="functional">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header site-header--public">
-      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-artwork" aria-hidden="true"><img class="brand-artwork-image" src="assets/fabint-stacked-lockup.png" alt="" width="2000" height="1000"></span></a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="./">Home</a>
+      <a class="brand" href="./" aria-label="Fabrication Intelligence home"><span class="identity"><img class="identity-mark" src="assets/fi-mark.svg" alt="" width="48" height="48"><span class="identity-name">Fabrication<span>Intelligence</span></span></span></a>
+      <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a class="mobile-search" href="shop.html#shop-search">Search the collection</a>
         <a href="shop.html" aria-current="page">Shop</a>
-        <a href="rankings.html">Rankings</a>
         <a href="how-it-works.html">How it works</a>
-        <a href="reviews.html">Product reviews</a>
         <a href="about.html">About</a>
-        <a href="contact.html">Work with us</a>
-        <a href="auth.html">Log in</a>
-        <a class="nav-cta" href="shop.html">Shop collection <span aria-hidden="true">↗</span></a>
+        <details class="nav-more"><summary>Explore <span aria-hidden="true">+</span></summary><div class="nav-more-links">
+          <a href="./">Home</a>
+          <a href="rankings.html">Rankings</a>
+          <a href="reviews.html">Product reviews</a>
+          <a href="contact.html">Work with us</a>
+          <a href="order-catalogue.html">Order-ready catalogue</a>
+          <a href="orders.html">Track my orders</a>
+        </div></details>
       </nav>
+      <div class="header-utilities"><a class="header-search" href="shop.html#shop-search">Search <span aria-hidden="true">↗</span></a><a href="auth.html">Log in</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu <span aria-hidden="true">+</span></button></div>
     </header>
 
     <main id="main">
       <section class="shop-hero" aria-labelledby="shop-title">
         <div>
           <p class="eyebrow"><span></span> SHOP</p>
-          <h1 id="shop-title" data-heading-style="brand">Considered products.<br>From global makers.</h1>
+          <h1 id="shop-title">Find your finishing touch.</h1>
         </div>
-        <p>Explore our mid-range to luxury sourcing collection. Orders go to our warehouse for inspection before onward delivery. AI catalogue renders are labelled; supplier sources and outstanding checks stay visible.</p>
+        <p>Hardware, textures and everyday objects from global makers.</p>
       </section>
-      <p class="shop-status">Final inclusive AUD prices include a 10% service fee on the initial product price and all agreed costs. Research listings still need availability and specifications confirmed before ordering. Test checkout buttons are demonstrations; they do not place real orders. <a href="how-it-works.html#service-fee">Our inspection service ↗</a> · <a href="reviews.html">Customer reviews ↗</a></p>
+      <details class="shop-disclosure"><summary>About our collection and prices</summary><p>Final inclusive AUD prices include a 10% service fee on the initial product price and all agreed costs. Research listings need availability and specifications confirmed before ordering. AI catalogue renders are labelled. Test checkout buttons are demonstrations and do not place real orders. <a href="how-it-works.html#service-fee">How our service works ↗</a></p></details>
 
       <aside id="sample-banner" class="sample-banner" aria-label="About the sample products" hidden>
         <p class="sample-banner-label">SAMPLE PRODUCTS</p>
@@ -49,7 +53,7 @@
       </aside>
 
       <div class="shop-toolbar">
-        <p><a href="order-catalogue.html">Order-ready catalogue ↗</a> · <a href="orders.html">Track my orders</a></p>
+        <div class="shop-controls"><label class="shop-search" for="shop-search">Search the collection<input type="search" id="shop-search" name="q" placeholder="Try brass, handles or a maker's name" autocomplete="off" maxlength="160"></label><label class="shop-sort-control" for="shop-sort">Sort by<select id="shop-sort"><option value="featured">Featured</option><option value="name">Name, A to Z</option><option value="score">FI research score</option><option value="price-asc">Listed price: low to high</option><option value="price-desc">Listed price: high to low</option></select></label></div>
         <div class="shop-filters" role="group" aria-label="Filter by category">
           <button class="shop-filter" type="button" data-category="all" aria-pressed="true">All <span class="shop-filter-count"></span></button>
           <button class="shop-filter" type="button" data-category="handles" aria-pressed="false">Handles <span class="shop-filter-count"></span></button>
@@ -59,18 +63,21 @@
           <button class="shop-filter" type="button" data-category="bathroom" aria-pressed="false">Bathroom <span class="shop-filter-count"></span></button>
           <button class="shop-filter" type="button" data-category="doors" aria-pressed="false">Doors and walls <span class="shop-filter-count"></span></button>
         </div>
-        <p class="shop-sort">SORTED BY FI SCORE</p>
+
       </div>
 
-      <p id="shop-status" class="shop-status" role="status" aria-live="polite">Loading products…</p>
+      <div class="shop-result-bar"><p id="shop-status" class="shop-status" role="status" aria-live="polite">Loading products…</p><button type="button" class="shop-reset" id="shop-reset" hidden>Clear filters</button></div>
       <ul id="product-grid" class="product-grid" aria-busy="true"></ul>
       <noscript><p class="shop-status">The shop needs JavaScript to show products. Email <a href="mailto:fabricationintelligence@gmail.com">fabricationintelligence@gmail.com</a> and we’ll help.</p></noscript>
-    </main>
+    <aside class="collection-help"><p>Looking for something particular? Our team can help source it.</p><a class="text-link" href="contact.html">Tell us what you need ↗</a><a class="text-link" href="order-catalogue.html">Order-ready catalogue ↗</a></aside></main>
 
     <footer class="site-footer">
-      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-artwork" aria-hidden="true"><img class="brand-artwork-image" src="assets/fabint-stacked-lockup.png" alt="" width="2000" height="1000"></span></a>
-      <p>Curated global products. Inspected before dispatch.</p>
-      <div class="site-footer-links"><a href="reviews.html">Product reviews</a><a href="about.html">About</a><a href="contact.html">Work with us</a><a href="windows.html">Windows (coming later)</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; policies</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a></div>
+      <div class="footer-top"><div class="footer-intro"><a class="brand" href="./" aria-label="Fabrication Intelligence home"><span class="identity"><img class="identity-mark" src="assets/fi-mark.svg" alt="" width="48" height="48"><span class="identity-name">Fabrication<span>Intelligence</span></span></span></a><p>Considered pieces from global makers, for the places we call home.</p></div>
+        <div class="footer-column"><h2>The collection</h2><a href="shop.html">Shop all</a><a href="shop.html?category=handles">Handles</a><a href="shop.html?category=knobs">Knobs</a><a href="shop.html?category=bathroom">Bathroom</a><a href="shop.html?category=doors">Doors and walls</a><a href="windows.html">Windows research</a></div>
+        <div class="footer-column"><h2>Fabrication Intelligence</h2><a href="about.html">About us</a><a href="how-it-works.html">How it works</a><a href="rankings.html">Rankings</a><a href="reviews.html">Product reviews</a><a href="contact.html">Work with us</a><a href="partner.html">Partner with us</a></div>
+        <div class="footer-column"><h2>Here to help</h2><a href="orders.html">Track my orders</a><a href="contact.html">Get in touch</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a><a href="feedback.html">Feedback</a><a href="auth.html">My account</a></div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 Fabrication Intelligence. Based in Melbourne, Australia.</p><p><a href="privacy.html">Privacy</a> &nbsp; <a href="terms.html">Terms &amp; policies</a> &nbsp; <a href="mailto:fabricationintelligence@gmail.com">Email us ↗</a> &nbsp; <button type="button" class="footer-motion" data-motion-toggle aria-pressed="true">Motion on</button></p></div>
     </footer>
   </body>
 </html>
