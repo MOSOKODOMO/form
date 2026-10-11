@@ -54,6 +54,7 @@
       cta.append(document.createTextNode(label), arrow);
       body.append(cta);
     }
+    if (FI.canBuyNow(product) && window.FIProject) body.append(window.FIProject.button(product.handle, product.product, 'project-add project-add--card'));
     inner.append(media, body);
     item.append(inner);
     return item;

@@ -17,6 +17,12 @@ body .shop-filter[hidden] { display: none; }
 body .shop-finishes { padding-top: 0; }
 body .shop-finishes .shop-filter { border: 0; min-height: 36px; padding: 6px 12px; font-size: 12px; background: transparent; color: var(--muted); }
 body .shop-finishes .shop-filter[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
+body .shop-rooms { padding-top: 18px; padding-bottom: 0; margin: 0; }
+body .shop-rooms .shop-filter { min-height: 36px; padding: 6px 12px; border: 0; font-size: 12px; background: transparent; color: var(--muted); }
+body .shop-rooms .shop-filter[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
+body .shop-rooms + .shop-filters { padding-top: 10px; }
+.shop-project-link { margin-left: auto; }
+body .product-card-body .project-add { border-radius: 0; font: 400 12px var(--body); }
 .shop-result-bar { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; align-items: center; margin: 14px var(--gutter) 24px; }
 body .shop-result-bar .shop-status { margin: 0; font-size: 13px; }
 .shop-reset { font: 400 13px var(--body); border: 0; border-bottom: 1px solid var(--line); color: var(--ink); padding: 8px 0; background: transparent; cursor: pointer; }

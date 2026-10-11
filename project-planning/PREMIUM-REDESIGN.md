@@ -6,7 +6,7 @@ The supplied Terra & Timber reference inspired the oversized sans-serif headline
 
 ## Starting point
 
-Started from main at 795cd1d. Before release, integrated the newer main through ec11a5c, including the 79-product catalogue, Shopify pricing, finish filters, direct-delivery model, founding offer, support, documentation, legal pages and service logging. Those existing services and policy texts retain their current behaviour. The existing site used ivory, green, Michroma and Didact Gothic, a two-row navigation and text over a bathroom image.
+Started from main at 795cd1d. Before release, integrated the newer main through 2b8842f, including the 79-product catalogue, Shopify pricing, finish filters, direct-delivery model, founding offer, support, documentation, legal pages and service logging. Those existing services and policy texts retain their current behaviour. The existing site used ivory, green, Michroma and Didact Gothic, a two-row navigation and text over a bathroom image.
 
 ## Design direction
 
@@ -27,3 +27,5 @@ Short heading and photo entrances, scroll reveals, staggered product cards, subt
 ## Review notes
 
 Reviewed desktop and phone layouts, including home, shop, product, About and sign-in. Search, sorting, reset and the mobile menu were exercised during implementation. The initial checkout, product and source-audit subset passed 17 checks before the newer main was integrated; that result does not represent a full regression run of the merged release. No purchases, external enquiry submissions or account changes were made. Existing tests tied to the old navigation and homepage structure have not been rewritten as part of this design change.
+
+The final integration also preserves shop by room, project lists and trade applications. These pages now share the new logo, navigation, fonts and footer.

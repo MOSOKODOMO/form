@@ -133,5 +133,5 @@ test('shop by finish: products are grouped into matte black, brass and gold, and
   assert.equal(catalogue.parseFinish('?finish=purple'), 'all')
   const buttons = [...read('shop.html').matchAll(/data-finish="([a-z]+)"/g)].map((match) => match[1])
   assert.deepEqual(buttons, ['all', ...catalogue.FINISH_IDS])
-  assert.match(read('shop.js'), /FI\.filterByFinish\(FI\.filterByCategory\(products, category\), finish\)/)
+  assert.match(read('shop.js'), /FI\.filterByFinish\(FI\.filterByCategory\(inRoom, category\), finish\)/)
 })

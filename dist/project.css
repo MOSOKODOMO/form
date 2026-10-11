@@ -1,0 +1,31 @@
+/* Project list buttons, the project list page and the trade page. */
+.project-add { align-self: start; min-height: 44px; margin-top: 10px; padding: 8px 14px; border: 1px solid var(--field-border); border-radius: 2px; color: var(--ink); background: transparent; font: 600 12px/1.4 var(--mono); letter-spacing: .04em; cursor: pointer; }
+.project-add:hover, .project-add:focus-visible { border-color: var(--accent-ink); background: var(--soft); }
+.project-add:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 2px; }
+.project-add[aria-pressed="true"] { border-color: var(--accent-ink); color: var(--accent-ink); background: var(--soft); }
+.project-add--card { position: relative; z-index: 2; width: 100%; }
+.product-project { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 8px; }
+.product-project .project-add { margin-top: 0; }
+.product-project-link { color: var(--accent-ink); font-size: 13px; text-underline-offset: 4px; }
+.shop-rooms { margin-bottom: 8px; }
+.project-empty { padding: 28px; border: 1px dashed var(--field-border); background: var(--surface); }
+.project-empty[hidden], .project-panel[hidden] { display: none; }
+.project-list { display: grid; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+.project-item { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 14px; border: 1px solid var(--line); background: var(--surface); }
+.project-item img { width: 72px; height: 90px; object-fit: cover; background: var(--soft); }
+.project-item h3 { margin: 0; font-size: 16px; line-height: 1.4; }
+.project-item h3 a { color: var(--ink); text-underline-offset: 4px; }
+.project-item p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.project-item label { display: grid; gap: 4px; margin-top: 10px; color: var(--muted); font-size: 12px; }
+.project-item input[type="text"] { width: 100%; max-width: 360px; padding: 9px 10px; border: 1px solid var(--field-border); border-radius: 2px; color: var(--ink); background: var(--dark); font: 14px/1.4 var(--body); }
+.project-item-side { display: grid; gap: 8px; justify-items: end; }
+.project-qty { width: 76px; padding: 9px 10px; border: 1px solid var(--field-border); border-radius: 2px; color: var(--ink); background: var(--dark); font: 15px/1.4 var(--body); text-align: center; }
+.project-remove { min-height: 44px; padding: 6px 4px; border: 0; color: var(--accent-ink); background: transparent; font: 13px var(--body); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.project-summary { margin-top: 14px; color: var(--muted); font-size: 13px; }
+.project-error { padding: 14px 16px; border-left: 3px solid var(--error); background: var(--soft); color: var(--ink); font-size: 14px; }
+.project-error[hidden] { display: none; }
+@media (max-width: 560px) {
+  .project-item { grid-template-columns: 56px minmax(0, 1fr); }
+  .project-item img { width: 56px; height: 70px; }
+  .project-item-side { grid-column: 1 / -1; grid-auto-flow: column; justify-content: space-between; justify-items: start; align-items: center; }
+}

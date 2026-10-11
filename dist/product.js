@@ -235,6 +235,12 @@
       area.append(list);
     }
     area.append(el('p', 'product-buy-note', action.note));
+    // Trades and renovators can collect products and send one list to FI for a quote.
+    if (FI.canBuyNow(product) && window.FIProject) {
+      const listRow = el('p', 'product-project');
+      listRow.append(window.FIProject.button(product.handle, product.product, 'project-add'), document.createTextNode(' '), Object.assign(el('a', 'product-project-link', 'View project list'), {href: 'project.html'}));
+      area.append(listRow);
+    }
     return area;
   }
 

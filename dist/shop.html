@@ -6,16 +6,16 @@
     <meta name="description" content="Renovation hardware for plumbers, builders, renovators and homeowners. Order online and it ships direct to your site or door."><meta property="og:type" content="website"><meta property="og:site_name" content="Fabrication Intelligence"><meta property="og:title" content="Shop | Fabrication Intelligence"><meta property="og:description" content="Renovation hardware for plumbers, builders, renovators and homeowners. Order online and it ships direct to your site or door."><meta property="og:url" content="https://fabricationintelligence.com/shop.html"><meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
     <title>Shop | Fabrication Intelligence</title>
     <link rel="icon" type="image/svg+xml" href="assets/fi-mark.svg">
-    <link rel="stylesheet" href="builders.css?v=20261011-premium2">
+    <link rel="stylesheet" href="builders.css?v=20261011-premium3">
     <link rel="stylesheet" href="shop.css">
-    <link rel="stylesheet" href="editorial-motion.css?v=20261011-premium2">
-    <script src="editorial-motion.js?v=20261011-premium2" defer></script>
+    <link rel="stylesheet" href="editorial-motion.css?v=20261011-premium3">
+    <script src="editorial-motion.js?v=20261011-premium3" defer></script>
     <script src="telemetry-config.js" defer></script>
     <script src="telemetry.js" defer></script>
-    <script src="catalogue.js?v=20261011-premium2" defer></script>
-    <script src="product-card.js?v=20261011-premium2" defer></script><script src="shop.js?v=20261011-premium2" defer></script>
-  <link rel="stylesheet" href="editorial.css?v=20261011-premium2"><link rel="stylesheet" href="brand-lockup.css?v=20261011-premium2">
-  <script src="site-shell.js?v=20261011-premium2" defer></script><link rel="stylesheet" href="shop-editorial.css?v=20261011-premium2"><script src="log-config.js" defer></script><script src="fi-log.js" defer></script></head>
+    <script src="catalogue.js?v=20261011-premium3" defer></script>
+    <script src="project-list.js" defer></script><script src="product-card.js?v=20261011-premium3" defer></script><script src="shop.js?v=20261011-premium3" defer></script>
+  <link rel="stylesheet" href="editorial.css?v=20261011-premium3"><link rel="stylesheet" href="brand-lockup.css?v=20261011-premium3">
+  <script src="site-shell.js?v=20261011-premium3" defer></script><link rel="stylesheet" href="shop-editorial.css?v=20261011-premium3"><script src="log-config.js" defer></script><script src="fi-log.js" defer></script><link rel="stylesheet" href="project.css?v=20261011-premium3"></head>
   <body data-motion-page="functional">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header site-header--public">
@@ -27,7 +27,7 @@
         <a href="about.html">About</a>
         <details class="nav-more"><summary>Explore <span aria-hidden="true">+</span></summary><div class="nav-more-links">
           <a href="./">Home</a>
-          <a href="./#pricing">Pricing &amp; trade</a>
+          <a href="trade.html">Trade pricing</a><a href="project.html" data-project-link>Project list</a>
           <a href="reviews.html">Product reviews</a>
           <a href="contact.html">Work with us</a>
           <a href="support.html">Support</a><a href="docs.html">Guides &amp; FAQs</a>
@@ -54,7 +54,13 @@
 
       <div class="shop-toolbar">
         <div class="shop-controls"><label class="shop-search" for="shop-search">Search the collection<input type="search" id="shop-search" name="q" placeholder="Try brass, handles or a maker's name" autocomplete="off" maxlength="160"></label><label class="shop-sort-control" for="shop-sort">Sort by<select id="shop-sort"><option value="featured">Featured</option><option value="name">Name, A to Z</option><option value="price-asc">Listed price: low to high</option><option value="price-desc">Listed price: high to low</option></select></label></div>
-        <div class="shop-filters" role="group" aria-label="Filter by category">
+        <div class="shop-filters shop-rooms" role="group" aria-label="Shop by room">
+          <button class="shop-filter" type="button" data-room="all" aria-pressed="true">Any room <span class="shop-filter-count"></span></button>
+          <button class="shop-filter" type="button" data-room="kitchen" aria-pressed="false">Kitchen <span class="shop-filter-count"></span></button>
+          <button class="shop-filter" type="button" data-room="bathroom" aria-pressed="false">Bathroom <span class="shop-filter-count"></span></button>
+          <button class="shop-filter" type="button" data-room="entry" aria-pressed="false">Entry and doors <span class="shop-filter-count"></span></button>
+        </div>
+<div class="shop-filters" role="group" aria-label="Filter by category">
           <button class="shop-filter" type="button" data-category="all" aria-pressed="true">All <span class="shop-filter-count"></span></button>
           <button class="shop-filter" type="button" data-category="handles" aria-pressed="false">Handles <span class="shop-filter-count"></span></button>
           <button class="shop-filter" type="button" data-category="knobs" aria-pressed="false">Knobs <span class="shop-filter-count"></span></button>
@@ -72,7 +78,7 @@
 
       </div>
 
-      <div class="shop-result-bar"><p id="shop-status" class="shop-status" role="status" aria-live="polite">Loading products…</p><button type="button" class="shop-reset" id="shop-reset" hidden>Clear filters</button></div>
+      <div class="shop-result-bar"><p id="shop-status" class="shop-status" role="status" aria-live="polite">Loading products…</p><a class="text-link shop-project-link" href="project.html" data-project-link>Project list ↗</a><button type="button" class="shop-reset" id="shop-reset" hidden>Clear filters</button></div>
       <ul id="product-grid" class="product-grid" aria-busy="true"></ul>
       <noscript><p class="shop-status">The shop needs JavaScript to show products. Email <a href="mailto:fabricationintelligence@gmail.com">fabricationintelligence@gmail.com</a> and we’ll help.</p></noscript>
     <aside class="collection-help"><p>Looking for something particular? Our team can help source it.</p><a class="text-link" href="contact.html">Tell us what you need ↗</a><a class="text-link" href="order-catalogue.html">Order-ready catalogue ↗</a></aside></main>
@@ -80,8 +86,8 @@
     <footer class="site-footer">
       <div class="footer-top"><div class="footer-intro"><a class="brand" href="./" aria-label="Fabrication Intelligence home"><span class="identity"><img class="identity-mark" src="assets/fi-mark.svg" alt="" width="48" height="48"><span class="identity-name">Fabrication<span>Intelligence</span></span></span></a><p>Considered pieces from global makers, for the places we call home.</p></div>
         <div class="footer-column"><h2>The collection</h2><a href="shop.html">Shop all</a><a href="shop.html?category=handles">Handles</a><a href="shop.html?category=knobs">Knobs</a><a href="shop.html?category=bathroom">Bathroom</a><a href="shop.html?category=doors">Doors and walls</a><a href="./#pricing">Pricing &amp; trade</a></div>
-        <div class="footer-column"><h2>Fabrication Intelligence</h2><a href="about.html">About us</a><a href="how-it-works.html">How it works</a><a href="ai.html">AI at FI</a><a href="reviews.html">Product reviews</a><a href="contact.html">Work with us</a><a href="partner.html">Partner with us</a></div>
-        <div class="footer-column"><h2>Here to help</h2><a href="orders.html">Track my orders</a><a href="support.html">Support</a><a href="docs.html">Guides &amp; FAQs</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a><a href="bug-report.html">Report a problem</a><a href="auth.html">My account</a></div>
+        <div class="footer-column"><h2>Fabrication Intelligence</h2><a href="about.html">About us</a><a href="how-it-works.html">How it works</a><a href="ai.html">AI at FI</a><a href="reviews.html">Product reviews</a><a href="contact.html">Work with us</a><a href="trade.html">Trade pricing</a><a href="partner.html">Partner with us</a></div>
+        <div class="footer-column"><h2>Here to help</h2><a href="project.html" data-project-link>Project list</a><a href="orders.html">Track my orders</a><a href="support.html">Support</a><a href="docs.html">Guides &amp; FAQs</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a><a href="bug-report.html">Report a problem</a><a href="auth.html">My account</a></div>
       </div>
       <div class="footer-bottom"><p>© 2026 Fabrication Intelligence. Based in Melbourne, Australia.</p><p><a href="privacy.html">Privacy</a> &nbsp; <a href="legal.html">Legal &amp; policies</a> &nbsp; <a href="mailto:fabricationintelligence@gmail.com">Email us ↗</a> &nbsp; <button type="button" class="footer-motion" data-motion-toggle aria-pressed="true">Motion on</button></p></div>
     </footer>

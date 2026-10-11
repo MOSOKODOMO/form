@@ -6,7 +6,7 @@ A curated store for mid-range to luxury design products from global manufacturer
 
 The new visual system uses an original architectural logo, Manrope headings, DM Sans reading text, panoramic interior imagery and an open product gallery. Shared navigation and mobile menus connect the shop, product pages, company information and existing workspaces. The shop adds local search, sorting, category counts and shareable filter URLs. Motion is progressive, respects device preferences and can be switched off in the footer. See [the design handoff](project-planning/PREMIUM-REDESIGN.md).
 
-This release integrates the current main through ec11a5c: 79 listings, the direct-delivery flow, Shopify pricing, finish filters, founding offer and new support, docs and policy pages. Their product data and service behaviour are preserved. Lifestyle imagery is labelled as AI inspiration. Both fonts are self-hosted with their licences. The older warehouse-only notes below describe previous releases; the current delivery terms are on the website.
+This release integrates the current main through 2b8842f: 79 listings, the direct-delivery flow, Shopify pricing, finish filters, founding offer and new support, docs and policy pages. Their product data and service behaviour are preserved. Lifestyle imagery is labelled as AI inspiration. Both fonts are self-hosted with their licences. The older warehouse-only notes below describe previous releases; the current delivery terms are on the website.
 
 ## Curated store and customer reviews: 10 October 2026
 
@@ -122,3 +122,5 @@ The payment-backend status and proposed supplier-split approach below describe t
 - Database verification: `supabase/tests/account_payment_history.sql` uses transaction-only fixtures and rolls back. It checks signup profile creation, owner access, name updates, forbidden role/payment writes and anonymous denial. Frontend tests are in `tests/account-frontend.test.cjs`. Live email delivery and end-to-end checkout remain unverified.
 
 Historical notes are in [project-planning/README.md](project-planning/README.md), [WEEK-3-IMPLEMENTATION.md](project-planning/WEEK-3-IMPLEMENTATION.md) and [SPEC.md](SPEC.md).
+
+The final integration also preserves shop by room, project lists and trade applications. These pages now share the new logo, navigation, fonts and footer.
