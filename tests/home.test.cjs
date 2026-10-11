@@ -17,7 +17,8 @@ test('hero sells renovation hardware to every buyer, delivered direct', () => {
   assert.match(text(hero), /Renovation hardware. Delivered direct./);
   assert.match(text(hero), /plumbers, builders, renovators and homeowners/);
   assert.match(hero, /href="shop.html"/);
-  assert.match(text(hero), /Prices in AUD, GST included/);
+  assert.match(text(hero), /All-inclusive AUD prices. Free delivery over A\$100./);
+  assert.match(text(hero), /FOUNDING10/);
   assert.doesNotMatch(text(home), /Inspected before dispatch|FI Score/, 'shop orders are not inspected and the rating is off');
 })
 
@@ -66,4 +67,14 @@ test('the homepage no longer loads window content, scripts or the large window i
   }
   assert.doesNotMatch(text(home), /A\$356\.55|Stegbar|Thai window estimate/)
   assert.doesNotMatch(text(home), /guaranteed savings|always cheaper/i)
+})
+
+test('homepage pricing explains shop prices, the founding code, trade pricing and quotes', () => {
+  const pricing = block(/<section\b[^>]*id="pricing"[^>]*>([\s\S]*?)<\/section>/, 'a pricing section');
+  const titles = [...pricing.matchAll(/<li class="home-step">[\s\S]*?<h3>([\s\S]*?)<\/h3>/g)].map(match => text(match[1]));
+  assert.deepEqual(titles, ['Shop prices', 'Founding customers: 10% off', 'Trade: 15% off', 'Big or custom jobs']);
+  assert.match(text(pricing), /free on orders over A\$100/);
+  assert.match(text(pricing), /how FI makes money/);
+  assert.match(home, /href="#pricing">Pricing</, 'the footer links to pricing');
+  for (const finish of ['black', 'brass', 'silver']) assert.match(home, new RegExp(`href="shop\\.html\\?finish=${finish}"`));
 })

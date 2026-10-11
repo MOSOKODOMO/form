@@ -121,3 +121,17 @@ test('shop mode: the FI rating is off, so no score shows and ready-to-buy produc
   const shipping = read('shipping.html')
   assert.match(shipping, /id="shop-orders"[\s\S]*?FI does not inspect them before delivery/, 'the shipping policy says shop orders ship direct')
 })
+
+test('shop by finish: products are grouped into matte black, brass and gold, and silver', () => {
+  assert.deepEqual(catalogue.FINISH_IDS, ['black', 'brass', 'silver'])
+  const item = (product, finishes, material = 'not stated') => variant({handle: product.toLowerCase().replace(/\W+/g, '-'), product, finishes, material, sample: false})
+  const list = [item('Matte Black Pull', ['Black']), item('Knurled Knob', ['Brushed Gold']), item('Towel Rail', ['Chrome'], '304 stainless steel'), item('Hinge', ['2pcs'])]
+  assert.deepEqual(list.map((product) => catalogue.finishesOf(product)), [['black'], ['brass'], ['silver'], []])
+  assert.deepEqual(catalogue.filterByFinish(list, 'brass').map((product) => product.product), ['Knurled Knob'])
+  assert.equal(catalogue.filterByFinish(list, 'all').length, 4)
+  assert.equal(catalogue.parseFinish('?finish=silver&category=doors'), 'silver')
+  assert.equal(catalogue.parseFinish('?finish=purple'), 'all')
+  const buttons = [...read('shop.html').matchAll(/data-finish="([a-z]+)"/g)].map((match) => match[1])
+  assert.deepEqual(buttons, ['all', ...catalogue.FINISH_IDS])
+  assert.match(read('shop.js'), /FI\.filterByFinish\(FI\.filterByCategory\(products, category\), finish\)/)
+})

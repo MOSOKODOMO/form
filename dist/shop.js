@@ -7,6 +7,7 @@
   const status = document.querySelector('#shop-status');
   const sampleBanner = document.querySelector('#sample-banner');
   const filters = [...document.querySelectorAll('.shop-filter[data-category]')];
+  const finishButtons = [...document.querySelectorAll('.shop-filter[data-finish]')];
   let products = [];
 
   function el(tag, className, text) {
@@ -90,14 +91,22 @@
     return item;
   }
 
-  function summary(count, category) {
-    const where = category === 'all' ? '' : ` in ${FI.categoryName(category)}`;
+  function summary(count, category, finish = 'all') {
+    const parts = [category === 'all' ? '' : FI.categoryName(category), finish === 'all' ? '' : FI.finishName(finish)].filter(Boolean);
+    const where = parts.length ? ` in ${parts.join(', ')}` : '';
     if (!count) return `No products${where} yet.`;
     return `Showing ${count} product${count === 1 ? '' : 's'}${where}, ${FI.SHOW_FI_RATING ? 'highest FI Score first' : 'ready to buy first'}.`;
   }
 
-  function render(category) {
-    const counts = FI.categoryCounts(products);
+  function render(category, finish = FI.parseFinish(window.location.search)) {
+    const counts = FI.categoryCounts(FI.filterByFinish(products, finish));
+    const inCategory = FI.filterByCategory(products, category);
+    for (const button of finishButtons) {
+      const id = button.dataset.finish;
+      button.setAttribute('aria-pressed', String(id === finish));
+      const count = button.querySelector('.shop-filter-count');
+      if (count) count.textContent = FI.filterByFinish(inCategory, id).length;
+    }
     for (const button of filters) {
       const id = button.dataset.category;
       button.setAttribute('aria-pressed', String(id === category));
@@ -105,10 +114,10 @@
       // Empty categories stay out of the way until they have products (the chosen one always shows).
       button.hidden = id !== 'all' && id !== category && counts[id] === 0;
     }
-    const list = FI.sortProducts(FI.filterByCategory(products, category));
+    const list = FI.sortProducts(FI.filterByFinish(FI.filterByCategory(products, category), finish));
     grid.replaceChildren(...(list.length ? list.map(card) : [emptyState(category)]));
     sampleBanner.hidden = !list.some((product) => product.sample);
-    status.textContent = summary(list.length, category);
+    status.textContent = summary(list.length, category, finish);
   }
 
   for (const button of filters) {
@@ -121,13 +130,23 @@
       render(category);
     });
   }
-  window.addEventListener('popstate', () => render(FI.parseCategory(window.location.search)));
+  for (const button of finishButtons) {
+    button.addEventListener('click', () => {
+      const finish = button.dataset.finish;
+      const url = new URL(window.location.href);
+      if (finish === 'all') url.searchParams.delete('finish');
+      else url.searchParams.set('finish', finish);
+      window.history.pushState({finish}, '', url);
+      render(FI.parseCategory(url.search), finish);
+    });
+  }
+  window.addEventListener('popstate', () => render(FI.parseCategory(window.location.search), FI.parseFinish(window.location.search)));
 
   FI.loadProducts()
     .then((list) => {
       products = FI.listedProducts(list);
       grid.removeAttribute('aria-busy');
-      render(FI.parseCategory(window.location.search));
+      render(FI.parseCategory(window.location.search), FI.parseFinish(window.location.search));
     })
     .catch((error) => {
       console.error(error);
