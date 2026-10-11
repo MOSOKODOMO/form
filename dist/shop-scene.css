@@ -3,17 +3,18 @@
 .editorial-hero-image .scene-canvas img { display: block; width: 100%; height: auto; aspect-ratio: 1984 / 793; object-fit: contain; }
 .scene-map { position: absolute; inset: 0; display: block; width: 100%; height: 100%; overflow: visible; }
 .scene-link { cursor: pointer; outline: none; }
-.scene-lift { transform-box: view-box; transform-origin: var(--origin); transition: transform .45s cubic-bezier(.2,.65,.3,1), filter .45s; pointer-events: none; }
-.scene-hit { fill: transparent; stroke: transparent; stroke-width: 2; vector-effect: non-scaling-stroke; }
-.scene-link:is(:hover,:focus-visible) .scene-hit { stroke: #fafbf8; }
-.scene-link:is(:hover,:focus-visible) .scene-lift { transform: scale(var(--zoom,1.08)); filter: drop-shadow(0 8px 6px #15251966); }
+.scene-lift { transform-box: view-box; transform-origin: var(--origin); transition: transform .45s cubic-bezier(.2,.65,.3,1); pointer-events: none; }
+/* A feathered white halo replaces the hard outline without washing out the product. */
+.scene-hit { fill: transparent; stroke: #fff; stroke-width: 16; vector-effect: non-scaling-stroke; opacity: 0; filter: blur(5px); transform-box: view-box; transform-origin: var(--origin); transition: opacity .35s ease, transform .45s cubic-bezier(.2,.65,.3,1); pointer-events: all; }
+.scene-link:is(:hover,:focus-visible) .scene-hit { opacity: .2; transform: scale(var(--zoom,1.08)); }
+.scene-link:is(:hover,:focus-visible) .scene-lift { transform: scale(var(--zoom,1.08)); }
 
 .editorial-hero-image figcaption { font-size: 11px; line-height: 1.6; }
 .scene-touch-note { display: none; }
 @media (max-width: 600px) { .scene-touch-note { display: inline; } }
-[data-editorial-motion="off"] .scene-lift { transition: none; }
-[data-editorial-motion="off"] .scene-link:is(:hover,:focus-visible) .scene-lift { transform: none; filter: none; }
+[data-editorial-motion="off"] :is(.scene-lift,.scene-hit) { transition: none; }
+[data-editorial-motion="off"] .scene-link:is(:hover,:focus-visible) :is(.scene-lift,.scene-hit) { transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .scene-lift { transition: none; }
-  .scene-link:is(:hover,:focus-visible) .scene-lift { transform: none; filter: none; }
+  .scene-lift, .scene-hit { transition: none; }
+  .scene-link:is(:hover,:focus-visible) :is(.scene-lift,.scene-hit) { transform: none; }
 }
