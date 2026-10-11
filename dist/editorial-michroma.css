@@ -1,6 +1,6 @@
 @import url('theme.css?v=all-michroma-20261011');
 
-/* One self-hosted regular face across every page, including forms and workspaces. */
+/* Self-hosted Michroma headings and controls paired with Didact Gothic body text. */
 @font-face {
   font-family: 'Michroma';
   src: url('assets/fonts/Michroma-Regular.ttf') format('truetype');
@@ -8,9 +8,20 @@
   font-style: normal;
   font-display: swap;
 }
-html body { --body: 'Michroma', sans-serif; --display: var(--body); --mono: var(--body); --brand: var(--body); font-synthesis: none; }
-/* Keep page-specific font shorthands from introducing other faces or synthetic bold. */
-body, body *, body ::before, body ::after { font-family: 'Michroma', sans-serif !important; font-weight: 400 !important; }
+@font-face {
+  font-family: 'Didact Gothic';
+  src: url('assets/fonts/DidactGothic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+html body { --body: 'Didact Gothic', sans-serif; --display: 'Michroma', sans-serif; --mono: var(--body); --brand: var(--display); font-synthesis: none; }
+/* Override legacy page font shorthands, including nested paragraph and caption text. */
+body, body *, body ::before, body ::after { font-family: var(--body) !important; font-weight: 400 !important; }
+body :is(h1,h2,h3,h4,h5,h6,[role="heading"],button,[role="button"],.button,.nav-cta,.text-link,.quiet-link,.eyebrow,.brand-wordmark,.product-title,.home-category strong),
+body :is(h1,h2,h3,h4,h5,h6,[role="heading"],button,[role="button"],.button,.nav-cta,.text-link,.quiet-link,.eyebrow,.brand-wordmark,.product-title,.home-category strong) * {
+  font-family: var(--display) !important;
+}
 html body { font-family: var(--body); font-size: 18px; line-height: 1.6; font-weight: 400; }
 body :is(h1,h2,h3,h4,h5,h6,[role="heading"]) {
   font-family: var(--body); font-weight: 500; letter-spacing: -.025em; line-height: 1.15; text-transform: none; text-wrap: balance;
@@ -23,7 +34,7 @@ body main :is(.product-description,.product-lead,.product-facts dd,.content-lead
 body :is(button,.button,.nav-cta,.text-link,.quiet-link,nav a) { font-family: var(--body); font-weight: 600; }
 body :is(.product-card h2,.product-card h3,.product-title,.home-category strong) { font-family: var(--body); font-weight: 500; letter-spacing: -.015em; }
 body :is(.button,.nav-cta) { font-size: 15px; }
-body .site-header--public .site-nav { font-size: 14px; }
+body .site-header--public .site-nav { font-size: 17px; }
 body .eyebrow { font-size: 12px; font-weight: 500; line-height: 1.5; letter-spacing: .12em; }
 body :is(input,select,textarea) { font-family: var(--body); font-size: 17px; }
 body .brand-lockup { display:flex; align-items:center; gap:12px; }
@@ -90,7 +101,7 @@ body .home-category { min-width: 0; }
 body .home-category strong { font-size: clamp(17px, 1.7vw, 24px); }
 body .home-step h3 { font-size: 21px; line-height: 1.45; }
 @media(max-width:650px) {
-  body .site-header--public .site-nav { gap: 4px 12px; font-size: 11px; }
+  body .site-header--public .site-nav { gap: 4px 12px; font-size: 15px; }
   body .site-header--public .site-nav > a { white-space: normal; overflow-wrap: anywhere; }
   body .home-category { padding: 24px 14px; }
 }

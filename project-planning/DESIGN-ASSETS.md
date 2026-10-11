@@ -1,6 +1,6 @@
 # Ivory design update, 9 October 2026
 
-On 11 October 2026 the owner requested Michroma Regular for all website text, superseding the DM Sans pairing. The supplied self-hosted font now covers headings, body copy, navigation, buttons, forms and workspaces at weight 400, with synthetic bold disabled. Paragraphs retain 17–18px sizing and 1.6 line height. Navigation wraps as needed and hero headings are sized for Michroma's wider letterforms. The logo remains the supplied artwork described below.
+On 11 October 2026 the owner approved Didact Gothic Regular for smaller text after reviewing a mockup, superseding the all-Michroma treatment. Body copy, ordinary navigation links, captions, product descriptions, forms and supporting text use the supplied self-hosted `DidactGothic-Regular.ttf`; its license is stored as `DidactGothic-OFL.txt`. Large headings, button labels, action links and brand eyebrows retain Michroma Regular. Paragraphs retain 17–18px sizing and 1.6 line height. Ordinary navigation uses Didact Gothic at 17px on desktop and 15px on mobile, while the Shop collection button retains Michroma. The logo remains the supplied artwork described below.
 
 On 10 October 2026 the owner supplied `Michroma-Regular.ttf` and requested it for the logo and occasional short headings, replacing the previous Eurostile fallback plan. The original font is self-hosted at `dist/assets/fonts/Michroma-Regular.ttf`, with its SIL Open Font License at `dist/assets/fonts/Michroma-OFL.txt`. The font face is declared in `dist/editorial-michroma.css`.
 
