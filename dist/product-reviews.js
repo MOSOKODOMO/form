@@ -1,5 +1,5 @@
 import { node } from './commerce-client.js';
-import { readReviews, reviewCard, emptyReviews, summaryText } from './review-ui.js';
+import { readReviews, reviewCard, emptyReviews, summaryText } from './review-ui.js?v=20261012-featured';
 async function show(section) {
   const handle = section.dataset.reviewHandle;
   const heading = node('h2', 'Customer reviews');
@@ -7,10 +7,10 @@ async function show(section) {
   link.href = `reviews.html?handle=${encodeURIComponent(handle)}#write-review`;
   section.replaceChildren(heading, node('p', 'Loading reviews…'));
   try {
-    const { reviews, summary } = await readReviews({ handle });
+    const { reviews, summary, products } = await readReviews({ handle });
     section.replaceChildren(heading, node('p', summaryText(summary)));
     if (!reviews.length) section.append(emptyReviews());
-    else reviews.slice(0,3).forEach((review) => section.append(reviewCard(review)));
+    else reviews.slice(0,3).forEach((review) => section.append(reviewCard(review, { products })));
   } catch { section.replaceChildren(heading, node('p', 'Reviews are temporarily unavailable.')); }
   section.append(link);
 }

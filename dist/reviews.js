@@ -1,5 +1,5 @@
 import { supabase, node, session } from './commerce-client.js';
-import { readReviews, reviewCard, emptyReviews, summaryText } from './review-ui.js';
+import { readReviews, reviewCard, emptyReviews, summaryText } from './review-ui.js?v=20261012-featured';
 const $ = (selector) => document.querySelector(selector);
 const product = $('#review-product'), rating = $('#review-rating'), list = $('#review-list'), more = $('#review-more');
 const params = new URLSearchParams(location.search);
@@ -14,11 +14,11 @@ async function load(reset = true) {
   more.hidden = true;
   message('#review-status', 'Loading reviews…');
   try {
-    const { reviews, summary } = await readReviews({ product: product.value || null, handle, rating: rating.value ? Number(rating.value) : null, offset });
+    const { reviews, summary, products } = await readReviews({ product: product.value || null, handle, rating: rating.value ? Number(rating.value) : null, offset });
     if (request !== generation) return;
     $('#review-summary').textContent = summaryText(summary);
     if (!summary.review_count) list.append(emptyReviews(Boolean(product.value || rating.value || handle)));
-    else reviews.forEach((review) => list.append(reviewCard(review)));
+    else reviews.forEach((review) => list.append(reviewCard(review, { products })));
     offset += reviews.length;
     more.hidden = offset >= Number(summary.review_count);
     message('#review-status', summary.review_count ? `Showing ${offset} of ${summary.review_count} reviews.` : '');

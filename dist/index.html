@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="shop.css">
     <link rel="stylesheet" href="contact-form.css?v=20261010-workspaces">
+    <link rel="stylesheet" href="home-reviews.css?v=20261012-featured">
+    <script type="module" src="home-reviews.js?v=20261012-featured"></script>
     <script src="telemetry-config.js" defer></script>
     <script src="telemetry.js" defer></script>
 
     <script src="contact-form.js?v=20261010-workspaces" defer></script>
   <link rel="stylesheet" href="editorial.css?v=20261011-premium3"><link rel="stylesheet" href="brand-lockup.css?v=20261011-premium3">
-  <script src="site-shell.js?v=20261011-premium3" defer></script><script src="catalogue.js?v=20261012-enquiries" defer></script><script src="product-image.js?v=20261012-room" defer></script><script src="product-card.js?v=20261012-enquiries" defer></script><script src="home-collection.js?v=20261012-room" defer></script><link rel="stylesheet" href="shop-editorial.css?v=20261012-room"><link rel="stylesheet" href="home-editorial.css?v=20261011-premium3"><link rel="stylesheet" href="editorial-motion.css?v=20261011-premium3"><script src="editorial-motion.js?v=20261011-premium3" defer></script><script src="log-config.js" defer></script><script src="fi-log.js" defer></script><link rel="stylesheet" href="shop-scene.css?v=20261012-feather"></head>
+  <script src="site-shell.js?v=20261011-premium3" defer></script><script src="catalogue.js?v=20261012-enquiries" defer></script><script src="product-image.js?v=20261012-room" defer></script><script src="product-card.js?v=20261012-enquiries" defer></script><script src="home-collection.js?v=20261012-room" defer></script><link rel="stylesheet" href="shop-editorial.css?v=20261012-room"><link rel="stylesheet" href="home-editorial.css?v=20261011-premium3"><link rel="stylesheet" href="editorial-motion.css?v=20261011-premium3"><script src="editorial-motion.js?v=20261011-premium3" defer></script><script src="log-config.js" defer></script><script src="fi-log.js" defer></script><link rel="stylesheet" href="shop-scene.css?v=20261012-feather"><link rel="stylesheet" href="review-cards.css?v=20261012-featured"></head>
   <body class="editorial-home">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header site-header--public">
@@ -186,16 +188,22 @@
       </section>
 
       <section id="testimonials" class="home-testimonials" data-motion-section="Reviews" aria-labelledby="testimonials-title">
-        <div class="home-testimonials-box">
+        <div class="home-reviews-heading">
           <div>
-            <p class="eyebrow"><span></span> WHAT BUYERS SAY</p>
-            <h2 id="testimonials-title" data-heading-style="brand">Real reviews only.</h2>
-            <p class="home-testimonials-note">Read genuine reviews tied to paid, delivered FI orders. Positive and negative experiences follow the same rules.</p>
+            <p class="eyebrow"><span></span> CUSTOMER REVIEWS</p>
+            <h2 id="testimonials-title" data-heading-style="brand">What customers say.</h2>
+            <p class="home-testimonials-note">Experiences from verified FI purchases.</p>
           </div>
-          <div id="testimonial-list" class="testimonial-list">
-            <p class="testimonial-empty"><strong>Your experience matters.</strong>Review your delivered product and help the next customer choose.</p><a class="text-link" href="reviews.html">Read product reviews ↗</a>
-          </div>
+          <a class="text-link" href="reviews.html">Read all reviews <span aria-hidden="true">↗</span></a>
         </div>
+        <div class="home-reviews-context">
+          <p id="home-review-summary" hidden></p>
+          <p id="home-review-selection" hidden>Highest-rated reviews, with the newest first when ratings match.</p>
+        </div>
+        <div id="testimonial-list" class="testimonial-list home-review-grid" aria-live="polite">
+          <div class="home-review-empty"><h3>Your experience matters.</h3><p>Review a delivered purchase and help the next customer choose.</p></div>
+        </div>
+        <div class="home-reviews-footer"><p>Every rating has a place. Read all customer experiences on our reviews page.</p><a class="text-link" href="reviews.html#write-review">Review your purchase <span aria-hidden="true">↗</span></a></div>
       </section>
 
       <section id="contact" class="home-contact" data-motion-section="Work with us" aria-labelledby="contact-title">
