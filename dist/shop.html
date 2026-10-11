@@ -8,6 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg">
     <link rel="stylesheet" href="builders.css">
     <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="project.css">
     <link rel="stylesheet" href="site-motion.css">
     <script src="site-motion.js" defer></script>
     <script src="telemetry-config.js" defer></script>
@@ -15,6 +16,7 @@
     <script src="log-config.js" defer></script>
     <script src="fi-log.js" defer></script>
     <script src="catalogue.js" defer></script>
+    <script src="project-list.js" defer></script>
     <script src="shop.js" defer></script>
   <link rel="stylesheet" href="editorial-michroma.css?v=didact-body-20261011"><link rel="stylesheet" href="brand-lockup.css">
   </head>
@@ -50,7 +52,13 @@
       </aside>
 
       <div class="shop-toolbar">
-        <p><a href="order-catalogue.html">Order-ready catalogue ↗</a> · <a href="orders.html">Track my orders</a></p>
+        <p><a href="project.html" data-project-link>Project list</a> · <a href="order-catalogue.html">Order-ready catalogue ↗</a> · <a href="orders.html">Track my orders</a></p>
+        <div class="shop-filters shop-rooms" role="group" aria-label="Shop by room">
+          <button class="shop-filter" type="button" data-room="all" aria-pressed="true">Any room <span class="shop-filter-count"></span></button>
+          <button class="shop-filter" type="button" data-room="kitchen" aria-pressed="false">Kitchen <span class="shop-filter-count"></span></button>
+          <button class="shop-filter" type="button" data-room="bathroom" aria-pressed="false">Bathroom <span class="shop-filter-count"></span></button>
+          <button class="shop-filter" type="button" data-room="entry" aria-pressed="false">Entry and doors <span class="shop-filter-count"></span></button>
+        </div>
         <div class="shop-filters" role="group" aria-label="Filter by category">
           <button class="shop-filter" type="button" data-category="all" aria-pressed="true">All <span class="shop-filter-count"></span></button>
           <button class="shop-filter" type="button" data-category="handles" aria-pressed="false">Handles <span class="shop-filter-count"></span></button>
@@ -77,7 +85,7 @@
     <footer class="site-footer">
       <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-artwork" aria-hidden="true"><img class="brand-artwork-image" src="assets/fabint-stacked-lockup.png" alt="" width="2000" height="1000"></span></a>
       <p>Renovation hardware, delivered direct.</p>
-      <div class="site-footer-links"><a href="./#pricing">Pricing</a><a href="reviews.html">Product reviews</a><a href="about.html">About</a><a href="contact.html">Work with us</a><a href="windows.html">Windows (coming later)</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; policies</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a><a href="docs.html">Docs</a><a href="support.html">Support</a><a href="legal.html">Legal</a><a href="ai.html">AI at FI</a></div>
+      <div class="site-footer-links"><a href="./#pricing">Pricing</a><a href="reviews.html">Product reviews</a><a href="about.html">About</a><a href="contact.html">Work with us</a><a href="windows.html">Windows (coming later)</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; policies</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a><a href="docs.html">Docs</a><a href="support.html">Support</a><a href="legal.html">Legal</a><a href="ai.html">AI at FI</a><a href="trade.html">Trade</a></div>
     </footer>
   </body>
 </html>

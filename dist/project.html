@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f4ed">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Collect the products for a job and send one list to Fabrication Intelligence for a quote.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FABINT">
+    <meta property="og:title" content="Project list | Fabrication Intelligence">
+    <meta property="og:description" content="Collect the products for a job and send one list to Fabrication Intelligence for a quote.">
+    <meta property="og:url" content="https://fabricationintelligence.com/project.html">
+    <meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Project list | Fabrication Intelligence</title>
+    <link rel="canonical" href="https://fabricationintelligence.com/project.html">
+    <link rel="icon" type="image/svg+xml" href="assets/fabint-icon.svg">
+    <link rel="stylesheet" href="builders.css">
+    <link rel="stylesheet" href="terms.css">
+    <link rel="stylesheet" href="docs.css">
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="site-motion.css">
+    <script src="site-motion.js" defer></script>
+    <script src="telemetry-config.js" defer></script>
+    <script src="telemetry.js" defer></script>
+    <script src="log-config.js" defer></script>
+    <script src="fi-log.js" defer></script>
+    <script src="catalogue.js" defer></script>
+    <script src="project-list.js" defer></script>
+    <script src="send-enquiry.js" defer></script>
+    <script src="project.js" defer></script>
+  <link rel="stylesheet" href="editorial-michroma.css?v=didact-body-20261011"><link rel="stylesheet" href="brand-lockup.css">
+  </head>
+  <body data-motion-page="functional">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header site-header--public">
+      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-artwork" aria-hidden="true"><img class="brand-artwork-image" src="assets/fabint-stacked-lockup.png" alt="" width="2000" height="1000"></span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="./">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="reviews.html">Product reviews</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Work with us</a>
+        <a href="auth.html">Log in</a>
+        <a class="nav-cta" href="shop.html">Shop collection <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-hero terms-hero" aria-labelledby="page-title">
+        <p class="eyebrow"><span></span> PROJECT LIST</p>
+        <h1 id="page-title" data-heading-style="brand">Build your list.<br>Get one quote.</h1>
+        <p class="terms-date">Last updated <time datetime="2026-10-11">11 October 2026</time></p>
+        <p>Collect what a room or a job needs, then send it to us in one go. Made for renovators, plumbers and builders.</p>
+      </section>
+      <div class="terms-layout">
+        <aside class="terms-index">
+          <nav aria-label="On this page">
+            <p class="eyebrow">ON THIS PAGE</p>
+            <ol>
+              <li><a href="#list">Your list</a></li>
+              <li><a href="#send">Send it for a quote</a></li>
+              <li><a href="#how">What happens next</a></li>
+            </ol>
+          </nav>
+        </aside>
+        <article class="legal-copy terms-copy docs-copy" aria-label="Project list">
+
+          <section id="list">
+            <h2>1. Your list</h2>
+            <p>Add products from the <a href="shop.html">shop</a> with the <strong>Add to project list</strong> button. The list is kept in this browser only. Nothing is sent to us until you press send below.</p>
+            <div id="project-empty" class="project-empty" hidden>
+              <strong>Your list is empty.</strong>
+              <p>Browse by room, pick what you need and come back here.</p>
+              <p><a class="button button-primary" href="shop.html?room=kitchen">Shop kitchen <span aria-hidden="true">↗</span></a> <a class="button" href="shop.html?room=bathroom">Shop bathroom <span aria-hidden="true">↗</span></a></p>
+            </div>
+            <div id="project-panel" class="project-panel" hidden>
+              <ul id="project-items" class="project-list" aria-label="Products on your project list"></ul>
+              <p id="project-summary" class="project-summary" role="status" aria-live="polite"></p>
+              <p><button id="project-clear" class="project-remove" type="button">Clear the whole list</button></p>
+            </div>
+          </section>
+          <section id="send" class="project-panel" data-send-panel hidden>
+            <h2>2. Send it for a quote</h2>
+            <p>We reply with the delivered price, the options you chose and the delivery time. It is free and you do not have to buy.</p>
+            <form id="project-form" class="docs-form" novalidate>
+              <label>Your name *<input type="text" name="name" autocomplete="name" maxlength="120" required></label>
+              <label>Email *<input type="email" name="email" autocomplete="email" maxlength="200" required></label>
+              <label>Delivery suburb and postcode<input type="text" name="place" maxlength="80" autocomplete="postal-code" placeholder="For example Footscray 3011"></label>
+              <label class="docs-choice"><input type="checkbox" name="trade" value="yes"><span>I buy for a trade or business. I would like trade pricing.</span></label>
+              <label>Anything else we should know?<textarea name="note" maxlength="800" placeholder="Timing, the room, hole spacing for handles, or a question."></textarea></label>
+              <label class="docs-honeypot" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+              <p id="project-error" class="project-error" role="alert" hidden></p>
+              <div class="docs-actions">
+                <button class="button button-primary" type="submit">Send my project list <span aria-hidden="true">→</span></button>
+                <span id="project-status" class="docs-status-text" role="status" aria-live="polite"></span>
+              </div>
+              <p class="docs-status-text">Your note is saved privately for FI and emailed to the team. See the <a href="privacy.html">privacy notice</a>.</p>
+            </form>
+            <div id="project-thanks" class="docs-thanks" tabindex="-1" hidden>
+              <h2 data-heading-style="brand">Thank you.</h2>
+              <p id="project-thanks-text">Your list is with the team. We reply within 48 hours.</p>
+              <p><a class="button button-primary" href="shop.html">Back to the shop <span aria-hidden="true">↗</span></a></p>
+            </div>
+          </section>
+          <section id="how">
+            <h2>3. What happens next</h2>
+            <ol class="docs-steps">
+              <li><strong>We check every item</strong> against the supplier listing: options, stock and the delivered price to your address.</li>
+              <li><strong>We email you one quote.</strong> For bigger jobs we can add an optional inspection before dispatch, explained on <a href="how-it-works.html#service-fee">How it works</a>.</li>
+              <li><strong>You decide.</strong> Pay only if you accept the quote.</li>
+            </ol>
+            <p>Just buying one or two things? Use the Buy button on the product page instead. Your rights are in <a href="legal.html">Legal</a>.</p>
+            <p class="terms-related"><a href="shop.html">Shop</a><a href="docs.html">Docs</a><a href="support.html">Support</a><a href="#main">Back to top ↑</a></p>
+          </section>
+
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <a class="brand" href="./" aria-label="FABINT Fabrication Intelligence home"><span class="brand-artwork" aria-hidden="true"><img class="brand-artwork-image" src="assets/fabint-stacked-lockup.png" alt="" width="2000" height="1000"></span></a>
+      <p>Renovation hardware, delivered direct.</p>
+      <div class="site-footer-links"><a href="reviews.html">Product reviews</a><a href="contact.html">Work with us</a><a href="docs.html">Docs</a><a href="support.html">Support</a><a href="legal.html">Legal</a><a href="trade.html">Trade</a><a href="terms.html">Terms &amp; policies</a><a href="privacy.html">Privacy</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a><a href="ai.html">AI at FI</a></div>
+    </footer>
+  </body>
+</html>

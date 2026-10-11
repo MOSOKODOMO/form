@@ -18,6 +18,22 @@
     {id: 'silver', name: 'Silver and stainless', pattern: /stainless|chrome|silver|nickel|polished|\b304\b/i},
   ];
   const FINISH_IDS = FINISHES.map((finish) => finish.id);
+  // Shop by room: a renovator shops a whole room, so rooms group the existing categories.
+  const ROOMS = [
+    {id: 'kitchen', name: 'Kitchen', categories: ['handles', 'knobs']},
+    {id: 'bathroom', name: 'Bathroom', categories: ['bathroom']},
+    {id: 'entry', name: 'Entry and doors', categories: ['doors']},
+  ];
+  const ROOM_IDS = ROOMS.map((room) => room.id);
+  const filterByRoom = (list, room) => {
+    const found = ROOMS.find((item) => item.id === room);
+    return found ? list.filter((product) => found.categories.includes(product.category)) : list;
+  };
+  function parseRoom(search) {
+    const value = new URLSearchParams(search || '').get('room');
+    return ROOM_IDS.includes(value) ? value : 'all';
+  }
+  const roomName = (id) => (ROOMS.find((room) => room.id === id) || {name: 'All rooms'}).name;
   // Verified: a person confirmed it on the issuer's own database. Claimed: on the maker's page only. Failed: checked and it didn't hold up.
   const CHECK_STATUSES = ['verified', 'claimed', 'failed', 'not stated'];
   const CHECK_LABELS = {verified: 'Verified', claimed: 'Claimed, not yet checked', failed: 'Failed our check', 'not stated': 'Not stated'};
@@ -323,7 +339,7 @@
     return validProducts(await response.json(), (message) => console.warn(message));
   }
 
-  const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, CHECK_LABELS, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, SHOW_FI_RATING, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, canBuyNow, sortForShop, sortProducts, filterByCategory, FINISHES, FINISH_IDS, finishesOf, filterByFinish, parseFinish, finishName, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, sourceEvidence, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts, SCORE_PARTS, CHIP_LABELS, isLive, parseView, scoreBreakdown, certificateChips, rankMakers, formatDate, scoreNotes};
+  const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, CHECK_LABELS, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, SHOW_FI_RATING, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, canBuyNow, sortForShop, sortProducts, filterByCategory, FINISHES, FINISH_IDS, ROOMS, ROOM_IDS, filterByRoom, parseRoom, roomName, finishesOf, filterByFinish, parseFinish, finishName, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, sourceEvidence, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts, SCORE_PARTS, CHIP_LABELS, isLive, parseView, scoreBreakdown, certificateChips, rankMakers, formatDate, scoreNotes};
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (typeof window !== 'undefined') window.FICatalogue = api;
 })();

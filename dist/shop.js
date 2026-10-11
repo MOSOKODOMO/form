@@ -8,6 +8,7 @@
   const sampleBanner = document.querySelector('#sample-banner');
   const filters = [...document.querySelectorAll('.shop-filter[data-category]')];
   const finishButtons = [...document.querySelectorAll('.shop-filter[data-finish]')];
+  const roomButtons = [...document.querySelectorAll('.shop-filter[data-room]')];
   let products = [];
 
   function el(tag, className, text) {
@@ -75,6 +76,7 @@
     }
     const action = cardAction(product);
     if (action) body.append(action);
+    if (FI.canBuyNow(product) && window.FIProject) body.append(window.FIProject.button(product.handle, product.product, 'project-add project-add--card'));
 
     inner.append(media, body);
     item.append(inner);
@@ -91,16 +93,23 @@
     return item;
   }
 
-  function summary(count, category, finish = 'all') {
-    const parts = [category === 'all' ? '' : FI.categoryName(category), finish === 'all' ? '' : FI.finishName(finish)].filter(Boolean);
+  function summary(count, category, finish = 'all', room = 'all') {
+    const parts = [room === 'all' ? '' : FI.roomName(room), category === 'all' ? '' : FI.categoryName(category), finish === 'all' ? '' : FI.finishName(finish)].filter(Boolean);
     const where = parts.length ? ` in ${parts.join(', ')}` : '';
     if (!count) return `No products${where} yet.`;
     return `Showing ${count} product${count === 1 ? '' : 's'}${where}, ${FI.SHOW_FI_RATING ? 'highest FI Score first' : 'ready to buy first'}.`;
   }
 
-  function render(category, finish = FI.parseFinish(window.location.search)) {
-    const counts = FI.categoryCounts(FI.filterByFinish(products, finish));
-    const inCategory = FI.filterByCategory(products, category);
+  function render(category, finish = FI.parseFinish(window.location.search), room = FI.parseRoom(window.location.search)) {
+    const inRoom = FI.filterByRoom(products, room);
+    const counts = FI.categoryCounts(FI.filterByFinish(inRoom, finish));
+    const inCategory = FI.filterByCategory(inRoom, category);
+    for (const button of roomButtons) {
+      const id = button.dataset.room;
+      button.setAttribute('aria-pressed', String(id === room));
+      const count = button.querySelector('.shop-filter-count');
+      if (count) count.textContent = FI.filterByRoom(FI.filterByFinish(products, finish), id).length;
+    }
     for (const button of finishButtons) {
       const id = button.dataset.finish;
       button.setAttribute('aria-pressed', String(id === finish));
@@ -114,10 +123,10 @@
       // Empty categories stay out of the way until they have products (the chosen one always shows).
       button.hidden = id !== 'all' && id !== category && counts[id] === 0;
     }
-    const list = FI.sortProducts(FI.filterByFinish(FI.filterByCategory(products, category), finish));
+    const list = FI.sortProducts(FI.filterByFinish(FI.filterByCategory(inRoom, category), finish));
     grid.replaceChildren(...(list.length ? list.map(card) : [emptyState(category)]));
     sampleBanner.hidden = !list.some((product) => product.sample);
-    status.textContent = summary(list.length, category, finish);
+    status.textContent = summary(list.length, category, finish, room);
   }
 
   for (const button of filters) {
@@ -126,8 +135,9 @@
       const url = new URL(window.location.href);
       if (category === 'all') url.searchParams.delete('category');
       else url.searchParams.set('category', category);
+      url.searchParams.delete('room');
       window.history.pushState({category}, '', url);
-      render(category);
+      render(category, FI.parseFinish(url.search), 'all');
     });
   }
   for (const button of finishButtons) {
@@ -137,16 +147,27 @@
       if (finish === 'all') url.searchParams.delete('finish');
       else url.searchParams.set('finish', finish);
       window.history.pushState({finish}, '', url);
-      render(FI.parseCategory(url.search), finish);
+      render(FI.parseCategory(url.search), finish, FI.parseRoom(url.search));
     });
   }
-  window.addEventListener('popstate', () => render(FI.parseCategory(window.location.search), FI.parseFinish(window.location.search)));
+  for (const button of roomButtons) {
+    button.addEventListener('click', () => {
+      const room = button.dataset.room;
+      const url = new URL(window.location.href);
+      if (room === 'all') url.searchParams.delete('room');
+      else url.searchParams.set('room', room);
+      url.searchParams.delete('category');
+      window.history.pushState({room}, '', url);
+      render('all', FI.parseFinish(url.search), room);
+    });
+  }
+  window.addEventListener('popstate', () => render(FI.parseCategory(window.location.search), FI.parseFinish(window.location.search), FI.parseRoom(window.location.search)));
 
   FI.loadProducts()
     .then((list) => {
       products = FI.listedProducts(list);
       grid.removeAttribute('aria-busy');
-      render(FI.parseCategory(window.location.search), FI.parseFinish(window.location.search));
+      render(FI.parseCategory(window.location.search), FI.parseFinish(window.location.search), FI.parseRoom(window.location.search));
     })
     .catch((error) => {
       console.error(error);
