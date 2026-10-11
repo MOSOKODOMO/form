@@ -20,6 +20,7 @@ body .shop-finishes .shop-filter[aria-pressed="true"] { color: var(--ink); text-
 body .shop-rooms { padding-top: 18px; padding-bottom: 0; margin: 0; }
 body .shop-rooms .shop-filter { min-height: 36px; padding: 6px 12px; border: 0; font-size: 12px; background: transparent; color: var(--muted); }
 body .shop-rooms .shop-filter[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
+body .shop-rooms .shop-filter-count, body .shop-finishes .shop-filter-count { color: inherit; }
 body .shop-rooms + .shop-filters { padding-top: 10px; }
 .shop-project-link { margin-left: auto; }
 body .product-card-body .project-add { border-radius: 0; font: 400 12px var(--body); }
