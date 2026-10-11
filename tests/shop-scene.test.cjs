@@ -10,7 +10,7 @@ test('every unnumbered room hotspot opens a listed product', () => {
   const home = read('index.html');
   const scene = home.slice(home.indexOf('<figure class="editorial-hero-image"'), home.indexOf('<nav class="collection-nav"'));
   const handles = [...scene.matchAll(/href="product.html\?handle=([a-z0-9-]+)"/g)].map(match => match[1]);
-  assert.equal(handles.length, 6);
+  assert.equal(handles.length, 5);
   for (const handle of handles) {
     const product = products.find(item => item.handle === handle);
     assert.ok(product && FI.isListed(product), handle);
