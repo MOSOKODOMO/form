@@ -1,0 +1,12 @@
+{
+  "created_on": "2026-10-12",
+  "generation_mode": "Built-in image generation",
+  "use_case": "photorealistic-natural",
+  "purpose": "Decorative monochrome background for the Who orders here homepage section.",
+  "disclosure": "Workshop concept · AI-generated. This is not a photograph of FI premises or evidence of inspection.",
+  "assets": [
+    "dist/assets/workshop-monochrome.webp",
+    "dist/assets/workshop-monochrome-960.webp"
+  ],
+  "prompt": "Use case: photorealistic-natural. Asset type: wide website section background for an architectural hardware and home details shop. Create one premium black-and-white editorial photograph of a fictional, unbranded joinery and metal hardware workshop, conveying careful workmanship through the setting. Horizontal panoramic composition, approximately 2.4:1. Camera at workbench height looking diagonally through the workshop. On the right half, a beautifully worn timber workbench with a few precisely machined unbranded cabinet pulls, a vernier caliper, a machinist's square and subtle fine timber shavings; further back, a simple bench vice and neatly ordered workshop tools, softly out of focus. The left half should be quiet darker negative space, with a soft shadowed workshop wall and minimal detail, suitable for a large white website heading. Keep the lower quarter visually calm for four columns of white text that will be overlaid by the website. Natural side light from tall industrial windows toward the right, rich black and charcoal shadows, luminous controlled metal highlights, detailed authentic wood grain, restrained film grain, timeless fine-art documentary photography, sophisticated and tactile, not glossy CGI. Strict neutral monochrome, no sepia or colour. No people, hands, faces, logos, signage, lettering, watermarks, text, UI, borders, certification symbols or claims of being any real company's premises. Leave space for website text but do not draw any text. This is atmospheric concept imagery, not documentation of a real workshop."
+}
