@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "FABINT Price Finder",
+  "version": "0.1.0",
+  "description": "Looks at the product page you are on and shows similar products from Fabrication Intelligence, with prices to compare. Runs on your device.",
+  "action": {"default_title": "Find a similar product at FABINT", "default_popup": "popup.html", "default_icon": {"16": "icon-16.png", "48": "icon-48.png", "128": "icon-128.png"}},
+  "icons": {"16": "icon-16.png", "48": "icon-48.png", "128": "icon-128.png"},
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["https://fabricationintelligence.com/*"]
+}

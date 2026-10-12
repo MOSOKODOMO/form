@@ -1,0 +1,97 @@
+const {test} = require('node:test')
+const assert = require('node:assert/strict')
+const fs = require('node:fs')
+const path = require('node:path')
+const zlib = require('node:zlib')
+const M = require('../extension/match.js')
+const products = require('../dist/data/products.json')
+
+const ext = (name) => fs.readFileSync(path.join(__dirname, '../extension', name), 'utf8')
+const dist = (name) => fs.readFileSync(path.join(__dirname, '../dist', name), 'utf8')
+
+test('manifest is version 3 with only the permissions it needs and no remote code', () => {
+  const manifest = JSON.parse(ext('manifest.json'))
+  assert.equal(manifest.manifest_version, 3)
+  assert.deepEqual([...manifest.permissions].sort(), ['activeTab', 'scripting', 'storage'])
+  assert.deepEqual(manifest.host_permissions, ['https://fabricationintelligence.com/*'])
+  assert.equal(manifest.content_scripts, undefined)
+  assert.equal(manifest.content_security_policy, undefined)
+  for (const size of ['16', '48', '128']) assert.ok(fs.existsSync(path.join(__dirname, '../extension', manifest.icons[size])))
+  assert.doesNotMatch(JSON.stringify(manifest), /<all_urls>|\*:\/\/\*|"tabs"|"history"|"cookies"/)
+})
+
+test('popup builds results with text nodes only, loads no remote script and sends nothing about the page', () => {
+  const js = ext('popup.js')
+  const html = ext('popup.html')
+  assert.doesNotMatch(js, /innerHTML|outerHTML|insertAdjacentHTML|eval\(|new Function|document\.write/)
+  assert.doesNotMatch(html, /<script[^>]+src="https?:/)
+  const fetches = js.match(/fetch\([^)]*\)/g) || []
+  assert.deepEqual(fetches, ['fetch(CATALOGUE)'])
+  assert.match(js, /rel = 'noopener'/)
+  assert.match(html, /role="status" aria-live="polite"/)
+  assert.doesNotMatch(js + html + ext('match.js'), /—/)
+})
+
+test('a handle page finds the buyable square handles and never a product we cannot sell', () => {
+  const result = M.findAlternatives({title: 'Black Square Cabinet Handle 108mm Stainless Steel Kitchen Pull', price: 12, currency: 'AUD'}, products)
+  assert.equal(result.category, 'handles')
+  assert.ok(result.matches.length >= 1 && result.matches.length <= 3)
+  assert.equal(result.matches[0].handle, 'square-stainless-steel-cabinet-handles-50-to-268-mm')
+  assert.equal(result.matches[0].comparison, 'cheaper')
+  for (const match of result.matches) assert.ok(M.isBuyable(products.find((p) => p.handle === match.handle)))
+})
+
+test('type words must agree: hinges do not return house numbers and knobs do not return handles', () => {
+  const hinges = M.findAlternatives({title: 'Stainless steel door hinges 4 inch'}, products)
+  assert.ok(hinges.matches.length > 0)
+  for (const match of hinges.matches) assert.match(match.name, /hinge/i)
+  const knobs = M.findAlternatives({title: 'Solid brass drawer knob'}, products)
+  assert.equal(knobs.category, 'knobs')
+  for (const match of knobs.matches) assert.equal(products.find((p) => p.handle === match.handle).category, 'knobs')
+})
+
+test('unrelated pages, other currencies and empty input give no claims', () => {
+  assert.deepEqual(M.findAlternatives({title: 'Gaming laptop 16GB RAM', price: 1500, currency: 'AUD'}, products).matches, [])
+  assert.deepEqual(M.findAlternatives({}, products).matches, [])
+  assert.deepEqual(M.findAlternatives(null, products).matches, [])
+  const usd = M.findAlternatives({title: 'Brass robe hook', price: 30, currency: 'USD'}, products)
+  assert.ok(usd.matches.length > 0)
+  for (const match of usd.matches) assert.equal(match.comparison, 'unknown')
+  assert.equal(M.pageFacts({price: 'abc'}).price, null)
+})
+
+test('unsold and approved-only products are never offered', () => {
+  const fake = [{handle: 'x', product: 'Brass hook', category: 'bathroom', status: 'approved', shopify_url: 'https://example.com/x', price_aud: 1}, {handle: 'y', product: 'Brass hook', category: 'bathroom', status: 'live', shopify_url: '', price_aud: 1}]
+  assert.deepEqual(M.findAlternatives({title: 'Brass hook'}, fake).matches, [])
+})
+
+test('buyer tools page is honest, linked from every footer, and the download matches the extension folder', () => {
+  const page = dist('extension.html')
+  assert.match(page, /<title>Buyer tools \| Fabrication Intelligence<\/title>/)
+  assert.match(page, /not in the Chrome Web Store or Edge Add-ons yet/)
+  assert.match(page, /never sent to us or anyone else/)
+  assert.match(page, /Similar, not identical|similar, not identical/i)
+  assert.match(page, /docs-status--planned">Planned/)
+  assert.doesNotMatch(page, /—/)
+  assert.doesNotMatch(page, /aria-current="page">Support/)
+  for (const file of fs.readdirSync(path.join(__dirname, '../dist')).filter((f) => f.endsWith('.html') && f !== 'extension.html')) {
+    const html = dist(file)
+    if (html.includes('<h2>Here to help</h2>')) assert.ok(html.includes('href="extension.html"'), `${file} footer links to the buyer tools`)
+  }
+  const zip = fs.readFileSync(path.join(__dirname, '../dist/downloads/fabint-price-finder.zip'))
+  const names = []
+  for (let offset = 0; offset < zip.length - 4; ) {
+    if (zip.readUInt32LE(offset) !== 0x04034b50) break
+    const method = zip.readUInt16LE(offset + 8)
+    const size = zip.readUInt32LE(offset + 18)
+    const nameLen = zip.readUInt16LE(offset + 26)
+    const extraLen = zip.readUInt16LE(offset + 28)
+    const name = zip.toString('utf8', offset + 30, offset + 30 + nameLen)
+    const data = zip.subarray(offset + 30 + nameLen + extraLen, offset + 30 + nameLen + extraLen + size)
+    const body = method === 8 ? zlib.inflateRawSync(data) : data
+    assert.ok(body.equals(fs.readFileSync(path.join(__dirname, '../extension', name))), `${name} in the zip matches the folder`)
+    names.push(name)
+    offset += 30 + nameLen + extraLen + size
+  }
+  assert.deepEqual(names.sort(), fs.readdirSync(path.join(__dirname, '../extension')).sort())
+})
