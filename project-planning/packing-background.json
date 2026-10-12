@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-12",
+  "mode": "Built-in image_gen",
+  "purpose": "Light monochrome packing-table background for the homepage How it works section",
+  "disclosure": "Packing concept · AI-generated",
+  "assets": [
+    "dist/assets/packing-table-monochrome.webp",
+    "dist/assets/packing-table-monochrome-960.webp"
+  ],
+  "prompt": "Use case: photorealistic-natural.\nAsset type: wide editorial background photograph for the \"How it works\" section of an architectural hardware online shop.\nPrimary request: a light black-and-white packing-table scene, understated and carefully composed, with an open kraft cardboard shipping box, soft tissue paper and a few neatly arranged cabinet handles on the right.\nComposition: wide horizontal approximately 2.4:1. View from slightly above a pale clean packing table. Place the open box with naturally folded tissue paper and three simple brushed-metal cabinet handles in the upper-right half, contained within the rightmost 45 percent of the image. Keep the entire left half exceptionally quiet with pale negative space for a large dark website heading. The lower quarter should be mostly clear tabletop for four columns of text to overlay.\nStyle: premium architectural editorial photography, realistic paper fibres, subtle brushed metal, honest quiet material detail, no glossy advertising effects. Black and white, high-key soft daylight from a large window, gentle shadows, low contrast in the negative space. The cardboard remains recognisably kraft by texture but is monochrome. Pale ivory-grey tonal feel.\nConstraints: a fictional unbranded packing concept, no people, no logos, no writing, no shipping labels, no watermarks, no UI, no graphics or text. Avoid clutter, tools, factories, dark dramatic lighting, duplicated or malformed handles. Produce just the photograph."
+}
