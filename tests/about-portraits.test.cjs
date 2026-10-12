@@ -13,9 +13,9 @@ test('About profiles show the approved portraits in founder order', () => {
   assert.equal(profiles.length, 3);
 
   for (const [index, [name, filename]] of [
-    ['Prem', 'prem-20261011.png'],
-    ['Lincy', 'lincy-20261011.png'],
-    ['Mos', 'mos-20261011.png'],
+    ['Prem', 'prem-editorial.webp'],
+    ['Lincy', 'lincy-editorial.webp'],
+    ['Mos', 'mos-editorial.webp'],
   ].entries()) {
     const profile = profiles[index][1];
     const image = profile.match(/<img\b[^>]*>/)?.[0];
@@ -33,7 +33,7 @@ test('About profiles show the approved portraits in founder order', () => {
 });
 
 test('About founder images retain a full square crop and constrained mobile cards', () => {
-  assert.match(about, /<link rel="stylesheet" href="about\.css">/);
+  assert.match(about, /<link rel="stylesheet" href="about\.css(?:\?[^"<>]+)?">/);
   assert.match(about, /class="content-section about-team" aria-labelledby="team-title"/);
   assert.match(styles, /\.about-team \.team-portrait\s*\{[^}]*aspect-ratio:\s*1;[^}]*object-fit:\s*contain;/);
   assert.match(styles, /@media\s*\(max-width:\s*900px\)\s*\{\s*\.about-team \.bio-grid\s*\{\s*max-width:\s*440px;/);

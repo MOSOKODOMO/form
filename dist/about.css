@@ -1,3 +1,13 @@
+/* Approved light warehouse concept, with selectable text above the photo. */
+.about-hero { position: relative; isolation: isolate; display: flex; align-items: center; min-height: clamp(640px, 48vw, 760px); padding-top: 80px; padding-bottom: 96px; overflow: hidden; background: var(--paper); }
+.about-hero-image { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% center; }
+.about-hero::before { position: absolute; z-index: -1; inset: 0; content: ''; background: linear-gradient(90deg, #fafbf8fa 0%, #fafbf8f2 25%, #fafbf8db 42%, #fafbf896 57%, #fafbf812 76%, #fafbf800 100%), linear-gradient(0deg, #fafbf860, #fafbf800 20%); pointer-events: none; }
+.about-hero-copy { width: min(72%, 850px); }
+body .about-hero h1 { max-width: none; margin: 30px 0; font-size: clamp(42px, 4.65vw, 74px); font-weight: 400; line-height: 1.18; letter-spacing: -.045em; text-wrap: initial; }
+.about-hero-intro { max-width: 650px; margin: 0; color: #58635a; font-size: clamp(16px, 1.35vw, 20px); line-height: 1.75; }
+.about-hero-link { display: inline-block; margin-top: 30px; color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; }
+body .about-hero > .about-hero-caption { position: absolute; right: var(--gutter); bottom: 16px; max-width: none; margin: 0; padding: 4px 8px; background: #fafbf8e6; color: #465248; font-size: 12px; line-height: 1.5; }
+
 /* Keep the founders' full square portraits visible and comfortably sized. */
 .about-team .bio-grid { max-width: 1200px; margin-inline: auto; }
 .about-team .bio-card { min-width: 0; }
@@ -9,4 +19,17 @@
 
 @media (max-width: 900px) {
   .about-team .bio-grid { max-width: 440px; }
+  .about-hero-copy { width: 85%; }
+  .about-hero::before { background: linear-gradient(90deg, #fafbf8fa 0%, #fafbf8e6 48%, #fafbf890 75%, #fafbf833 100%); }
+}
+
+@media (max-width: 600px) {
+  .about-hero { display: block; min-height: 0; padding-top: 290px; padding-bottom: 64px; }
+  .about-hero-image { height: 320px; object-position: 65% center; }
+  .about-hero::before { background: linear-gradient(180deg, #fafbf800 100px, #fafbf840 190px, #fafbf8ed 280px, var(--paper) 330px); }
+  .about-hero-copy { width: 100%; }
+  body .about-hero h1 { margin: 22px 0; font-size: clamp(36px, 7.5vw, 45px); line-height: 1.2; }
+  .about-hero-intro { font-size: 16px; line-height: 1.7; }
+  .about-hero-link { margin-top: 24px; }
+  body .about-hero > .about-hero-caption { right: auto; left: var(--gutter); bottom: 16px; padding: 0; background: none; font-size: 11px; }
 }
