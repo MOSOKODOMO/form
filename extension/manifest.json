@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "FABINT Price Finder",
+  "name": "Fabrication Intelligence Price Finder",
   "version": "0.2.0",
   "description": "Reads the product page you are on and opens searches for the same product on other Australian shops so you can find it cheaper. Also shows similar hardware from Fabrication Intelligence. Runs on your device.",
   "action": {"default_title": "Find this product cheaper elsewhere", "default_popup": "popup.html", "default_icon": {"16": "icon-16.png", "48": "icon-48.png", "128": "icon-128.png"}},

@@ -1,5 +1,5 @@
 'use strict';
-// FABINT Price Finder: pure matching code. It runs on the buyer's device and sends nothing anywhere.
+// Fabrication Intelligence Price Finder: pure matching code. It runs on the buyer's device and sends nothing anywhere.
 (function () {
   const CATEGORY_WORDS = {
     handles: ['handle', 'handles', 'pull', 'pulls', 'bar', 'cabinet', 'drawer', 'wardrobe', 'cupboard', 'kitchen'],
