@@ -20,3 +20,4 @@ data/product-sheet/
 .projects/vault
 .projects/state.test.json
 .projects/state.local.test.json
+build/

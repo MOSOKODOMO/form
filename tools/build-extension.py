@@ -1,4 +1,4 @@
-"""Build dist/downloads/fabint-price-finder.zip from the extension/ folder (same bytes every time).
+"""Build build/fabint-price-finder.zip (not part of the website) from the extension/ folder (same bytes every time).
 
     python3 tools/build-extension.py
 """
@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / 'extension'
-OUT = ROOT / 'dist' / 'downloads' / 'fabint-price-finder.zip'
+OUT = ROOT / 'build' / 'fabint-price-finder.zip'
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
 with zipfile.ZipFile(OUT, 'w', zipfile.ZIP_DEFLATED) as zf:
