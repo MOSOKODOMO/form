@@ -15,7 +15,7 @@ function sampleCard(review) {
 if(home){
  const best=[...reviews].sort((a,b)=>b.rating-a.rating||b.created_at.localeCompare(a.created_at)||a.id.localeCompare(b.id)).slice(0,3);
  home.replaceChildren(...best.map(sampleCard));
- const summary=document.querySelector('#home-review-summary');summary.hidden=false;summary.textContent='3 featured layout samples · 18 fictional samples in the preview';
+ const summary=document.querySelector('#home-review-summary');summary.hidden=false;summary.textContent=`${best.length} featured samples · ${reviews.length} fictional examples`;
  const selection=document.querySelector('#home-review-selection');selection.hidden=false;selection.textContent='Illustrative ratings only — no real customer feedback';
 }else{
  const list=document.querySelector('#review-list'),product=document.querySelector('#review-product'),rating=document.querySelector('#review-rating');

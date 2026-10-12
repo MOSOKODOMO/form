@@ -14,4 +14,6 @@
 .home-reviews-footer p { color: var(--muted); }
 .home-reviews-footer .text-link { flex-shrink: 0; }
 .home-review-link { display: inline-block; margin-top: 16px; font-size: 12px; }
+.home-review-grid .review-card.review-preview-card { row-gap: 14px; }
+.home-review-grid .review-sample-disclosure { grid-column: 1 / -1; justify-self: end; text-align: right; font-size: 12px; line-height: 1.4; color: #596253; margin: 0; }
 @media (max-width: 760px) { .home-reviews-heading { align-items: flex-start; flex-direction: column; } .editorial-home #testimonials { padding-bottom: 60px; } .home-testimonials .home-review-empty, .home-testimonials .home-review-status { padding: 24px; } }
