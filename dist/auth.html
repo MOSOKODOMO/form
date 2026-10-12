@@ -7,8 +7,8 @@
     <title>Sign in or create an account | Fabrication Intelligence</title>
     <link rel="icon" type="image/svg+xml" href="assets/fi-mark.svg">
     <link rel="stylesheet" href="builders.css?v=20261011-premium3">
-    <link rel="stylesheet" href="account.css">
-    <script type="module" src="auth.js?v=20261010-dashboards" defer></script>
+    <link rel="stylesheet" href="account.css?v=20261012-password-toggle">
+    <script type="module" src="auth.js?v=20261012-password-toggle" defer></script>
     <link rel="stylesheet" href="editorial-motion.css?v=20261011-premium3">
     <script src="editorial-motion.js?v=20261011-premium3" defer></script>
     <script src="telemetry-config.js" defer></script>
@@ -62,8 +62,25 @@
             <label id="company-field" class="account-field" hidden><span>Company name</span><input name="company_name" autocomplete="organization" maxlength="200"></label>
           </div>
           <label id="email-field" class="account-field"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="320" required></label>
-          <label id="password-field" class="account-field"><span id="password-label">Password</span><input name="password" type="password" autocomplete="current-password" minlength="8" required><small id="password-help">At least 8 characters.</small></label>
-          <label id="confirm-field" class="account-field" hidden><span>Confirm password</span><input name="confirm_password" type="password" autocomplete="new-password" minlength="8"></label>
+          <div id="password-field" class="account-field">
+            <label id="password-label" for="password-input">Password</label>
+            <div class="account-password-control">
+              <input id="password-input" name="password" type="password" autocomplete="current-password" aria-describedby="password-help" minlength="8" required>
+              <button class="password-toggle" type="button" data-password-toggle="password-input" data-password-name="password" aria-controls="password-input" aria-label="Show password" title="Show password">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path class="password-eye-slash" d="m3 3 18 18"/></svg>
+              </button>
+            </div>
+            <small id="password-help">At least 8 characters.</small>
+          </div>
+          <div id="confirm-field" class="account-field" hidden>
+            <label for="confirm-password-input">Confirm password</label>
+            <div class="account-password-control">
+              <input id="confirm-password-input" name="confirm_password" type="password" autocomplete="new-password" minlength="8">
+              <button class="password-toggle" type="button" data-password-toggle="confirm-password-input" data-password-name="confirm password" aria-controls="confirm-password-input" aria-label="Show confirm password" title="Show confirm password">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path class="password-eye-slash" d="m3 3 18 18"/></svg>
+              </button>
+            </div>
+          </div>
           <button id="auth-submit" class="button button-primary account-submit" type="submit">Sign in <span aria-hidden="true">↗</span></button>
           <p id="auth-status" class="account-status" role="status" aria-live="polite"></p>
         </form>

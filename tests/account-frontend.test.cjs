@@ -73,8 +73,7 @@ test('auth page supports reset request, recovery callback and confirmed signup',
   assert.match(authJs, /supabase\.auth\.getUser\(\)/)
   assert.doesNotMatch(authJs, /supabase\.auth\.getSession\(\)/)
   assert.match(authJs, /isAuthSessionMissingError/)
-  assert.match(authHtml, /Email setup is in progress/);
-  assert.match(authHtml, /Existing users can still sign in/);
+  assert.doesNotMatch(authHtml, /Email setup is in progress|emails are not available to customers yet/)
 })
 
 test('signed-out account redirects while a real Auth network failure stays visible', async () => {

@@ -15,8 +15,23 @@ const forgotButton = document.querySelector('#forgot-password')
 const backButton = document.querySelector('#back-to-signin')
 const status = document.querySelector('#auth-status')
 const submit = document.querySelector('#auth-submit')
+const passwordToggles = document.querySelectorAll('[data-password-toggle]')
 let mode = 'login'
 let recoveryLinkVerified = false
+
+function setPasswordVisibility(button, visible) {
+  const input = document.getElementById(button.dataset.passwordToggle)
+  input.type = visible ? 'text' : 'password'
+  const label = `${visible ? 'Hide' : 'Show'} ${button.dataset.passwordName}`
+  button.setAttribute('aria-label', label)
+  button.title = label
+  button.classList.toggle('is-visible', visible)
+}
+
+passwordToggles.forEach((button) => button.addEventListener('click', () => {
+  const input = document.getElementById(button.dataset.passwordToggle)
+  setPasswordVisibility(button, input.type === 'password')
+}))
 
 function safeNextPath() {
   const next = new URLSearchParams(location.search).get('next') || 'dashboard.html'
@@ -78,6 +93,7 @@ function setMode(nextMode) {
     button.setAttribute('aria-selected', String(button.dataset.authMode === mode)))
   form.elements.password.value = ''
   form.elements.confirm_password.value = ''
+  passwordToggles.forEach((button) => setPasswordVisibility(button, false))
   updateRoleFields()
   setStatus('')
 }
