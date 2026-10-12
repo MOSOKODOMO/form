@@ -49,10 +49,10 @@ test('homepage explains the automated order and direct delivery', () => {
   assert.match(steps, /href="contact.html#contact-form"/, 'trade buyers can ask for a quote');
 })
 
-test('windows and glass are a small coming-later note that links to the moved research', () => {
-  const note = block(/<aside class="home-coming-later"[^>]*>([\s\S]*?)<\/aside>/, 'a coming-later note')
-  assert.match(note, /COMING LATER/)
-  assert.match(text(note), /Windows and glass/)
+test('windows and glass remain in development alongside FI news and guides', () => {
+  const note = block(/<section\b[^>]*id="news"[^>]*>([\s\S]*?)<\/section>/, 'news and upcoming products')
+  assert.match(note, /IN DEVELOPMENT/)
+  assert.match(text(note), /Product and suitability checks are still underway/)
   assert.match(note, /href="windows\.html"/)
   assert.match(note, /href="glass-guide\.html"/)
   const windows = read('windows.html')
