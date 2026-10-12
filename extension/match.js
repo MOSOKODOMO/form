@@ -81,7 +81,6 @@
     ['eBay Australia', 'https://www.ebay.com.au/sch/i.html?_nkw='],
     ['Amazon Australia', 'https://www.amazon.com.au/s?k='],
     ['Kogan', 'https://www.kogan.com/au/shop/?q='],
-    ['AliExpress', 'https://www.aliexpress.com/wholesale?SearchText='],
   ];
 
   function cleanTitle(text) {

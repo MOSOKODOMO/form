@@ -130,7 +130,7 @@ test('compare links search other shops for the same product, preferring barcode,
   assert.equal(model.query, 'Keychron K2-C3H')
   const title = M.compareLinks({title: 'Keychron K2 Wireless Mechanical Keyboard | Mwave'})
   assert.equal(title.query, 'Keychron K2 Wireless Mechanical Keyboard')
-  assert.deepEqual(model.links.map((l) => l.name), ['Google Shopping', 'PriceSpy', 'eBay Australia', 'Amazon Australia', 'Kogan', 'AliExpress'])
+  assert.deepEqual(model.links.map((l) => l.name), ['Google Shopping', 'PriceSpy', 'eBay Australia', 'Amazon Australia', 'Kogan'])
   for (const link of model.links) {
     assert.match(link.url, /^https:\/\//)
     assert.ok(link.url.endsWith(encodeURIComponent('Keychron K2-C3H')), `${link.name} carries the encoded query`)
