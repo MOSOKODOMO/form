@@ -4,10 +4,11 @@
 <body>
   <header><p class="label">FABRICATION INTELLIGENCE</p><h1>Find it cheaper elsewhere</h1></header>
   <p id="status" role="status" aria-live="polite">Reading this page on your device...</p>
-  <section id="compare" hidden><p class="label">SEE THE SAME PRODUCT ON OTHER SHOPS</p><ul id="compare-list" class="results links"></ul><p class="fine">Each link opens that shop's own search, so you see its live price. Check it is the same model, size and colour, and add delivery to compare fairly.</p></section>
+  <section id="prices" hidden><p class="label">LIVE PRICES, LOWEST FIRST</p><p id="price-note" class="fine" role="status" aria-live="polite"></p><ul id="price-list" class="results links prices"></ul><p class="fine">Prices come from Google Shopping listings and can change. Check it is the same model, size and colour, and add delivery to compare fairly.</p></section>
+  <section id="compare" hidden><p class="label">OR SEARCH EACH SHOP YOURSELF</p><ul id="compare-list" class="results links"></ul></section>
   <section id="fabint" hidden><p class="label">ALSO AT FABINT (HARDWARE ONLY)</p><ul id="results" class="results"></ul></section>
   <form id="manual" hidden><label for="query" class="label">OR TYPE WHAT YOU ARE LOOKING FOR</label><div class="row"><input id="query" type="text" maxlength="120" placeholder="black cabinet handle 128mm"><button type="submit">Search</button></div></form>
-  <p class="fine">The page you are on is read on your device and is never sent to us. The product name goes to a shop only when you click that shop. <a href="https://fabricationintelligence.com/extension.html" target="_blank" rel="noopener">How this works</a></p>
+  <p class="fine">The page you are on is read on your device and is never sent. Only the product name goes to our server, which asks a price service for listings, and to a shop when you click it. <a href="https://fabricationintelligence.com/extension.html" target="_blank" rel="noopener">How this works</a></p>
   <script src="match.js"></script><script src="popup.js"></script>
 </body>
 </html>

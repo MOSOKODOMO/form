@@ -14,3 +14,8 @@ verify_jwt = false
 # Public service-log intake validates its origin, key, event allowlist and 1 KB size limit.
 # It forwards only fixed events to Axiom and never the caller's IP address or browser.
 verify_jwt = false
+
+[functions.fi-price-compare]
+# Public price lookup for the browser extension. It takes only a product name (3 to 120 characters),
+# applies per-address and daily limits, and keeps the SearchApi key in the function environment.
+verify_jwt = false

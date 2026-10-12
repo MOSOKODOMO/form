@@ -1,12 +1,17 @@
 'use strict';
 const CATALOGUE = 'https://fabricationintelligence.com/data/products.json';
 const SITE = 'https://fabricationintelligence.com/';
+const PRICES = 'https://dszagdjnymxalpwamjyh.supabase.co/functions/v1/fi-price-compare';
 const statusEl = document.getElementById('status');
 const list = document.getElementById('results');
 const manual = document.getElementById('manual');
 const compareBox = document.getElementById('compare');
 const compareList = document.getElementById('compare-list');
 const fabintBox = document.getElementById('fabint');
+const pricesBox = document.getElementById('prices');
+const priceList = document.getElementById('price-list');
+const priceNote = document.getElementById('price-note');
+let lookup = 0;
 
 function readPage() {
   const text = (el) => (el && el.textContent ? el.textContent.trim().slice(0, 200) : '');
@@ -45,7 +50,39 @@ async function loadCatalogue() {
   return products;
 }
 
-function money(value) { return 'A$' + (Number.isInteger(value) ? value : value.toFixed(2)); }
+function money(value) { return 'A$' + value.toLocaleString('en-AU', {minimumFractionDigits: Number.isInteger(value) ? 0 : 2, maximumFractionDigits: 2}); }
+
+async function showPrices(query) {
+  const mine = ++lookup;
+  priceList.replaceChildren();
+  pricesBox.hidden = !query;
+  if (!query) return;
+  priceNote.textContent = 'Looking up prices...';
+  try {
+    const response = await fetch(PRICES, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({q: query})});
+    const data = await response.json();
+    if (mine !== lookup) return;
+    const rows = response.ok && Array.isArray(data.results) ? data.results : [];
+    if (!rows.length) { priceNote.textContent = response.ok ? 'No prices found for this search. Try the shop links below.' : 'Live prices are not available right now. Try the shop links below.'; return; }
+    priceNote.textContent = '';
+    rows.forEach((row, index) => {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = row.link; link.target = '_blank'; link.rel = 'noopener noreferrer';
+      const left = document.createElement('span');
+      const shop = document.createElement('strong'); shop.textContent = row.seller;
+      const title = document.createElement('small'); title.textContent = row.title;
+      left.append(shop, title);
+      const right = document.createElement('span'); right.className = 'price'; right.textContent = money(row.price);
+      if (index === 0 && rows.length > 1) { const tag = document.createElement('em'); tag.className = 'tag'; tag.textContent = 'LOWEST'; right.append(tag); }
+      link.append(left, right);
+      li.append(link);
+      priceList.append(li);
+    });
+  } catch (error) {
+    if (mine === lookup) priceNote.textContent = 'Live prices are not available right now. Try the shop links below.';
+  }
+}
 
 function showCompare(raw) {
   const {query, links} = window.FIMatch.compareLinks(raw);
@@ -86,6 +123,7 @@ function show(result) {
 
 async function run(raw) {
   showCompare(raw);
+  showPrices(window.FIMatch.compareLinks(raw).query);
   try {
     const products = await loadCatalogue();
     show(window.FIMatch.findAlternatives(raw, products));

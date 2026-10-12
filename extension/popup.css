@@ -12,3 +12,5 @@ h1{margin:2px 0 12px;font-size:20px;letter-spacing:-.01em}
 button{padding:6px 10px;background:var(--red);color:var(--paper);border:0;cursor:pointer}
 .fine{color:var(--mute);font-size:11px}.fine a{color:var(--paper)}
 .links li{padding:0}.links a{display:flex;justify-content:space-between;align-items:center;padding:12px 10px}.links a::after{content:"See price \2197";font:11px ui-monospace,Consolas,monospace;color:var(--mute);letter-spacing:.04em}.links a:hover,.links a:focus{background:#1a1613;text-decoration:none}.links a:hover::after,.links a:focus::after{color:var(--paper)}section[hidden]{display:none}
+.prices a{gap:10px}.prices a::after{content:none}.prices a>span:first-child{display:grid;gap:2px;min-width:0}.prices small{color:var(--mute);font-weight:400;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.prices .price{font-size:15px;font-weight:600;white-space:nowrap;text-align:right}.prices .tag{display:block;margin:3px 0 0;font-style:normal;text-align:center}
+#compare{margin-top:14px}
