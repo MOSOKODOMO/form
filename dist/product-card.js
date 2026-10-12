@@ -11,13 +11,11 @@
   function card(product, index = 0) {
     const item = el('li', 'product-card');
     const inner = el('article', 'product-card-inner');
-    const media = el('a', `product-card-media${product.photo_is_reference ? ' product-card-media--reference' : product.photo_is_render ? '' : ' product-card-media--source'}`);
+    const media = el('a', `product-card-media${product.photo_is_reference ? ' product-card-media--reference' : product.photo_is_render ? ' product-card-media--render' : ' product-card-media--source'}`);
     media.href = FI.productUrl(product);
     media.setAttribute('aria-label', `View ${product.product}`);
     const image = window.FIProductImage(product, {eager: index < 4, decorative: true});
     media.append(image);
-    if (product.photo_is_reference) media.append(el('span', 'render-badge', 'AI studio render'));
-    if (product.photo_is_render) media.append(el('span', 'render-badge', 'AI catalogue render'));
     if (product.sample) media.append(el('span', 'sample-badge', 'SAMPLE'));
     const body = el('div', 'product-card-body');
     const meta = el('p', 'product-card-meta');

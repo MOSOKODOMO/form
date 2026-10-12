@@ -29,7 +29,7 @@
   }
 
   function gallery(product) {
-    const section = el('section', `product-gallery${product.photo_is_reference ? ' product-gallery--reference' : product.photo_is_render ? '' : ' product-gallery--source'}`);
+    const section = el('section', `product-gallery${product.photo_is_reference ? ' product-gallery--reference' : product.photo_is_render ? ' product-gallery--render' : ' product-gallery--source'}`);
     section.setAttribute('aria-label', 'Photos and origin story');
     const track = el('div', 'gallery-track');
     track.tabIndex = 0;
@@ -46,8 +46,6 @@
         const image = window.FIProductImage(product, {eager: index === 0});
         if (index === 0) image.setAttribute('fetchpriority', 'high');
         slide.append(image);
-        if (product.photo_is_reference) slide.append(el('span', 'render-badge', 'AI STUDIO RENDER'));
-        if (product.photo_is_render) slide.append(el('span', 'render-badge', 'AI RENDER'));
         if (product.sample) slide.append(el('span', 'sample-badge', 'SAMPLE'));
         const small = window.FIProductImage(product, {width: 80, height: 100, decorative: true});
         thumb.append(small);

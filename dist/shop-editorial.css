@@ -90,6 +90,11 @@ body .product-card-media--reference,
 body .product-gallery--reference .gallery-slide--photo { background: #fff; }
 body .product-card-media--reference img,
 body .product-gallery--reference .gallery-slide--photo img { object-fit: contain; }
+/* Studio images show the complete item at every screen size. */
+body .product-card-media--render,
+body .product-gallery--render .gallery-slide--photo { background: #f6f2ea; }
+body .product-card-media--render img,
+body .product-gallery--render .gallery-slide--photo img { object-fit: contain; }
 .editorial-home .home-collection .product-grid { grid-template-columns: repeat(5,minmax(0,1fr)); gap: 20px; }
 @media (max-width: 1100px) { .editorial-home .home-collection .product-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 36px 20px; } }
 @media (max-width: 700px) { .editorial-home .home-collection .product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 30px 16px; } }
