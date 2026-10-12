@@ -67,3 +67,9 @@
   .docs-faq:not([open]) p { display: block; }
   .docs-form, .docs-actions { display: none; }
 }
+
+.ext-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin: 26px 0 14px; }
+.ext-shot { margin: 26px 0; max-width: 360px; }
+.ext-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.ext-shot figcaption { margin-top: 8px; font: 12px/1.6 var(--mono); color: var(--muted, inherit); }
+.ext-shot + p { margin: 0 0 40px; }
