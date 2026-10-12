@@ -1,0 +1,45 @@
+/* Approved global sourcing and warehouse inspection journey. */
+.how-page .store-main { max-width: none; }
+.how-hero { position: relative; display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); align-items: center; gap: 0; padding: 35px var(--gutter) 28px; border-bottom: 1px solid var(--line); overflow: hidden; }
+.how-hero::before { position: absolute; inset: 0 45% 0 0; content: ''; background: linear-gradient(90deg, var(--paper) 10%, #fafbf8d9 50%, #fafbf8a8 100%), url('assets/how-it-works/global-suppliers-20261012.webp') center / cover; pointer-events: none; }
+.how-hero__copy { position: relative; padding: 30px clamp(20px,3vw,54px) 40px 0; }
+.how-hero h1 { max-width: 850px; margin: 24px 0; font-size: clamp(40px,4.6vw,76px); font-weight: 400; line-height: 1.13; letter-spacing: -.045em; }
+.how-hero__copy > p:not(.eyebrow) { max-width: 54ch; color: var(--muted); font-size: clamp(15px,1.2vw,19px); line-height: 1.75; }
+.how-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 30px; }
+.how-actions .button { gap: 20px; min-height: 48px; }
+.how-link { color: var(--ink); text-underline-offset: 7px; text-decoration-thickness: 1px; }
+.how-hero__photo { position: relative; min-width: 0; margin: 0; }
+.how-hero__photo img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 4; object-fit: cover; }
+.how-image-caption { margin-top: 9px; color: var(--muted); font-size: 11px; line-height: 1.5; text-align: right; }
+.how-journey { padding: clamp(42px,4.4vw,72px) var(--gutter); border-bottom: 1px solid var(--line); scroll-margin-top: 25px; }
+.how-journey h2, .how-promise h2, .how-cta h2 { font-size: clamp(30px,3.2vw,50px); font-weight: 400; line-height: 1.18; letter-spacing: -.035em; }
+.how-journey__intro { margin-top: 10px; color: var(--muted); font-size: 17px; }
+.how-steps { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: clamp(18px,2.3vw,38px); margin-top: 34px; list-style: none; padding: 0; }
+.how-step { min-width: 0; }
+.how-step__number { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; color: #79601e; font-size: 12px; }
+.how-step__number::after { flex: 1; height: 1px; content: ''; background: #abb4a9; }
+.how-step img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.how-step h3 { margin: 19px 0 8px; font-size: clamp(18px,1.5vw,24px); font-weight: 400; letter-spacing: -.02em; line-height: 1.25; }
+.how-step p { color: var(--muted); font-size: 15px; line-height: 1.65; }
+.how-journey .how-image-caption { margin-top: 18px; }
+.how-promise { padding: clamp(44px,4.8vw,78px) var(--gutter) 30px; background: #f6f3e4; border-bottom: 1px solid #dedaca; scroll-margin-top: 25px; }
+.how-promise__grid { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: clamp(35px,6vw,100px); }
+.how-promise .eyebrow { color: #596a57; }
+.how-promise h2 { margin: 24px 0 22px; }
+.how-promise__copy > p:not(.eyebrow) { max-width: 58ch; color: var(--muted); font-size: 17px; line-height: 1.7; }
+.how-checks { margin: 0; padding: 0 0 0 clamp(24px,4.5vw,72px); border-left: 1px solid #ddd7be; list-style: none; }
+.how-check { display: grid; grid-template-columns: 24px minmax(0,1fr); gap: 25px; padding: 0 0 24px; }
+.how-check + .how-check { padding-top: 24px; border-top: 1px solid #ddd7be; }
+.how-check:last-child { padding-bottom: 0; }
+.how-check__tick { color: #9b7626; font-size: 25px; line-height: 1.15; }
+.how-check h3 { font-size: 18px; font-weight: 500; line-height: 1.35; }
+.how-check p { margin-top: 7px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.how-promise__support { display: flex; align-items: baseline; justify-content: space-between; gap: 25px; margin-top: 38px; padding-top: 24px; border-top: 1px solid #ddd7be; }
+.how-promise__support p { color: var(--muted); font-size: 15px; }
+.how-cta { display: flex; align-items: center; justify-content: center; gap: clamp(24px,5vw,80px); padding: 40px var(--gutter); border-bottom: 1px solid var(--line); }
+.how-cta h2 { font-size: clamp(28px,2.8vw,44px); }
+.how-cta .button { flex-shrink: 0; }
+@media (max-width: 1000px) { .how-hero { grid-template-columns: minmax(0,1.08fr) minmax(0,1fr); } .how-hero h1 { font-size: clamp(35px,4.5vw,48px); } .how-hero__copy { padding-right: 24px; } .how-steps { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px 24px; } .how-promise__grid { gap: 32px; } .how-checks { padding-left: 28px; } }
+@media (max-width: 700px) { .how-hero { grid-template-columns: 1fr; padding-top: 25px; } .how-hero::before { inset: 0 0 40% 0; opacity: .8; } .how-hero__copy { padding: 20px 0 32px; } .how-hero h1 { font-size: clamp(36px,7vw,52px); } .how-hero__photo img { aspect-ratio: 5 / 4; } .how-promise__grid { grid-template-columns: 1fr; } .how-checks { border: 0; padding: 0; } .how-promise__support, .how-cta { flex-direction: column; align-items: flex-start; gap: 22px; } }
+@media (max-width: 430px) { .how-steps { grid-template-columns: 1fr; gap: 28px; } .how-actions { gap: 22px; } .how-journey__intro { font-size: 15px; } .how-promise__copy > p:not(.eyebrow) { font-size: 16px; } }
+@media print { .how-step, .how-promise { break-inside: avoid; } }

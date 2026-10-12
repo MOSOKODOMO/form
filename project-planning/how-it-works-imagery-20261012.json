@@ -1,0 +1,50 @@
+{
+  "approved_preview": "how-it-works-design-v1.png",
+  "records": [
+    {
+      "key": "quality-inspection",
+      "generator": "built-in image_gen",
+      "generated_on": "2026-10-12",
+      "source_png": "C:/Users/natth/.codex/generated_images/01a12ce5-a712-7973-8ca2-d0d951e90ee6/exec-b41a767b-a6fc-42e4-8cc6-00f8493a079a.png",
+      "asset": "assets/how-it-works/quality-inspection-20261012.webp",
+      "prompt": "Use case: photorealistic-natural. Create a refined editorial photograph for Fabrication Intelligence's approved light architectural website design. The attached webpage mockup is STYLE AND COMPOSITION REFERENCE only. Soft warm natural light, gentle contrast, realistic materials, near-white and ivory with restrained forest-green and brass accents. No readable words, logo, company branding, watermark, caption, certification marks or other promotional elements within the image. No fake FI building signage. This is concept imagery, not documentation of actual FI premises. Landscape 5:4. Close view of an anonymous inspector's two naturally proportioned hands wearing clean white cotton gloves, holding and inspecting ONE elegantly curved brushed-brass cabinet pull at a tidy packing/inspection bench. Fully visible complete handle centered, do not redesign. A simple vernier caliper lies on the bench and subtle neutral protective packaging nearby. Dark olive workshirt sleeves, no face, airy clean warehouse with neutral boxes softly blurred in background. Match the hero image in the mockup. Clean soft realistic lighting, not industrial grime, dark cinema or stock-photo posing."
+    },
+    {
+      "key": "global-suppliers",
+      "generator": "built-in image_gen",
+      "generated_on": "2026-10-12",
+      "source_png": "C:/Users/natth/.codex/generated_images/01a12ce5-a712-7973-8ca2-d0d951e90ee6/exec-4b642811-59f5-4370-8a4d-2dfe7ae52cf8.png",
+      "asset": "assets/how-it-works/global-suppliers-20261012.webp",
+      "prompt": "Use case: photorealistic-natural. Create a refined editorial photograph for Fabrication Intelligence's approved light architectural website design. The attached webpage mockup is STYLE AND COMPOSITION REFERENCE only. Soft warm natural light, gentle contrast, realistic materials, near-white and ivory with restrained forest-green and brass accents. No readable words, logo, company branding, watermark, caption, certification marks or other promotional elements within the image. No fake FI building signage. This is concept imagery, not documentation of actual FI premises. Landscape 3:2. A tasteful international freight port with ONE container ship and cranes, clean organized stacks of plain unlabeled shipping containers. Pale hazy warm daylight and reflective calm water. Quiet slightly desaturated warm-grey, ivory and muted tan palette; port scene in approved mockup. No location label, recognizable company brand or ship lettering, no map or infographic. Architectural photographic realism, horizon balanced, no dramatic dark skies. Leave some pale sky negative space."
+    },
+    {
+      "key": "order-from-fi",
+      "generator": "built-in image_gen",
+      "generated_on": "2026-10-12",
+      "source_png": "C:/Users/natth/.codex/generated_images/01a12ce5-a712-7973-8ca2-d0d951e90ee6/exec-671a2e8b-ac2e-4bf3-9068-c516469f74e0.png",
+      "asset": "assets/how-it-works/order-from-fi-20261012.webp",
+      "prompt": "Use case: photorealistic-natural. Create a refined editorial photograph for Fabrication Intelligence's approved light architectural website design. The attached webpage mockup is STYLE AND COMPOSITION REFERENCE only. Soft warm natural light, gentle contrast, realistic materials, near-white and ivory with restrained forest-green and brass accents. No readable words, logo, company branding, watermark, caption, certification marks or other promotional elements within the image. No fake FI building signage. This is concept imagery, not documentation of actual FI premises. Landscape 3:2. An elegant modern laptop on a light neutral table beside exactly ONE small brushed-brass cabinet knob, very subtle soft-focus foliage in the far background. Laptop screen shows a minimal abstract off-white ecommerce interface with simple grey layout shapes, no legible text, brand, or extra product image. Realistic hardware with no visible laptop manufacturer logo. Warm restrained catalogue-editorial photography, generous space and calm minimal composition, matching the first step photo of the mockup."
+    },
+    {
+      "key": "warehouse-check",
+      "generator": "built-in image_gen",
+      "generated_on": "2026-10-12",
+      "source_png": "C:/Users/natth/.codex/generated_images/01a12ce5-a712-7973-8ca2-d0d951e90ee6/exec-01c644bb-c16c-49d3-9e85-9910ca22de30.png",
+      "asset": "assets/how-it-works/warehouse-check-20261012.webp",
+      "prompt": "Use case: photorealistic-natural. Create a refined editorial photograph for Fabrication Intelligence's approved light architectural website design. The attached webpage mockup is STYLE AND COMPOSITION REFERENCE only. Soft warm natural light, gentle contrast, realistic materials, near-white and ivory with restrained forest-green and brass accents. No readable words, logo, company branding, watermark, caption, certification marks or other promotional elements within the image. No fake FI building signage. This is concept imagery, not documentation of actual FI premises. Landscape 3:2. Close editorial photograph of two anonymous inspector's hands in white cotton gloves examining ONE matte-black straight cabinet pull with two short cylindrical mounting supports, above an ivory inspection bench. Dark olive workshirt sleeves. A few neutral packing materials and softly blurred clean warehouse shelving behind, no signs or text. The handle is whole and centered. Warm daylight, gentle restrained shadows, realistic hand anatomy. Match the third step photograph of the approved webpage."
+    },
+    {
+      "key": "home-delivery",
+      "generator": "built-in image_gen",
+      "generated_on": "2026-10-12",
+      "source_png": "C:/Users/natth/.codex/generated_images/01a12ce5-a712-7973-8ca2-d0d951e90ee6/exec-33bb3d9a-7b7a-4492-b57b-29dcf1f431b6.png",
+      "asset": "assets/how-it-works/home-delivery-20261012.webp",
+      "prompt": "Use case: photorealistic-natural. Create a refined editorial photograph for Fabrication Intelligence's approved light architectural website design. The attached webpage mockup is STYLE AND COMPOSITION REFERENCE only. Soft warm natural light, gentle contrast, realistic materials, near-white and ivory with restrained forest-green and brass accents. No readable words, logo, company branding, watermark, caption, certification marks or other promotional elements within the image. No fake FI building signage. This is concept imagery, not documentation of actual FI premises. Landscape 3:2. Exactly ONE neat, securely sealed plain cardboard parcel outside a refined Australian-style modern home's warm timber entrance door. Pale stone threshold, simple olive foliage in a planter to the side, beautiful soft late-afternoon light with gentle natural shadow. Parcel entirely visible and unbranded with NO shipping label, words, logos, barcode, printed tape or company mark. No person, no extra parcels. Quiet tasteful editorial composition matching the fourth step image in the approved page."
+    }
+  ],
+  "owner_confirmation": {
+    "inspection_ready": "all orders",
+    "supplier_routing": "already configured for warehouse",
+    "confirmed_on": "2026-10-12"
+  }
+}

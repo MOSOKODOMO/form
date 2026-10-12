@@ -40,11 +40,13 @@ test('homepage names the four kinds of buyer', () => {
   assert.deepEqual(titles, ['Plumbers', 'Builders', 'Renovators', 'Homeowners']);
 })
 
-test('homepage explains the automated order and direct delivery', () => {
+test('homepage explains sourcing, warehouse inspection and onward delivery', () => {
   const steps = block(/<section\b[^>]*id="how-it-works"[^>]*>([\s\S]*?)<\/section>/, 'how it works');
   const titles = [...steps.matchAll(/<li class="home-step">[\s\S]*?<h3>([\s\S]*?)<\/h3>/g)].map(match => text(match[1]));
-  assert.deepEqual(titles, ['Choose and pay', 'We place the order', 'Shipped direct', 'We sort any problem']);
-  assert.match(text(steps), /supplier's estimate/, 'the delivery time is labelled as an estimate');
+  assert.deepEqual(titles, ['Order from FI', 'Sourced globally', 'Inspected by us', 'Delivered with care']);
+  assert.match(text(steps), /warehouse for inspection/);
+  assert.match(text(steps), /resolve any issue before dispatch/);
+  assert.doesNotMatch(text(steps), /No warehouse stop|supplier ships straight to you/);
   assert.match(steps, /href="returns.html"/);
   assert.match(steps, /href="contact.html#contact-form"/, 'trade buyers can ask for a quote');
 })

@@ -119,7 +119,7 @@ test('shop mode: the FI rating is off, so no score shows and ready-to-buy produc
     assert.doesNotMatch(read(page), /href="rankings\.html"/, `${page} no longer links to the rankings`)
   }
   const shipping = read('shipping.html')
-  assert.match(shipping, /id="shop-orders"[\s\S]*?FI does not inspect them before delivery/, 'the shipping policy says shop orders ship direct')
+  assert.match(shipping, /id="shop-orders"[\s\S]*?inspect and pack your order before forwarding/, 'shop orders pass through FI inspection before onward delivery')
 })
 
 test('shop by finish: products are grouped into matte black, brass and gold, and silver', () => {
