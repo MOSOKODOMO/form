@@ -44,7 +44,7 @@ test('every public page retains the same complete primary navigation in the same
 
 test('navigation remains visible without JavaScript and uses fixed mobile columns', () => {
   const css = read('site-navigation.css');
-  assert.match(read('builders.css'), /@import url\('site-navigation.css'\)/);
+  assert.match(read('builders.css'), /@import url\('site-navigation.css[^']*'\)/);
   assert.match(css, /scrollbar-gutter: stable/);
   assert.match(css, /grid-template-columns: repeat\(3, minmax\(0, 1fr\)\)/);
   assert.match(css, /min-height: 44px/);

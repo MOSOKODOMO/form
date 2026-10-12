@@ -84,7 +84,7 @@ test('the rankings page has the toggle, filters, a live status and How we score'
     assert.match(page, new RegExp(`UP TO ${max}</span>\\s*<h3>${name}</h3>`))
   }
   assert.match(page, /Until a product has reviews, this part is 0, and the score is an early score, based on our research\./)
-  assert.match(page, /<script src="catalogue\.js" defer><\/script>\s*<script src="rankings\.js" defer><\/script>/)
+  assert.match(page, /<script src="catalogue\.js(\?[^"]*)?" defer><\/script>\s*<script src="rankings\.js(\?[^"]*)?" defer><\/script>/)
   assert.match(page, /sample-banner-label">SAMPLE RANKING/, 'the example is labelled as samples')
 })
 

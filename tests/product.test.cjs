@@ -72,7 +72,7 @@ test('the trust panel shows each check as verified, claimed, failed or not state
 
 test('product page loads the catalogue first and builds everything without raw HTML', () => {
   const page = read('product.html')
-  assert.ok(page.indexOf('src="catalogue.js"') < page.indexOf('src="product.js"'))
+  assert.ok(page.indexOf('src="catalogue.js') < page.indexOf('src="product.js'))
   assert.match(page, /<link rel="stylesheet" href="shop\.css">/)
   assert.match(page, /<nav class="product-crumbs" aria-label="Breadcrumb">/)
   assert.match(page, /id="product"/)

@@ -80,5 +80,5 @@ test('the AI page lists connected and planned tools honestly and shows no privat
   for (const tool of ['Notion', 'Shopify', 'Stripe', 'Supabase', 'GitHub', 'Google Calendar', 'Email inbox', 'Axiom', 'Supplier ordering']) assert.ok(ai.includes(tool), tool);
   assert.match(read('ai.html'), /docs-status--planned">Planned/);
   assert.match(ai, /A founder reviews it\. Nothing goes live without this step|Nothing goes live without this step/);
-  assert.doesNotMatch(read('ai.html'), /@(?!fabricationintelligence)[a-z0-9.-]+\.[a-z]{2,}/i);
+  assert.doesNotMatch(read('ai.html'), /(?<!fabricationintelligence)@[a-z0-9.-]+\.[a-z]{2,}/i);
 });

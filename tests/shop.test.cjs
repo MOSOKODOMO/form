@@ -73,7 +73,7 @@ test('the shop sorts by FI Score and filters by category from the URL', () => {
 
 test('shop page loads the catalogue first and offers every category with a sample notice', () => {
   const shop = read('shop.html')
-  assert.ok(shop.indexOf('src="catalogue.js"') < shop.indexOf('src="shop.js"'), 'catalogue loads before the shop script')
+  assert.ok(shop.indexOf('src="catalogue.js') < shop.indexOf('src="shop.js'), 'catalogue loads before the shop script')
   assert.match(shop, /<link rel="stylesheet" href="shop\.css">/)
   const buttons = [...shop.matchAll(/<button class="shop-filter" type="button" data-category="([a-z]+)"/g)].map((match) => match[1])
   assert.deepEqual(buttons, ['all', ...catalogue.CATEGORY_IDS])
