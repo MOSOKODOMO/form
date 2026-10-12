@@ -59,11 +59,11 @@ test('the shop lists approved and live products only', () => {
 
 test('price, ships from and delivery appear under the button only when stated', () => {
   assert.deepEqual(catalogue.purchaseFacts(byHandle['test-shopify-link']), [
-    {label: 'Price', value: 'A$45 each, incl. GST'},
+    {label: 'Price', value: 'A$45 each'},
     {label: 'Ships from', value: 'Sydney, Australia'},
     {label: 'Delivery', value: '5 to 8 business days'},
   ])
-  assert.deepEqual(catalogue.purchaseFacts(byHandle['test-stripe-link']), [{label: 'Price', value: 'A$14.50 each, incl. GST'}])
+  assert.deepEqual(catalogue.purchaseFacts(byHandle['test-stripe-link']), [{label: 'Price', value: 'A$14.50 each'}])
   assert.deepEqual(catalogue.purchaseFacts(byHandle['test-no-links']), [])
   assert.deepEqual(catalogue.cardPrice(byHandle['test-no-links']), {value: 'Price on request', unit: ''})
   assert.equal(catalogue.specRows(byHandle['test-shopify-link'])[0][1], 'Not stated')

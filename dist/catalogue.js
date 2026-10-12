@@ -251,7 +251,7 @@
   // Shown under the buy button, and only when the product's source states them.
   function purchaseFacts(product) {
     const facts = [];
-    if (isStated(product.price_aud)) facts.push({label: 'Price', value: `${formatPrice(product.price_aud)}${isStated(product.price_unit) ? ` ${product.price_unit}` : ''}, incl. GST`});
+    if (isStated(product.price_aud)) facts.push({label: 'Price', value: `${formatPrice(product.price_aud)}${isStated(product.price_unit) ? ` ${product.price_unit}` : ''}`});
     if (isStated(product.ships_from)) facts.push({label: 'Ships from', value: product.ships_from});
     if (isStated(product.delivery_estimate)) facts.push({label: 'Delivery', value: product.delivery_estimate});
     return facts;
