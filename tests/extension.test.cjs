@@ -65,6 +65,29 @@ test('unsold and approved-only products are never offered', () => {
   assert.deepEqual(M.findAlternatives({title: 'Brass hook'}, fake).matches, [])
 })
 
+test('Buyer tools is its own tab in the main menu, with the download button at the top of the page', () => {
+  const distDir = path.join(__dirname, '../dist')
+  let withNav = 0
+  for (const file of fs.readdirSync(distDir).filter((f) => f.endsWith('.html'))) {
+    const html = dist(file)
+    const nav = html.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)
+    if (!nav) continue
+    withNav += 1
+    const links = [...nav[0].matchAll(/<a\b([^>]*)href="([^"]+)"([^>]*)>([^<]*)<\/a>/g)].map((m) => [m[2], m[4].trim(), `${m[1]}${m[3]}`.includes('aria-current="page"')])
+    const shop = links.findIndex(([href]) => href === 'shop.html')
+    assert.deepEqual(links[shop + 1].slice(0, 2), ['extension.html', 'Buyer tools'], `${file} has Buyer tools right after Shop`)
+    assert.equal(links.filter(([href]) => href === 'extension.html').length, 1, `${file} lists it once`)
+    assert.equal(links[shop + 1][2], file === 'extension.html', `${file} active state`)
+  }
+  assert.ok(withNav >= 25, 'the tab is on every public page')
+  const page = dist('extension.html')
+  const hero = page.slice(page.indexOf('<section class="page-hero'), page.indexOf('<div class="terms-layout">'))
+  assert.match(hero, /href="downloads\/fabint-price-finder\.zip" download/, 'download button sits in the top section')
+  assert.match(page, /id="install"[\s\S]*id="use"/, 'install steps come before the how-to-use steps')
+  assert.match(page, /src="assets\/extension-popup-example\.png"[^>]*alt="[^"]+"/)
+  assert.ok(fs.existsSync(path.join(distDir, 'assets/extension-popup-example.png')))
+})
+
 test('buyer tools page is honest, linked from every footer, and the download matches the extension folder', () => {
   const page = dist('extension.html')
   assert.match(page, /<title>Buyer tools \| Fabrication Intelligence<\/title>/)
