@@ -23,4 +23,3 @@ if(home){
  function show(){const items=reviews.filter(r=>(!product.value||r.catalogue_handle===product.value)&&(!rating.value||r.rating===Number(rating.value)));list.replaceChildren(...items.map(sampleCard));document.querySelector('#review-summary').textContent='18 AI-generated samples · Not real customer reviews';document.querySelector('#review-status').textContent='Showing '+items.length+' sample cards.';}
  product.onchange=show;rating.onchange=show;show();
 }
-
