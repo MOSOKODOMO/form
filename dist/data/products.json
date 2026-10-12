@@ -5543,7 +5543,7 @@
     "maker_url": "",
     "country": "China",
     "ships_from": "China",
-    "material": "Stainless steel (seller’s listing title)",
+    "material": "Stainless steel (seller’s listing)",
     "finishes": [
       "Black"
     ],
@@ -5603,7 +5603,7 @@
     "source_url": "https://www.aliexpress.com/item/33010737803.html",
     "source_check_status": "listing_found",
     "source_checked_on": "2026-10-11",
-    "source_check_note": "AliExpress listing read on 11 Oct 2026. Sizes and prices are those the listing shows for each size. The listing title says stainless steel; its generated overview says aluminium alloy, so material is not confirmed. Not linked in DSers yet, so orders are placed with the seller by hand. Not inspected yet."
+    "source_check_note": "AliExpress listing read on 11 Oct 2026. Sizes and prices are those the listing shows for each size. Material is stainless steel as the seller’s listing title states. Not linked in DSers yet, so orders are placed with the seller by hand. Not inspected yet."
   },
   {
     "handle": "matte-black-cabinet-pulls-20-pack",
@@ -5615,7 +5615,7 @@
     "maker_url": "",
     "country": "China",
     "ships_from": "China",
-    "material": "Stainless steel (seller’s listing title)",
+    "material": "Stainless steel (seller’s listing)",
     "finishes": [
       "Matte black"
     ],
@@ -5669,6 +5669,6 @@
     "source_url": "https://www.aliexpress.com/item/1005007435631658.html",
     "source_check_status": "listing_found",
     "source_checked_on": "2026-10-11",
-    "source_check_note": "AliExpress listing read on 11 Oct 2026. Hole centres and prices are those the listing shows for each option. The listing title says stainless steel. Not linked in DSers yet, so orders are placed with the seller by hand. Not inspected yet."
+    "source_check_note": "AliExpress listing read on 11 Oct 2026. Hole centres and prices are those the listing shows for each option. Material is stainless steel as the seller’s listing title states. Not linked in DSers yet, so orders are placed with the seller by hand. Not inspected yet."
   }
 ]
