@@ -42,6 +42,17 @@
 .editorial-home .home-score-note { display: block; padding: 22px 0 0; border: 0; border-top: 1px solid #bfc9ba; background: transparent; }
 .editorial-home .home-score-label { margin-bottom: 10px; }
 .editorial-home .home-score-note p + p { font-size: 13px; max-width: 880px; }
+/* Keep the existing #pricing anchor usable while introducing free FI accounts. */
+.home-signup-heading { display: grid; grid-template-columns: minmax(0,1fr) minmax(260px,.65fr); align-items: center; gap: 40px; }
+.editorial-home .home-signup h2 { font-size: clamp(36px,4vw,62px); margin-top: 18px; }
+.home-signup-intro { max-width: 520px; margin-top: 24px; font-size: 16px; color: var(--muted); }
+.home-signup-actions { justify-self: end; width: 100%; max-width: 350px; }
+.home-signup-actions .button { width: 100%; justify-content: space-between; gap: 24px; }
+.home-signup-free { margin-top: 12px; font-size: 12px; color: var(--muted); }
+.home-signup-signin { margin-top: 22px; font-size: 13px; color: var(--muted); }
+.home-signup-signin a { color: var(--ink); }
+.home-signup-availability { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12px; line-height: 1.6; color: var(--muted); }
+@media (max-width: 700px) { .home-signup-heading { grid-template-columns: 1fr; gap: 28px; } .home-signup-actions { justify-self: start; max-width: 380px; } }
 .editorial-home .home-coming-later { grid-template-columns: .6fr 1.4fr 1fr; margin: 0; padding: 36px var(--gutter); border: 0; border-block: 1px solid rgba(118,89,21,.25); background: var(--warning-bg); box-shadow: inset 4px 0 var(--amber); }
 .editorial-home .home-coming-later .eyebrow, .editorial-home .home-coming-later .text-link { color: var(--amber); }
 .editorial-home .home-coming-later h2 { font-size: 21px; }
