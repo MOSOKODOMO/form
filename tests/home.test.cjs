@@ -69,12 +69,13 @@ test('the homepage no longer loads window content, scripts or the large window i
   assert.doesNotMatch(text(home), /guaranteed savings|always cheaper/i)
 })
 
-test('homepage pricing explains shop prices, the founding code, trade pricing and quotes', () => {
+test('signup benefits explain prices, the founding offer, trade approval and project quotes', () => {
   const pricing = block(/<section\b[^>]*id="pricing"[^>]*>([\s\S]*?)<\/section>/, 'a pricing section');
-  const titles = [...pricing.matchAll(/<li class="home-step">[\s\S]*?<h3>([\s\S]*?)<\/h3>/g)].map(match => text(match[1]));
-  assert.deepEqual(titles, ['Shop prices', 'Founding customers: 10% off', 'Trade: 15% off', 'Big or custom jobs']);
+  const titles = [...pricing.matchAll(/<li class="signup-benefit">[\s\S]*?<h3>([\s\S]*?)<\/h3>/g)].map(match => text(match[1]));
+  assert.deepEqual(titles, ['Everyday shoppers', 'Founding customers', 'Trade professionals', 'Project buyers']);
   assert.match(text(pricing), /free on orders over A\$100/);
-  assert.match(text(pricing), /how FI makes money/);
-  assert.match(home, /href="#pricing">Pricing</, 'the footer links to pricing');
-  for (const finish of ['black', 'brass', 'silver']) assert.match(home, new RegExp(`href="shop\\.html\\?finish=${finish}"`));
+  assert.match(text(pricing), /FOUNDING10. First 20 orders only, until 31 October/);
+  assert.match(text(pricing), /15% off with trade approval/);
+  assert.match(text(pricing), /business name and ABN/);
+  for (const href of ['auth.html?mode=signup', 'shop.html', 'trade.html', 'project.html']) assert.ok(pricing.includes(`href="${href}"`));
 })
