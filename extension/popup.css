@@ -11,3 +11,4 @@ h1{margin:2px 0 12px;font-size:20px;letter-spacing:-.01em}
 .row{display:flex;gap:6px;margin-top:4px}input{flex:1;padding:6px;background:#1a1613;color:var(--paper);border:1px solid #3a322c}
 button{padding:6px 10px;background:var(--red);color:var(--paper);border:0;cursor:pointer}
 .fine{color:var(--mute);font-size:11px}.fine a{color:var(--paper)}
+.links{grid-template-columns:1fr 1fr}.links li{padding:8px 10px}section[hidden]{display:none}

@@ -2,11 +2,12 @@
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>FABINT Price Finder</title><link rel="stylesheet" href="popup.css"></head>
 <body>
-  <header><p class="label">FABINT PRICE FINDER</p><h1>Similar products, to compare</h1></header>
+  <header><p class="label">FABINT PRICE FINDER</p><h1>Find it cheaper elsewhere</h1></header>
   <p id="status" role="status" aria-live="polite">Reading this page on your device...</p>
-  <ul id="results" class="results"></ul>
+  <section id="compare" hidden><p class="label">SEE THE SAME PRODUCT ON OTHER SHOPS</p><ul id="compare-list" class="results links"></ul><p class="fine">Each link opens that shop's own search, so you see its live price. Check it is the same model, size and colour, and add delivery to compare fairly.</p></section>
+  <section id="fabint" hidden><p class="label">ALSO AT FABINT (HARDWARE ONLY)</p><ul id="results" class="results"></ul></section>
   <form id="manual" hidden><label for="query" class="label">OR TYPE WHAT YOU ARE LOOKING FOR</label><div class="row"><input id="query" type="text" maxlength="120" placeholder="black cabinet handle 128mm"><button type="submit">Search</button></div></form>
-  <p class="fine">Matches are similar, not identical. Check size, finish and material. Nothing about the page you are on leaves your device. <a href="https://fabricationintelligence.com/extension.html" target="_blank" rel="noopener">How this works</a></p>
+  <p class="fine">The page you are on is read on your device and is never sent to us. The product name goes to a shop only when you click that shop. <a href="https://fabricationintelligence.com/extension.html" target="_blank" rel="noopener">How this works</a></p>
   <script src="match.js"></script><script src="popup.js"></script>
 </body>
 </html>

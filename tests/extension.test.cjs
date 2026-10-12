@@ -27,7 +27,7 @@ test('popup builds results with text nodes only, loads no remote script and send
   assert.doesNotMatch(html, /<script[^>]+src="https?:/)
   const fetches = js.match(/fetch\([^)]*\)/g) || []
   assert.deepEqual(fetches, ['fetch(CATALOGUE)'])
-  assert.match(js, /rel = 'noopener'/)
+  assert.match(js, /rel = 'noopener/)
   assert.match(html, /role="status" aria-live="polite"/)
   assert.doesNotMatch(js + html + ext('match.js'), /—/)
 })
@@ -92,8 +92,11 @@ test('buyer tools page is honest, linked from every footer, and the download mat
   const page = dist('extension.html')
   assert.match(page, /<title>Buyer tools \| Fabrication Intelligence<\/title>/)
   assert.match(page, /not in the Chrome Web Store or Edge Add-ons yet/)
-  assert.match(page, /never sent to us or anyone else/)
-  assert.match(page, /Similar, not identical|similar, not identical/i)
+  assert.match(page, /never sent to us/)
+  assert.match(page, /goes to a shop only when you click/)
+  assert.match(page, /does not show other shops' prices itself yet/)
+  assert.match(page, /similar products, not identical ones/i)
+  assert.match(page, /Version 0\.2\.0/)
   assert.match(page, /docs-status--planned">Planned/)
   assert.doesNotMatch(page, /—/)
   assert.doesNotMatch(page, /aria-current="page">Support/)
@@ -117,4 +120,29 @@ test('buyer tools page is honest, linked from every footer, and the download mat
     offset += 30 + nameLen + extraLen + size
   }
   assert.deepEqual(names.sort(), fs.readdirSync(path.join(__dirname, '../extension')).sort())
+})
+
+test('compare links search other shops for the same product, preferring barcode, then brand and model, then the title', () => {
+  assert.equal(JSON.parse(ext('manifest.json')).version, '0.2.0')
+  const gtin = M.compareLinks({title: 'Keychron K2 Keyboard', brand: 'Keychron', model: 'K2-C3H', gtin: '0850012345678'})
+  assert.equal(gtin.query, '0850012345678')
+  const model = M.compareLinks({title: 'Keychron K2 Wireless Mechanical Keyboard | Mwave', brand: 'Keychron', model: 'K2-C3H'})
+  assert.equal(model.query, 'Keychron K2-C3H')
+  const title = M.compareLinks({title: 'Keychron K2 Wireless Mechanical Keyboard | Mwave'})
+  assert.equal(title.query, 'Keychron K2 Wireless Mechanical Keyboard')
+  assert.deepEqual(model.links.map((l) => l.name), ['Google Shopping', 'PriceSpy', 'eBay Australia', 'Amazon Australia', 'Kogan', 'AliExpress'])
+  for (const link of model.links) {
+    assert.match(link.url, /^https:\/\//)
+    assert.ok(link.url.endsWith(encodeURIComponent('Keychron K2-C3H')), `${link.name} carries the encoded query`)
+  }
+})
+
+test('compare links give nothing for empty input, cap long titles and stay free of dashes', () => {
+  for (const input of [null, undefined, {}, {title: '   '}, {price: 12}]) assert.deepEqual(M.compareLinks(input).links, [])
+  const long = M.searchQuery({title: 'Word '.repeat(60)})
+  assert.ok(long.length <= 90)
+  const injected = M.compareLinks({title: 'Thing & more=1#frag'})
+  for (const link of injected.links) assert.ok(link.url.endsWith(encodeURIComponent(injected.query)), `${link.name} encodes the query`)
+  assert.equal(injected.query, 'Thing & more=1#frag')
+  assert.doesNotMatch(M.SHOPS.map((s) => s.join(' ')).join(' '), /—/)
 })

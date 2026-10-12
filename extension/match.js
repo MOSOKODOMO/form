@@ -73,7 +73,42 @@
     return {facts, category, matches: scored.slice(0, limit)};
   }
 
-  const api = {tokens, inferCategory, sizesIn, isBuyable, pageFacts, findAlternatives};
+
+  // Same-product search links for other shops. No prices are read from those shops.
+  const SHOPS = [
+    ['Google Shopping', 'https://www.google.com.au/search?tbm=shop&q='],
+    ['PriceSpy', 'https://pricespy.com.au/search?search='],
+    ['eBay Australia', 'https://www.ebay.com.au/sch/i.html?_nkw='],
+    ['Amazon Australia', 'https://www.amazon.com.au/s?k='],
+    ['Kogan', 'https://www.kogan.com/au/shop/?q='],
+    ['AliExpress', 'https://www.aliexpress.com/wholesale?SearchText='],
+  ];
+
+  function cleanTitle(text) {
+    const first = String(text || '').split(/\s+[|\u2013\u2014]\s+|\s+-\s+/)[0].replace(/\s+/g, ' ').trim();
+    if (first.length <= 90) return first;
+    const cut = first.slice(0, 90);
+    return cut.slice(0, Math.max(cut.lastIndexOf(' '), 40)).trim();
+  }
+
+  // Best search text: a barcode if the page publishes one, then brand plus model, then the cleaned title.
+  function searchQuery(raw) {
+    const r = raw || {};
+    const gtin = String(r.gtin || '').replace(/\D/g, '');
+    if (gtin.length >= 8 && gtin.length <= 14) return gtin;
+    const brand = String(r.brand || '').trim();
+    const model = String(r.model || '').trim();
+    if (brand && model && model.length >= 3 && model.length <= 40) return `${brand} ${model}`.slice(0, 90);
+    return cleanTitle(r.title || r.heading || '');
+  }
+
+  function compareLinks(raw) {
+    const query = searchQuery(raw);
+    if (!query) return {query: '', links: []};
+    return {query, links: SHOPS.map(([name, base]) => ({name, url: base + encodeURIComponent(query)}))};
+  }
+
+  const api = {tokens, inferCategory, sizesIn, isBuyable, pageFacts, findAlternatives, cleanTitle, searchQuery, compareLinks, SHOPS};
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (typeof window !== 'undefined') window.FIMatch = api;
 })();
