@@ -42,10 +42,12 @@
 .editorial-home .home-score-note { display: block; padding: 22px 0 0; border: 0; border-top: 1px solid #bfc9ba; background: transparent; }
 .editorial-home .home-score-label { margin-bottom: 10px; }
 .editorial-home .home-score-note p + p { font-size: 13px; max-width: 880px; }
-.editorial-home .home-coming-later { grid-template-columns: .6fr 1.4fr 1fr; margin: 0; padding: 28px var(--gutter); border: 0; border-bottom: 1px solid var(--line); }
+.editorial-home .home-coming-later { grid-template-columns: .6fr 1.4fr 1fr; margin: 0; padding: 36px var(--gutter); border: 0; border-block: 1px solid rgba(118,89,21,.25); background: var(--warning-bg); box-shadow: inset 4px 0 var(--amber); }
+.editorial-home .home-coming-later .eyebrow, .editorial-home .home-coming-later .text-link { color: var(--amber); }
 .editorial-home .home-coming-later h2 { font-size: 21px; }
-.editorial-home .home-coming-later-copy p { font-size: 13px; }
+.editorial-home .home-coming-later-copy p { font-size: 13px; color: #625a47; }
 .editorial-home .home-coming-later-links { justify-content: flex-end; }
+.editorial-home .home-coming-later .text-link:hover { color: var(--ink); }
 .editorial-home .home-founders { padding: 90px var(--gutter); border: 0; }
 .editorial-home .team-grid { max-width: none; border: 0; gap: 30px; margin-top: 40px; }
 .editorial-home .team-card, .editorial-home .team-card + .team-card { padding: 0; border: 0; }
