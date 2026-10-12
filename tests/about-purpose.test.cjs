@@ -14,7 +14,7 @@ test('About page presents five one-sentence purpose statements', () => {
     assert.match(statement, /^[^.!?]+\.$/, 'Each statement is exactly one sentence');
   }
   assert.match(statements[3], /global manufacturers/);
-  assert.match(statements[4], /genuine customer reviews/);
+  assert.match(statements[4], /reviews only from buyers who actually bought it/);
 });
 
 test('About page explains the current store and global sourcing focus', () => {
