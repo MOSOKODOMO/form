@@ -22,16 +22,17 @@ test('founders section shows the three founders with their approved photos and b
     assert.match(cards[index], new RegExp(`alt="Portrait of ${name}"`))
     assert.match(cards[index], /loading="lazy" decoding="async"/)
   }
-  const order = ['founders', 'contact'].map((id) => home.indexOf(`id="${id}"`))
-  assert.ok(order[0] > 0 && order[0] < order[1], 'founders, then contact')
+  const order = ['founders', 'testimonials', 'contact'].map((id) => home.indexOf(`id="${id}"`))
+  assert.ok(order[0] < order[1] && order[1] < order[2], 'founders, then testimonials, then contact')
 })
 
-test('homepage carries no sample or invented reviews and the testimonials file stays empty until real ones exist', () => {
-  assert.doesNotMatch(home, /id="testimonials"/);
-  assert.doesNotMatch(home, /Sample reviews|fictional examples|AI-generated sample/i);
+test('homepage links to genuine purchase reviews without invented testimonials', () => {
+  const block = section('testimonials');
+  assert.match(block, /href="reviews.html"/);
+  assert.match(text(block), /paid, delivered FI orders/);
+  assert.match(text(block), /Positive and negative/);
   assert.doesNotMatch(home, /<script src="testimonials\.js"/);
   assert.equal(JSON.parse(read('data/testimonials.json')).length, 0);
-  for (const file of ['review-preview.html', 'home-review-preview.html', 'review-preview.js', 'data/review-preview-samples.json']) assert.equal(fs.existsSync(path.join(__dirname, '..', 'dist', file)), false, `${file} is removed`);
 })
 
 test('the contact form is on the homepage and contact page and posts to the team inbox', () => {
