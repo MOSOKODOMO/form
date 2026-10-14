@@ -17,7 +17,7 @@
     <script src="catalogue.js?v=20261012-enquiries" defer></script>
     <script src="project-list.js" defer></script><script src="product-image.js?v=20261012-room" defer></script><script src="product.js?v=20261012-studio" defer></script>
   <link rel="stylesheet" href="editorial.css?v=20261011-premium3"><link rel="stylesheet" href="brand-lockup.css?v=20261011-premium3">
-  <link rel="stylesheet" href="store.css"><script type="module" src="product-reviews.js?v=20261012-featured"></script><script src="site-shell.js?v=20261011-premium3" defer></script><link rel="stylesheet" href="shop-editorial.css?v=20261012-studio"><link rel="stylesheet" href="project.css?v=20261011-premium3"><link rel="stylesheet" href="review-cards.css?v=20261012-featured"></head>
+  <link rel="stylesheet" href="store.css"><link rel="stylesheet" href="feedback-panel.css?v=20261014-wall"><script src="feedback-panel.js?v=20261014-wall" defer></script><script type="module" src="product-reviews.js?v=20261012-featured"></script><script src="site-shell.js?v=20261011-premium3" defer></script><link rel="stylesheet" href="shop-editorial.css?v=20261012-studio"><link rel="stylesheet" href="project.css?v=20261011-premium3"><link rel="stylesheet" href="review-cards.css?v=20261012-featured"></head>
   <body data-motion-page="functional">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header site-header--public">
@@ -46,6 +46,10 @@
       <div id="product" class="product-page" aria-busy="true">
         <p class="shop-status" role="status">Loading the product…</p>
       </div>
+      <section class="feedback-wall feedback-wall--product" data-feedback-panel data-context="product" aria-labelledby="feedback-heading" aria-busy="true">
+        <h2 id="feedback-heading" class="visually-hidden">Feedback</h2>
+        <noscript><p>Tell us what you think on the <a href="feedback.html">feedback page</a>.</p></noscript>
+      </section>
       <noscript><p class="shop-status">This page needs JavaScript to show the product. Email <a href="mailto:fabricationintelligence@gmail.com">fabricationintelligence@gmail.com</a> and we’ll help.</p></noscript>
     </main>
 
