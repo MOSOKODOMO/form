@@ -1,0 +1,30 @@
+/* Keep the existing Shop header and hero; refine browsing below them. */
+.collection-shop .shop-products-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin: 0 var(--gutter); padding-top: 36px; border-top: 1px solid var(--line); scroll-margin-top: 110px; }
+.collection-shop .shop-products-heading h2 { margin: 0; font: 500 clamp(30px,3.3vw,46px)/1.15 var(--display); letter-spacing: -.045em; }
+.collection-shop .shop-products-heading p { margin: 0; font: 400 13px/1.6 var(--body); color: var(--muted); }
+.collection-shop .shop-toolbar { border-top: 0; padding-top: 28px; }
+.collection-shop .shop-controls { grid-template-columns: minmax(0,1fr) 230px; }
+.collection-shop .shop-filters:not(.shop-rooms):not(.shop-finishes) .shop-filter { border-radius: 30px; padding-inline: 20px; }
+.collection-shop .product-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 54px 28px; padding-top: 6px; }
+.collection-shop .product-card-media { aspect-ratio: 1; }
+.collection-shop .product-card-body { padding-top: 20px; }
+.collection-shop .product-card-title { font-size: 21px; }
+.collection-shop .product-card-body .project-add { width: fit-content; padding: 10px 0; margin-top: 6px; border: 0; border-bottom: 1px solid var(--line); background: transparent; }
+.collection-shop .product-card-body .project-add[aria-pressed="true"] { color: var(--ink); border-color: currentColor; }
+.collection-shop .shop-project-panel { margin: 0 var(--gutter) 72px; padding: clamp(26px,4vw,56px); display: flex; justify-content: space-between; align-items: center; gap: 32px; background: #e9ece4; }
+.collection-shop .shop-project-panel h2 { font: 500 clamp(28px,3vw,44px)/1.15 var(--display); letter-spacing: -.045em; margin: 0 0 12px; }
+.collection-shop .shop-project-panel p { max-width: 470px; color: var(--muted); font-size: 14px; line-height: 1.65; margin: 0; }
+.collection-shop .shop-project-panel .text-link { flex-shrink: 0; }
+@media (max-width: 900px) {
+  .collection-shop .product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 38px 20px; }
+}
+@media (max-width: 600px) {
+  .collection-shop .shop-products-heading, .collection-shop .shop-project-panel { align-items: start; flex-direction: column; gap: 16px; }
+  .collection-shop .shop-controls { grid-template-columns: minmax(0,1fr); gap: 18px; }
+  .collection-shop .product-grid { gap: 34px 14px; }
+  .collection-shop .product-card-title { font-size: 17px; }
+  .collection-shop .shop-project-panel { margin-bottom: 42px; }
+}
+@media (max-width: 380px) {
+  .collection-shop .product-grid { grid-template-columns: minmax(0,1fr); }
+}
