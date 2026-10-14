@@ -18,7 +18,7 @@
 
   function readState() {
     const params = new URLSearchParams(window.location.search);
-    return {category: FI.parseCategory(window.location.search), finish: FI.parseFinish(window.location.search), room: FI.parseRoom(window.location.search), query: (params.get('q') || '').slice(0,160), sort: allowedSorts.includes(params.get('sort')) ? params.get('sort') : 'featured'};
+    return {collection: FI.parseCollection(window.location.search), category: FI.parseCategory(window.location.search), finish: FI.parseFinish(window.location.search), room: FI.parseRoom(window.location.search), query: (params.get('q') || '').slice(0,160), sort: allowedSorts.includes(params.get('sort')) ? params.get('sort') : 'featured'};
   }
   const clean = text => String(text || '').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   function matching(list, query) {
@@ -56,7 +56,9 @@
     search.value = state.query;
     sort.value = state.sort;
     if (!ready) return;
-    const matches = matching(products,state.query);
+    const matches = matching(FI.filterByCollection(products,state.collection),state.query);
+    document.querySelector('.shop-products-heading h2').textContent = FI.collectionName(state.collection);
+    document.querySelector('.shop-products-heading p').textContent = state.collection === 'all' ? 'Find your favourites. Bring them together in your project list.' : 'Explore pieces for this look. Design references are available to enquire.';
     const inRoom = FI.filterByRoom(matches,state.room);
     const counts = FI.categoryCounts(FI.filterByFinish(inRoom,state.finish));
     const inCategory = FI.filterByCategory(inRoom,state.category);
@@ -77,16 +79,16 @@
     grid.replaceChildren(...(list.length ? list.map(window.FIProductCard.card) : [empty()]));
     document.dispatchEvent(new Event('fi:collection-rendered'));
     sampleBanner.hidden = !list.some(p => p.sample);
-    const parts = [state.room === 'all' ? '' : FI.roomName(state.room),state.category === 'all' ? '' : FI.categoryName(state.category),state.finish === 'all' ? '' : FI.finishName(state.finish)].filter(Boolean);
+    const parts = [state.collection === 'all' ? '' : FI.collectionName(state.collection),state.room === 'all' ? '' : FI.roomName(state.room),state.category === 'all' ? '' : FI.categoryName(state.category),state.finish === 'all' ? '' : FI.finishName(state.finish)].filter(Boolean);
     const where = parts.length ? ` in ${parts.join(', ')}` : '';
     const query = state.query ? ` matching “${state.query}”` : '';
     status.textContent = `${list.length} product${list.length === 1 ? '' : 's'}${where}${query}`;
     if (state.sort.startsWith('price-')) status.textContent += '. Listed prices may cover different pack sizes; compare units on each product.';
-    reset.hidden = state.category === 'all' && state.finish === 'all' && state.room === 'all' && !state.query && state.sort === 'featured';
+    reset.hidden = state.collection === 'all' && state.category === 'all' && state.finish === 'all' && state.room === 'all' && !state.query && state.sort === 'featured';
   }
   function updateUrl(replace = false) {
     const url = new URL(window.location.href);
-    for (const [key, value, fallback] of [['category',state.category,'all'],['finish',state.finish,'all'],['room',state.room,'all'],['q',state.query,''],['sort',state.sort,'featured']]) {
+    for (const [key, value, fallback] of [['collection',state.collection,'all'],['category',state.category,'all'],['finish',state.finish,'all'],['room',state.room,'all'],['q',state.query,''],['sort',state.sort,'featured']]) {
       if (value === fallback) url.searchParams.delete(key); else url.searchParams.set(key,value);
     }
     window.history[replace ? 'replaceState' : 'pushState'](null, '', url);
@@ -97,7 +99,7 @@
   for (const button of roomButtons) button.addEventListener('click', () => { state.room = button.dataset.room; state.category = 'all'; updateUrl(); });
   search.addEventListener('input', () => { state.query = search.value.slice(0,160); updateUrl(true); });
   sort.addEventListener('change', () => { state.sort = sort.value; updateUrl(); });
-  reset.addEventListener('click', () => { state = {category:'all',finish:'all',room:'all',query:'',sort:'featured'}; updateUrl(); search.focus(); });
+  reset.addEventListener('click', () => { state = {collection:'all',category:'all',finish:'all',room:'all',query:'',sort:'featured'}; updateUrl(); search.focus(); });
   window.addEventListener('popstate', () => { state = readState(); render(); });
   render();
   if (window.location.hash === '#shop-search') search.focus();

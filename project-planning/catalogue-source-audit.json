@@ -1070,5 +1070,93 @@
     "render_published": true,
     "render_variant": "original matte black cylindrical T-bar cabinet pull, straight round crossbar with two cylindrical posts, exact source shape and black finish.",
     "physical_inspection_recorded": false
+  },
+  {
+    "handle": "pleated-linen-drum-pendant",
+    "product": "Pleated linen drum pendant",
+    "source_url": "",
+    "source_title": "FI collection design concept",
+    "status": "details_unclear",
+    "checked_on": "2026-10-15",
+    "finding": "Owner-approved design reference from the FI collection render. No supplier or exact model has been selected. Materials, dimensions, availability and delivered pricing require confirmation. Electrical specifications and suitability for the installation location are unconfirmed.",
+    "render_published": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "blue-horizon-seascape-painting",
+    "product": "Blue horizon seascape painting",
+    "source_url": "",
+    "source_title": "FI collection design concept",
+    "status": "details_unclear",
+    "checked_on": "2026-10-15",
+    "finding": "Owner-approved design reference from the FI collection render. No supplier or exact model has been selected. Materials, dimensions, availability and delivered pricing require confirmation.",
+    "render_published": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "smoked-amber-cylinder-pendant",
+    "product": "Smoked-amber glass cylinder pendant",
+    "source_url": "",
+    "source_title": "FI collection design concept",
+    "status": "details_unclear",
+    "checked_on": "2026-10-15",
+    "finding": "Owner-approved design reference from the FI collection render. No supplier or exact model has been selected. Materials, dimensions, availability and delivered pricing require confirmation. Electrical specifications and suitability for the installation location are unconfirmed.",
+    "render_published": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "misty-woodland-landscape-painting",
+    "product": "Misty woodland landscape painting",
+    "source_url": "",
+    "source_title": "FI collection design concept",
+    "status": "details_unclear",
+    "checked_on": "2026-10-15",
+    "finding": "Owner-approved design reference from the FI collection render. No supplier or exact model has been selected. Materials, dimensions, availability and delivered pricing require confirmation.",
+    "render_published": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "matte-black-linear-island-pendant",
+    "product": "Matte-black linear island pendant",
+    "source_url": "",
+    "source_title": "FI collection design concept",
+    "status": "details_unclear",
+    "checked_on": "2026-10-15",
+    "finding": "Owner-approved design reference from the FI collection render. No supplier or exact model has been selected. Materials, dimensions, availability and delivered pricing require confirmation. Electrical specifications and suitability for the installation location are unconfirmed.",
+    "render_published": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "black-white-gestural-painting",
+    "product": "Black-and-white gestural painting",
+    "source_url": "",
+    "source_title": "FI collection design concept",
+    "status": "details_unclear",
+    "checked_on": "2026-10-15",
+    "finding": "Owner-approved design reference from the FI collection render. No supplier or exact model has been selected. Materials, dimensions, availability and delivered pricing require confirmation.",
+    "render_published": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "scalloped-white-ceramic-pendant",
+    "product": "Scalloped white-ceramic pendant",
+    "source_url": "",
+    "source_title": "FI collection design concept",
+    "status": "details_unclear",
+    "checked_on": "2026-10-15",
+    "finding": "Owner-approved design reference from the FI collection render. No supplier or exact model has been selected. Materials, dimensions, availability and delivered pricing require confirmation. Electrical specifications and suitability for the installation location are unconfirmed.",
+    "render_published": true,
+    "physical_inspection_recorded": false
+  },
+  {
+    "handle": "terracotta-arches-painting",
+    "product": "Terracotta arches geometric painting",
+    "source_url": "",
+    "source_title": "FI collection design concept",
+    "status": "details_unclear",
+    "checked_on": "2026-10-15",
+    "finding": "Owner-approved design reference from the FI collection render. No supplier or exact model has been selected. Materials, dimensions, availability and delivered pricing require confirmation.",
+    "render_published": true,
+    "physical_inspection_recorded": false
   }
 ]

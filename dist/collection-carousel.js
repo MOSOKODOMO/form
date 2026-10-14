@@ -6,9 +6,9 @@ document.querySelectorAll('[data-collection-carousel]').forEach(root => {
   const name = root.querySelector('.collection-carousel__name');
   const count = root.querySelector('[data-collection-count]');
   const explore = root.querySelector('[data-collection-explore]');
-  if (cards.length !== 3 || !stage || !name || !count || !explore) return;
-  const category = new URLSearchParams(window.location.search).get('category');
-  let selected = Math.max(0, cards.findIndex(card => new URL(card.href).searchParams.get('category') === category));
+  if (cards.length < 3 || !stage || !name || !count || !explore) return;
+  const currentCollection = () => new URLSearchParams(window.location.search).get('collection');
+  let selected = Math.max(0, cards.findIndex(card => card.dataset.collectionId === currentCollection()));
   let start = null;
   let suppressClickUntil = 0;
 
@@ -16,11 +16,13 @@ document.querySelectorAll('[data-collection-carousel]').forEach(root => {
     selected = (index + cards.length) % cards.length;
     cards.forEach((card, i) => {
       const offset = (i - selected + cards.length) % cards.length;
-      card.dataset.position = ['center', 'right', 'left'][offset];
+      const position = offset === 0 ? 'center' : offset === 1 ? 'right' : offset === cards.length - 1 ? 'left' : offset === 2 ? 'far-right' : offset === cards.length - 2 ? 'far-left' : 'hidden';
+      card.dataset.position = position;
+      card.setAttribute('aria-hidden', String(position === 'hidden'));
       card.setAttribute('aria-label', `${i === selected ? 'Browse' : 'Preview'} ${card.dataset.collectionName}`);
     });
     name.textContent = cards[selected].dataset.collectionName;
-    count.textContent = `0${selected + 1} / 0${cards.length}`;
+    count.textContent = `${String(selected + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
     explore.href = cards[selected].href;
     explore.setAttribute('aria-label', `Explore ${cards[selected].dataset.collectionName}`);
     if (focusCard) cards[selected].focus({preventScroll: true});
@@ -60,6 +62,7 @@ document.querySelectorAll('[data-collection-carousel]').forEach(root => {
   });
   stage.addEventListener('pointercancel', () => { start = null; });
   stage.addEventListener('pointerleave', () => { start = null; });
+  window.addEventListener('popstate', () => choose(Math.max(0, cards.findIndex(card => card.dataset.collectionId === currentCollection()))));
   choose(selected);
   root.classList.add('is-ready');
 });

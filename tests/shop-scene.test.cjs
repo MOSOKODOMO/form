@@ -41,7 +41,7 @@ test('furniture and decoration work in category filters and kitchen browsing', (
 
 test('similar sourced pieces cannot accidentally accept payment or present a concept as a product photo', () => {
   const candidates = products.filter(p => p.sourcing_only);
-  assert.equal(candidates.length, 8);
+  assert.equal(candidates.length, 16);
   for (const product of candidates) {
     assert.equal(product.price_aud, 'not stated');
     if (product.concept_only) assert.equal(product.source_url, '');

@@ -115,7 +115,7 @@
       section.append(el('p', 'product-status-note', note));
     }
     section.append(eyebrow, title, maker, buy, specs);
-    if (product.concept_only) section.append(el('p', 'product-status-note', 'A design reference from our kitchen concept. The image shows the intended look; an exact product and supplier have not been selected. Send your dimensions and requirements to discuss suitable options.'));
+    if (product.concept_only) section.append(el('p', 'product-status-note', 'A design reference from our interior collections. The image shows the intended look; an exact product and supplier have not been selected. Send your dimensions and requirements to discuss suitable options.'));
     else if (product.sourcing_only) section.append(el('p', 'product-status-note', 'Similar to the look in our kitchen concept. This image is inspiration; use the source listing to see the actual product. Pricing and supply will be confirmed before an order is accepted.'), sourcePanel(product));
     if (FI.SHOW_FI_RATING) { if (!product.sourcing_only) section.append(sourcePanel(product)); section.append(score); }
     return section;

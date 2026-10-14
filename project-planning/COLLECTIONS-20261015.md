@@ -1,0 +1,13 @@
+# Interior collections, 15 October 2026
+
+The owner approved publication of the five landscape collection renders on the landing and Shop pages. The shared 3D carousel shows the selected look, its two neighbours and a small peek of the two outer cards. Navigation supports arrow buttons, arrow keys, Home/End and swiping, with reduced-motion support and ordinary links as the no-JavaScript fallback.
+
+The Shop navigation, hero title, introductory copy and delivery disclosure are unchanged. Collection links use `shop.html?collection=<id>#shop-products`; collection filtering combines with existing category, room, finish, search and sort controls. Clear filters returns to the full catalogue.
+
+Earth & Oak links to nine existing kitchen pieces. Summer House, Forest Retreat, Quiet Contrast and Terracotta Days each link to their own painting and pendant. Eight new approved public design-reference listings bring the catalogue to 97 products. Categories are Wall art & paintings (`paintings`) and Pendant lighting (`pendants`).
+
+The owner specifically requested **Coming soon** for these unsourced products. They show that label and an enquiry option, with no checkout. No suppliers, prices, technical specifications, stock or delivery claims have been invented. Existing commerce records and payment settings are unchanged. The public storefront reads `dist/data/products.json`; no Supabase changes are needed.
+
+The five approved room images are in `dist/assets/collections/{earth-oak,summer-house,forest-retreat,quiet-contrast,terracotta-days}.webp`. The eight individual product renders are in `dist/assets/products/*-concept.webp`. The built-in image_gen tool created the product images from the corresponding approved room references. Exact prompts and asset paths are recorded in `collection-product-renders-20261015.json`; source findings are recorded in `catalogue-source-audit.json`.
+
+Validation: collection filtering, five-card navigation/wraparound, product assets, category counts and checkout exclusion are covered by `tests/collections.test.cjs`. The catalogue checker reports 97 products with zero errors or warnings. Existing room-hotspot and source-provenance checks pass. The full JavaScript baseline has 16 pre-existing failures in legacy page-copy/structure checks; this release introduces no new failures. Python importer/image tests are limited in the bundled runtime by missing beautifulsoup4/requests and a separate image-mask assertion; those workflows are unchanged. Desktop and mobile browser checks cover card visibility, collection links, category filters, product details and Coming soon labels.

@@ -1,0 +1,72 @@
+{
+  "generated_on": "2026-10-15",
+  "method": "Built-in image_gen",
+  "approval": "Owner approved collection renders, publication and adding paintings and pendant lighting on 15 October 2026.",
+  "product_status": "Design references available to enquire. Supplier, specification, price and availability are unconfirmed.",
+  "images": [
+    {
+      "collection": "summer-house",
+      "handle": "pleated-linen-drum-pendant",
+      "reference": "dist/assets/collections/summer-house.webp",
+      "prompt": "Use case: product-mockup.\nAsset type: individual ecommerce concept product image for Fabrication Intelligence.\nInput image 1 is a product appearance reference from the user's approved collection, not the desired scene.\nPrimary request: Create a separate studio product image of one pleated ivory linen drum pendant with slim natural-wood upper and lower rims, suspended on a single dark cable, exactly matching the kitchen island pendants in the reference. Preserve its design, proportions, colour and material appearance. Show exactly ONE product, no kitchen, furniture or other props. Show the entire pendant and its suspension cables with a matching minimal ceiling canopy; no extra lights.\nComposition: square 1:1, entire subject centered with comfortable margins, seamless warm off-white background #f6f2ea, subtle realistic soft shadow, professional high-detail catalogue render. Keep artwork faithfully consistent with the reference. No text, no labels, no logos or watermarks. This is a design concept, not a photograph of an actual stocked product.",
+      "generated_file": "exec-8a893f9f-f3cb-4c4b-bfd5-8ad508b91c71.png",
+      "asset": "dist/assets/products/pleated-linen-drum-pendant-concept.webp"
+    },
+    {
+      "collection": "summer-house",
+      "handle": "blue-horizon-seascape-painting",
+      "reference": "dist/assets/collections/summer-house.webp",
+      "prompt": "Use case: product-mockup.\nAsset type: individual ecommerce concept product image for Fabrication Intelligence.\nInput image 1 is a product appearance reference from the user's approved collection, not the desired scene.\nPrimary request: Create a separate studio product image of one vertically oriented blue horizon seascape painting in a slender pale oak frame, with soft blue sea, ivory sky and sandy foreground, exactly matching the painting beside the kitchen window in the reference. Preserve its design, proportions, colour and material appearance. Show exactly ONE product, no kitchen, furniture or other props. Front-on view of the entire framed painting; no room wall, include the frame and all four edges.\nComposition: square 1:1, entire subject centered with comfortable margins, seamless warm off-white background #f6f2ea, subtle realistic soft shadow, professional high-detail catalogue render. Keep artwork faithfully consistent with the reference. No text, no labels, no logos or watermarks. This is a design concept, not a photograph of an actual stocked product.",
+      "generated_file": "exec-ba7b23f1-6a5a-490e-937b-a972185ab7bc.png",
+      "asset": "dist/assets/products/blue-horizon-seascape-painting-concept.webp"
+    },
+    {
+      "collection": "forest-retreat",
+      "handle": "smoked-amber-cylinder-pendant",
+      "reference": "dist/assets/collections/forest-retreat.webp",
+      "prompt": "Use case: product-mockup.\nAsset type: individual ecommerce concept product image for Fabrication Intelligence.\nInput image 1 is a product appearance reference from the user's approved collection, not the desired scene.\nPrimary request: Create a separate studio product image of one smoked amber glass cylindrical pendant with dark bronze fittings and a long slender warm filament bulb, exactly matching the island pendants in the reference. Preserve its design, proportions, colour and material appearance. Show exactly ONE product, no kitchen, furniture or other props. Show the entire pendant and its suspension cables with a matching minimal ceiling canopy; no extra lights.\nComposition: square 1:1, entire subject centered with comfortable margins, seamless warm off-white background #f6f2ea, subtle realistic soft shadow, professional high-detail catalogue render. Keep artwork faithfully consistent with the reference. No text, no labels, no logos or watermarks. This is a design concept, not a photograph of an actual stocked product.",
+      "generated_file": "exec-aaa8ee40-4d82-424b-9e77-4de89c298749.png",
+      "asset": "dist/assets/products/smoked-amber-cylinder-pendant-concept.webp"
+    },
+    {
+      "collection": "forest-retreat",
+      "handle": "misty-woodland-landscape-painting",
+      "reference": "dist/assets/collections/forest-retreat.webp",
+      "prompt": "Use case: product-mockup.\nAsset type: individual ecommerce concept product image for Fabrication Intelligence.\nInput image 1 is a product appearance reference from the user's approved collection, not the desired scene.\nPrimary request: Create a separate studio product image of one horizontal woodland landscape painting in a slender dark walnut frame, misty pine forest around a calm river, muted olive and warm grey palette, exactly matching the artwork on the kitchen shelf in the reference. Preserve its design, proportions, colour and material appearance. Show exactly ONE product, no kitchen, furniture or other props. Front-on view of the entire framed painting; no room wall, include the frame and all four edges.\nComposition: square 1:1, entire subject centered with comfortable margins, seamless warm off-white background #f6f2ea, subtle realistic soft shadow, professional high-detail catalogue render. Keep artwork faithfully consistent with the reference. No text, no labels, no logos or watermarks. This is a design concept, not a photograph of an actual stocked product.",
+      "generated_file": "exec-aee34303-870b-49b4-b077-39ef09036bb7.png",
+      "asset": "dist/assets/products/misty-woodland-landscape-painting-concept.webp"
+    },
+    {
+      "collection": "quiet-contrast",
+      "handle": "matte-black-linear-island-pendant",
+      "reference": "dist/assets/collections/quiet-contrast.webp",
+      "prompt": "Use case: product-mockup.\nAsset type: individual ecommerce concept product image for Fabrication Intelligence.\nInput image 1 is a product appearance reference from the user's approved collection, not the desired scene.\nPrimary request: Create a separate studio product image of one long slim matte-black rectangular linear island pendant with a narrow warm underside light strip, hanging on two thin black cables, exactly matching the kitchen island light in the reference. Preserve its design, proportions, colour and material appearance. Show exactly ONE product, no kitchen, furniture or other props. Show the entire pendant and its suspension cables with a matching minimal ceiling canopy; no extra lights.\nComposition: square 1:1, entire subject centered with comfortable margins, seamless warm off-white background #f6f2ea, subtle realistic soft shadow, professional high-detail catalogue render. Keep artwork faithfully consistent with the reference. No text, no labels, no logos or watermarks. This is a design concept, not a photograph of an actual stocked product.",
+      "generated_file": "exec-d11e79b1-41d9-4439-915b-b307d7356651.png",
+      "asset": "dist/assets/products/matte-black-linear-island-pendant-concept.webp"
+    },
+    {
+      "collection": "quiet-contrast",
+      "handle": "black-white-gestural-painting",
+      "reference": "dist/assets/collections/quiet-contrast.webp",
+      "prompt": "Use case: product-mockup.\nAsset type: individual ecommerce concept product image for Fabrication Intelligence.\nInput image 1 is a product appearance reference from the user's approved collection, not the desired scene.\nPrimary request: Create a separate studio product image of one tall vertical black-and-white gestural abstract painting in a thin black frame, bold expressive black strokes on warm ivory, exactly matching the painting in the dining area in the reference. Preserve its design, proportions, colour and material appearance. Show exactly ONE product, no kitchen, furniture or other props. Front-on view of the entire framed painting; no room wall, include the frame and all four edges.\nComposition: square 1:1, entire subject centered with comfortable margins, seamless warm off-white background #f6f2ea, subtle realistic soft shadow, professional high-detail catalogue render. Keep artwork faithfully consistent with the reference. No text, no labels, no logos or watermarks. This is a design concept, not a photograph of an actual stocked product.",
+      "generated_file": "exec-a8e23adb-4244-4449-92db-f66a85dd63ce.png",
+      "asset": "dist/assets/products/black-white-gestural-painting-concept.webp"
+    },
+    {
+      "collection": "terracotta-days",
+      "handle": "scalloped-white-ceramic-pendant",
+      "reference": "dist/assets/collections/terracotta-days.webp",
+      "prompt": "Use case: product-mockup.\nAsset type: individual ecommerce concept product image for Fabrication Intelligence.\nInput image 1 is a product appearance reference from the user's approved collection, not the desired scene.\nPrimary request: Create a separate studio product image of one chalk-white ceramic pendant shade with a wide wavy scalloped rim, warm visible round bulb and brown fabric cable, exactly matching the island lights in the reference. Preserve its design, proportions, colour and material appearance. Show exactly ONE product, no kitchen, furniture or other props. Show the entire pendant and its suspension cables with a matching minimal ceiling canopy; no extra lights.\nComposition: square 1:1, entire subject centered with comfortable margins, seamless warm off-white background #f6f2ea, subtle realistic soft shadow, professional high-detail catalogue render. Keep artwork faithfully consistent with the reference. No text, no labels, no logos or watermarks. This is a design concept, not a photograph of an actual stocked product.",
+      "generated_file": "exec-710c532a-643e-4659-a29c-7dadd29f7450.png",
+      "asset": "dist/assets/products/scalloped-white-ceramic-pendant-concept.webp"
+    },
+    {
+      "collection": "terracotta-days",
+      "handle": "terracotta-arches-painting",
+      "reference": "dist/assets/collections/terracotta-days.webp",
+      "prompt": "Use case: product-mockup.\nAsset type: individual ecommerce concept product image for Fabrication Intelligence.\nInput image 1 is a product appearance reference from the user's approved collection, not the desired scene.\nPrimary request: Create a separate studio product image of one vertical terracotta arches geometric painting in a slim dark wood frame, earthy clay and cream overlapping rounded arches with subtle textured paint, exactly matching the dining wall artwork in the reference. Preserve its design, proportions, colour and material appearance. Show exactly ONE product, no kitchen, furniture or other props. Front-on view of the entire framed painting; no room wall, include the frame and all four edges.\nComposition: square 1:1, entire subject centered with comfortable margins, seamless warm off-white background #f6f2ea, subtle realistic soft shadow, professional high-detail catalogue render. Keep artwork faithfully consistent with the reference. No text, no labels, no logos or watermarks. This is a design concept, not a photograph of an actual stocked product.",
+      "generated_file": "exec-bc39b758-20f6-41a5-85c7-1821b0c289c5.png",
+      "asset": "dist/assets/products/terracotta-arches-painting-concept.webp"
+    }
+  ]
+}

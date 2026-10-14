@@ -62,7 +62,7 @@ test('the shop sorts by FI Score and filters by category from the URL', () => {
   assert.deepEqual(catalogue.sortByScore(list).map((product) => product.handle), ['a', 'b', 'c'], 'highest score first, ties by name')
   assert.deepEqual(catalogue.filterByCategory(list, 'handles').map((product) => product.handle), ['a', 'c'])
   assert.equal(catalogue.filterByCategory(list, 'all').length, 3)
-  assert.deepEqual(catalogue.categoryCounts(list), {all: 3, handles: 2, knobs: 0, tiles: 1, taps: 0, bathroom: 0, doors: 0, decoration: 0, furniture: 0})
+  assert.deepEqual(catalogue.categoryCounts(list), {all: 3, handles: 2, knobs: 0, tiles: 1, taps: 0, bathroom: 0, doors: 0, decoration: 0, furniture: 0, paintings: 0, pendants: 0})
   assert.equal(catalogue.parseCategory('?category=tiles'), 'tiles')
   assert.equal(catalogue.parseCategory('?category=windows'), 'all')
   assert.equal(catalogue.parseCategory(''), 'all')

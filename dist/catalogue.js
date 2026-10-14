@@ -11,6 +11,8 @@
     {id: 'doors', name: 'Doors and walls'},
     {id: 'decoration', name: 'Decoration'},
     {id: 'furniture', name: 'Furniture'},
+    {id: 'paintings', name: 'Wall art & paintings'},
+    {id: 'pendants', name: 'Pendant lighting'},
   ];
   const CATEGORY_IDS = CATEGORIES.map((category) => category.id);
   // Shop by finish: one finish across the whole home. Read from the product name, finish options and material.
@@ -22,7 +24,7 @@
   const FINISH_IDS = FINISHES.map((finish) => finish.id);
   // Shop by room: a renovator shops a whole room, so rooms group the existing categories.
   const ROOMS = [
-    {id: 'kitchen', name: 'Kitchen', categories: ['handles', 'knobs', 'taps', 'tiles', 'decoration', 'furniture']},
+    {id: 'kitchen', name: 'Kitchen', categories: ['handles', 'knobs', 'taps', 'tiles', 'decoration', 'furniture', 'paintings', 'pendants']},
     {id: 'bathroom', name: 'Bathroom', categories: ['bathroom']},
     {id: 'entry', name: 'Entry and doors', categories: ['doors']},
   ];
@@ -36,6 +38,20 @@
     return ROOM_IDS.includes(value) ? value : 'all';
   }
   const roomName = (id) => (ROOMS.find((room) => room.id === id) || {name: 'All rooms'}).name;
+  const COLLECTIONS = [
+    {id: 'earth-oak', name: 'Earth & Oak'},
+    {id: 'summer-house', name: 'Summer House'},
+    {id: 'forest-retreat', name: 'Forest Retreat'},
+    {id: 'quiet-contrast', name: 'Quiet Contrast'},
+    {id: 'terracotta-days', name: 'Terracotta Days'},
+  ];
+  const COLLECTION_IDS = COLLECTIONS.map(item => item.id);
+  const collectionName = id => (COLLECTIONS.find(item => item.id === id) || {name: 'All products'}).name;
+  const filterByCollection = (list, id) => COLLECTION_IDS.includes(id) ? list.filter(product => product.collections?.includes(id)) : list;
+  function parseCollection(search) {
+    const id = new URLSearchParams(search || '').get('collection');
+    return COLLECTION_IDS.includes(id) ? id : 'all';
+  }
   // Verified: a person confirmed it on the issuer's own database. Claimed: on the maker's page only. Failed: checked and it didn't hold up.
   const CHECK_STATUSES = ['verified', 'claimed', 'failed', 'not stated'];
   const CHECK_LABELS = {verified: 'Verified', claimed: 'Claimed, not yet checked', failed: 'Failed our check', 'not stated': 'Not stated'};
@@ -95,6 +111,7 @@
     if (typeof product.handle === 'string' && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.handle)) problems.push('handle must be lowercase words joined by hyphens');
     if (!PRODUCT_STATUSES.includes(product.status)) problems.push(`status must be one of ${PRODUCT_STATUSES.join(', ')}`);
     if (!CATEGORY_IDS.includes(product.category)) problems.push(`category must be one of ${CATEGORY_IDS.join(', ')}`);
+    if (product.collections !== undefined && (!Array.isArray(product.collections) || product.collections.some(id => !COLLECTION_IDS.includes(id)))) problems.push('collections must list known collection IDs');
     if (typeof product.sample !== 'boolean') problems.push('sample must be true or false');
     for (const key of ['finishes', 'sizes']) {
       if (!Array.isArray(product[key]) || !product[key].length || product[key].some((value) => typeof value !== 'string' || !value.trim())) problems.push(`${key} must be a list of words`);
@@ -233,6 +250,7 @@
     if (product.status === 'draft') return {kind: 'none', label: 'Draft: not for sale', note: 'This product hasn’t been approved yet.'};
     if (product.status === 'rejected') return {kind: 'none', label: 'Not available', note: 'This product is no longer listed.'};
     const quote = {kind: 'quote', label: 'Request a quote', href: quoteHref(product), note: 'Ask us for a price and delivery time. We reply within 48 hours.'};
+    if (product.coming_soon) return {...quote, label: 'Enquire about this design', note: 'Coming soon. Supplier, specifications, availability and pricing are still to be confirmed. Enquire to share your requirements.'};
     if (product.concept_only) return {...quote, note: 'Tell us your measurements and preferred finish. We will confirm the supplier, specifications, availability and delivered price before you order.'};
     if (product.sourcing_only) return {...quote, note: 'A similar piece selected from a source listing. We will confirm the exact variant, availability and delivered AUD price before you order.'};
     if (product.source_check_status === 'unavailable' || product.source_check_status === 'details_unclear') {
@@ -257,7 +275,7 @@
     return facts;
   }
 
-  const cardPrice = (product) => (isStated(product.price_aud) ? {value: formatPrice(product.price_aud), unit: isStated(product.price_unit) ? product.price_unit : ''} : {value: 'Price on request', unit: ''});
+  const cardPrice = (product) => product.coming_soon ? {value: 'Coming soon', unit: ''} : (isStated(product.price_aud) ? {value: formatPrice(product.price_aud), unit: isStated(product.price_unit) ? product.price_unit : ''} : {value: 'Price on request', unit: ''});
 
   // Photos first; the maker's origin story is always the last slide.
   function galleryItems(product) {
@@ -345,6 +363,7 @@
   }
 
   const api = {CATEGORIES, CATEGORY_IDS, CHECK_STATUSES, CHECK_LABELS, PRODUCT_STATUSES, LISTED_STATUSES, NOT_STATED, SHOPIFY_SDK, SHOW_FI_RATING, isHttps, isStripeLink, isStated, containsSecret, parseShopifyBuyButton, productProblems, validProducts, isListed, listedProducts, sortByScore, canBuyNow, sortForShop, sortProducts, filterByCategory, FINISHES, FINISH_IDS, ROOMS, ROOM_IDS, filterByRoom, parseRoom, roomName, finishesOf, filterByFinish, parseFinish, finishName, categoryCounts, parseCategory, parseHandle, categoryName, formatPrice, imageAlt, sourceEvidence, productUrl, quoteHref, scoreBand, findProduct, buyAction, purchaseFacts, cardPrice, galleryItems, checkItems, checkSummary, specRows, loadProducts, SCORE_PARTS, CHIP_LABELS, isLive, parseView, scoreBreakdown, certificateChips, rankMakers, formatDate, scoreNotes};
+  Object.assign(api, {COLLECTIONS, COLLECTION_IDS, collectionName, filterByCollection, parseCollection});
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (typeof window !== 'undefined') window.FICatalogue = api;
 })();
