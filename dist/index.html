@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="contact-form.css?v=20261010-workspaces">
     <link rel="stylesheet" href="home-reviews.css?v=20261012-home-samples">
     <link rel="stylesheet" href="packing-section.css?v=20261012-packing">
+<link rel="stylesheet" href="before-after.css?v=20261014-room"><script src="before-after.js?v=20261014-room" defer></script>
     <script type="module" src="review-preview.js?v=20261012-home-samples"></script>
     <script src="telemetry-config.js" defer></script>
     <script src="telemetry.js" defer></script>
@@ -31,6 +32,7 @@
         <a href="about.html">About</a>
         <details class="nav-more"><summary>Explore <span aria-hidden="true">+</span></summary><div class="nav-more-links">
           <a href="./">Home</a>
+          <a href="room.html">Room preview</a>
           <a href="trade.html">Trade pricing</a><a href="project.html" data-project-link>Project list</a>
           <a href="contact.html">Work with us</a>
           <a href="support.html">Support</a><a href="docs.html">Guides &amp; FAQs</a>
@@ -185,6 +187,24 @@
           <figcaption>Interior inspiration · AI-generated kitchen concept</figcaption>
         </figure>
         <div><p class="eyebrow">MATERIALS, EVERY DAY</p><h2 id="materials-title">Small details.<br>A home that feels like you.</h2><p>The grain of timber. The texture of stone. A handle that feels right in your hand. Explore the details that make everyday spaces feel considered.</p><a class="text-link" href="shop.html">Explore the shop <span aria-hidden="true">↗</span></a></div>
+      </section>
+
+      <section id="room-preview" class="home-rooms" data-motion-section="Room preview" aria-labelledby="rooms-title">
+        <div class="home-rooms-copy">
+          <div>
+            <p class="eyebrow"><span></span> ROOM PREVIEW</p>
+            <h2 id="rooms-title">See it in your space.</h2>
+            <p>Upload a photo of your own room and try a handle, knob or hook on it. Your photo stays in your browser.</p>
+          </div>
+          <div class="home-rooms-actions">
+            <a class="button button-primary" href="room.html">Try it in your room <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="ba" data-before-after hidden>
+          <div class="ba-tabs" data-ba-tabs role="group" aria-label="Choose a room" hidden></div>
+          <div data-ba-stage></div>
+          <p class="ba-caption" data-ba-caption></p>
+        </div>
       </section>
 
       <section id="who-orders" class="home-steps-section" data-motion-section="Who orders" aria-labelledby="who-title">

@@ -1,0 +1,22 @@
+/* Homepage: "See it in your space". The slider only appears when data/room-pairs.json lists room pairs. */
+.home-rooms { display: grid; gap: clamp(20px, 3vw, 40px); margin: 0 var(--gutter); padding: clamp(36px, 5vw, 80px) 0; border-top: 1px solid var(--line); }
+.home-rooms-copy { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px 40px; }
+.home-rooms-copy h2 { margin-top: 14px; font: 400 clamp(32px, 4vw, 60px)/1.08 var(--display); letter-spacing: -.045em; }
+.home-rooms-copy p:not(.eyebrow) { max-width: 52ch; margin-top: 12px; color: var(--muted); }
+.home-rooms-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+
+.ba[hidden] { display: none; }
+.ba-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.ba-tabs[hidden] { display: none; }
+.ba-tab { min-height: 44px; padding: 8px 18px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); font: 600 13px/1 var(--body); cursor: pointer; }
+.ba-tab[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: var(--on-accent); }
+.ba-frame { position: relative; overflow: hidden; aspect-ratio: 3 / 2; max-height: 70vh; width: 100%; background: var(--surface); }
+.ba-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ba-image--before { clip-path: inset(0 calc(100% - var(--ba)) 0 0); }
+.ba-divider { position: absolute; top: 0; bottom: 0; left: var(--ba); width: 2px; margin-left: -1px; background: #fafbf8; box-shadow: 0 0 0 1px rgba(20, 26, 20, .35); pointer-events: none; }
+.ba-tag { position: absolute; top: 14px; padding: 6px 10px; background: #fafbf8e6; color: var(--ink); font: 500 10px/1.2 var(--body); letter-spacing: .12em; text-transform: uppercase; pointer-events: none; }
+.ba-tag--before { left: 14px; }
+.ba-tag--after { right: 14px; }
+.ba-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.ba-frame:focus-within { outline: 3px solid var(--accent); outline-offset: 3px; }
+.ba-caption { margin-top: 10px; color: var(--muted); font-size: 13px; }

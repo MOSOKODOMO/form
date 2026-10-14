@@ -1,0 +1,66 @@
+[
+  {
+    "handle": "yila-matte-black-brass-t-bar",
+    "product": "Matte black brass T-bar handle",
+    "category": "handles",
+    "cutout": "assets/products/cutouts/yila-matte-black-brass-t-bar.webp",
+    "width": 720,
+    "height": 468
+  },
+  {
+    "handle": "qiansi-knurled-antique-bronze-pull",
+    "product": "Knurled antique bronze brass pull, 5 inch",
+    "category": "handles",
+    "cutout": "assets/products/cutouts/qiansi-knurled-antique-bronze-pull.webp",
+    "width": 720,
+    "height": 504
+  },
+  {
+    "handle": "mugu-brass-marble-t-bar",
+    "product": "Brass and marble T-bar handle",
+    "category": "handles",
+    "cutout": "assets/products/cutouts/mugu-brass-marble-t-bar.webp",
+    "width": 720,
+    "height": 452
+  },
+  {
+    "handle": "matte-black-cabinet-pulls-20-pack",
+    "product": "Matte Black Cabinet Pulls, 20 Pack",
+    "category": "handles",
+    "cutout": "assets/products/cutouts/matte-black-cabinet-pulls-20-pack.webp",
+    "width": 720,
+    "height": 409
+  },
+  {
+    "handle": "retro-brass-cabinet-knobs-elegant-ribbed-handles-for-drawers-dressing-tables-mod",
+    "product": "Ribbed Brass Cabinet Knob",
+    "category": "knobs",
+    "cutout": "assets/products/cutouts/retro-brass-cabinet-knobs-elegant-ribbed-handles-for-drawers-dressing-tables-mod.webp",
+    "width": 612,
+    "height": 720
+  },
+  {
+    "handle": "black-cabinet-knobs-aluminium-alloy-kitchen-cabinet-handles-drawer-knobs-pulls-b",
+    "product": "Black Aluminium Cabinet Knobs and Pulls",
+    "category": "knobs",
+    "cutout": "assets/products/cutouts/black-cabinet-knobs-aluminium-alloy-kitchen-cabinet-handles-drawer-knobs-pulls-b.webp",
+    "width": 720,
+    "height": 328
+  },
+  {
+    "handle": "matte-black-towel-hooks-stainless-steel-wall-mounted-heavy-duty-robe-coat-hook-b",
+    "product": "Matte Black Stainless Steel Towel Hooks",
+    "category": "bathroom",
+    "cutout": "assets/products/cutouts/matte-black-towel-hooks-stainless-steel-wall-mounted-heavy-duty-robe-coat-hook-b.webp",
+    "width": 567,
+    "height": 517
+  },
+  {
+    "handle": "dooroom-brass-bearing-hooks-bathroom-indoor-kitchen-hallway-wall-clothes-hooks-w",
+    "product": "Brass Wall Hooks, Nordic Style",
+    "category": "bathroom",
+    "cutout": "assets/products/cutouts/dooroom-brass-bearing-hooks-bathroom-indoor-kitchen-hallway-wall-clothes-hooks-w.webp",
+    "width": 461,
+    "height": 466
+  }
+]

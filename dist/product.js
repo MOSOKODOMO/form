@@ -121,6 +121,21 @@
     return section;
   }
 
+  // Products with a cut-out in data/room-products.json can be tried in the visitor's own room (room.html).
+  function offerRoomPreview(product) {
+    fetch('data/room-products.json', {cache: 'no-cache'})
+      .then((response) => (response.ok ? response.json() : []))
+      .then((list) => {
+        if (!Array.isArray(list) || !list.some((entry) => entry && entry.handle === product.handle)) return;
+        const details = root.querySelector('.product-details');
+        if (!details) return;
+        const row = el('p', 'product-room-link');
+        row.append(link(`room.html?handle=${encodeURIComponent(product.handle)}`, 'See it in your room ↗', false));
+        details.append(row);
+      })
+      .catch(() => {});
+  }
+
   function sourcePanel(product) {
     const evidence = FI.sourceEvidence(product);
     const panel = el('div', 'product-source');
@@ -302,6 +317,7 @@
       if (FI.SHOW_FI_RATING) root.replaceChildren(layout, trustPanel(product), reviews);
       else root.replaceChildren(layout, reviews);
       root.removeAttribute('aria-busy');
+      offerRoomPreview(product);
     })
     .catch((error) => {
       console.error(error);
