@@ -1,0 +1,36 @@
+/* Find it from a photo. Builds on the shared editorial styles. */
+body .find-hero { display: block; padding: 32px var(--gutter) 12px; }
+body .find-hero h1 { font-size: clamp(40px, 5.6vw, 84px); margin: 15px 0 18px; line-height: 1.07; }
+body .find-hero > p { max-width: 720px; font-size: 17px; color: var(--muted); }
+.find-tool { display: grid; gap: 18px; margin: 18px var(--gutter) 0; max-width: 960px; }
+.find-drop { position: relative; display: grid; place-items: center; gap: 14px; min-height: 220px; padding: 22px; border: 2px dashed var(--line); background: var(--soft); text-align: center; }
+.find-drop--over { border-color: var(--accent-ink); background: var(--surface); }
+.find-drop--busy { opacity: .6; pointer-events: none; }
+.find-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.find-input:focus-visible + .find-drop-label { outline: 2px solid var(--accent-ink); outline-offset: 6px; }
+.find-drop-label { display: grid; gap: 6px; pointer-events: none; }
+.find-drop-label strong { font-size: 20px; color: var(--ink); }
+.find-drop-label span { color: var(--muted); font-size: 14px; }
+.find-preview { max-width: min(100%, 280px); max-height: 220px; object-fit: contain; border: 1px solid var(--line); background: var(--surface); }
+.find-notice { margin: 0; padding: 14px 18px; border-left: 3px solid var(--accent); background: var(--soft); color: var(--muted); font-size: 13px; line-height: 1.7; }
+.find-notice strong { color: var(--ink); }
+.find-examples { padding: 16px 18px; border: 1px solid var(--line); background: var(--surface); }
+.find-examples--highlight { border-color: var(--accent-ink); box-shadow: 0 0 0 3px rgba(122, 28, 28, .12); }
+.find-examples h2 { margin: 0; font-size: 18px; }
+.find-examples p { margin: 4px 0 12px; color: var(--muted); font-size: 13px; }
+.find-example-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+.find-example { display: inline-flex; align-items: center; gap: 12px; min-height: 48px; padding: 6px 16px 6px 6px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 600 14px var(--body); cursor: pointer; }
+.find-example img { width: 44px; height: 54px; object-fit: cover; }
+.find-example:hover, .find-example:focus-visible { border-color: var(--accent-ink); }
+.find-example:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 2px; }
+.find-results { margin: 40px 0 0; }
+.find-result-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin: 0 var(--gutter) 6px; }
+.find-result-head h2 { margin: 0; }
+.find-result-head p { margin: 0; color: var(--muted); font-size: 14px; }
+.find-seen { margin: 0 var(--gutter) 14px; color: var(--muted); font-size: 14px; font-style: italic; }
+.find-why { margin: 0 0 8px; color: var(--accent-ink); font: 600 11px/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+@media (max-width: 600px) { .find-drop { min-height: 180px; } .find-example { width: 100%; } }
+.home-find { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 40px; margin: 0 var(--gutter) 56px; padding: 32px 36px; border: 1px solid var(--line); background: var(--soft); }
+.home-find h2 { margin: 8px 0 10px; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.1; }
+.home-find p { max-width: 520px; margin: 0; color: var(--muted); }
+.home-find .eyebrow { margin: 0; }

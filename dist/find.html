@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fafbf8">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Drop a photo of a handle, knob or fitting and we show the closest products in the shop. Example photos work even without the AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fabrication Intelligence">
+    <meta property="og:title" content="Find it from a photo | Fabrication Intelligence">
+    <meta property="og:description" content="Drop a photo of a handle, knob or fitting and we show the closest products in the shop. Example photos work even without the AI.">
+    <meta property="og:url" content="https://fabricationintelligence.com/find.html">
+    <meta property="og:image" content="https://fabricationintelligence.com/assets/share-card.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Find it from a photo | Fabrication Intelligence</title>
+    <link rel="canonical" href="https://fabricationintelligence.com/find.html">
+    <link rel="icon" type="image/svg+xml" href="assets/fi-mark.svg">
+    <link rel="stylesheet" href="builders.css?v=20261011-premium3">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="shop-editorial.css?v=20261012-studio">
+    <link rel="stylesheet" href="project.css?v=20261011-premium3">
+    <link rel="stylesheet" href="find.css">
+    <link rel="stylesheet" href="editorial-motion.css?v=20261011-premium3">
+    <script src="editorial-motion.js?v=20261011-premium3" defer></script>
+    <script src="telemetry-config.js" defer></script>
+    <script src="telemetry.js" defer></script>
+    <script src="log-config.js" defer></script>
+    <script src="fi-log.js" defer></script>
+  <link rel="stylesheet" href="editorial.css?v=20261011-premium3"><link rel="stylesheet" href="brand-lockup.css?v=20261011-premium3">
+  <script src="site-shell.js?v=20261011-premium3" defer></script></head>
+  <body data-motion-page="functional">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header site-header--public">
+      <a class="brand" href="./" aria-label="Fabrication Intelligence home"><span class="identity"><img class="identity-mark" src="assets/fi-mark.svg" alt="" width="48" height="48"><span class="identity-name">Fabrication<span>Intelligence</span></span></span></a>
+      <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a class="mobile-search" href="shop.html#shop-search">Search the collection</a>
+        <a href="shop.html">Shop</a>
+        <a href="reviews.html">Product reviews</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="about.html">About</a>
+        <details class="nav-more"><summary>Explore <span aria-hidden="true">+</span></summary><div class="nav-more-links">
+          <a href="./">Home</a>
+          <a href="find.html" aria-current="page">Find from a photo</a>
+          <a href="trade.html">Trade pricing</a><a href="project.html" data-project-link>Project list</a>
+          <a href="contact.html">Work with us</a>
+          <a href="support.html">Support</a><a href="find.html" aria-current="page">Guides &amp; FAQs</a>
+          <a href="orders.html">Track my orders</a>
+        </div></details>
+      </nav>
+      <div class="header-utilities"><a class="header-search" href="shop.html#shop-search">Search <span aria-hidden="true">↗</span></a><a href="auth.html">Log in</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu <span aria-hidden="true">+</span></button></div>
+    </header>
+    <main id="main">
+      <section class="page-hero find-hero" aria-labelledby="page-title">
+        <p class="eyebrow"><span></span> FIND IT FROM A PHOTO</p>
+        <h1 id="page-title" data-heading-style="brand">Have a photo?<br>We'll find it.</h1>
+        <p>Drop a photo of a handle, knob, hook or door fitting. An AI describes what it sees (type, finish, size) and we show the closest products in the shop. No photo to hand? Try an example.</p>
+      </section>
+      <section class="find-tool" aria-label="Photo search">
+        <div class="find-drop" id="find-drop">
+          <input class="find-input" id="find-file" type="file" accept="image/*" aria-label="Choose a photo of the item">
+          <label class="find-drop-label" for="find-file"><strong>Drop a photo here</strong><span>or tap to choose one. JPG, PNG or a phone photo.</span></label>
+          <img class="find-preview" id="find-preview" alt="Your photo" hidden>
+        </div>
+        <p class="find-notice" id="find-notice"><strong>Before you upload.</strong> Photograph the item only, never people. Your photo is shrunk in your browser, then sent to an AI service (Google Gemini, with OpenRouter as a backup) to describe the item. Fabrication Intelligence does not store it. On Google's free tier, Google may use uploads to improve its products.</p>
+        <div class="find-examples" aria-labelledby="find-examples-title">
+          <h2 id="find-examples-title">Or try an example</h2>
+          <p>These skip the AI, so they always work.</p>
+          <div class="find-example-buttons" id="find-examples"></div>
+        </div>
+      </section>
+      <section class="find-results" aria-labelledby="find-results-title" aria-live="polite">
+        <div class="find-result-head"><h2 id="find-results-title">Closest matches</h2><p id="find-status" role="status">Choose a photo or an example to begin.</p></div>
+        <p class="find-seen" id="find-seen" hidden></p>
+        <ul class="product-grid" id="find-grid"></ul>
+        <noscript><p>Photo search needs JavaScript. You can still <a href="shop.html">browse the shop</a> or <a href="contact.html">ask us about a product</a>.</p></noscript>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-top"><div class="footer-intro"><a class="brand" href="./" aria-label="Fabrication Intelligence home"><span class="identity"><img class="identity-mark" src="assets/fi-mark.svg" alt="" width="48" height="48"><span class="identity-name">Fabrication<span>Intelligence</span></span></span></a><p>Considered pieces from global makers, for the places we call home.</p></div>
+        <div class="footer-column"><h2>The collection</h2><a href="shop.html">Shop all</a><a href="shop.html?category=handles">Handles</a><a href="shop.html?category=knobs">Knobs</a><a href="shop.html?category=bathroom">Bathroom</a><a href="shop.html?category=doors">Doors and walls</a><a href="shop.html?category=decoration">Decoration</a><a href="shop.html?category=furniture">Furniture</a><a href="./#pricing">Pricing &amp; trade</a></div>
+        <div class="footer-column"><h2>Fabrication Intelligence</h2><a href="about.html">About us</a><a href="how-it-works.html">How it works</a><a href="ai.html">AI at FI</a><a href="reviews.html">Product reviews</a><a href="contact.html">Work with us</a><a href="trade.html">Trade pricing</a><a href="partner.html">Partner with us</a></div>
+        <div class="footer-column"><h2>Here to help</h2><a href="project.html" data-project-link>Project list</a><a href="orders.html">Track my orders</a><a href="support.html">Support</a><a href="docs.html">Guides &amp; FAQs</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a><a href="bug-report.html">Report a problem</a><a href="auth.html">My account</a></div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 Fabrication Intelligence. Based in Melbourne, Australia.</p><p><a href="privacy.html">Privacy</a> &nbsp; <a href="legal.html">Legal &amp; policies</a> &nbsp; <a href="mailto:fabricationintelligence@gmail.com">Email us ↗</a> &nbsp; <button type="button" class="footer-motion" data-motion-toggle aria-pressed="true">Motion on</button></p></div>
+    </footer>
+    <script src="catalogue.js?v=20261012-enquiries" defer></script><script src="product-image.js?v=20261012-room" defer></script><script src="project-list.js" defer></script><script src="product-card.js?v=20261012-studio" defer></script><script src="photo-match.js" defer></script><script src="find.js" defer></script>
+  </body>
+</html>

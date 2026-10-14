@@ -14,3 +14,8 @@ verify_jwt = false
 # Public service-log intake validates its origin, key, event allowlist and 1 KB size limit.
 # It forwards only fixed events to Axiom and never the caller's IP address or browser.
 verify_jwt = false
+
+[functions.fi-photo-match]
+# Public photo search validates its website origin, key, size limit and a per-address rate limit.
+# Gemini and OpenRouter keys live only as function secrets. Photos are never stored or logged.
+verify_jwt = false
