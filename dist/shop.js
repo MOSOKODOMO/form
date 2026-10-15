@@ -8,8 +8,8 @@
   const search = document.querySelector('#shop-search');
   const sort = document.querySelector('#shop-sort');
   const reset = document.querySelector('#shop-reset');
-  const filters = [...document.querySelectorAll('.shop-filter[data-category]')];
-  const finishButtons = [...document.querySelectorAll('.shop-filter[data-finish]')];
+  const categorySelect = document.querySelector('#shop-category');
+  const finishSelect = document.querySelector('#shop-finish');
   const roomButtons = [...document.querySelectorAll('.shop-filter[data-room]')];
   const allowedSorts = ['featured', 'name', 'price-asc', 'price-desc'];
   let products = [];
@@ -61,19 +61,26 @@
     document.querySelector('.shop-products-heading p').textContent = state.collection === 'all' ? 'Find your favourites. Bring them together in your project list.' : 'Explore pieces for this look. Design references are available to enquire.';
     const inRoom = FI.filterByRoom(matches,state.room);
     const counts = FI.categoryCounts(FI.filterByFinish(inRoom,state.finish));
+    const roomCounts = FI.categoryCounts(inRoom);
     const inCategory = FI.filterByCategory(inRoom,state.category);
     for (const button of roomButtons) {
       button.setAttribute('aria-pressed',String(button.dataset.room === state.room));
-      button.querySelector('.shop-filter-count').textContent = FI.filterByRoom(FI.filterByFinish(matches,state.finish),button.dataset.room).length;
+      button.querySelector('.shop-filter-count').textContent = FI.filterByRoom(matches,button.dataset.room).length;
     }
-    for (const button of finishButtons) {
-      button.setAttribute('aria-pressed',String(button.dataset.finish === state.finish));
-      button.querySelector('.shop-filter-count').textContent = FI.filterByFinish(inCategory,button.dataset.finish).length;
+    categorySelect.disabled = false;
+    finishSelect.disabled = false;
+    categorySelect.value = state.category;
+    finishSelect.value = state.finish;
+    for (const option of finishSelect.options) {
+      const count = FI.filterByFinish(inCategory,option.value).length;
+      option.textContent = `${option.value === 'all' ? 'All finishes' : FI.finishName(option.value)} (${count})`;
+      option.disabled = option.value !== 'all' && option.value !== state.finish && count === 0;
     }
-    for (const button of filters) {
-      button.setAttribute('aria-pressed', String(button.dataset.category === state.category));
-      button.querySelector('.shop-filter-count').textContent = counts[button.dataset.category];
-      button.hidden = button.dataset.category !== 'all' && button.dataset.category !== state.category && counts[button.dataset.category] === 0;
+    for (const option of categorySelect.options) {
+      const id = option.value;
+      option.textContent = `${id === 'all' ? 'All types' : FI.categoryName(id)} (${counts[id]})`;
+      option.hidden = id !== 'all' && id !== state.category && roomCounts[id] === 0;
+      option.disabled = id !== 'all' && id !== state.category && counts[id] === 0;
     }
     const list = sorted(FI.filterByFinish(inCategory,state.finish));
     grid.replaceChildren(...(list.length ? list.map(window.FIProductCard.card) : [empty()]));
@@ -94,9 +101,9 @@
     window.history[replace ? 'replaceState' : 'pushState'](null, '', url);
     render();
   }
-  for (const button of filters) button.addEventListener('click', () => { state.category = button.dataset.category; state.room = 'all'; updateUrl(); });
-  for (const button of finishButtons) button.addEventListener('click', () => { state.finish = button.dataset.finish; updateUrl(); });
-  for (const button of roomButtons) button.addEventListener('click', () => { state.room = button.dataset.room; state.category = 'all'; updateUrl(); });
+  categorySelect.addEventListener('change', () => { state.category = categorySelect.value; updateUrl(); });
+  finishSelect.addEventListener('change', () => { state.finish = finishSelect.value; updateUrl(); });
+  for (const button of roomButtons) button.addEventListener('click', () => { state.room = button.dataset.room; state.category = 'all'; state.finish = 'all'; updateUrl(); });
   search.addEventListener('input', () => { state.query = search.value.slice(0,160); updateUrl(true); });
   sort.addEventListener('change', () => { state.sort = sort.value; updateUrl(); });
   reset.addEventListener('click', () => { state = {collection:'all',category:'all',finish:'all',room:'all',query:'',sort:'featured'}; updateUrl(); search.focus(); });

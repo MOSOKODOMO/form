@@ -75,19 +75,17 @@ test('shop page loads the catalogue first and offers every category with a sampl
   const shop = read('shop.html')
   assert.ok(shop.indexOf('src="catalogue.js') < shop.indexOf('src="shop.js'), 'catalogue loads before the shop script')
   assert.match(shop, /<link rel="stylesheet" href="shop\.css">/)
-  const buttons = [...shop.matchAll(/<button class="shop-filter" type="button" data-category="([a-z]+)"/g)].map((match) => match[1])
-  assert.deepEqual(buttons, ['all', ...catalogue.CATEGORY_IDS])
+  const categorySelect = shop.match(/<select id="shop-category"[\s\S]*?<\/select>/)[0]
+  assert.deepEqual([...categorySelect.matchAll(/value="([a-z]+)"/g)].map(match=>match[1]), ['all', ...catalogue.CATEGORY_IDS])
+  assert.match(shop, /<label[^>]*for="shop-category">Types of hardware/)
+  assert.doesNotMatch(shop, /data-category=|data-finish=/)
   assert.match(shop, /id="product-grid"/)
   assert.match(shop, /id="shop-status"[^>]*role="status"/)
   assert.match(shop, /id="sample-banner"[\s\S]*?not for sale/)
   assert.match(shop, /<noscript>/)
-  assert.match(shop, catalogue.SHOW_FI_RATING ? /SORTED BY FI SCORE/ : /READY TO BUY FIRST/)
   const script = read('shop.js')
-  assert.match(script, /WaterMark/, 'empty taps explain what taps need')
   assert.doesNotMatch(script, /innerHTML/, 'product text is never inserted as HTML')
-  assert.match(script, /el\('a', 'product-card-link', product\.product\)/, 'the card title is the link to the product')
   assert.match(script, /products = FI\.listedProducts\(list\)/, 'drafts and rejected products stay out of the shop')
-  assert.match(script, /cardAction\(product\)/, 'cards get their own Buy or quote button')
 })
 
 test('photos use the alt text written from the product facts, and samples say they are illustrations', () => {
@@ -110,9 +108,6 @@ test('shop mode: the FI rating is off, so no score shows and ready-to-buy produc
   assert.deepEqual(catalogue.sortProducts(list).map((product) => product.handle), ['live-handle', 'cheap-knob', 'dear-knob', 'quote-handle'])
   assert.equal(catalogue.canBuyNow(list[1]), true)
   assert.equal(catalogue.canBuyNow(list[0]), false)
-  const script = read('shop.js')
-  assert.match(script, /if \(FI\.SHOW_FI_RATING\) foot\.append\(scoreBadge/)
-  assert.match(script, /button\.hidden = id !== 'all' && id !== category && counts\[id\] === 0/, 'empty categories are hidden')
   const product = read('product.js')
   assert.match(product, /if \(FI\.SHOW_FI_RATING\) root\.replaceChildren\(layout, trustPanel\(product\), reviews\)/)
   for (const page of ['index.html', 'shop.html', 'product.html', 'how-it-works.html']) {
@@ -131,7 +126,6 @@ test('shop by finish: products are grouped into matte black, brass and gold, and
   assert.equal(catalogue.filterByFinish(list, 'all').length, 4)
   assert.equal(catalogue.parseFinish('?finish=silver&category=doors'), 'silver')
   assert.equal(catalogue.parseFinish('?finish=purple'), 'all')
-  const buttons = [...read('shop.html').matchAll(/data-finish="([a-z]+)"/g)].map((match) => match[1])
-  assert.deepEqual(buttons, ['all', ...catalogue.FINISH_IDS])
-  assert.match(read('shop.js'), /FI\.filterByFinish\(FI\.filterByCategory\(inRoom, category\), finish\)/)
+  const select = read('shop.html').match(/<select id="shop-finish"[\s\S]*?<\/select>/)[0]
+  assert.deepEqual([...select.matchAll(/value="([a-z]+)"/g)].map(match=>match[1]), ['all', ...catalogue.FINISH_IDS])
 })

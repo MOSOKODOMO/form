@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="builders.css?v=20261011-premium3">
     <link rel="stylesheet" href="shop.css">
     <link rel="stylesheet" href="collection-carousel.css?v=20261015-looks">
-    <link rel="stylesheet" href="shop-collections.css?v=20261014">
+    <link rel="stylesheet" href="shop-collections.css?v=20261015-sidebar">
     <script src="collection-carousel.js?v=20261015-looks" defer></script>
     <link rel="stylesheet" href="editorial-motion.css?v=20261011-premium3">
     <script src="editorial-motion.js?v=20261011-premium3" defer></script>
     <script src="telemetry-config.js" defer></script>
     <script src="telemetry.js" defer></script>
     <script src="catalogue.js?v=20261015-looks" defer></script>
-    <script src="project-list.js" defer></script><script src="product-image.js?v=20261012-room" defer></script><script src="product-card.js?v=20261012-studio" defer></script><script src="shop.js?v=20261015-looks" defer></script>
+    <script src="project-list.js" defer></script><script src="product-image.js?v=20261012-room" defer></script><script src="product-card.js?v=20261012-studio" defer></script><script src="shop.js?v=20261015-sidebar" defer></script>
   <link rel="stylesheet" href="editorial.css?v=20261011-premium3"><link rel="stylesheet" href="brand-lockup.css?v=20261011-premium3">
   <script src="site-shell.js?v=20261011-premium3" defer></script><link rel="stylesheet" href="shop-editorial.css?v=20261012-studio"><script src="log-config.js" defer></script><script src="fi-log.js" defer></script><link rel="stylesheet" href="project.css?v=20261011-premium3"></head>
   <body class="collection-shop" data-motion-page="functional">
@@ -78,35 +78,45 @@
       <div class="shop-toolbar">
         <div class="shop-controls"><label class="shop-search" for="shop-search">Search the collection<input type="search" id="shop-search" name="q" placeholder="Try brass, handles or a maker's name" autocomplete="off" maxlength="160"></label><label class="shop-sort-control" for="shop-sort">Sort by<select id="shop-sort"><option value="featured">Featured</option><option value="name">Name, A to Z</option><option value="price-asc">Listed price: low to high</option><option value="price-desc">Listed price: high to low</option></select></label></div>
         <div class="shop-filters shop-rooms" role="group" aria-label="Shop by room">
-          <button class="shop-filter" type="button" data-room="all" aria-pressed="true">Any room <span class="shop-filter-count"></span></button>
+          <button class="shop-filter" type="button" data-room="all" aria-pressed="true">All rooms <span class="shop-filter-count"></span></button>
           <button class="shop-filter" type="button" data-room="kitchen" aria-pressed="false">Kitchen <span class="shop-filter-count"></span></button>
           <button class="shop-filter" type="button" data-room="bathroom" aria-pressed="false">Bathroom <span class="shop-filter-count"></span></button>
           <button class="shop-filter" type="button" data-room="entry" aria-pressed="false">Entry and doors <span class="shop-filter-count"></span></button>
         </div>
-<div class="shop-filters" role="group" aria-label="Filter by category">
-          <button class="shop-filter" type="button" data-category="all" aria-pressed="true">All <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-category="handles" aria-pressed="false">Handles <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-category="knobs" aria-pressed="false">Knobs <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-category="tiles" aria-pressed="false">Tiles <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-category="taps" aria-pressed="false">Taps and sinks <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-category="bathroom" aria-pressed="false">Bathroom <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-category="doors" aria-pressed="false">Doors and walls <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-category="decoration" aria-pressed="false">Decoration <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-category="furniture" aria-pressed="false">Furniture <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-category="paintings" aria-pressed="false">Wall art &amp; paintings <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-category="pendants" aria-pressed="false">Pendant lighting <span class="shop-filter-count"></span></button>
-        </div>
-<div class="shop-filters shop-finishes" role="group" aria-label="Filter by finish">
-          <button class="shop-filter" type="button" data-finish="all" aria-pressed="true">Any finish <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-finish="black" aria-pressed="false">Matte black <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-finish="brass" aria-pressed="false">Brass and gold <span class="shop-filter-count"></span></button>
-          <button class="shop-filter" type="button" data-finish="silver" aria-pressed="false">Silver and stainless <span class="shop-filter-count"></span></button>
-        </div>
-
       </div>
 
-      <div class="shop-result-bar"><p id="shop-status" class="shop-status" role="status" aria-live="polite">Loading products…</p><a class="text-link shop-project-link" href="project.html" data-project-link>Project list ↗</a><button type="button" class="shop-reset" id="shop-reset" hidden>Clear filters</button></div>
-      <ul id="product-grid" class="product-grid" aria-busy="true"></ul>
+      <div class="shop-browse-layout">
+        <aside class="shop-sidebar" aria-labelledby="shop-filter-title">
+          <h2 id="shop-filter-title">Filter by</h2>
+          <div class="shop-sidebar-field"><label for="shop-category">Types of hardware</label>
+            <select id="shop-category" aria-controls="product-grid" disabled>
+              <option value="all">All types</option>
+              <option value="handles">Handles</option>
+              <option value="knobs">Knobs</option>
+              <option value="tiles">Tiles</option>
+              <option value="taps">Taps and sinks</option>
+              <option value="bathroom">Bathroom</option>
+              <option value="doors">Doors and walls</option>
+              <option value="decoration">Decoration</option>
+              <option value="furniture">Furniture</option>
+              <option value="paintings">Wall art &amp; paintings</option>
+              <option value="pendants">Pendant lighting</option>
+            </select>
+          </div>
+          <div class="shop-sidebar-field"><label for="shop-finish">Finishes</label>
+            <select id="shop-finish" aria-controls="product-grid" disabled>
+              <option value="all">All finishes</option>
+              <option value="black">Matte black</option>
+              <option value="brass">Brass and gold</option>
+              <option value="silver">Silver and stainless</option>
+            </select>
+          </div>
+        </aside>
+        <div class="shop-results">
+          <div class="shop-result-bar"><p id="shop-status" class="shop-status" role="status" aria-live="polite">Loading products…</p><a class="text-link shop-project-link" href="project.html" data-project-link>Project list ↗</a><button type="button" class="shop-reset" id="shop-reset" hidden>Clear filters</button></div>
+          <ul id="product-grid" class="product-grid" aria-busy="true"></ul>
+        </div>
+      </div>
       <noscript><p class="shop-status">The shop needs JavaScript to show products. Email <a href="mailto:fabricationintelligence@gmail.com">fabricationintelligence@gmail.com</a> and we’ll help.</p></noscript>
       <aside class="shop-project-panel" aria-labelledby="shop-project-title"><div><h2 id="shop-project-title">A little closer to your space.</h2><p>Save pieces to your project list as you browse. Compare your favourites and keep the details in one place.</p></div><a class="text-link" href="project.html" data-project-link>Project list ↗</a></aside>
     <aside class="collection-help"><p>Looking for something particular? Our team can help source it.</p><a class="text-link" href="contact.html">Tell us what you need ↗</a><a class="text-link" href="order-catalogue.html">Order-ready catalogue ↗</a></aside></main>
