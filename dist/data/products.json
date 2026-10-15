@@ -1761,6 +1761,14 @@
     "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering.",
     "collections": [
       "earth-oak"
+    ],
+    "gallery_images": [
+      {
+        "src": "assets/products/ball-foot-brass-pull-lifestyle-20261015.webp",
+        "alt": "AI render of brass bar handles with spherical mounts on a forest green vanity",
+        "label": "Show installed styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
     ]
   },
   {
@@ -3117,7 +3125,15 @@
     "photo_is_render": true,
     "photo_generated_on": "2026-10-12",
     "photo_variant": "original brushed gold long pill-shaped cabinet handle from the left of reference.",
-    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering."
+    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering.",
+    "gallery_images": [
+      {
+        "src": "assets/products/grooved-brass-pull-lifestyle-20261015.webp",
+        "alt": "AI render of grooved brass handles installed on forest green cabinet drawers",
+        "label": "Show installed styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
+    ]
   },
   {
     "handle": "15-20-25-30cm-stainless-steel-house-number-silver-address-sign-0-9-huisnummer-ou",
@@ -3399,7 +3415,15 @@
     "photo_is_render": true,
     "photo_generated_on": "2026-10-12",
     "photo_variant": "original brushed gold long edge-mounted curved cabinet handle, one of the two gold handles at right in source.",
-    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering."
+    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering.",
+    "gallery_images": [
+      {
+        "src": "assets/products/curved-gold-edge-pull-lifestyle-20261015.webp",
+        "alt": "AI render of curved gold edge pulls on a warm ivory cabinet",
+        "label": "Show installed styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
+    ]
   },
   {
     "handle": "naierdi-luxury-brushed-gold-cabinet-handle-drawer-aluminum-alloy-long-furniture",
@@ -3471,7 +3495,15 @@
     "photo_is_render": true,
     "photo_generated_on": "2026-10-12",
     "photo_variant": "brushed gold aluminium channel cabinet handle from foreground of source.",
-    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering."
+    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering.",
+    "gallery_images": [
+      {
+        "src": "assets/products/gold-channel-pull-lifestyle-20261015.webp",
+        "alt": "AI render of brushed gold aluminium channel handles on oak kitchen drawers",
+        "label": "Show installed styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
+    ]
   },
   {
     "handle": "no-drill-door-stopper-for-room-bedroom-door-fixed-wall-protection-anti-collision",
@@ -4246,7 +4278,15 @@
     "photo_is_render": true,
     "photo_generated_on": "2026-10-12",
     "photo_variant": "original matte black adjustable barn door floor guide from reference, exact oblong base with two slots and perpendicular upright guide fin.",
-    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering."
+    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering.",
+    "gallery_images": [
+      {
+        "src": "assets/products/barn-door-floor-guide-lifestyle-20261015.webp",
+        "alt": "AI render of a black floor guide fitted beneath an oak sliding door",
+        "label": "Show installed styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
+    ]
   },
   {
     "handle": "toilet-brush-holder-wall-mount-wc-cleaning-brush-stainless-steel-bathroom-access",
@@ -5019,7 +5059,15 @@
     "photo_is_render": true,
     "photo_generated_on": "2026-10-12",
     "photo_variant": "silver oval wardrobe rail bracket ONLY, from the small repeated silver brackets on right side of Image 1.",
-    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering."
+    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering.",
+    "gallery_images": [
+      {
+        "src": "assets/products/oval-rail-bracket-lifestyle-20261015.webp",
+        "alt": "AI render of a silver oval rail bracket supporting a clothes rail inside an oak wardrobe",
+        "label": "Show installed styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
+    ]
   },
   {
     "handle": "wall-mounted-toilet-brush-clean-tool-304-stainless-steel-cleaning-brush-holder-s",
