@@ -1,6 +1,6 @@
 'use strict';
 // Sends the bug report to the team inbox through FormSubmit, like the feedback form.
-const BUG_ENDPOINT = 'https://formsubmit.co/ajax/fabricationintelligence@gmail.com';
+const BUG_ENDPOINT = 'https://formsubmit.co/ajax/support@fabricationintelligence.com';
 const bugForm = document.querySelector('#bug-form');
 const bugStatus = document.querySelector('#bug-status');
 const bugPage = document.querySelector('#bug-page');
@@ -57,7 +57,7 @@ bugForm.addEventListener('submit', async (event) => {
     thanks.focus();
   } catch (error) {
     console.error(error);
-    setStatus('We could not send your report. Please try again, or email fabricationintelligence@gmail.com.', true);
+    setStatus('We could not send your report. Please try again, or email support@fabricationintelligence.com.', true);
   } finally {
     submit.disabled = false;
   }

@@ -108,7 +108,7 @@
       thanks.focus();
       window.fiTrackEvent?.('generate_lead', {form_name: 'contact_page'});
     } catch (error) {
-      errorNode.textContent = `${error.message || 'We could not send your list.'} Please try again, or email fabricationintelligence@gmail.com.`;
+      errorNode.textContent = `${error.message || 'We could not send your list.'} Please try again, or email support@fabricationintelligence.com.`;
       errorNode.hidden = false;
       status.textContent = '';
     } finally {

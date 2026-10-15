@@ -1,7 +1,7 @@
 'use strict';
 // Contact forms on the homepage and contact.html send to the team inbox through FormSubmit, like feedback.js.
 (() => {
-  const ENDPOINT = 'https://formsubmit.co/ajax/fabricationintelligence@gmail.com';
+  const ENDPOINT = 'https://formsubmit.co/ajax/support@fabricationintelligence.com';
   const INTAKE = 'https://dszagdjnymxalpwamjyh.supabase.co/functions/v1/fi-enquiry';
   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const POSITIONS = {
@@ -108,7 +108,7 @@
         thanks.focus();
       } catch (error) {
         console.error(error);
-        say('We couldn’t send your message. Please try again, or email fabricationintelligence@gmail.com.', true);
+        say('We couldn’t send your message. Please try again, or email support@fabricationintelligence.com.', true);
       } finally {
         button.disabled = false;
       }

@@ -81,7 +81,7 @@ test('role links preselect each position and route applications to the existing 
     await app.submit();
     assert.equal(app.calls.length, 1);
     const call = app.calls[0];
-    assert.equal(call.url, 'https://formsubmit.co/ajax/fabricationintelligence@gmail.com');
+    assert.equal(call.url, 'https://formsubmit.co/ajax/support@fabricationintelligence.com');
     assert.equal(call.method, 'POST');
     assert.equal(call.body.relationship, 'Team applicant');
     assert.match(call.body._subject, /^FI application for /);
