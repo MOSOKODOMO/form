@@ -1967,7 +1967,15 @@
     "source_url": "https://www.aliexpress.com/item/1005009689693646.html",
     "source_check_status": "listing_found",
     "source_checked_on": "2026-10-10",
-    "source_check_note": "AliExpress listing linked to this product in DSers, which places the order with the seller. Material, sizes and finishes are as the seller lists them; seller ratings are not reviews of this FI product. Not inspected yet."
+    "source_check_note": "AliExpress listing linked to this product in DSers, which places the order with the seller. Material, sizes and finishes are as the seller lists them; seller ratings are not reviews of this FI product. Not inspected yet.",
+    "gallery_images": [
+      {
+        "src": "assets/products/brushed-brass-knob-lifestyle-20261015.webp",
+        "alt": "AI render of Brushed brass quatrefoil knobs installed on an ivory cabinet",
+        "label": "Show cabinet styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
+    ]
   },
   {
     "handle": "retro-brass-cabinet-knobs-elegant-ribbed-handles-for-drawers-dressing-tables-mod",
@@ -2116,7 +2124,15 @@
     "photo_is_render": true,
     "photo_generated_on": "2026-10-12",
     "photo_variant": "original brushed brass circular disc wall hook at foreground right in reference.",
-    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering."
+    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering.",
+    "gallery_images": [
+      {
+        "src": "assets/products/brass-round-hooks-lifestyle-20261015.webp",
+        "alt": "AI render of Round brass wall hooks beside an oak bathroom vanity, one holding a linen towel",
+        "label": "Show bathroom styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
+    ]
   },
   {
     "handle": "door-lever-lock-with-3-keys-locking-door-handle-stainless-steel-entrance-door-ha",
@@ -2394,7 +2410,15 @@
     "photo_is_render": true,
     "photo_generated_on": "2026-10-12",
     "photo_variant": "original polished brass ribbon bow wall hook, preserve hollow ribbon loops, dangling ribbon tails and long slim J-shaped hook underneath, mounted directly on ivory wall.",
-    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering."
+    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering.",
+    "gallery_images": [
+      {
+        "src": "assets/products/brass-bow-hook-lifestyle-20261015.webp",
+        "alt": "AI render of Brass bow wall hook beside an ivory bathroom vanity",
+        "label": "Show bathroom styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
+    ]
   },
   {
     "handle": "6pcs-shelf-floating-shelf-tripod-bracket-heavy-duty-black-steel-for-decorative-w",
