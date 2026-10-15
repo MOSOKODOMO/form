@@ -38,7 +38,6 @@
     thumbs.setAttribute('aria-label', 'Choose what to show');
     const slides = [];
     const items = FI.galleryItems(product);
-    const caption = el('p', 'gallery-caption');
 
     items.forEach((item, index) => {
       const slide = el('figure', `gallery-slide gallery-slide--${item.type}`);
@@ -72,12 +71,10 @@
     const markActive = () => {
       const index = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
       [...thumbs.children].forEach((thumb, i) => thumb.setAttribute('aria-pressed', String(i === index)));
-      caption.textContent = items[index]?.caption || '';
-      caption.hidden = !caption.textContent;
     };
     track.addEventListener('scroll', () => window.requestAnimationFrame(markActive), {passive: true});
     markActive();
-    section.append(track, thumbs, caption);
+    section.append(track, thumbs);
     return section;
   }
 
