@@ -1,6 +1,6 @@
 'use strict';
 // Sends the 1-minute feedback form to the team inbox through FormSubmit.
-const FEEDBACK_ENDPOINT = 'https://formsubmit.co/ajax/fabricationintelligence@gmail.com';
+const FEEDBACK_ENDPOINT = 'https://formsubmit.co/ajax/support@fabricationintelligence.com';
 const feedbackForm = document.querySelector('#feedback-form');
 const feedbackStatus = document.querySelector('#feedback-status');
 
@@ -56,7 +56,7 @@ feedbackForm.addEventListener('submit', async (event) => {
     thanks.focus();
   } catch (error) {
     console.error(error);
-    setFeedbackStatus('We couldn’t send your feedback. Please try again, or email fabricationintelligence@gmail.com.', 'error-text');
+    setFeedbackStatus('We couldn’t send your feedback. Please try again, or email support@fabricationintelligence.com.', 'error-text');
   } finally {
     submit.disabled = false;
   }

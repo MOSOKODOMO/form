@@ -2,7 +2,7 @@
    Used by the project list and trade pages. Returns {saved: true, notified: boolean}; throws when the note could not be saved. */
 (() => {
   'use strict';
-  const NOTIFY = 'https://formsubmit.co/ajax/fabricationintelligence@gmail.com';
+  const NOTIFY = 'https://formsubmit.co/ajax/support@fabricationintelligence.com';
   const INTAKE = 'https://dszagdjnymxalpwamjyh.supabase.co/functions/v1/fi-enquiry';
   const KEY = 'sb_publishable_Dm6trfXjIO0C1r9A71PbNw_Q_PF4OM5';
   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

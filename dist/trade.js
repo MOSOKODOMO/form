@@ -56,7 +56,7 @@
       thanks.focus();
       window.fiTrackEvent?.('generate_lead', {form_name: 'contact_page'});
     } catch (error) {
-      fail(`${error.message || 'We could not send your application.'} Please try again, or email fabricationintelligence@gmail.com.`);
+      fail(`${error.message || 'We could not send your application.'} Please try again, or email support@fabricationintelligence.com.`);
       status.textContent = '';
     } finally {
       button.disabled = false;
