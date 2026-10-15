@@ -13,7 +13,7 @@ test('About profiles show the approved portraits in founder order', () => {
   assert.equal(profiles.length, 3);
 
   for (const [index, [name, filename]] of [
-    ['Prem', 'prem-editorial.webp'],
+    ['Prem', 'prem-editorial-20261015.webp'],
     ['Lincy', 'lincy-editorial.webp'],
     ['Mos', 'mos-editorial.webp'],
   ].entries()) {
