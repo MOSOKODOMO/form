@@ -16,6 +16,22 @@
     media.setAttribute('aria-label', `View ${product.product}`);
     const image = window.FIProductImage(product, {eager: index < 4, decorative: true});
     media.append(image);
+    const nextPhoto = FI.galleryItems(product).find((photo, photoIndex) => photoIndex > 0 && photo.type === 'photo' && photo.src !== product.photo_url);
+    if (nextPhoto) {
+      image.classList.add('product-card-primary');
+      const preview = window.FIProductImage({...product, photo_url: nextPhoto.src}, {decorative: true});
+      preview.classList.add('product-card-preview');
+      let failed = false;
+      preview.addEventListener('load', () => {
+        if (!failed) media.classList.add('product-card-media--preview-ready');
+      });
+      preview.addEventListener('error', () => {
+        failed = true;
+        media.classList.remove('product-card-media--preview-ready');
+      });
+      media.append(preview);
+      if (preview.complete && preview.naturalWidth > 0) media.classList.add('product-card-media--preview-ready');
+    }
     if (product.sample) media.append(el('span', 'sample-badge', 'SAMPLE'));
     const body = el('div', 'product-card-body');
     const meta = el('p', 'product-card-meta');
