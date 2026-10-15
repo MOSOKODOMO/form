@@ -279,8 +279,12 @@
 
   // Photos first; the maker's origin story is always the last slide.
   function galleryItems(product) {
+    const extraPhotos = (Array.isArray(product.gallery_images) ? product.gallery_images : [])
+      .filter((item) => item && (isSitePath(item.src) || isHttps(item.src)) && isStated(item.alt))
+      .map((item) => ({type: 'photo', src: item.src, alt: item.alt, caption: isStated(item.caption) ? item.caption : '', label: isStated(item.label) ? item.label : 'Show additional product image'}));
     return [
-      {type: 'photo', src: product.photo_url, alt: imageAlt(product)},
+      {type: 'photo', src: product.photo_url, alt: imageAlt(product), caption: product.photo_is_render || product.photo_is_reference ? product.photo_caption || 'AI render based on supplier imagery. Illustration only; confirm the selected variant before ordering.' : ''},
+      ...extraPhotos,
       {type: 'story', title: product.concept_only ? 'About this design' : `Made by ${product.maker}`, place: product.concept_only ? 'Project enquiry' : shownValue(product.country), text: isStated(product.story_en) ? product.story_en : 'We haven’t recorded this maker’s story yet.'},
     ];
   }

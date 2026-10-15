@@ -37,19 +37,22 @@
     thumbs.setAttribute('role', 'group');
     thumbs.setAttribute('aria-label', 'Choose what to show');
     const slides = [];
+    const items = FI.galleryItems(product);
+    const caption = el('p', 'gallery-caption');
 
-    FI.galleryItems(product).forEach((item, index) => {
+    items.forEach((item, index) => {
       const slide = el('figure', `gallery-slide gallery-slide--${item.type}`);
       const thumb = el('button', `gallery-thumb gallery-thumb--${item.type}`);
       thumb.type = 'button';
       if (item.type === 'photo') {
-        const image = window.FIProductImage(product, {eager: index === 0});
+        const photo = {...product, photo_url: item.src, photo_alt: item.alt};
+        const image = window.FIProductImage(photo, {eager: index === 0});
         if (index === 0) image.setAttribute('fetchpriority', 'high');
         slide.append(image);
         if (product.sample) slide.append(el('span', 'sample-badge', 'SAMPLE'));
-        const small = window.FIProductImage(product, {width: 80, height: 100, decorative: true});
+        const small = window.FIProductImage(photo, {width: 80, height: 100, decorative: true});
         thumb.append(small);
-        thumb.setAttribute('aria-label', product.photo_is_reference ? 'Show the AI studio render' : product.photo_is_render ? 'Show the AI catalogue render' : 'Show the photo');
+        thumb.setAttribute('aria-label', item.label || (product.photo_is_reference ? 'Show the AI studio render' : product.photo_is_render ? 'Show the AI catalogue render' : 'Show the photo'));
       } else {
         const card = el('div', 'story-card');
         const backdrop = el('p', 'story-backdrop', item.place);
@@ -69,13 +72,12 @@
     const markActive = () => {
       const index = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
       [...thumbs.children].forEach((thumb, i) => thumb.setAttribute('aria-pressed', String(i === index)));
+      caption.textContent = items[index]?.caption || '';
+      caption.hidden = !caption.textContent;
     };
     track.addEventListener('scroll', () => window.requestAnimationFrame(markActive), {passive: true});
     markActive();
-    section.append(track, thumbs);
-    if (product.photo_is_render || product.photo_is_reference) {
-      section.append(el('p', 'gallery-caption', product.photo_caption || 'AI render based on supplier imagery. Illustration only; confirm the selected variant before ordering.'));
-    }
+    section.append(track, thumbs, caption);
     return section;
   }
 

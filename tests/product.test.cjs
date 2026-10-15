@@ -44,6 +44,29 @@ test('the gallery shows the photo first and the origin story last', () => {
   }
 })
 
+test('additional gallery photos preserve their source and caption and reject invalid entries', () => {
+  const extra = {src: 'assets/products/example.webp', alt: 'Cabinet styling concept', caption: 'AI-generated styling concept', label: 'Show cabinet styling image'}
+  const items = catalogue.galleryItems({...sample, gallery_images: [extra, null, {src: 'javascript:alert(1)', alt: 'Unsafe'}, {src: '../secret.png', alt: 'Invalid path'}, {src: 'assets/photo.webp', alt: ''}]})
+  assert.equal(items.length, 3)
+  assert.equal(items[0].src, sample.photo_url)
+  assert.deepEqual(items[1], {type: 'photo', ...extra})
+  assert.equal(items[2].type, 'story')
+  assert.equal(catalogue.galleryItems({...sample, gallery_images: 'invalid'}).length, 2)
+})
+
+test('the three corrected cabinet images are available after the original product photos', () => {
+  const handles = ['retro-brass-cabinet-knobs-elegant-ribbed-handles-for-drawers-dressing-tables-mod', 'american-style-matte-black-cabinet-handles-solid-aluminum-alloy-kitchen-cupboard', 'square-stainless-steel-cabinet-handles-50-to-268-mm']
+  for (const handle of handles) {
+    const product = products.find((p) => p.handle === handle)
+    const items = catalogue.galleryItems(product)
+    assert.equal(items[0].src, product.photo_url)
+    assert.match(items[1].src, /cabinet-lifestyle-20261015\.webp$/)
+    assert.ok(fs.existsSync(path.join(dist, items[1].src)))
+    assert.match(items[1].caption, /AI-generated styling concept/)
+    assert.notEqual(items[0].src, items[1].src)
+  }
+})
+
 test('the trust panel shows each check as verified, claimed, failed or not stated, linking only verified ones', () => {
   const checks = catalogue.checkItems(sample)
   assert.equal(checks.length, sample.certificates.length)

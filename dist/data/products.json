@@ -2036,7 +2036,15 @@
     "photo_is_render": true,
     "photo_generated_on": "2026-10-12",
     "photo_variant": "round vertically ribbed brushed brass knob exactly as in reference, upright on its original round foot on an ivory horizontal seamless studio surface.",
-    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering."
+    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering.",
+    "gallery_images": [
+      {
+        "src": "assets/products/ribbed-cabinet-lifestyle-20261015.webp",
+        "alt": "AI render of Ribbed brass knobs installed on a dark green cabinet",
+        "label": "Show cabinet styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
+    ]
   },
   {
     "handle": "dooroom-brass-bearing-hooks-bathroom-indoor-kitchen-hallway-wall-clothes-hooks-w",
@@ -3651,7 +3659,15 @@
     "photo_is_render": true,
     "photo_generated_on": "2026-10-12",
     "photo_variant": "Select ONE matte black rectangular cabinet bar pull with two short squared support feet from the lower-left assortment.",
-    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering."
+    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering.",
+    "gallery_images": [
+      {
+        "src": "assets/products/matte-black-cabinet-lifestyle-20261015.webp",
+        "alt": "AI render of Matte black aluminium handles installed on oak kitchen drawers",
+        "label": "Show cabinet styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
+    ]
   },
   {
     "handle": "165-degree-soft-close-cabinet-hinge-full-overlay-concealed-hinge-hydraulic-buffe",
@@ -6262,7 +6278,15 @@
     "photo_is_render": true,
     "photo_generated_on": "2026-10-12",
     "photo_variant": "matte black square cabinet handle from Image 1, a mid-size long straight rectangular bar with sharp squared ends and two short perpendicular rectangular feet, exact original product geometry.",
-    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering."
+    "photo_caption": "AI-generated catalogue render, not a product photograph. One representative item is shown; confirm the selected finish, size and included pieces before ordering.",
+    "gallery_images": [
+      {
+        "src": "assets/products/square-black-cabinet-lifestyle-20261015.webp",
+        "alt": "AI render of Square black handles installed on an ivory bathroom vanity",
+        "label": "Show cabinet styling image",
+        "caption": "AI-generated styling concept. Illustrative scale; confirm dimensions and your selected variant before ordering."
+      }
+    ]
   },
   {
     "handle": "matte-black-cabinet-pulls-20-pack",
