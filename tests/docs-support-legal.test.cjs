@@ -70,7 +70,7 @@ test('the bug report form is accessible, has a honeypot, and sends only to the t
   assert.match(html, /<form id="bug-form"/);
   assert.match(html, /role="status" aria-live="polite"/);
   assert.match(html, /name="website" tabindex="-1" autocomplete="off"/);
-  assert.match(script, /formsubmit\.co\/ajax\/fabricationintelligence@gmail\.com/);
+  assert.match(script, /formsubmit\.co\/ajax\/support@fabricationintelligence.com/);
   assert.doesNotMatch(script, /innerHTML|eval\(/);
   assert.match(script, /safePath/);
 });

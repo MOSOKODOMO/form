@@ -8,13 +8,13 @@ const read = (name) => fs.readFileSync(path.join(dist, name), 'utf8')
 
 test('windows no longer advertises the old price-comparison service',()=>{ assert.match(read('windows.html'),/Under consideration/); assert.doesNotMatch(read('windows.html'),/quote-card|Stegbar|A\$356/); })
 
-test('founder identities remain available on the homepage',()=>{ const html=read('index.html'); for(const name of ['Prem','Lincy','Mos']) assert.ok(html.includes('Portrait of '+name)); })
+test('founder identities remain available on the homepage',()=>{ const html=read('index.html'); for(const name of ['Prem','Lincy','Moss']) assert.ok(html.includes('Portrait of '+name)); })
 
 test('retired sourcing routes direct customers to products and their orders',()=>{ const html=read('stage2.html'); assert.match(html,/href="shop.html"/); assert.match(html,/href="orders.html"/); assert.doesNotMatch(html,/<form|stage2\.js/); })
 
 test('product reviews replace pricing comparisons and services state the correct fee',()=>{ assert.match(read('pricing.html'),/url=reviews.html/); assert.match(read('reviews.html'),/PRODUCT REVIEWS/); assert.match(read('how-it-works.html'),/10% of the initial product price/); })
 
-test('general feedback and purchase reviews have separate entry points',()=>{ assert.match(read('feedback.js'),/formsubmit\.co\/ajax\/fabricationintelligence@gmail\.com/); assert.match(read('feedback.html'),/href="reviews.html#write-review"/); })
+test('general feedback and purchase reviews have separate entry points',()=>{ assert.match(read('feedback.js'),/formsubmit\.co\/ajax\/support@fabricationintelligence.com/); assert.match(read('feedback.html'),/href="reviews.html#write-review"/); })
 
 test('public pages use no em dashes and share a preview card', () => {
   for (const name of fs.readdirSync(dist).filter((file) => /\.(html|js)$/.test(file))) {

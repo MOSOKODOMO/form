@@ -7,7 +7,7 @@ test('founder biographies are consistent across public team pages', () => {
   const biographies = [
     'Prem is a final-year architecture student and an outgoing, talkative salesperson.',
     'Lincy is a final-year architecture student who enjoys communicating through words and visuals.',
-    'Mos is a final-year architecture student with a deep passion for coding and technology.',
+    'Moss is a final-year architecture student with a deep passion for coding and technology.',
   ];
 
   for (const page of ['index.html', 'about.html']) {

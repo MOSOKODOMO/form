@@ -18,7 +18,7 @@ test('founders section shows the three founders with their approved photos and b
   assert.match(founders, /FOUNDERS/)
   const cards = [...founders.matchAll(/<article class="team-card">([\s\S]*?)<\/article>/g)].map((match) => match[1])
   assert.equal(cards.length, 3)
-  for (const [index, name] of ['Prem', 'Lincy', 'Mos'].entries()) {
+  for (const [index, name] of ['Prem', 'Lincy', 'Moss'].entries()) {
     assert.match(cards[index], new RegExp(`alt="Portrait of ${name}"`))
     assert.match(cards[index], /loading="lazy" decoding="async"/)
   }
@@ -49,7 +49,7 @@ test('the contact form is on the homepage and contact page and posts to the team
     assert.match(html, /<script src="contact-form\.js(?:\?v=[^"]+)?" defer><\/script>/)
   }
   const script = read('contact-form.js')
-  assert.match(script, /https:\/\/formsubmit\.co\/ajax\/fabricationintelligence@gmail\.com/)
+  assert.match(script, /https:\/\/formsubmit\.co\/ajax\/support@fabricationintelligence.com/)
   assert.match(script, /if \(value\('website'\)\) return;/, 'bots that fill the hidden field are ignored')
   assert.match(script, /EMAIL\.test\(email\)/)
   assert.doesNotMatch(script, /innerHTML/)
